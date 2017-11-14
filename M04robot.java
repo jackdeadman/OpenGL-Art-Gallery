@@ -1,3 +1,4 @@
+import engine.*;
 import gmaths.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,13 +8,13 @@ import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
 
 public class M04robot extends JFrame implements ActionListener {
-  
+
   private static final int WIDTH = 1024;
   private static final int HEIGHT = 768;
   private static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
   private GLCanvas canvas;
   private M04robot_GLEventListener glEventListener;
-  private final FPSAnimator animator; 
+  private final FPSAnimator animator;
   private Camera camera;
 
   public static void main(String[] args) {
@@ -33,7 +34,7 @@ public class M04robot extends JFrame implements ActionListener {
     canvas.addMouseMotionListener(new MyMouseInput(camera));
     canvas.addKeyListener(new MyKeyboardInput(camera));
     getContentPane().add(canvas, BorderLayout.CENTER);
-    
+
     JMenuBar menuBar=new JMenuBar();
     this.setJMenuBar(menuBar);
       JMenu fileMenu = new JMenu("File");
@@ -41,7 +42,7 @@ public class M04robot extends JFrame implements ActionListener {
         quitItem.addActionListener(this);
         fileMenu.add(quitItem);
     menuBar.add(fileMenu);
-    
+
     JPanel p = new JPanel();
       JButton b = new JButton("camera X");
       b.addActionListener(this);
@@ -68,7 +69,7 @@ public class M04robot extends JFrame implements ActionListener {
       b.addActionListener(this);
       p.add(b);
     this.add(p, BorderLayout.SOUTH);
-    
+
     addWindowListener(new WindowAdapter() {
       public void windowClosing(WindowEvent e) {
         animator.stop();
@@ -80,7 +81,7 @@ public class M04robot extends JFrame implements ActionListener {
     animator = new FPSAnimator(canvas, 60);
     animator.start();
   }
-  
+
   public void actionPerformed(ActionEvent e) {
     if (e.getActionCommand().equalsIgnoreCase("camera X")) {
       camera.setCamera(Camera.CameraType.X);
@@ -111,16 +112,16 @@ public class M04robot extends JFrame implements ActionListener {
     else if(e.getActionCommand().equalsIgnoreCase("quit"))
       System.exit(0);
   }
-  
+
 }
- 
+
 class MyKeyboardInput extends KeyAdapter  {
   private Camera camera;
-  
+
   public MyKeyboardInput(Camera camera) {
     this.camera = camera;
   }
-  
+
   public void keyPressed(KeyEvent e) {
     Camera.Movement m = Camera.Movement.NO_MOVEMENT;
     switch (e.getKeyCode()) {
@@ -138,16 +139,16 @@ class MyKeyboardInput extends KeyAdapter  {
 class MyMouseInput extends MouseMotionAdapter {
   private Point lastpoint;
   private Camera camera;
-  
+
   public MyMouseInput(Camera camera) {
     this.camera = camera;
   }
-  
+
     /**
    * mouse is used to control camera position
    *
    * @param e  instance of MouseEvent
-   */    
+   */
   public void mouseDragged(MouseEvent e) {
     Point ms = e.getPoint();
     float sensitivity = 0.001f;
@@ -163,8 +164,8 @@ class MyMouseInput extends MouseMotionAdapter {
    * mouse is used to control camera position
    *
    * @param e  instance of MouseEvent
-   */  
-  public void mouseMoved(MouseEvent e) {   
-    lastpoint = e.getPoint(); 
+   */
+  public void mouseMoved(MouseEvent e) {
+    lastpoint = e.getPoint();
   }
 }

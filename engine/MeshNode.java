@@ -1,3 +1,4 @@
+package engine;
 import com.jogamp.opengl.*;
 
 public class MeshNode extends SGNode {
@@ -6,7 +7,7 @@ public class MeshNode extends SGNode {
 
   public MeshNode(String name, Mesh m) {
     super(name);
-    mesh = m; 
+    mesh = m;
   }
 
   public void draw(GL3 gl) {
