@@ -24,6 +24,12 @@ public class Arty {
 
         Scene gallery = new GalleryScene(camera);
         GraphicsWindow window = new GraphicsWindow("Art Gallery", gallery);
+        CameraController controller = new CameraController(camera);
+
+        window.addMouseMotionListener(controller);
+        window.addKeyListener(controller);
+
+        window.start();
 
         window.setSize(dimension);
         window.setVisible(true);

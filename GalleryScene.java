@@ -1,15 +1,19 @@
 import engine.*;
 import meshes.*;
+import models.hand.*;
 import gmaths.*;
 import com.jogamp.opengl.*;
 import com.jogamp.opengl.util.*;
 import com.jogamp.opengl.util.awt.*;
 import com.jogamp.opengl.util.glsl.*;
 
+
+
 public class GalleryScene extends Scene {
 
     private Mesh floor, back;
     private Light light;
+    private Hand hand;
 
     public GalleryScene(Camera camera) {
         super(camera);
@@ -18,6 +22,7 @@ public class GalleryScene extends Scene {
     protected void initialise(GL3 gl) {
         int[] floorTexture = TextureLibrary.loadTexture(gl, "textures/chequerboard.jpg");
         int[] containerTexture = TextureLibrary.loadTexture(gl, "textures/container2.jpg");
+
 
         // make meshes
         floor = new TwoTriangles(gl, floorTexture);
@@ -31,6 +36,7 @@ public class GalleryScene extends Scene {
         light = new Light(gl);
         light.setCamera(camera);
 
+        hand = new Hand(gl, light, camera, aspect);
         floor.setLight(light);
         floor.setCamera(camera);
 
@@ -46,6 +52,8 @@ public class GalleryScene extends Scene {
         light.render(gl);
         floor.render(gl);
         back.render(gl);
+        hand.render(perspective, gl);
+
     }
 
     protected void updatePerspectiveMatrices() {
