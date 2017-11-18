@@ -36,7 +36,7 @@ public class GalleryScene extends Scene {
         light = new Light(gl);
         light.setCamera(camera);
 
-        hand = new Hand(gl, light, camera, aspect);
+        hand = new Hand(gl, light, camera);
         floor.setLight(light);
         floor.setCamera(camera);
 
@@ -51,8 +51,8 @@ public class GalleryScene extends Scene {
         back.setPerspective(perspective);
         light.render(gl);
         floor.render(gl);
-        back.render(gl);
-        hand.render(perspective, gl);
+        // back.render(gl);
+        hand.render(gl, perspective);
 
     }
 

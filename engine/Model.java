@@ -1,25 +1,29 @@
 package engine;
+import meshes.*;
+import models.*;
+import gmaths.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 import com.jogamp.opengl.*;
+import com.jogamp.opengl.awt.GLCanvas;
+import com.jogamp.opengl.util.FPSAnimator;
 
 public abstract class Model {
 
     protected Camera camera;
     protected Light light;
 
-    Model(Camera camera, Light light) {
+    public Model(Camera camera, Light light) {
         this.camera = camera;
         this.light = light;
     }
 
-    protected addMesh(String name, Mesh mesh) {
-        mesh.setLight(light);
-        mesh.setCamera(camera);
-    }
 
     public void reshape(GL3 gl, Mat4 perspective) {
         // Loop and set
     }
 
-    public abstract void draw(GL3 gl);
+    public abstract void render(GL3 gl, Mat4 perspective);
 
 }

@@ -14,7 +14,7 @@ public class Arty {
     private static final int HEIGHT = 768;
     private static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
 
-    private static Vec3 CAMERA_START_POSITION = new Vec3(4f, 12f, 18f);
+    private static Vec3 CAMERA_START_POSITION = new Vec3(4f, 5f, 5f);
 
     public static void main(String[] args) {
 

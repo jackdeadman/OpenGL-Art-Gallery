@@ -1,13 +1,14 @@
 package gmaths;
+import java.util.*;
 
 public class Mat4 {   // row column formulation
 
   private float[][] values;
-  
+
   public Mat4() {
     this(0);
   }
-  
+
   public Mat4(float f) {
     values = new float[4][4];
     makeZero();
@@ -15,7 +16,7 @@ public class Mat4 {   // row column formulation
       values[i][i] = f;
     }
   }
-  
+
   public Mat4(Mat4 m) {
     this.values = new float[4][4];
     for (int i=0; i<4; ++i) {
@@ -24,11 +25,11 @@ public class Mat4 {   // row column formulation
       }
     }
   }
-  
+
   public void set(int r, int c, float f) {
     values[r][c] = f;
   }
-  
+
   private void makeZero() {
     for (int i=0; i<4; ++i) {
       for (int j=0; j<4; ++j) {
@@ -36,7 +37,7 @@ public class Mat4 {   // row column formulation
       }
     }
   }
-  
+
   public void transpose() {
     for (int i=0; i<4; ++i) {
       for (int j=i; j<4; ++j) {
@@ -46,7 +47,7 @@ public class Mat4 {   // row column formulation
       }
     }
   }
-    
+
   public static Mat4 transpose(Mat4 m) {
     Mat4 a = new Mat4(m);
     for (int i=0; i<4; ++i) {
@@ -71,6 +72,15 @@ public class Mat4 {   // row column formulation
     return result;
   }
 
+  public static Mat4 multiplyVariable(Mat4 ...matrices) {
+      Mat4 mat = new Mat4(1);
+
+      for (int i=matrices.length-1; i>=0; i--) {
+          mat = multiply(matrices[i], mat);
+      }
+      return mat;
+  }
+
   public float[] toFloatArrayForGLSL() {  // col by row
     float[] f = new float[16];
     for (int j=0; j<4; ++j) {
@@ -80,7 +90,7 @@ public class Mat4 {   // row column formulation
     }
     return f;
   }
-  
+
   public String asFloatArrayForGLSL() {  // col by row
     String s = "{";
     for (int j=0; j<4; ++j) {
@@ -91,19 +101,19 @@ public class Mat4 {   // row column formulation
     }
     return s;
   }
-  
+
   public String toString() {
     String s = "{";
     for (int i=0; i<4; ++i) {
       s += (i==0) ? "{" : " {";
       for (int j=0; j<4; ++j) {
-        s += String.format("%.2f",values[i][j]);  
+        s += String.format("%.2f",values[i][j]);
         if (j<3) s += ", ";
       }
       s += (i==3) ? "}" : "},\n";
-    } 
+    }
     s += "}";
     return s;
   }
-  
+
 } // end of Mat4 class
