@@ -15,7 +15,6 @@ public class Finger extends Model {
         createSceneGraph(gl, baseTransformation);
     }
 
-    private SGNode root;
     private Mesh segment, joint;
     private TransformNode lowerJointRotation, middleJointRotation, upperJointRotation;
 
@@ -106,23 +105,25 @@ public class Finger extends Model {
                     lowerJointRotation.addChild(lowerJointScale);
                     lowerJointScale.addChild(jointShape1);
 
-                lowerJointTranslation.addChild(lowerSegmentTranslation);
+                lowerJointRotation.addChild(lowerSegmentTranslation);
                     lowerSegmentTranslation.addChild(lowerSegmentScale);
                     lowerSegmentScale.addChild(segmentShape1);
 
                     lowerSegmentTranslation.addChild(middleJointTranslation);
-                        middleJointTranslation.addChild(middleJointScale);
+                        middleJointTranslation.addChild(middleJointRotation);
+                        middleJointRotation.addChild(middleJointScale);
                         middleJointScale.addChild(jointShape2);
 
-                        middleJointTranslation.addChild(middleSegmentTranslation);
+                        middleJointRotation.addChild(middleSegmentTranslation);
                             middleSegmentTranslation.addChild(middleSegmentScale);
                             middleSegmentScale.addChild(segmentShape2);
 
                             middleSegmentTranslation.addChild(upperJointTranslation);
-                                upperJointTranslation.addChild(upperJointScale);
+                                upperJointTranslation.addChild(upperJointRotation);
+                                upperJointRotation.addChild(upperJointScale);
                                 upperJointScale.addChild(jointShape3);
 
-                                upperJointTranslation.addChild(upperSegmentTranslation);
+                                upperJointRotation.addChild(upperSegmentTranslation);
                                     upperSegmentTranslation.addChild(upperSegmentScale);
                                     upperSegmentScale.addChild(segmentShape3);
 
@@ -189,6 +190,11 @@ public class Finger extends Model {
         root.update();
     }
 */
+
+    public void setPerspective(Mat4 perspective) {
+        segment.setPerspective(perspective);
+        joint.setPerspective(perspective);
+    }
 
 
     public void render(GL3 gl, Mat4 perspective) {

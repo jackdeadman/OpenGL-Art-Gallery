@@ -13,10 +13,15 @@ public abstract class Model {
 
     protected Camera camera;
     protected Light light;
+    protected SGNode root;
 
     public Model(Camera camera, Light light) {
         this.camera = camera;
         this.light = light;
+    }
+
+    public SGNode getRoot() {
+        return root;
     }
 
 

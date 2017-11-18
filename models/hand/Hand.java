@@ -16,44 +16,102 @@ public class Hand extends Model {
     private Finger finger2;
     private Finger finger3;
     private Finger finger4;
+    private Mesh upperPalm;
 
     public Hand(GL3 gl, Light light, Camera camera) {
         super(camera, light);
+        createSceneGraph(gl);
+    }
+
+    private void createSceneGraph(GL3 gl) {
         finger1 = new Finger(gl, light, camera, Mat4.multiply(
-            Mat4Transform.translate(0f, 2.0f, 0.0f),
+            Mat4Transform.translate(0f, 0.0f, 0.0f),
             Mat4Transform.scale(1f, 0.6f, 1f)
         ));
 
         finger2 = new Finger(gl, light, camera, Mat4.multiply(
-            Mat4Transform.translate(0.7f, 2.0f, 0.0f),
+            Mat4Transform.translate(0.0f, 0.0f, 0.0f),
             Mat4Transform.scale(1f, 0.9f, 1f)
         ));
 
         finger3 = new Finger(gl, light, camera, Mat4.multiply(
-            Mat4Transform.translate(1.4f, 2.0f, 0.0f),
+            Mat4Transform.translate(0, 0, 0),
             Mat4Transform.scale(1f, 1f, 1f)
         ));
 
         finger4 = new Finger(gl, light, camera, Mat4.multiply(
-            Mat4Transform.translate(2.1f, 2.0f, 0.0f),
+            Mat4Transform.translate(0, 0, 0),
             Mat4Transform.scale(1f, 0.85f, 1f)
         ));
 
+        int[] rustTexture = TextureLibrary.loadTexture(gl, "textures/metal_rust.jpg");
+        int[] rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
 
-        // finger2 = new Finger(gl, light, camera, 3, 2, 1);
-        // finger3 = new Finger(gl, light, camera, 3, 2, 1);
-        // finger4 = new Finger(gl, light, camera, 3, 2, 1);
+        upperPalm = new Sphere(gl, rustTexture, rustTextureSpecular);
+        NameNode upperPalmName = new NameNode("upperPalm");
+        MeshNode upperPalmShape = new MeshNode("dsnj", upperPalm);
+
+        TransformNode finger1Transform = new TransformNode("snajn", Mat4Transform.translate(0f, 0.0f, 0.0f));
+        TransformNode finger2Transform = new TransformNode("snajn", Mat4Transform.translate(0.7f, 0.0f, 0.0f));
+        TransformNode finger3Transform = new TransformNode("snajn", Mat4Transform.translate(0.7f, 0, 0));
+        TransformNode finger4Transform = new TransformNode("snajn", Mat4Transform.translate(0.7f, 0, 0));
+
+        TransformNode fingerOffset = new TransformNode("", Mat4Transform.translate(-1.1f, 0.0f, 0.0f));
+
+
+        TransformNode upperPalmScale = new TransformNode("sanj", Mat4Transform.scale(3.5f, 1f, 1f));
+
+        upperPalm.setCamera(camera);
+        upperPalm.setLight(light);
+
+
+        // finger1.bend(0.2f);
+
+        TransformNode handTranslate = new TransformNode("", Mat4Transform.translate(0, 2, 0));
+
+        root = new NameNode("Hand");
+        root.addChild(handTranslate);
+        handTranslate.addChild(upperPalmName);
+            upperPalmName.addChild(fingerOffset);
+
+            fingerOffset.addChild(finger1.getRoot());
+            fingerOffset.addChild(finger2Transform);
+                finger2Transform.addChild(finger2.getRoot());
+            finger2Transform.addChild(finger3Transform);
+                finger3Transform.addChild(finger3.getRoot());
+            finger3Transform.addChild(finger4Transform);
+                finger4Transform.addChild(finger4.getRoot());
+
+            upperPalmName.addChild(upperPalmScale);
+                upperPalmScale.addChild(upperPalmShape);
+
+        root.update();
+    }
+
+    protected double getSeconds() {
+      return System.currentTimeMillis()/1000.0;
     }
 
     public void render(GL3 gl, Mat4 perspective) {
+        finger1.setPerspective(perspective);
+        finger2.setPerspective(perspective);
+        finger3.setPerspective(perspective);
+        finger4.setPerspective(perspective);
+        upperPalm.setPerspective(perspective);
+        finger1.bend(0.5f*((float)Math.sin(getSeconds()*3)+1));
+        finger2.bend(0.5f*((float)Math.sin(getSeconds()*3)+1));
+        finger3.bend(0.5f*((float)Math.sin(getSeconds()*3)+1));
+        finger4.bend(0.5f*((float)Math.sin(getSeconds()*3)+1));
+        root.draw(gl);
+        // finger2.bend(1f);
+        // finger3.bend(1f);
 
-        finger1.bend(0.4f);
 
-
-        finger1.render(gl, perspective);
-        finger2.render(gl, perspective);
-        finger3.render(gl, perspective);
-        finger4.render(gl, perspective);
+        //
+        // finger1.render(gl, perspective);
+        // finger2.render(gl, perspective);
+        // finger3.render(gl, perspective);
+        // finger4.render(gl, perspective);
     }
 
 /*

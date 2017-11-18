@@ -43,7 +43,7 @@ public abstract class Scene implements GLEventListener {
 
   private double startTime;
 
-  private double getSeconds() {
+  protected double getSeconds() {
     return System.currentTimeMillis()/1000.0;
   }
 
