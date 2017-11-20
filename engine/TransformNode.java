@@ -37,4 +37,34 @@ public class TransformNode extends SGNode {
     }
   }
 
+
+  /*
+  Helper methods made by me
+  */
+
+  public static TransformNode createTranslationNode(float x, float y, float z) {
+      String string = "Translate(" + x + ", " + y + ", " + z + ")";
+      return new TransformNode(string, Mat4Transform.translate(x, y, z));
+  }
+
+  public static TransformNode createScaleNode(float x, float y, float z) {
+      String string = "Scale(" + x + ", " + y + ", " + z + ")";
+      return new TransformNode(string, Mat4Transform.scale(x, y, z));
+  }
+
+  public static TransformNode createRotateAroundXNode(float angle) {
+      String string = "RotateAroundX(" + angle + " degrees)";
+      return new TransformNode(string, Mat4Transform.rotateAroundX(angle));
+  }
+
+  public static TransformNode createRotateAroundYNode(float angle) {
+      String string = "RotateAroundY(" + angle + " degrees)";
+      return new TransformNode(string, Mat4Transform.rotateAroundY(angle));
+  }
+
+  public static TransformNode createRotateAroundZNode(float angle) {
+      String string = "RotateAroundZ(" + angle + " degrees)";
+      return new TransformNode(string, Mat4Transform.rotateAroundZ(angle));
+  }
+
 }

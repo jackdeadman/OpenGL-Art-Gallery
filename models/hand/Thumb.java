@@ -9,10 +9,10 @@ import com.jogamp.opengl.util.FPSAnimator;
 public class Thumb extends Model {
 
 
-    public Thumb(GL3 gl, Light light, Camera camera, Mat4 baseTransformation) {
+    public Thumb(GL3 gl, Light light, Camera camera) {
         super(camera, light);
 
-        createSceneGraph(gl, baseTransformation);
+        createSceneGraph(gl);
     }
 
     private Mesh segment, joint;
@@ -25,7 +25,7 @@ public class Thumb extends Model {
         root.update();
     }
 
-    private void createSceneGraph(GL3 gl, Mat4 baseTransformation) {
+    private void createSceneGraph(GL3 gl) {
 
         root = new NameNode("finger");
 
@@ -60,8 +60,6 @@ public class Thumb extends Model {
         NameNode middleFinger = new NameNode("middleFinger");
         NameNode upperFinger = new NameNode("upperFinger");
 
-        // Transformations
-        TransformNode fingerTranformation = new TransformNode("1", baseTransformation);
 
         TransformNode lowerJointTranslation = new TransformNode("2", Mat4Transform.translate(0f, 0.5f, 0f));
         TransformNode lowerJointScale = new TransformNode("3", Mat4Transform.scale(0.5f, 0.5f, 0.5f));
@@ -98,24 +96,23 @@ public class Thumb extends Model {
 
         */
 
-        root.addChild(fingerTranformation);
-            fingerTranformation.addChild(lowerJointTranslation);
-                lowerJointTranslation.addChild(lowerJointRotation);
-                    lowerJointRotation.addChild(lowerJointScale);
-                    lowerJointScale.addChild(jointShape1);
+        root.addChild(lowerJointTranslation);
+            lowerJointTranslation.addChild(lowerJointRotation);
+                lowerJointRotation.addChild(lowerJointScale);
+                lowerJointScale.addChild(jointShape1);
 
-                lowerJointRotation.addChild(lowerSegmentTranslation);
-                    lowerSegmentTranslation.addChild(lowerSegmentScale);
-                    lowerSegmentScale.addChild(segmentShape1);
+            lowerJointRotation.addChild(lowerSegmentTranslation);
+                lowerSegmentTranslation.addChild(lowerSegmentScale);
+                lowerSegmentScale.addChild(segmentShape1);
 
-                    lowerSegmentTranslation.addChild(middleJointTranslation);
-                        middleJointTranslation.addChild(middleJointRotation);
-                        middleJointRotation.addChild(middleJointScale);
-                        middleJointScale.addChild(jointShape2);
+                lowerSegmentTranslation.addChild(middleJointTranslation);
+                    middleJointTranslation.addChild(middleJointRotation);
+                    middleJointRotation.addChild(middleJointScale);
+                    middleJointScale.addChild(jointShape2);
 
-                        middleJointRotation.addChild(middleSegmentTranslation);
-                            middleSegmentTranslation.addChild(middleSegmentScale);
-                            middleSegmentScale.addChild(segmentShape2);
+                    middleJointRotation.addChild(middleSegmentTranslation);
+                        middleSegmentTranslation.addChild(middleSegmentScale);
+                        middleSegmentScale.addChild(segmentShape2);
         root.update();
 
     }

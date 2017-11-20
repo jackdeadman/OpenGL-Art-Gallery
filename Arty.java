@@ -25,6 +25,7 @@ public class Arty {
         JLabel label = new JLabel(text);
         JLabel valueLabel = new JLabel(String.valueOf(amount));
 
+
         fingerControl.add(label);
         fingerControl.add(slider);
         fingerControl.add(valueLabel);
@@ -61,7 +62,7 @@ public class Arty {
 
         window.start();
 
-        JPanel controls = new JPanel(new GridLayout(3, 1));
+        JPanel controls = new JPanel(new GridLayout(0, 1));
 
         addSlider(controls, "Finger 1", handConfiguration.finger1Bend, new ChangeListener() {
             public void stateChanged(ChangeEvent evt) {
@@ -78,7 +79,7 @@ public class Arty {
                 handConfiguration.finger2Bend = (float)(value) / 100;
             }
         });
-        
+
         addSlider(controls, "Finger 3", handConfiguration.finger3Bend, new ChangeListener() {
             public void stateChanged(ChangeEvent evt) {
                 JSlider slider = (JSlider) evt.getSource();

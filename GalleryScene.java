@@ -25,7 +25,6 @@ public class GalleryScene extends Scene {
         int[] floorTexture = TextureLibrary.loadTexture(gl, "textures/chequerboard.jpg");
         int[] containerTexture = TextureLibrary.loadTexture(gl, "textures/container2.jpg");
 
-
         // make meshes
         floor = new TwoTriangles(gl, floorTexture);
         floor.setModelMatrix(Mat4Transform.scale(16,1,16));
