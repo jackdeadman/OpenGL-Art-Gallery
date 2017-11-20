@@ -6,7 +6,7 @@ import com.jogamp.opengl.*;
 import com.jogamp.opengl.util.*;
 import com.jogamp.opengl.util.awt.*;
 import com.jogamp.opengl.util.glsl.*;
-
+import scene.*;
 
 
 public class GalleryScene extends Scene {
@@ -14,9 +14,11 @@ public class GalleryScene extends Scene {
     private Mesh floor, back;
     private Light light;
     private Hand hand;
+    private HandConfiguration handConfiguration;
 
-    public GalleryScene(Camera camera) {
+    public GalleryScene(Camera camera, HandConfiguration handConfiguration) {
         super(camera);
+        this.handConfiguration = handConfiguration;
     }
 
     protected void initialise(GL3 gl) {
@@ -36,7 +38,7 @@ public class GalleryScene extends Scene {
         light = new Light(gl);
         light.setCamera(camera);
 
-        hand = new Hand(gl, light, camera);
+        hand = new Hand(gl, light, camera, handConfiguration);
         floor.setLight(light);
         floor.setCamera(camera);
 

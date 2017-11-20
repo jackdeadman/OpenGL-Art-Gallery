@@ -9,6 +9,7 @@ import javax.swing.*;
 import com.jogamp.opengl.*;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
+import scene.*;
 
 public class Hand extends Model {
 
@@ -18,9 +19,11 @@ public class Hand extends Model {
     private Finger finger4;
     private Palm palm;
     private Thumb thumb;
+    private HandConfiguration handConfiguration;
 
-    public Hand(GL3 gl, Light light, Camera camera) {
+    public Hand(GL3 gl, Light light, Camera camera, HandConfiguration handConfiguration) {
         super(camera, light);
+        this.handConfiguration = handConfiguration;
         createSceneGraph(gl);
     }
 
@@ -73,7 +76,7 @@ public class Hand extends Model {
 
         // finger1.bend(0.2f);
 
-        TransformNode handTranslate = new TransformNode("", Mat4Transform.translate(0, 3, 0));
+        TransformNode handTranslate = new TransformNode("", Mat4Transform.translate(0f, 2.5f, 0f));
         TransformNode placeThumb = new TransformNode("", Mat4.multiplyVariable(
             Mat4Transform.translate(1.0f, -0.7f, 0.0f),
             Mat4Transform.rotateAroundZ(-45f),
@@ -83,20 +86,21 @@ public class Hand extends Model {
 
         root = new NameNode("Hand");
         root.addChild(handTranslate);
-        handTranslate.addChild(upperPalmName);
-            upperPalmName.addChild(fingerOffset);
+        handTranslate.addChild(palm.getAnchor());
+        handTranslate.addChild(palm.getRoot());
+            palm.getAnchor().addChild(fingerOffset);
 
-            fingerOffset.addChild(finger1.getRoot());
-            fingerOffset.addChild(finger2Transform);
-                finger2Transform.addChild(finger2.getRoot());
-            finger2Transform.addChild(finger3Transform);
-                finger3Transform.addChild(finger3.getRoot());
-            finger3Transform.addChild(finger4Transform);
-                finger4Transform.addChild(finger4.getRoot());
+                fingerOffset.addChild(finger1.getRoot());
+                fingerOffset.addChild(finger2Transform);
+                    finger2Transform.addChild(finger2.getRoot());
+                finger2Transform.addChild(finger3Transform);
+                    finger3Transform.addChild(finger3.getRoot());
+                finger3Transform.addChild(finger4Transform);
+                    finger4Transform.addChild(finger4.getRoot());
 
-            upperPalmName.addChild(palm.getRoot());
-            upperPalmName.addChild(placeThumb);
-            placeThumb.addChild(thumb.getRoot());
+
+            palm.getRoot().addChild(placeThumb);
+                placeThumb.addChild(thumb.getRoot());
 
         root.update();
     }
@@ -112,12 +116,19 @@ public class Hand extends Model {
         finger4.setPerspective(perspective);
         thumb.setPerspective(perspective);
         palm.setPerspective(perspective);
-        finger1.bend(0.5f*((float)Math.sin(getSeconds()*3)+1));
-        finger2.bend(0.5f*((float)Math.sin(getSeconds()*3)+1));
-        finger3.bend(0.5f*((float)Math.sin(getSeconds()*3)+1));
-        finger4.bend(0.5f*((float)Math.sin(getSeconds()*3)+1));
 
-        thumb.bend(0.5f*((float)Math.sin(getSeconds()*3)+1));
+        finger1.bend(handConfiguration.finger1Bend);
+        finger2.bend(handConfiguration.finger2Bend);
+        finger3.bend(handConfiguration.finger3Bend);
+        finger4.bend(handConfiguration.finger4Bend);
+
+
+        // finger2.bend(0.5f*((float)Math.sin(getSeconds()*3)+1));
+        // finger3.bend(0.5f*((float)Math.sin(getSeconds()*3)+1));
+        // finger4.bend(0.5f*((float)Math.sin(getSeconds()*3)+1));
+        //
+        // thumb.bend(0.5f*((float)Math.sin(getSeconds()*3)+1));
+        // palm.bendTop(0.5f*((float)Math.sin(getSeconds()*3)+1));
 
         root.draw(gl);
         // finger2.bend(1f);
