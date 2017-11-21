@@ -62,39 +62,8 @@ public class Arty {
 
         window.start();
 
-        JPanel controls = new JPanel(new GridLayout(0, 1));
-
-        addSlider(controls, "Finger 1", handConfiguration.finger1Bend, new ChangeListener() {
-            public void stateChanged(ChangeEvent evt) {
-                JSlider slider = (JSlider) evt.getSource();
-                int value = slider.getValue();
-                handConfiguration.finger1Bend = (float)(value) / 100;
-            }
-        });
-
-        addSlider(controls, "Finger 2", handConfiguration.finger2Bend, new ChangeListener() {
-            public void stateChanged(ChangeEvent evt) {
-                JSlider slider = (JSlider) evt.getSource();
-                int value = slider.getValue();
-                handConfiguration.finger2Bend = (float)(value) / 100;
-            }
-        });
-
-        addSlider(controls, "Finger 3", handConfiguration.finger3Bend, new ChangeListener() {
-            public void stateChanged(ChangeEvent evt) {
-                JSlider slider = (JSlider) evt.getSource();
-                int value = slider.getValue();
-                handConfiguration.finger3Bend = (float)(value) / 100;
-            }
-        });
-
-        addSlider(controls, "Finger 4", handConfiguration.finger4Bend, new ChangeListener() {
-            public void stateChanged(ChangeEvent evt) {
-                JSlider slider = (JSlider) evt.getSource();
-                int value = slider.getValue();
-                handConfiguration.finger4Bend = (float)(value) / 100;
-            }
-        });
+        // JPanel controls = new JPanel(new GridLayout(0, 1));
+        JPanel controls = new SceneControls(null, null);
 
         window.getContentPane().add(controls, BorderLayout.EAST);
         window.setSize(dimension);
