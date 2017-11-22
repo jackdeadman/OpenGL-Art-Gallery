@@ -10,9 +10,9 @@ import com.jogamp.opengl.util.FPSAnimator;
 public class Room extends Model {
 
     private Mesh floor, back, left, right, roof, front;
-    private final float FLOOR_WIDTH = 14;
-    private final float FLOOR_LENGTH = 10;
-    private final float CEILING_HEIGHT = 8;
+    private final float FLOOR_WIDTH = 16;
+    private final float FLOOR_LENGTH = 12;
+    private final float CEILING_HEIGHT = 10;
     private NameNode floorName;
 
     public Room(GL3 gl, Light light, Camera camera) {

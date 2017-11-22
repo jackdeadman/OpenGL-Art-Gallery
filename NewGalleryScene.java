@@ -12,12 +12,11 @@ import scene.*;
 
 public class GalleryScene extends Scene {
 
-    private Mesh floor, back;
-    private Light light;
-    private Hand hand;
-    private Room room;
     private HandConfiguration handConfiguration;
-    private SGNode scene = new NameNode("Scene");
+
+    // Models to be placed into the scene
+    private Model hand, room;
+    private LightEmittingModel lamp1, lamp2, ceilingLamp;
 
     public GalleryScene(Camera camera, HandConfiguration handConfiguration) {
         super(camera);
@@ -25,15 +24,17 @@ public class GalleryScene extends Scene {
     }
 
     protected void initialise(GL3 gl) {
+        lamp1 = new Lamp();
+        lamp2 = new Lamp();
+        ceilingLamp = new Lamp();
+        room = new Room(10.0f, 10.0f, 12.0f);
 
-        light = new Light(gl);
-        light.setCamera(camera);
-
-        buildSceneGraph(gl);
-
+        registerModels(new Model { lamp1, lamp2, room });
     }
 
     private void buildSceneGraph(GL3 gl) {
+        SGNode scene = getSceneNode();
+
         room = new Room(gl, light, camera);
         hand = new Hand(gl, light, camera, handConfiguration);
 
@@ -47,19 +48,4 @@ public class GalleryScene extends Scene {
         scene.update();
     }
 
-    protected void render(GL3 gl) {
-        Mat4 perspective = Mat4Transform.perspective(45, aspect);
-        hand.setPerspective(perspective);
-        room.setPerspective(perspective);
-        scene.draw(gl);
-
-    }
-
-    protected void updatePerspectiveMatrices() {
-
-    }
-
-    protected void disposeMeshes(GL3 gl) {
-
-    }
 }

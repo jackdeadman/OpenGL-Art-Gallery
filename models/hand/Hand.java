@@ -28,11 +28,11 @@ public class Hand extends Model {
     }
 
 
-    final float FINGER1_SIZE = 0.8f;
+    final float FINGER1_SIZE = 0.7f;
     final float FINGER2_SIZE = 0.95f;
     final float FINGER3_SIZE = 1.0f;
     final float FINGER4_SIZE = 0.95f;
-    final float FINGER_OFFSET = 0.7f;
+    final float FINGER_OFFSET = 0.6f;
 
     private TransformNode createFingerTransform(float offsetX, float offsetY, float fingerSize) {
         return new TransformNode(
@@ -60,10 +60,10 @@ public class Hand extends Model {
 
         // Transform for each finger
         // (offsetX, offsetY, fingerSize)
-        TransformNode transformFinger1 = createFingerTransform(0, -0.0f, FINGER1_SIZE);
-        TransformNode transformFinger2 = createFingerTransform(FINGER_OFFSET, 0.28f, FINGER1_SIZE);
-        TransformNode transformFinger3 = createFingerTransform(FINGER_OFFSET * 2.0f, 0.28f, FINGER1_SIZE);
-        TransformNode transformFinger4 = createFingerTransform(FINGER_OFFSET * 3.0f, -0.1f, FINGER1_SIZE);
+        TransformNode transformFinger1 = createFingerTransform(0, 0.1f, FINGER1_SIZE);
+        TransformNode transformFinger2 = createFingerTransform(FINGER_OFFSET, 0.1f, FINGER2_SIZE);
+        TransformNode transformFinger3 = createFingerTransform(FINGER_OFFSET * 2.0f, 0.1f, FINGER3_SIZE);
+        TransformNode transformFinger4 = createFingerTransform(FINGER_OFFSET * 3.0f, -0.1f, FINGER4_SIZE);
 
         // Place the thumb
         TransformNode transformThumb = new TransformNode(
@@ -83,7 +83,7 @@ public class Hand extends Model {
         NameNode palmName= new NameNode("Palm");
         NameNode fingersName= new NameNode("Fingers");
 
-        TransformNode moveFingers = new TransformNode("Translate()", Mat4Transform.translate(-1f, 0.0f, 0.0f));
+        TransformNode moveFingers = new TransformNode("Translate()", Mat4Transform.translate(-0.9f, 0.0f, 0.0f));
 
         // Temp
         TransformNode moveHand = new TransformNode("", Mat4Transform.translate(0.0f, 2.0f, 0.0f));

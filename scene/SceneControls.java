@@ -13,6 +13,7 @@ public class SceneControls extends JPanel {
     private final char PLAY_CHARACTER = '\u25B6';
     private final char PAUSE_CHARACTER = '\u23F8';
     private final char STOP_CHARACTER = '\uu23F9';
+    private JPanel middle = new JPanel();
 
     public SceneControls(Object handConfig, Object worldConfig) {
         this.handConfig = handConfig;
@@ -27,31 +28,27 @@ public class SceneControls extends JPanel {
         TitledBorder titled = new TitledBorder(title);
         section.setBorder(titled);
         return section;
-
     }
 
     private void buildAnimationSection() {
         JPanel section = buildSection("Animation");
-        section.setLayout(new GridLayout(1, 3));
-        section.setPreferredSize(new Dimension(300, 100));
-
         JButton playBtn = new JButton(String.valueOf(PLAY_CHARACTER));
         JButton pauseBtn = new JButton(String.valueOf(PAUSE_CHARACTER));
-
 
         JLabel time = new JLabel("100 / 1:30");
 
         section.add(playBtn);
         section.add(pauseBtn);
         section.add(time);
+
         add(section);
     }
 
     private void buildHandPositionsSection() {
         JPanel section = buildSection("Hand Positions");
-        section.setLayout(new GridLayout(3, 1));
+        section.setLayout(new GridLayout(2, 1));
 
-        JPanel topSection = new JPanel(new GridLayout(1, 3));
+        JPanel topSection = new JPanel(new GridLayout(1, -1));
 
         JButton btn1 = new JButton("A");
         JButton btn2 = new JButton("C");
@@ -70,7 +67,7 @@ public class SceneControls extends JPanel {
 
     private void buildWorldTogglesSection() {
         JPanel section = buildSection("World Toggles");
-        // section.setLayout(new GridLayout(-1, 2));
+        section.setLayout(new GridLayout(-1, 1));
 
         section.add(new JButton("Turn on Lamp 1"));
         section.add(new JButton("Turn on Lamp 2"));
@@ -81,18 +78,20 @@ public class SceneControls extends JPanel {
 
     private void buildCameraSection() {
         JPanel section = buildSection("Cameras");
+        section.setLayout(new GridLayout(-1, 3));
         section.add(new JButton("Front"));
         section.add(new JButton("Back"));
         section.add(new JButton("Top"));
 
-        add(section);
+        add(section, BorderLayout.PAGE_END);
     }
 
     private void buildPanel() {
-        this.setLayout(new GridLayout(-1, 1));
+        // this.setLayout(new GridLayout(-1, 1));
         buildAnimationSection();
         buildHandPositionsSection();
         buildWorldTogglesSection();
+
         buildCameraSection();
     }
 
