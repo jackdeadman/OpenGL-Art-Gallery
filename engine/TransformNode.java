@@ -12,6 +12,10 @@ public class TransformNode extends SGNode {
     transform = new Mat4(t);
   }
 
+  public TransformNode copy() {
+      return new TransformNode(name, transform);
+  }
+
   public void setTransform(Mat4 m) {
     transform = new Mat4(m);
   }

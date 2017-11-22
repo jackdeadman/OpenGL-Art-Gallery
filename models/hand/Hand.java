@@ -207,6 +207,16 @@ public class Hand extends Model {
       return System.currentTimeMillis()/1000.0;
     }
 */
+
+    public void setPerspective(Mat4 perspective) {
+        finger1.setPerspective(perspective);
+        finger2.setPerspective(perspective);
+        finger3.setPerspective(perspective);
+        finger4.setPerspective(perspective);
+        thumb.setPerspective(perspective);
+        palm.setPerspective(perspective);
+    }
+
     public void render(GL3 gl, Mat4 perspective) {
         finger1.setPerspective(perspective);
         finger2.setPerspective(perspective);

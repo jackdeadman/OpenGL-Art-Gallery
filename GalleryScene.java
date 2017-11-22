@@ -1,5 +1,6 @@
 import engine.*;
 import meshes.*;
+import models.*;
 import models.hand.*;
 import gmaths.*;
 import com.jogamp.opengl.*;
@@ -14,7 +15,9 @@ public class GalleryScene extends Scene {
     private Mesh floor, back;
     private Light light;
     private Hand hand;
+    private Room room;
     private HandConfiguration handConfiguration;
+    private SGNode scene = new NameNode("Scene");
 
     public GalleryScene(Camera camera, HandConfiguration handConfiguration) {
         super(camera);
@@ -22,38 +25,48 @@ public class GalleryScene extends Scene {
     }
 
     protected void initialise(GL3 gl) {
-        int[] floorTexture = TextureLibrary.loadTexture(gl, "textures/chequerboard.jpg");
-        int[] containerTexture = TextureLibrary.loadTexture(gl, "textures/container2.jpg");
-
-        // make meshes
-        floor = new TwoTriangles(gl, floorTexture);
-        floor.setModelMatrix(Mat4Transform.scale(16,1,16));
-
-        back = new TwoTriangles(gl, containerTexture);
-        Mat4 model = Mat4.multiply(Mat4Transform.scale(16, 16, 1), Mat4Transform.rotateAroundX(90));
-        model = Mat4.multiply(Mat4Transform.translate(0, 8, -8), model);
-        back.setModelMatrix(model);
 
         light = new Light(gl);
         light.setCamera(camera);
 
-        hand = new Hand(gl, light, camera, handConfiguration);
-        floor.setLight(light);
-        floor.setCamera(camera);
+        // floor.setLight(light);
+        // floor.setCamera(camera);
+        //
+        // back.setLight(light);
+        // back.setCamera(camera);
+        buildSceneGraph(gl);
 
-        back.setLight(light);
-        back.setCamera(camera);
+    }
+
+    private void buildSceneGraph(GL3 gl) {
+        room = new Room(gl, light, camera);
+        hand = new Hand(gl, light, camera, handConfiguration);
+
+        TransformNode handTransform = new TransformNode("",
+                Mat4Transform.scale(1.0f, 1.0f, 1.0f));
+
+        scene.addChild(room.getRoot());
+            room.getAnchor().addChild(handTransform);
+                handTransform.addChild(hand.getRoot());
+
+        scene.update();
     }
 
     protected void render(GL3 gl) {
         Mat4 perspective = Mat4Transform.perspective(45, aspect);
-        light.setPerspective(perspective);
-        floor.setPerspective(perspective);
-        back.setPerspective(perspective);
-        light.render(gl);
-        floor.render(gl);
-        // back.render(gl);
-        hand.render(gl, perspective);
+        // light.setPerspective(perspective);
+        // floor.setPerspective(perspective);
+        // back.setPerspective(perspective);
+        // room.setPerspective(perspective);
+        // scene.draw(gl);
+
+        // light.render(gl);
+        // floor.render(gl);
+        // // back.render(gl);
+        // hand.render(gl, perspective);
+        hand.setPerspective(perspective);
+        room.setPerspective(perspective);
+        scene.draw(gl);
 
     }
 
