@@ -3,11 +3,15 @@ package scene;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.event.*;
 import javax.swing.border.TitledBorder;
+import java.util.*;
+
+
 
 public class SceneControls extends JPanel {
 
-    private Object handConfig;
+    private HandConfiguration handConfig;
     private Object worldConfig;
 
     private final char PLAY_CHARACTER = '\u25B6';
@@ -15,12 +19,44 @@ public class SceneControls extends JPanel {
     private final char STOP_CHARACTER = '\uu23F9';
     private JPanel middle = new JPanel();
 
-    public SceneControls(Object handConfig, Object worldConfig) {
+
+    private final int JOINT_MIN = 0, JOINT_MAX = 100;
+    private final int NUM_JOINTS = 3;
+    private final int NUM_FINGERS = 4;
+
+    // fingerSliders[fingerNumber][paramNumber]
+    // 3 for the additional finger rotations
+    private JSlider[][] fingerSliders = new JSlider[NUM_FINGERS][NUM_JOINTS + 3];
+    private HashMap<JSlider, int[]> sliderToIndexMap = new HashMap<>();
+
+    private class SliderListener implements ChangeListener {
+        public void stateChanged(ChangeEvent e) {
+            JSlider slider = (JSlider)(e.getSource());
+            int value = slider.getValue();
+            float percentage = value / Float.valueOf(JOINT_MAX);
+            int[] indices = sliderToIndexMap.get(slider);
+            handConfig.getFingerValues()[indices[0]][indices[1]] = percentage;
+        }
+    }
+
+    public SceneControls(HandConfiguration handConfig, Object worldConfig) {
         this.handConfig = handConfig;
         this.worldConfig = worldConfig;
 
-        setPreferredSize(new Dimension(300, 0));
+        setPreferredSize(new Dimension(300, 2000));
         buildPanel();
+        setSliders();
+    }
+
+    public void setSliders() {
+        for (int i=0; i<NUM_FINGERS; ++i) {
+            for (int j=0; j<NUM_JOINTS+3; ++j) {
+                JSlider slider = fingerSliders[i][j];
+                slider.setValue(
+                    (int)(handConfig.getFingerValues()[i][j] * 100.0)
+                );
+            }
+        }
     }
 
     private JPanel buildSection(String title) {
@@ -83,7 +119,68 @@ public class SceneControls extends JPanel {
         section.add(new JButton("Back"));
         section.add(new JButton("Top"));
 
-        add(section, BorderLayout.PAGE_END);
+        add(section);
+    }
+
+    private JPanel buildFingerControl(String title, int fingerNumber) {
+        JPanel section = buildSection(title);
+        JPanel sliderSection = new JPanel(new GridLayout(-1, 1));
+        ChangeListener listener = new SliderListener();
+
+        for (int i=1; i<NUM_JOINTS+1; ++i) {
+            sliderSection.add(new Label("Joint " + i));
+            JSlider jointAngle = new JSlider(JSlider.HORIZONTAL,
+                                          JOINT_MIN, JOINT_MAX, 0);
+
+            // Create mapping both ways
+            sliderToIndexMap.put(jointAngle, new int[] { fingerNumber, i-1});
+            fingerSliders[fingerNumber][i-1] = jointAngle;
+
+            jointAngle.addChangeListener(listener);
+            sliderSection.add(jointAngle);
+        }
+
+        sliderSection.add(new Label("Turn"));
+
+        JSlider jointAngleX = new JSlider(JSlider.HORIZONTAL,
+                                      JOINT_MIN, JOINT_MAX, 0);
+
+        jointAngleX.addChangeListener(listener);
+        sliderSection.add(jointAngleX);
+        sliderToIndexMap.put(jointAngleX, new int[] { fingerNumber, NUM_JOINTS});
+        fingerSliders[fingerNumber][NUM_JOINTS] = jointAngleX;
+
+        JSlider jointAngleY = new JSlider(JSlider.HORIZONTAL,
+                                      JOINT_MIN, JOINT_MAX, 0);
+
+        jointAngleY.addChangeListener(listener);
+        sliderSection.add(jointAngleY);
+        sliderToIndexMap.put(jointAngleY, new int[] { fingerNumber, NUM_JOINTS+1});
+        fingerSliders[fingerNumber][NUM_JOINTS+1] = jointAngleY;
+
+        JSlider jointAngleZ = new JSlider(JSlider.HORIZONTAL,
+                                      JOINT_MIN, JOINT_MAX, 0);
+
+        jointAngleZ.addChangeListener(listener);
+        sliderSection.add(jointAngleZ);
+        sliderToIndexMap.put(jointAngleZ, new int[] { fingerNumber, NUM_JOINTS+2});
+        fingerSliders[fingerNumber][NUM_JOINTS+2] = jointAngleZ;
+
+        section.add(sliderSection);
+
+        return section;
+    }
+
+    private void buildFingerControls() {
+        JPanel section = buildSection("Fingers");
+        section.setLayout(new GridLayout(-1, 1));
+
+        for (int i=1; i<NUM_FINGERS+1; ++i) {
+            JPanel fingerSection = buildFingerControl("Finger " + i, i-1);
+            section.add(fingerSection);
+        }
+
+        add(section);
     }
 
     private void buildPanel() {
@@ -91,8 +188,9 @@ public class SceneControls extends JPanel {
         buildAnimationSection();
         buildHandPositionsSection();
         buildWorldTogglesSection();
-
         buildCameraSection();
+        buildFingerControls();
     }
+
 
 }

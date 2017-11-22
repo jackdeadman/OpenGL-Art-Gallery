@@ -27,6 +27,21 @@ public class Hand extends Model {
         createSceneGraph(gl);
     }
 
+    public void applyFingerBend() {
+        float[][] fingerValues = handConfiguration.getFingerValues();
+        finger1.bend(fingerValues[0][0], fingerValues[0][1], fingerValues[0][2]);
+        finger1.turn(fingerValues[0][3], fingerValues[0][4], fingerValues[0][5]);
+
+        finger2.bend(fingerValues[1][0], fingerValues[1][1], fingerValues[1][2]);
+        finger2.turn(fingerValues[1][3], fingerValues[1][4], fingerValues[1][5]);
+
+        finger3.bend(fingerValues[2][0], fingerValues[2][1], fingerValues[2][2]);
+        finger3.turn(fingerValues[2][3], fingerValues[2][4], fingerValues[2][5]);
+
+        finger4.bend(fingerValues[3][0], fingerValues[3][1], fingerValues[3][2]);
+        finger4.turn(fingerValues[3][3], fingerValues[3][4], fingerValues[3][5]);
+    }
+
 
     final float FINGER1_SIZE = 0.7f;
     final float FINGER2_SIZE = 0.95f;
@@ -60,7 +75,7 @@ public class Hand extends Model {
 
         // Transform for each finger
         // (offsetX, offsetY, fingerSize)
-        TransformNode transformFinger1 = createFingerTransform(0, 0.1f, FINGER1_SIZE);
+        TransformNode transformFinger1 = createFingerTransform(0, -0.1f, FINGER1_SIZE);
         TransformNode transformFinger2 = createFingerTransform(FINGER_OFFSET, 0.1f, FINGER2_SIZE);
         TransformNode transformFinger3 = createFingerTransform(FINGER_OFFSET * 2.0f, 0.1f, FINGER3_SIZE);
         TransformNode transformFinger4 = createFingerTransform(FINGER_OFFSET * 3.0f, -0.1f, FINGER4_SIZE);
@@ -83,7 +98,7 @@ public class Hand extends Model {
         NameNode palmName= new NameNode("Palm");
         NameNode fingersName= new NameNode("Fingers");
 
-        TransformNode moveFingers = new TransformNode("Translate()", Mat4Transform.translate(-0.9f, 0.0f, 0.0f));
+        TransformNode moveFingers = new TransformNode("Translate()", Mat4Transform.translate(-0.9f, 0.5f, 0.0f));
 
         // Temp
         TransformNode moveHand = new TransformNode("", Mat4Transform.translate(0.0f, 2.0f, 0.0f));
@@ -105,108 +120,7 @@ public class Hand extends Model {
                     moveFingers.addChild(transformFinger4);
                         transformFinger4.addChild(finger4.getRoot());
         root.update();
-            // transformFinger1.addChild(finger1.getRoot());
-
-        //
-        // palm.getAnchor().addChild(fingerOffset);
-        //
-        //         fingerOffset.addChild(finger1.getRoot());
-        //         fingerOffset.addChild(finger2Transform);
-        //             finger2Transform.addChild(finger2.getRoot());
-        //         finger2Transform.addChild(finger3Transform);
-        //             finger3Transform.addChild(finger3.getRoot());
-        //         finger3Transform.addChild(finger4Transform);
-        //             finger4Transform.addChild(finger4.getRoot());
-        //
-        //
-        //     palm.getRoot().addChild(placeThumb);
-        //         placeThumb.addChild(thumb.getRoot());
     }
-/*
-    private void createSceneGraph2(GL3 gl) {
-
-        float finger1Size = 0.8f;
-        float finger2Size = 0.95f;
-        float finger3Size = 1.0f;
-        float finger4Size = 0.95f;
-
-        finger1 = new Finger(gl, light, camera);
-        finger2 = new Finger(gl, light, camera);
-        finger3 = new Finger(gl, light, camera);
-        finger4 = new Finger(gl, light, camera);
-
-        palm = new Palm(gl, light, camera);
-        thumb = new Thumb(gl, light, camera, Mat4.multiply(
-            Mat4Transform.translate(0, 0, 0),
-            Mat4Transform.scale(1f, 1f, 1f)
-        ));
-
-        int[] rustTexture = TextureLibrary.loadTexture(gl, "textures/metal_rust.jpg");
-        int[] rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
-
-        // upperPalm = new Sphere(gl, rustTexture, rustTextureSpecular);
-        NameNode upperPalmName = new NameNode("UpperPalm");
-        // MeshNode upperPalmShape = new MeshNode("dsnj", upperPalm);
-        String fingerSpacingString = "Translate(0.7, 0.0, 0.0)";
-        Mat4 fingerSpacing = Mat4Transform.translate(0.7f, 0.0f, 0.0f);
-
-
-        TransformNode finger1Transform = new TransformNode(
-                        "Scale(1.0f, " + finger1Size + ", 1.0)",
-                        Mat4Transform.scale(1.0f, finger1Size, 1.0f));
-
-        TransformNode finger2Transform = new TransformNode(
-            "Translate(0.0, -0.2, 0.0);" + fingerSpacingString + ";Scale(1.0, " + fingerSpacing + ", 1.0)",
-            Mat4.multiplyVariable(
-                Mat4Transform.translate(0.0f, -0.2f, 0.0f),
-                fingerSpacing,
-                Mat4Transform.scale(1.0f, finger1Size, 1.0f)
-            )
-        );
-
-
-        TransformNode finger3Transform = new TransformNode("snajn",
-                Mat4Transform.translate(0.7f, 0, 0));
-        TransformNode finger4Transform = new TransformNode("snajn", Mat4Transform.translate(0.7f, 0, 0));
-
-        TransformNode fingerOffset = new TransformNode("", Mat4Transform.translate(-1.1f, 0.0f, 0.0f));
-
-        TransformNode upperPalmScale = new TransformNode("sanj", Mat4Transform.scale(3.5f, 1f, 1f));
-
-
-        TransformNode handTranslate = new TransformNode("", Mat4Transform.translate(0f, 2.5f, 0f));
-        TransformNode placeThumb = new TransformNode("", Mat4.multiplyVariable(
-            Mat4Transform.translate(1.0f, -0.7f, 0.0f),
-            Mat4Transform.rotateAroundZ(-45f),
-            Mat4Transform.scale(1.2f, 0.8f, 1.0f)
-        ));
-
-
-        root = new NameNode("Hand");
-        root.addChild(handTranslate);
-        handTranslate.addChild(palm.getAnchor());
-        handTranslate.addChild(palm.getRoot());
-            palm.getAnchor().addChild(fingerOffset);
-
-                fingerOffset.addChild(finger1.getRoot());
-                fingerOffset.addChild(finger2Transform);
-                    finger2Transform.addChild(finger2.getRoot());
-                finger2Transform.addChild(finger3Transform);
-                    finger3Transform.addChild(finger3.getRoot());
-                finger3Transform.addChild(finger4Transform);
-                    finger4Transform.addChild(finger4.getRoot());
-
-
-            palm.getRoot().addChild(placeThumb);
-                placeThumb.addChild(thumb.getRoot());
-
-        root.update();
-    }
-
-    protected double getSeconds() {
-      return System.currentTimeMillis()/1000.0;
-    }
-*/
 
     public void setPerspective(Mat4 perspective) {
         finger1.setPerspective(perspective);
@@ -224,12 +138,6 @@ public class Hand extends Model {
         finger4.setPerspective(perspective);
         thumb.setPerspective(perspective);
         palm.setPerspective(perspective);
-
-        finger1.bend(handConfiguration.finger1Bend);
-        finger2.bend(handConfiguration.finger2Bend);
-        finger3.bend(handConfiguration.finger3Bend);
-        finger4.bend(handConfiguration.finger4Bend);
-        thumb.bend(handConfiguration.thumbBend);
 
         root.draw(gl);
     }

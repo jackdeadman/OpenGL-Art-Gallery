@@ -51,8 +51,8 @@ public class GalleryScene extends Scene {
         Mat4 perspective = Mat4Transform.perspective(45, aspect);
         hand.setPerspective(perspective);
         room.setPerspective(perspective);
+        hand.applyFingerBend();
         scene.draw(gl);
-
     }
 
     protected void updatePerspectiveMatrices() {

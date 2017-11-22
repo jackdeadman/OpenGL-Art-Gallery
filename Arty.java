@@ -62,10 +62,16 @@ public class Arty {
 
         window.start();
 
-        // JPanel controls = new JPanel(new GridLayout(0, 1));
-        JPanel controls = new SceneControls(null, null);
 
-        window.getContentPane().add(controls, BorderLayout.EAST);
+        handConfiguration.getFingerValues()[0][0] = 0.5f;
+
+        // JPanel controls = new JPanel(new GridLayout(0, 1));
+        JPanel controls = new SceneControls(handConfiguration, null);
+        JScrollPane scrollFrame = new JScrollPane(controls);
+        controls.setAutoscrolls(true);
+        scrollFrame.setPreferredSize(new Dimension( 330, window.getHeight()));
+
+        window.getContentPane().add(scrollFrame, BorderLayout.EAST);
         window.setSize(dimension);
         window.setVisible(true);
     }

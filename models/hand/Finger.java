@@ -16,11 +16,23 @@ public class Finger extends Model {
     }
 
     private Mesh segment, joint;
-    private TransformNode lowerJointRotation, middleJointRotation, upperJointRotation;
-    private final float MAX_BEND = 90;
+    private TransformNode lowerJointRotation, middleJointRotation, upperJointRotation, fingerTransform;
+    private final float MAX_BEND = 120;
 
     public void bend(float amount) {
         bend(amount, amount, amount);
+    }
+
+    public void turn(float x, float y, float z) {
+        fingerTransform.setTransform(
+            Mat4.multiplyVariable(
+                Mat4Transform.rotateAroundZ(z * 90),
+                Mat4Transform.rotateAroundY(y * 90),
+                Mat4Transform.rotateAroundX(x * 90)
+            )
+        );
+
+        root.update();
     }
 
 
@@ -77,7 +89,7 @@ public class Finger extends Model {
 
 
         // TransformNode lowerJointTranslation = new TransformNode("translate()", Mat4Transform.translate(0f, 0.5f, 0f));
-        TransformNode lowerJointTranslation = TransformNode.createTranslationNode(0.0f, jointSize, 0.0f);
+        TransformNode lowerJointTranslation = TransformNode.createTranslationNode(0.0f, 0.0f, 0.0f);
         TransformNode lowerJointScale = TransformNode.createScaleNode(jointSize, jointSize, jointSize);
         // Default to 0, this will be later updated to bend finder
         lowerJointRotation = TransformNode.createRotateAroundXNode(0);
@@ -104,7 +116,10 @@ public class Finger extends Model {
         TransformNode upperSegmentTranslation = TransformNode.createTranslationNode(0.0f, 0.3f, 0.0f);
         TransformNode upperSegmentScale = TransformNode.createScaleNode(0.5f, 0.8f, 0.5f);
 
-        root.addChild(lowerJointTranslation);
+        fingerTransform = TransformNode.createRotateAroundXNode(0);
+
+        root.addChild(fingerTransform);
+            fingerTransform.addChild(lowerJointTranslation);
             lowerJointTranslation.addChild(lowerJointRotation);
                 lowerJointRotation.addChild(lowerJointScale);
                 lowerJointScale.addChild(jointShape1);
