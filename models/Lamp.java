@@ -37,14 +37,19 @@ public class Lamp extends LightEmittingModel {
             )
         );
 
-        LightNode light = new LightNode("");
+        Vec3 colour = new Vec3(1.0f, 1.0f, 1.0f);
+        Vec3 attenuation = new Vec3(1.0f, 0.09f, 0.032f);
+        PointLight light = new PointLight(colour, attenuation);
+
+        LightNode lightNode = new LightNode("", light);
 
         root = new NameNode("Lamp");
             root.addChild(transformCube);
-                transformCube.addChild(light);
+                transformCube.addChild(lightNode);
                 transformCube.addChild(cubeShape);
 
         root.update();
+        System.out.println(light.getPosition());
     }
 
     public Light getLight() {

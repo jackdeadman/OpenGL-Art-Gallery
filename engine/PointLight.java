@@ -11,7 +11,7 @@ public class PointLight {
   private Vec3 colour;
   private Vec3 attenuation;
 
-  public Light(GL3 gl, Vec3 colour, Vec3 attenuation) {
+  public PointLight(Vec3 colour, Vec3 attenuation) {
     position = new Vec4(0f, 0f, 0f, 1f);
     this.colour = colour;
     this.attenuation = attenuation;
@@ -35,6 +35,12 @@ public class PointLight {
     colour.z = v.z;
   }
 
+  public void setAttenuation(Vec3 v) {
+    colour.x = v.x;
+    colour.y = v.y;
+    colour.z = v.z;
+  }
+
   public void setColour(float x, float y, float z) {
     colour.x = x;
     colour.y = y;
@@ -47,6 +53,10 @@ public class PointLight {
 
   public Vec3 getColour() {
     return colour;
+  }
+
+  public Vec3 getAttenuation () {
+    return attenuation;
   }
 
 }

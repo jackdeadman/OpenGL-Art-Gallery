@@ -3,23 +3,18 @@ import gmaths.*;
 
 public class LightNode extends SGNode {
 
-    private Vec4 localPoint = new Vec4(0, 0, 0, 1);
+    private PointLight light;
+    private Vec4 worldPosition;
 
-    public LightNode(String str) {
+    public LightNode(String str, PointLight light) {
         super(str);
+        this.light = light;
     }
 
-    public LightNode(String str, Vec3 localPoint) {
-        super(str);
-        this.localPoint = new Vec4(localPoint.x,
-                localPoint.y, localPoint.z, 1);
-    }
-
-    public Vec3 getPosition() {
-        System.out.println(worldTransform);
-        System.out.println(localPoint);
-        Vec4 worldPoint = Mat4.multiply(worldTransform, localPoint);
-        return worldPoint.toVec3();
+    protected void update(Mat4 t) {
+        super.update(t);
+        Vec4 worldPoint = Mat4.multiply(worldTransform, new Vec4());
+        light.setPosition(worldPoint.toVec3());
     }
 
 }
