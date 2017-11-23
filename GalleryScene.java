@@ -17,9 +17,11 @@ public class GalleryScene extends Scene {
     private Light light;
     private Hand hand;
     private Room room;
+    private Lamp lamp;
+
     private HandConfiguration handConfiguration;
     private SGNode scene = new NameNode("Scene");
-    HandPosition currentPosition = new LetterD();
+    private HandPosition currentPosition = new LetterD();
 
     public GalleryScene(Camera camera, HandConfiguration handConfiguration) {
         super(camera);
@@ -36,6 +38,7 @@ public class GalleryScene extends Scene {
     }
 
     private void buildSceneGraph(GL3 gl) {
+        lamp = new Lamp(gl, light, camera);
         room = new Room(gl, light, camera);
         hand = new Hand(gl, light, camera, handConfiguration);
 
@@ -44,7 +47,8 @@ public class GalleryScene extends Scene {
 
         scene.addChild(room.getRoot());
             room.getAnchor().addChild(handTransform);
-                handTransform.addChild(hand.getRoot());
+                // handTransform.addChild(hand.getRoot());
+            room.getAnchor().addChild(lamp.getRoot());
 
         scene.update();
     }
@@ -53,6 +57,9 @@ public class GalleryScene extends Scene {
         Mat4 perspective = Mat4Transform.perspective(45, aspect);
         hand.setPerspective(perspective);
         room.setPerspective(perspective);
+        System.out.println(room);
+        System.out.println(lamp);
+        lamp.setPerspective(perspective);
 
         handConfiguration.setFingerValues(currentPosition.getAnimationState((float)(getElapsedTime())));
         hand.applyFingerBend();
