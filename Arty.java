@@ -69,7 +69,7 @@ public class Arty {
         controls.setAutoscrolls(true);
         scrollFrame.setPreferredSize(new Dimension( 330, window.getHeight()));
 
-        window.getContentPane().add(scrollFrame, BorderLayout.EAST);
+        // window.getContentPane().add(scrollFrame, BorderLayout.EAST);
         window.setSize(dimension);
         window.setVisible(true);
     }
