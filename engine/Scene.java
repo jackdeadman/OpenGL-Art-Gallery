@@ -42,6 +42,11 @@ public abstract class Scene implements GLEventListener {
    */
 
   private double startTime;
+  private double startTimeMil;
+
+  protected double getElapsedTime() {
+      return System.currentTimeMillis() - startTimeMil;
+  }
 
   protected double getSeconds() {
     return System.currentTimeMillis()/1000.0;
@@ -51,6 +56,7 @@ public abstract class Scene implements GLEventListener {
   public void init(GLAutoDrawable drawable) {
     GL3 gl = drawable.getGL().getGL3();
     startTime = getSeconds();
+    startTimeMil = System.currentTimeMillis();
 
     System.err.println("Chosen GLCapabilities: " + drawable.getChosenGLCapabilities());
 

@@ -8,6 +8,38 @@ import javax.swing.border.TitledBorder;
 import java.util.*;
 
 
+class LabelSlider extends JPanel {
+
+    private JLabel label = new JLabel();
+    private JSlider slider;
+
+    public LabelSlider(int orientation, int min, int max, int step) {
+        slider = new JSlider(orientation, min, max, step);
+
+        add(label);
+        add(slider);
+    }
+
+    public void addChangeListener(ChangeListener listener) {
+        slider.addChangeListener(e -> {
+            JSlider slider = (JSlider)(e.getSource());
+            String value = String.valueOf(slider.getValue());
+            label.setText(value);
+            listener.stateChanged(new ChangeEvent(this));
+        });
+    }
+
+    public void setValue(int value) {
+        label.setText(String.valueOf(value));
+        slider.setValue(value);
+    }
+
+    public int getValue() {
+        return slider.getValue();
+    }
+
+}
+
 
 public class SceneControls extends JPanel {
 
@@ -26,12 +58,12 @@ public class SceneControls extends JPanel {
 
     // fingerSliders[fingerNumber][paramNumber]
     // 3 for the additional finger rotations
-    private JSlider[][] fingerSliders = new JSlider[NUM_FINGERS][NUM_JOINTS + 3];
-    private HashMap<JSlider, int[]> sliderToIndexMap = new HashMap<>();
+    private LabelSlider[][] fingerSliders = new LabelSlider[NUM_FINGERS][NUM_JOINTS + 3];
+    private HashMap<LabelSlider, int[]> sliderToIndexMap = new HashMap<>();
 
     private class SliderListener implements ChangeListener {
         public void stateChanged(ChangeEvent e) {
-            JSlider slider = (JSlider)(e.getSource());
+            LabelSlider slider = (LabelSlider)(e.getSource());
             int value = slider.getValue();
             float percentage = value / Float.valueOf(JOINT_MAX);
             int[] indices = sliderToIndexMap.get(slider);
@@ -51,7 +83,7 @@ public class SceneControls extends JPanel {
     public void setSliders() {
         for (int i=0; i<NUM_FINGERS; ++i) {
             for (int j=0; j<NUM_JOINTS+3; ++j) {
-                JSlider slider = fingerSliders[i][j];
+                LabelSlider slider = fingerSliders[i][j];
                 slider.setValue(
                     (int)(handConfig.getFingerValues()[i][j] * 100.0)
                 );
@@ -129,7 +161,7 @@ public class SceneControls extends JPanel {
 
         for (int i=1; i<NUM_JOINTS+1; ++i) {
             sliderSection.add(new Label("Joint " + i));
-            JSlider jointAngle = new JSlider(JSlider.HORIZONTAL,
+            LabelSlider jointAngle = new LabelSlider(JSlider.HORIZONTAL,
                                           JOINT_MIN, JOINT_MAX, 0);
 
             // Create mapping both ways
@@ -142,7 +174,7 @@ public class SceneControls extends JPanel {
 
         sliderSection.add(new Label("Turn"));
 
-        JSlider jointAngleX = new JSlider(JSlider.HORIZONTAL,
+        LabelSlider jointAngleX = new LabelSlider(JSlider.HORIZONTAL,
                                       JOINT_MIN, JOINT_MAX, 0);
 
         jointAngleX.addChangeListener(listener);
@@ -150,7 +182,7 @@ public class SceneControls extends JPanel {
         sliderToIndexMap.put(jointAngleX, new int[] { fingerNumber, NUM_JOINTS});
         fingerSliders[fingerNumber][NUM_JOINTS] = jointAngleX;
 
-        JSlider jointAngleY = new JSlider(JSlider.HORIZONTAL,
+        LabelSlider jointAngleY = new LabelSlider(JSlider.HORIZONTAL,
                                       JOINT_MIN, JOINT_MAX, 0);
 
         jointAngleY.addChangeListener(listener);
@@ -158,7 +190,7 @@ public class SceneControls extends JPanel {
         sliderToIndexMap.put(jointAngleY, new int[] { fingerNumber, NUM_JOINTS+1});
         fingerSliders[fingerNumber][NUM_JOINTS+1] = jointAngleY;
 
-        JSlider jointAngleZ = new JSlider(JSlider.HORIZONTAL,
+        LabelSlider jointAngleZ = new LabelSlider(JSlider.HORIZONTAL,
                                       JOINT_MIN, JOINT_MAX, 0);
 
         jointAngleZ.addChangeListener(listener);

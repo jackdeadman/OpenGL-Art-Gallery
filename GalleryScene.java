@@ -8,6 +8,7 @@ import com.jogamp.opengl.util.*;
 import com.jogamp.opengl.util.awt.*;
 import com.jogamp.opengl.util.glsl.*;
 import scene.*;
+import scene.handpositions.*;
 
 
 public class GalleryScene extends Scene {
@@ -18,6 +19,7 @@ public class GalleryScene extends Scene {
     private Room room;
     private HandConfiguration handConfiguration;
     private SGNode scene = new NameNode("Scene");
+    HandPosition currentPosition = new LetterD();
 
     public GalleryScene(Camera camera, HandConfiguration handConfiguration) {
         super(camera);
@@ -51,6 +53,8 @@ public class GalleryScene extends Scene {
         Mat4 perspective = Mat4Transform.perspective(45, aspect);
         hand.setPerspective(perspective);
         room.setPerspective(perspective);
+
+        handConfiguration.setFingerValues(currentPosition.getAnimationState((float)(getElapsedTime())));
         hand.applyFingerBend();
         scene.draw(gl);
     }

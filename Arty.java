@@ -63,8 +63,6 @@ public class Arty {
         window.start();
 
 
-        handConfiguration.getFingerValues()[0][0] = 0.5f;
-
         // JPanel controls = new JPanel(new GridLayout(0, 1));
         JPanel controls = new SceneControls(handConfiguration, null);
         JScrollPane scrollFrame = new JScrollPane(controls);
