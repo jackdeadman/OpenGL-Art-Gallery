@@ -37,9 +37,13 @@ public class Lamp extends LightEmittingModel {
             )
         );
 
+        LightNode light = new LightNode("");
+
         root = new NameNode("Lamp");
             root.addChild(transformCube);
+                transformCube.addChild(light);
                 transformCube.addChild(cubeShape);
+
         root.update();
     }
 

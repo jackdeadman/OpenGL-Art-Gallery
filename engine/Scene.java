@@ -17,11 +17,13 @@ public abstract class Scene implements GLEventListener {
   protected float aspect;
 
   protected Camera camera;
+  // protected WorldConfiguration worldConfiguration;
   private HashMap<String, int[]> textureMap = new HashMap<>();
   // private HashMap<String, Model> modelMap = new HashMap<>();
 
   public Scene(Camera camera) {
     this.camera = camera;
+    // worldConfiguration = new WorldConfiguration(camera);
   }
 
   protected void loadTexture(GL3 gl, String name, String path) {

@@ -57,8 +57,6 @@ public class GalleryScene extends Scene {
         Mat4 perspective = Mat4Transform.perspective(45, aspect);
         hand.setPerspective(perspective);
         room.setPerspective(perspective);
-        System.out.println(room);
-        System.out.println(lamp);
         lamp.setPerspective(perspective);
 
         handConfiguration.setFingerValues(currentPosition.getAnimationState((float)(getElapsedTime())));

@@ -46,10 +46,6 @@ public class Timeline<T extends Interpolatable> {
 
     // T == HandConfiguration
     public T getAnimationState(float t) {
-        System.out.println(t);
-
-        // [key(d1, 1000), key(d2, 2000)]
-
         float elapsed = 0;
 
         Iterator iterator = keys.iterator();
@@ -62,18 +58,7 @@ public class Timeline<T extends Interpolatable> {
             currentKey = (KeyFrame<T>) iterator.next();
         }
 
-        // if (t > currentKey.getDuration()) {
-        //     elapsed = currentKey.getDuration();
-        //     prevKey = currentKey;
-        //     currentKey = (KeyFrame<T>) iterator.next();
-        // }
-        //
-        // while (t > pre)
-
-
         float remaining = t - elapsed;
-        System.out.println(prevKey);
-        System.out.println(remaining);
         return currentKey.getAnimationState(prevKey.getEndResult(), remaining);
     }
 
