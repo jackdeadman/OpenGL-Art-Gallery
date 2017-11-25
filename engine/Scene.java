@@ -14,8 +14,8 @@ import meshes.*;
 
 public abstract class Scene implements GLEventListener {
 
-  private float aspect;
   protected WorldConfiguration worldConfig;
+  private float aspect;
   private ArrayList<Model> models = new ArrayList<>();
   private SGNode scene;
 
@@ -27,9 +27,11 @@ public abstract class Scene implements GLEventListener {
       return scene;
   }
 
+  protected void setDirectionalLight(DirectionalLight light) {
+      worldConfig.setDirectionalLight(light);
+  }
+
   protected void setSceneNode(SGNode scene) {
-      System.out.println("Set scene node");
-      System.out.println(scene);
       this.scene = scene;
   }
 

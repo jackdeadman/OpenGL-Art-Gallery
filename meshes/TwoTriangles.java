@@ -36,6 +36,13 @@ public class TwoTriangles extends Mesh {
 
     shader.setVec3(gl, "viewPos", camera.getPosition());
 
+    DirectionalLight dirLight = worldConfig.getDirectionalLight();
+    shader.setVec3(gl, "dirLight.direction", dirLight.getDirection());
+    shader.setVec3(gl, "dirLight.ambient", dirLight.getMaterial().getAmbient());
+    shader.setVec3(gl, "dirLight.diffuse", dirLight.getMaterial().getDiffuse());
+    shader.setVec3(gl, "dirLight.specular", dirLight.getMaterial().getSpecular());
+
+
     ArrayList<PointLight> pointLights = worldConfig.getPointLights();
 
     for (int i=0; i<pointLights.size(); ++i) {

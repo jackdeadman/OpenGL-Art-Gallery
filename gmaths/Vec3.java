@@ -97,6 +97,10 @@ public final class Vec3 {
     return new Vec3(a.y*b.z-a.z*b.y, a.z*b.x-a.x*b.z, a.x*b.y-a.y*b.x);
   }
 
+  public Vec4 toVec4() {
+      return new Vec4(x, y, z, 1.0f);
+  }
+
   public String toString() {
     return "("+x+","+y+","+z+")";
   }

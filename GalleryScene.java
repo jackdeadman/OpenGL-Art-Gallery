@@ -23,10 +23,16 @@ public class GalleryScene extends Scene {
     // Default the hand position to be Ds
     private HandConfiguration handConfiguration;
     private HandPosition currentPosition = new LetterD();
+    private final Vec3 DIRECTIONAL_LIGHT_DIR = new Vec3(0.2f, 1.0f, 0.3f);
 
     public GalleryScene(Camera camera, HandConfiguration handConfiguration) {
         super(camera);
         this.handConfiguration = handConfiguration;
+
+        Vec3 colour = new Vec3(0.3f, 0.3f, 0.3f);
+        DirectionalLight light = new DirectionalLight(DIRECTIONAL_LIGHT_DIR, colour);
+        setDirectionalLight(light);
+
         setupModels();
     }
 

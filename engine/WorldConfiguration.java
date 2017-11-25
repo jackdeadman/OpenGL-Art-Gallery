@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class WorldConfiguration {
 
     private Camera camera;
-    // private ArrayList<DirectionalLight> directionalLights = new ArrayList<>();
+    private DirectionalLight directionalLight;
     private ArrayList<PointLight> pointLights = new ArrayList<>();
     // private ArrayList<SpotLight> spotLights = new ArrayList<>();
 
@@ -31,6 +31,14 @@ public class WorldConfiguration {
 
     public ArrayList<PointLight> getPointLights() {
         return pointLights;
+    }
+
+    public void setDirectionalLight(DirectionalLight light) {
+        directionalLight = light;
+    }
+
+    public DirectionalLight getDirectionalLight() {
+        return directionalLight;
     }
 
     // public ArrayList<DirectionalLight> getDirectionalLights() {
