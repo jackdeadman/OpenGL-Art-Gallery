@@ -18,6 +18,7 @@ public class GalleryScene extends Scene {
     private Room room;
     private Model lamp1;
     private Model lamp2;
+    private Model pictureFrame;
 
     // Default the hand position to be Ds
     private HandConfiguration handConfiguration;
@@ -34,8 +35,9 @@ public class GalleryScene extends Scene {
         lamp2 = new Lamp(worldConfig);
         room = new Room(worldConfig, 16, 24, 10);
         hand = new Hand(worldConfig, handConfiguration);
+        pictureFrame = new PictureFrame(worldConfig, "");
 
-        registerModels(new Model[] { lamp1, lamp2, room, hand });
+        registerModels(new Model[] { lamp1, lamp2, room, hand, pictureFrame });
     }
 
 
@@ -60,8 +62,9 @@ public class GalleryScene extends Scene {
         room.getAnchor().addChild(handTransform);
                 handTransform.addChild(hand.getRoot());
 
-        scene.update();
+        room.getAnchor().addChild(pictureFrame.getRoot());
 
+        scene.update();
         setSceneNode(scene);
     }
 

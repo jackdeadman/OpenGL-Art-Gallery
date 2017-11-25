@@ -27,7 +27,7 @@ public class Room extends Model {
 
     protected void start(GL3 gl) {
         loadTextures(gl);
-        loadModels(gl);
+        loadMeshes(gl);
         buildSceneGraph();
     }
 
@@ -36,7 +36,7 @@ public class Room extends Model {
         containerTexture = TextureLibrary.loadTexture(gl, "textures/tile.jpg");
     }
 
-    private void loadModels(GL3 gl) {
+    private void loadMeshes(GL3 gl) {
         // make meshes
         floor = new TwoTriangles(gl, floorTexture);
         back = new TwoTriangles(gl, containerTexture);

@@ -9,7 +9,7 @@ import com.jogamp.opengl.util.FPSAnimator;
 
 public class Lamp extends LightEmittingModel {
 
-    private Mesh cube;
+    private Mesh cube, bottom, topPart1, topPart2;
 
     // Textures
     int[] rustTexture, rustTextureSpecular, metalTexture;
@@ -37,28 +37,69 @@ public class Lamp extends LightEmittingModel {
     private void loadMeshes(GL3 gl) {
         // Meshes
         cube = new Cube(gl, rustTexture, rustTextureSpecular);
-        registerMesh(cube);
+        bottom = new Sphere(gl, rustTexture, rustTextureSpecular);
+        topPart1 = new Sphere(gl, metalTexture, metalTexture);
+        topPart2 = new Sphere(gl, rustTexture, metalTexture);
+        registerMeshes(new Mesh[] { cube, bottom, topPart1, topPart2 });
     }
 
     public void buildSceneGraph(GL3 gl) {
 
         // Creates nodes
         MeshNode cubeShape = new MeshNode("", cube);
+        MeshNode bottomShape = new MeshNode("", bottom);
+        MeshNode topPart1Shape = new MeshNode("", topPart1);
+        MeshNode topPart2Shape = new MeshNode("", topPart2);
+
+        LightNode lightNode = new LightNode("", containedLight);
+
         TransformNode transformCube = new TransformNode(
             "",
             Mat4.multiply(
-                Mat4Transform.scale(1.0f, 2.0f, 1.0f),
+                Mat4Transform.scale(0.1f, 4.0f, 0.1f),
                 Mat4Transform.translate(0.0f, 0.5f, 0.0f)
             )
         );
 
-        LightNode lightNode = new LightNode("", containedLight);
+        TransformNode bottomTransform = new TransformNode(
+            "",
+            // Mat4.multiply(
+                Mat4Transform.scale(1.0f, 1.0f, 1.0f)
+                // Mat4Transform.translate(0.0f, 0.5f, 0.0f)
+            // )
+        );
+
+        TransformNode topTransform = new TransformNode(
+            "",
+            Mat4Transform.translate(0.0f, 4.0f, 0.0f)
+        );
+
+        TransformNode lightTransform = new TransformNode(
+            "",
+            Mat4Transform.translate(0.0f, 2.0f, 0.0f));
+
+        TransformNode part2Transform = new TransformNode(
+            "",
+            Mat4Transform.translate(0.0f, 0.2f, 0.0f)
+        );
 
         // Combines nodes
         SGNode root = new NameNode("Lamp");
             root.addChild(transformCube);
-                transformCube.addChild(lightNode);
+
+                transformCube.addChild(lightTransform);
+                    lightTransform.addChild(lightNode);
+
                 transformCube.addChild(cubeShape);
+
+            root.addChild(bottomTransform);
+                bottomTransform.addChild(bottomShape);
+
+            root.addChild(topTransform);
+                topTransform.addChild(topPart1Shape);
+
+                topTransform.addChild(part2Transform);
+                    part2Transform.addChild(topPart2Shape);
 
         root.update();
         setRoot(root);
