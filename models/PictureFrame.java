@@ -39,10 +39,7 @@ public class PictureFrame extends Model {
         MeshNode frameShape = new MeshNode("", frame);
 
         TransformNode transformFrame = new TransformNode("",
-            Mat4.multiply(
-                Mat4Transform.rotateAroundX(90.0f),
-                Mat4Transform.scale(2.0f, 4.0f, 1.0f)
-            )
+            Mat4Transform.scale(2.0f, 4.0f, 1.0f)
         );
 
         SGNode root = new NameNode("PictureFrame");
