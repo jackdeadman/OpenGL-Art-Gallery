@@ -16,7 +16,7 @@ public class Arty {
     private static final int HEIGHT = 768;
     private static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
 
-    private static Vec3 CAMERA_START_POSITION = new Vec3(4f, 5f, 5f);
+    private static Vec3 CAMERA_START_POSITION = new Vec3(0f, 6f, 14.0f);
     private static HandConfiguration handConfiguration;
 
     private static void addSlider(JPanel panel, String text, float amount, ChangeListener listener) {

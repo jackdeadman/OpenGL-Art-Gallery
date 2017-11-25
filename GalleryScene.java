@@ -33,7 +33,7 @@ public class GalleryScene extends Scene {
         lamp1 = new Lamp(worldConfig);
         lamp2 = new Lamp(worldConfig);
         room = new Room(worldConfig, 16, 24, 10);
-        hand = new Hand(worldConfig);
+        hand = new Hand(worldConfig, handConfiguration);
 
         registerModels(new Model[] { lamp1, lamp2, room, hand });
     }
@@ -46,17 +46,17 @@ public class GalleryScene extends Scene {
                 Mat4Transform.scale(1.0f, 1.0f, 1.0f));
 
         TransformNode moveLight1 = new TransformNode("",
-                Mat4Transform.translate(0.0f, 1.0f, 0.0f));
+                Mat4Transform.translate(4.0f, 0.0f, -6.0f));
 
         TransformNode moveLight2 = new TransformNode("",
-                Mat4Transform.translate(-6.0f, 4.0f, -6.0f));
+                Mat4Transform.translate(-4.0f, 0.0f, 6.0f));
 
 
         scene.addChild(room.getRoot());
         room.getAnchor().addChild(moveLight1);
                 moveLight1.addChild(lamp1.getRoot());
         room.getAnchor().addChild(moveLight2);
-                // moveLight2.addChild(lamp2.getRoot());
+                moveLight2.addChild(lamp2.getRoot());
         room.getAnchor().addChild(handTransform);
                 handTransform.addChild(hand.getRoot());
 
@@ -66,10 +66,11 @@ public class GalleryScene extends Scene {
     }
 
     protected void update(GL3 gl) {
-        // Update the hand based on the animation
-        // handConfiguration.setFingerValues(
-        //     currentPosition.getAnimationState((float)(getElapsedTime())));
-        // hand.applyFingerBend();
+        //Update the hand based on the animation
+        handConfiguration.setFingerValues(
+            currentPosition.getAnimationState((float)(getElapsedTime())));
+
+        hand.applyFingerBend();
     }
 
 }

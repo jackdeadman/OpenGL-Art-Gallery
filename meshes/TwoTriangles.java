@@ -17,9 +17,9 @@ public class TwoTriangles extends Mesh {
     super.indices = this.indices;
     this.textureId = textureId;
     material.setAmbient(0.0f, 0.0f, 0.0f);
-    material.setDiffuse(0.4f, 0.4f, 0.4f);
+    material.setDiffuse(0.2f, 0.2f, 0.2f);
     material.setSpecular(0.20f, 0.20f, 0.20f);
-    material.setShininess(2.0f);
+    material.setShininess(1.0f);
     shader = new Shader(gl, "shaders/vs_tt_05.txt", "shaders/fs_tt_05.txt");
     fillBuffers(gl);
   }
@@ -41,6 +41,7 @@ public class TwoTriangles extends Mesh {
     for (int i=0; i<pointLights.size(); ++i) {
 
         PointLight light = pointLights.get(i);
+
         shader.setVec3(gl, "pointLights[" + i + "].position", light.getPosition());
         shader.setVec3(gl, "pointLights[" + i + "].ambient", light.getMaterial().getAmbient());
         shader.setVec3(gl, "pointLights[" + i + "].diffuse", light.getMaterial().getDiffuse());

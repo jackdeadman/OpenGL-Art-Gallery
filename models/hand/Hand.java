@@ -23,8 +23,9 @@ public class Hand extends Model {
 
     int[] rustTexture, rustTextureSpecular;
 
-    public Hand(WorldConfiguration worldConfig) {
+    public Hand(WorldConfiguration worldConfig, HandConfiguration handConfiguration) {
         super(worldConfig);
+        this.handConfiguration = handConfiguration;
         loadModels();
     }
 

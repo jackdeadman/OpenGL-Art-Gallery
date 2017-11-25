@@ -25,7 +25,7 @@ public class Finger extends Model {
 
     private void loadTextures(GL3 gl) {
         // Textures
-        rustTexture = TextureLibrary.loadTexture(gl, "textures/metal_rust.jpg");
+        rustTexture = TextureLibrary.loadTexture(gl, "textures/floor_2.jpg");
         rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
         metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
     }
@@ -54,7 +54,6 @@ public class Finger extends Model {
                 Mat4Transform.rotateAroundX(x * 90)
             )
         );
-
         getRoot().update();
     }
 
