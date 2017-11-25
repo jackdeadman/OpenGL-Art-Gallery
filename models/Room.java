@@ -18,6 +18,8 @@ public class Room extends Model {
     private int[] floorTexture;
     private int[] containerTexture;
 
+    private TransformNode moveLeftWall;
+
     public Room(WorldConfiguration worldConfig, int floorWidth, int floorLength, int ceilingHeight) {
         super(worldConfig);
         this.floorWidth = floorWidth;
@@ -29,6 +31,13 @@ public class Room extends Model {
         loadTextures(gl);
         loadMeshes(gl);
         buildSceneGraph();
+    }
+
+    public void addPictureToLeftWall(PictureFrame picture ) {
+        TransformNode nudge = new TransformNode("", Mat4Transform.translate(0.0f, 0.1f, 0.0f));
+        moveLeftWall.addChild(nudge);
+            nudge.addChild(picture.getRoot());
+        getRoot().update();
     }
 
     private void loadTextures(GL3 gl) {
@@ -64,13 +73,12 @@ public class Room extends Model {
             )
         );
 
-        TransformNode leftTransform = new TransformNode(
+        TransformNode scaleLeftWall = new TransformNode("", Mat4Transform.scale(floorLength, 1, ceilingHeight));
+
+        moveLeftWall = new TransformNode(
             "Scale(16, 1, 16)",
             Mat4.multiplyVariable(
-                // Mat4Transform.translate(0, ceilingHeight / 2.0f, -floorLength / 2.0f),
-                // Mat4Transform.scale(floorWidth, ceilingHeight, 1),
-                Mat4Transform.scale(1, ceilingHeight, floorLength),
-                Mat4Transform.translate(-floorWidth/2.0f, 0.5f, 0),
+                Mat4Transform.translate(-floorWidth/2.0f, ceilingHeight / 2.0f, 0),
                 Mat4Transform.rotateAroundZ(-90.0f),
                 Mat4Transform.rotateAroundY(90.0f)
                 // Mat4Transform.rotateAroundZ(10.0f)
@@ -126,8 +134,9 @@ public class Room extends Model {
                 floorTransform.addChild(floorShape);
             floorName.addChild(backTransform);
                 backTransform.addChild(backShape);
-            floorName.addChild(leftTransform);
-                leftTransform.addChild(leftShape);
+            floorName.addChild(moveLeftWall);
+                moveLeftWall.addChild(scaleLeftWall);
+                    scaleLeftWall.addChild(leftShape);
             floorName.addChild(rightTransform);
                 rightTransform.addChild(rightShape);
             floorName.addChild(roofTransform);

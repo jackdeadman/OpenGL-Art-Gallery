@@ -35,7 +35,7 @@ public class GalleryScene extends Scene {
         lamp2 = new Lamp(worldConfig);
         room = new Room(worldConfig, 16, 24, 10);
         hand = new Hand(worldConfig, handConfiguration);
-        pictureFrame = new PictureFrame(worldConfig, "");
+        pictureFrame = new PictureFrame(worldConfig, PictureFrame.HORIZONTAL_FRAME_LARGE, "");
 
         registerModels(new Model[] { lamp1, lamp2, room, hand, pictureFrame });
     }
@@ -43,6 +43,7 @@ public class GalleryScene extends Scene {
 
     protected void buildSceneGraph(GL3 gl) {
         System.out.println("Building scene graph");
+        room.addPictureToLeftWall((PictureFrame) pictureFrame);
         SGNode scene = new NameNode("Gallery Scene");
         TransformNode handTransform = new TransformNode("",
                 Mat4Transform.scale(1.0f, 1.0f, 1.0f));
@@ -61,8 +62,6 @@ public class GalleryScene extends Scene {
                 moveLight2.addChild(lamp2.getRoot());
         room.getAnchor().addChild(handTransform);
                 handTransform.addChild(hand.getRoot());
-
-        room.getAnchor().addChild(pictureFrame.getRoot());
 
         scene.update();
         setSceneNode(scene);

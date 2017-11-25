@@ -9,13 +9,26 @@ import gmaths.*;
 import meshes.*;
 
 public class PictureFrame extends Model {
+    public static class PictureDimension {
+        private float width, height;
+        public PictureDimension(float width, float height) {
+            this.width = width;
+            this.height = height;
+        }
+    }
+
+    public static PictureDimension HORIZONTAL_FRAME_LARGE = new PictureDimension(10, 6);
+    public static PictureDimension VERTICAL_FRAME = new PictureDimension(6, 10);
 
     private String pathToPicture;
     private int[] frameTexture, pictureTexture;
     private Mesh frame;
+    private PictureDimension dimensions;
 
-    public PictureFrame(WorldConfiguration worldConfig, String pathToPicture) {
+
+    public PictureFrame(WorldConfiguration worldConfig, PictureDimension dimensions, String pathToPicture) {
         super(worldConfig);
+        this.dimensions = dimensions;
         this.pathToPicture = pathToPicture;
     }
 
@@ -26,7 +39,7 @@ public class PictureFrame extends Model {
     }
 
     private void loadTextures(GL3 gl) {
-        frameTexture = TextureLibrary.loadTexture(gl, "textures/floor_3.jpg");
+        frameTexture = TextureLibrary.loadTexture(gl, "textures/cloud.jpg");
         // pictureTexture = TextureLibrary.loadTexture(gl, pathToPicture);
     }
 
@@ -39,7 +52,7 @@ public class PictureFrame extends Model {
         MeshNode frameShape = new MeshNode("", frame);
 
         TransformNode transformFrame = new TransformNode("",
-            Mat4Transform.scale(2.0f, 4.0f, 1.0f)
+            Mat4Transform.scale(dimensions.width, 1.0f, dimensions.height)
         );
 
         SGNode root = new NameNode("PictureFrame");
