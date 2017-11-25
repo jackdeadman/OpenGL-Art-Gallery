@@ -1,30 +1,42 @@
 package models;
 
-import engine.*;
-import meshes.*;
-import gmaths.*;
 import com.jogamp.opengl.*;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
+import engine.*;
+import engine.WorldConfiguration;
+import gmaths.*;
+import meshes.*;
 
 public class Room extends Model {
 
     private Mesh floor, back, left, right, roof, front;
-    private final float FLOOR_WIDTH = 16;
-    private final float FLOOR_LENGTH = 12;
-    private final float CEILING_HEIGHT = 10;
+    private float floorWidth = 16;
+    private float floorLength = 12;
+    private float ceilingHeight = 10;
     private NameNode floorName;
+    private int[] floorTexture;
+    private int[] containerTexture;
 
-    public Room(GL3 gl, Light light, Camera camera) {
-        super(camera, light);
-
-        buildSceneGraph(gl);
+    public Room(WorldConfiguration worldConfig, int floorWidth, int floorLength, int ceilingHeight) {
+        super(worldConfig);
+        this.floorWidth = floorWidth;
+        this.floorLength = floorLength;
+        this.ceilingHeight = ceilingHeight;
     }
 
-    private void buildSceneGraph(GL3 gl) {
-        int[] floorTexture = TextureLibrary.loadTexture(gl, "textures/chequerboard.jpg");
-        int[] containerTexture = TextureLibrary.loadTexture(gl, "textures/container2.jpg");
+    protected void start(GL3 gl) {
+        loadTextures(gl);
+        loadModels(gl);
+        buildSceneGraph();
+    }
 
+    private void loadTextures(GL3 gl) {
+        floorTexture = TextureLibrary.loadTexture(gl, "textures/floor_3.jpg");
+        containerTexture = TextureLibrary.loadTexture(gl, "textures/tile.jpg");
+    }
+
+    private void loadModels(GL3 gl) {
         // make meshes
         floor = new TwoTriangles(gl, floorTexture);
         back = new TwoTriangles(gl, containerTexture);
@@ -33,34 +45,21 @@ public class Room extends Model {
         roof = new TwoTriangles(gl, containerTexture);
         front = new TwoTriangles(gl, containerTexture);
 
-        floor.setCamera(camera);
-        floor.setLight(light);
+        registerMeshes(new Mesh[] { floor, back, left, right, roof, front });
+    }
 
-        back.setCamera(camera);
-        back.setLight(light);
-
-        left.setCamera(camera);
-        left.setLight(light);
-
-        right.setCamera(camera);
-        right.setLight(light);
-
-        roof.setCamera(camera);
-        roof.setLight(light);
-
-        front.setCamera(camera);
-        front.setLight(light);
+    private void buildSceneGraph() {
 
         TransformNode floorTransform = new TransformNode(
             "Scale(16, 1, 16)",
-            Mat4Transform.scale(FLOOR_WIDTH, 1, FLOOR_LENGTH)
+            Mat4Transform.scale(floorWidth, 1, floorLength)
         );
 
         TransformNode backTransform = new TransformNode(
             "Scale(16, 1, 16)",
             Mat4.multiplyVariable(
-                Mat4Transform.translate(0, CEILING_HEIGHT / 2.0f, -FLOOR_LENGTH / 2.0f),
-                Mat4Transform.scale(FLOOR_WIDTH, CEILING_HEIGHT, 1),
+                Mat4Transform.translate(0, ceilingHeight / 2.0f, -floorLength / 2.0f),
+                Mat4Transform.scale(floorWidth, ceilingHeight, 1),
                 Mat4Transform.rotateAroundX(90.0f)
             )
         );
@@ -68,10 +67,10 @@ public class Room extends Model {
         TransformNode leftTransform = new TransformNode(
             "Scale(16, 1, 16)",
             Mat4.multiplyVariable(
-                // Mat4Transform.translate(0, CEILING_HEIGHT / 2.0f, -FLOOR_LENGTH / 2.0f),
-                // Mat4Transform.scale(FLOOR_WIDTH, CEILING_HEIGHT, 1),
-                Mat4Transform.scale(1, CEILING_HEIGHT, FLOOR_LENGTH),
-                Mat4Transform.translate(-FLOOR_WIDTH/2.0f, 0.5f, 0),
+                // Mat4Transform.translate(0, ceilingHeight / 2.0f, -floorLength / 2.0f),
+                // Mat4Transform.scale(floorWidth, ceilingHeight, 1),
+                Mat4Transform.scale(1, ceilingHeight, floorLength),
+                Mat4Transform.translate(-floorWidth/2.0f, 0.5f, 0),
                 Mat4Transform.rotateAroundZ(-90.0f),
                 Mat4Transform.rotateAroundY(90.0f)
                 // Mat4Transform.rotateAroundZ(10.0f)
@@ -81,10 +80,10 @@ public class Room extends Model {
         TransformNode rightTransform = new TransformNode(
             "Scale(16, 1, 16)",
             Mat4.multiplyVariable(
-                // Mat4Transform.translate(0, CEILING_HEIGHT / 2.0f, -FLOOR_LENGTH / 2.0f),
-                // Mat4Transform.scale(FLOOR_WIDTH, CEILING_HEIGHT, 1),
-                Mat4Transform.scale(1, CEILING_HEIGHT, FLOOR_LENGTH),
-                Mat4Transform.translate(FLOOR_WIDTH/2.0f, 0.5f, 0),
+                // Mat4Transform.translate(0, ceilingHeight / 2.0f, -floorLength / 2.0f),
+                // Mat4Transform.scale(floorWidth, ceilingHeight, 1),
+                Mat4Transform.scale(1, ceilingHeight, floorLength),
+                Mat4Transform.translate(floorWidth/2.0f, 0.5f, 0),
                 Mat4Transform.rotateAroundZ(90.0f),
                 Mat4Transform.rotateAroundY(-90.0f)
                 // Mat4Transform.rotateAroundZ(10.0f)
@@ -94,20 +93,20 @@ public class Room extends Model {
         TransformNode roofTransform = new TransformNode(
             "Scale(16, 1, 16)",
             Mat4.multiplyVariable(
-                // Mat4Transform.translate(0, CEILING_HEIGHT / 2.0f, -FLOOR_LENGTH / 2.0f),
-                // Mat4Transform.scale(FLOOR_WIDTH, CEILING_HEIGHT, 1),
-                Mat4Transform.scale(FLOOR_WIDTH, 1, FLOOR_LENGTH),
-                Mat4Transform.translate(0.0f, CEILING_HEIGHT, 0),
+                // Mat4Transform.translate(0, ceilingHeight / 2.0f, -floorLength / 2.0f),
+                // Mat4Transform.scale(floorWidth, ceilingHeight, 1),
+                Mat4Transform.scale(floorWidth, 1, floorLength),
+                Mat4Transform.translate(0.0f, ceilingHeight, 0),
                 Mat4Transform.rotateAroundX(180.0f)
             )
         );
 
         TransformNode frontTransform = new TransformNode(
-            "Scale(16, 1, 16)",
+            "",
             Mat4.multiplyVariable(
-                Mat4Transform.translate(0, CEILING_HEIGHT / 2.0f, FLOOR_LENGTH / 2.0f),
+                Mat4Transform.translate(0, ceilingHeight / 2.0f, floorLength / 2.0f),
                 // Mat4Transform.translate(0, 1.0f, 0),
-                Mat4Transform.scale(FLOOR_WIDTH, CEILING_HEIGHT, 1),
+                Mat4Transform.scale(floorWidth, ceilingHeight, 1),
                 Mat4Transform.rotateAroundX(-90.0f)
             )
         );
@@ -121,7 +120,7 @@ public class Room extends Model {
 
         floorName = new NameNode("Floor");
 
-        root = new NameNode("Room");
+        SGNode root = new NameNode("Room");
         root.addChild(floorName);
             floorName.addChild(floorTransform);
                 floorTransform.addChild(floorShape);
@@ -137,27 +136,10 @@ public class Room extends Model {
                 frontTransform.addChild(frontShape);
 
         root.update();
-
-        // Mat4 model = Mat4.multiply(Mat4Transform.scale(16, 16, 1), Mat4Transform.rotateAroundX(90));
-        // model = Mat4.multiply(Mat4Transform.translate(0, 8, -8), model);
-        // back.setModelMatrix(model);
-
-    }
-
-    public void setPerspective(Mat4 perspective) {
-        floor.setPerspective(perspective);
-        back.setPerspective(perspective);
-        left.setPerspective(perspective);
-        right.setPerspective(perspective);
-        roof.setPerspective(perspective);
-        front.setPerspective(perspective);
+        setRoot(root);
     }
 
     public SGNode getAnchor() {
         return floorName;
-    }
-
-    public void render(GL3 gl, Mat4 perspective) {
-        root.draw(gl);
     }
 }

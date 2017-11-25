@@ -14,7 +14,7 @@ class KeyFrame<T extends Interpolatable> {
 
     public T getAnimationState(T initial, float time, AnimationFunction function) {
         float percentage = Math.max(0, Math.min(1, function.run(time) / duration));
-        return (T)endResult.interpolate((Interpolatable)initial, percentage);
+        return (T) endResult.interpolate((Interpolatable)initial, percentage);
     }
 
     public T getAnimationState(T initial, float time) {

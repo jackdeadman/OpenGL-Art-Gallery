@@ -1,39 +1,57 @@
 package engine;
 
-import engine.*;
-import meshes.*;
-import gmaths.*;
-
-import java.nio.*;
-import java.util.*;
 import com.jogamp.common.nio.*;
 import com.jogamp.opengl.*;
 import com.jogamp.opengl.util.*;
 import com.jogamp.opengl.util.awt.*;
 import com.jogamp.opengl.util.glsl.*;
+import engine.*;
+import gmaths.*;
+import java.nio.*;
+import java.util.*;
+import java.util.ArrayList;
+import meshes.*;
 
 public abstract class Scene implements GLEventListener {
 
-  protected float aspect;
-
-  protected Camera camera;
-  // protected WorldConfiguration worldConfiguration;
-  private HashMap<String, int[]> textureMap = new HashMap<>();
-  // private HashMap<String, Model> modelMap = new HashMap<>();
+  private float aspect;
+  protected WorldConfiguration worldConfig;
+  private ArrayList<Model> models = new ArrayList<>();
+  private SGNode scene;
 
   public Scene(Camera camera) {
-    this.camera = camera;
-    // worldConfiguration = new WorldConfiguration(camera);
+    worldConfig = new WorldConfiguration(camera);
   }
 
-  protected void loadTexture(GL3 gl, String name, String path) {
-      int[] texture = TextureLibrary.loadTexture(gl, path);
-      textureMap.put(name, texture);
+  protected SGNode getSceneNode() {
+      return scene;
   }
 
-  protected int[] getTexture(String name) {
-      return textureMap.get(name);
+  protected void setSceneNode(SGNode scene) {
+      System.out.println("Set scene node");
+      System.out.println(scene);
+      this.scene = scene;
   }
+
+  protected void registerModel(Model model) {
+      model.setWorldConfig(worldConfig);
+      models.add(model);
+  }
+
+  protected void registerModels(Model[] models) {
+      for (Model model : models) {
+          registerModel(model);
+      }
+  }
+
+  // protected void loadTexture(GL3 gl, String name, String path) {
+  //     int[] texture = TextureLibrary.loadTexture(gl, path);
+  //     textureMap.put(name, texture);
+  // }
+  //
+  // protected int[] getTexture(String name) {
+  //     return textureMap.get(name);
+  // }
 
   protected void addModel(String label) {
     //   label.set(label, model);
@@ -72,11 +90,20 @@ public abstract class Scene implements GLEventListener {
     initialise(gl);
   }
 
+  protected Mat4 calcPerspectiveMatrix() {
+      return Mat4Transform.perspective(45, aspect);
+  }
+
   /* Called to indicate the drawing surface has been moved and/or resized  */
   public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
     GL3 gl = drawable.getGL().getGL3();
     gl.glViewport(x, y, width, height);
     aspect = (float)width/(float)height;
+    Mat4 perspective = calcPerspectiveMatrix();
+
+    for (Model model : models) {
+        model.setPerspective(perspective);
+    }
   }
 
   /* Draw */
@@ -92,13 +119,24 @@ public abstract class Scene implements GLEventListener {
     disposeMeshes(gl);
   }
 
-  // ***************************************************
-  /* THE SCENE
-   * Now define all the methods to handle the scene.
-   */
 
-  protected abstract void initialise(GL3 gl);
-  protected abstract void render(GL3 gl);
-  protected abstract void updatePerspectiveMatrices();
-  protected abstract void disposeMeshes(GL3 gl);
+  protected void initialise(GL3 gl) {
+      for (Model model : models) {
+          model.initialise(gl);
+      }
+
+      buildSceneGraph(gl);
+  }
+
+  protected void render(GL3 gl) {
+      scene.draw(gl);
+  };
+
+  protected abstract void buildSceneGraph(GL3 gl);
+
+  protected void disposeMeshes(GL3 gl) {
+      for (Model model : models) {
+          model.disposeMeshes(gl);
+      }
+  };
 }

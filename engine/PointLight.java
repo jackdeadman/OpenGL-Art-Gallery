@@ -10,11 +10,20 @@ public class PointLight {
   private Vec4 position;
   private Vec3 colour;
   private Vec3 attenuation;
+  private Material material;
 
   public PointLight(Vec3 colour, Vec3 attenuation) {
     position = new Vec4(0f, 0f, 0f, 1f);
     this.colour = colour;
     this.attenuation = attenuation;
+    material = new Material();
+    material.setAmbient(0.5f, 0.5f, 0.5f);
+    material.setDiffuse(0.8f, 0.8f, 0.8f);
+    material.setSpecular(1.0f, 1.0f, 1.0f);
+  }
+
+  public Material getMaterial() {
+      return material;
   }
 
   public void setPosition(Vec3 v) {
@@ -47,8 +56,10 @@ public class PointLight {
     colour.z = z;
   }
 
-  public Vec4 getPosition() {
-    return position;
+  public Vec3 getPosition() {
+    // Abstract implementation detail that the
+    // position is stored as a vec4.
+    return position.toVec3();
   }
 
   public Vec3 getColour() {

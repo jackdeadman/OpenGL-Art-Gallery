@@ -1,16 +1,13 @@
 package engine;
-
-package engine;
-
 import java.sql.Array;
 import java.util.ArrayList;
 
 public class WorldConfiguration {
 
     private Camera camera;
-    private ArrayList<DirectionalLight> directionalLights = new ArrayList<>();
+    // private ArrayList<DirectionalLight> directionalLights = new ArrayList<>();
     private ArrayList<PointLight> pointLights = new ArrayList<>();
-    private ArrayList<SpotLight> spotLights = new ArrayList<>();
+    // private ArrayList<SpotLight> spotLights = new ArrayList<>();
 
     public WorldConfiguration(Camera camera) {
         this.camera = camera;
@@ -22,6 +19,18 @@ public class WorldConfiguration {
 
     public void addPointLight(PointLight light) {
         pointLights.add(light);
+    }
+
+    public Camera getCamera() {
+        return camera;
+    }
+
+    public PointLight getPointLight(int index) {
+        return pointLights.get(0);
+    }
+
+    public ArrayList<PointLight> getPointLights() {
+        return pointLights;
     }
 
     // public ArrayList<DirectionalLight> getDirectionalLights() {

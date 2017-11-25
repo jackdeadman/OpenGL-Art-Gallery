@@ -1,10 +1,12 @@
 package meshes;
 
-import gmaths.*;
-import engine.*;
-import java.nio.*;
 import com.jogamp.common.nio.*;
 import com.jogamp.opengl.*;
+import engine.*;
+import engine.PointLight;
+import gmaths.*;
+import java.nio.*;
+import java.util.ArrayList;
 
 public class Cube extends Mesh {
 
@@ -27,6 +29,8 @@ public class Cube extends Mesh {
 
   public void render(GL3 gl, Mat4 model) {
     //Mat4 model = getObjectModelMatrix();
+    Camera camera = worldConfig.getCamera();
+
     Mat4 mvpMatrix = Mat4.multiply(perspective, Mat4.multiply(camera.getViewMatrix(), model));
 
     shader.use(gl);
@@ -35,10 +39,22 @@ public class Cube extends Mesh {
 
     shader.setVec3(gl, "viewPos", camera.getPosition());
 
-    shader.setVec3(gl, "light.position", light.getPosition());
-    shader.setVec3(gl, "light.ambient", light.getMaterial().getAmbient());
-    shader.setVec3(gl, "light.diffuse", light.getMaterial().getDiffuse());
-    shader.setVec3(gl, "light.specular", light.getMaterial().getSpecular());
+    ArrayList<PointLight> pointLights = worldConfig.getPointLights();
+
+    for (int i=0; i<pointLights.size(); ++i) {
+
+        PointLight light = pointLights.get(i);
+        shader.setVec3(gl, "pointLights[" + i + "].position", light.getPosition());
+        shader.setVec3(gl, "pointLights[" + i + "].ambient", light.getMaterial().getAmbient());
+        shader.setVec3(gl, "pointLights[" + i + "].diffuse", light.getMaterial().getDiffuse());
+        shader.setVec3(gl, "pointLights[" + i + "].specular", light.getMaterial().getSpecular());
+
+        Vec3 attenuation = light.getAttenuation();
+        shader.setFloat(gl, "pointLights[" + i + "].constant", attenuation.x);
+        shader.setFloat(gl, "pointLights[" + i + "].linear", attenuation.y);
+        shader.setFloat(gl, "pointLights[" + i + "].quadratic", attenuation.z);
+    }
+
 
     //shader.setVec3(gl, "material.ambient", material.getAmbient());
     //shader.setVec3(gl, "material.diffuse", material.getDiffuse());
