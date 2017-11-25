@@ -21,10 +21,31 @@ public class Hand extends Model {
     private Thumb thumb;
     private HandConfiguration handConfiguration;
 
-    public Hand(GL3 gl, Light light, Camera camera, HandConfiguration handConfiguration) {
-        super(camera, light);
-        this.handConfiguration = handConfiguration;
-        createSceneGraph(gl);
+    int[] rustTexture, rustTextureSpecular;
+
+    public Hand(WorldConfiguration worldConfig) {
+        super(worldConfig);
+        loadModels();
+    }
+
+    // OpenGL loaded
+    protected void start(GL3 gl) {
+        buildSceneGraph(gl);
+    }
+
+    public void loadModels() {
+        // Create parts
+        finger1 = new Finger(worldConfig);
+        finger2 = new Finger(worldConfig);
+        finger3 = new Finger(worldConfig);
+        finger4 = new Finger(worldConfig);
+
+        palm = new Palm(worldConfig);
+        thumb = new Thumb(worldConfig);
+
+        registerModels(new Model[] {
+            finger1, finger2, finger3, finger4, palm, thumb
+        });
     }
 
     public void applyFingerBend() {
@@ -59,19 +80,7 @@ public class Hand extends Model {
         );
     }
 
-    private void createSceneGraph(GL3 gl) {
-        // Load textures
-        int[] rustTexture = TextureLibrary.loadTexture(gl, "textures/metal_rust.jpg");
-        int[] rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
-
-        // Create parts
-        finger1 = new Finger(gl, light, camera);
-        finger2 = new Finger(gl, light, camera);
-        finger3 = new Finger(gl, light, camera);
-        finger4 = new Finger(gl, light, camera);
-
-        palm = new Palm(gl, light, camera);
-        thumb = new Thumb(gl, light, camera);
+    protected void buildSceneGraph(GL3 gl) {
 
         // Transform for each finger
         // (offsetX, offsetY, fingerSize)
@@ -94,7 +103,7 @@ public class Hand extends Model {
 
 
         // Create the scene graph
-        root = new NameNode("Hand");
+        SGNode root = new NameNode("Hand");
         NameNode palmName= new NameNode("Palm");
         NameNode fingersName= new NameNode("Fingers");
 
@@ -120,26 +129,7 @@ public class Hand extends Model {
                     moveFingers.addChild(transformFinger4);
                         transformFinger4.addChild(finger4.getRoot());
         root.update();
-    }
-
-    public void setPerspective(Mat4 perspective) {
-        finger1.setPerspective(perspective);
-        finger2.setPerspective(perspective);
-        finger3.setPerspective(perspective);
-        finger4.setPerspective(perspective);
-        thumb.setPerspective(perspective);
-        palm.setPerspective(perspective);
-    }
-
-    public void render(GL3 gl, Mat4 perspective) {
-        finger1.setPerspective(perspective);
-        finger2.setPerspective(perspective);
-        finger3.setPerspective(perspective);
-        finger4.setPerspective(perspective);
-        thumb.setPerspective(perspective);
-        palm.setPerspective(perspective);
-
-        root.draw(gl);
+        setRoot(root);
     }
 
 }

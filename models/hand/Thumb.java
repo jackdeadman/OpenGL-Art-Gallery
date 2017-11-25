@@ -8,11 +8,32 @@ import com.jogamp.opengl.util.FPSAnimator;
 
 public class Thumb extends Model {
 
+    int[] rustTexture, rustTextureSpecular, metalTexture;
 
-    public Thumb(GL3 gl, Light light, Camera camera) {
-        super(camera, light);
+    public Thumb(WorldConfiguration worldConfig) {
+        super(worldConfig);
+    }
 
-        createSceneGraph(gl);
+    // OpenGL loaded
+    protected void start(GL3 gl) {
+        loadTextures(gl);
+        loadMeshes(gl);
+        buildSceneGraph(gl);
+    }
+
+    private void loadTextures(GL3 gl) {
+        // Textures
+        rustTexture = TextureLibrary.loadTexture(gl, "textures/metal_rust.jpg");
+        rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
+        metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
+    }
+
+    private void loadMeshes(GL3 gl) {
+        // Meshes
+        segment = new Sphere(gl, rustTexture, rustTextureSpecular);
+        joint = new Sphere(gl, metalTexture, metalTexture);
+
+        registerMeshes(new Mesh[] { segment, joint });
     }
 
     private Mesh segment, joint;
@@ -22,26 +43,12 @@ public class Thumb extends Model {
         float degrees = amount * 90;
         lowerJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees));
         middleJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees));
-        root.update();
+        getRoot().update();
     }
 
-    private void createSceneGraph(GL3 gl) {
+    private void buildSceneGraph(GL3 gl) {
 
-        root = new NameNode("finger");
-
-        // Textures
-        int[] rustTexture = TextureLibrary.loadTexture(gl, "textures/metal_rust.jpg");
-        int[] rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
-        int[] metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
-
-        // Meshes
-        segment = new Sphere(gl, rustTexture, rustTextureSpecular);
-        joint = new Sphere(gl, metalTexture, metalTexture);
-
-        segment.setLight(light);
-        segment.setCamera(camera);
-        joint.setLight(light);
-        joint.setCamera(camera);
+        SGNode root = new NameNode("finger");
 
         // MeshNodes
         MeshNode segmentShape1 = new MeshNode("Sphere (lowerSegment)", segment);
@@ -82,20 +89,6 @@ public class Thumb extends Model {
         TransformNode upperSegmentTranslation = new TransformNode("8", Mat4Transform.translate(0f, 0.3f, 0f));
         TransformNode upperSegmentScale = new TransformNode("9", Mat4Transform.scale(0.5f, 0.8f, 0.5f));
 
-        /*
-        Finger
-            Move joint
-                Scale Joint
-                    Joint
-                Move segment
-                    Scale segment
-                        segment
-                    Move joint
-                        Scale joint
-                            joint
-
-        */
-
         root.addChild(lowerJointTranslation);
             lowerJointTranslation.addChild(lowerJointRotation);
                 lowerJointRotation.addChild(lowerJointScale);
@@ -114,38 +107,8 @@ public class Thumb extends Model {
                         middleSegmentTranslation.addChild(middleSegmentScale);
                         middleSegmentScale.addChild(segmentShape2);
         root.update();
+        setRoot(root);
 
     }
 
-
-    public void setPerspective(Mat4 perspective) {
-        segment.setPerspective(perspective);
-        joint.setPerspective(perspective);
-    }
-
-
-    public void render(GL3 gl, Mat4 perspective) {
-        segment.setPerspective(perspective);
-        joint.setPerspective(perspective);
-        // lowerFingerShape.setPerspective(perspective);
-
-        root.draw(gl);
-        // lower.setModelMatrix(
-        //     Mat4.multiply(
-        //         base,
-        //         Mat4Transform.scale(1, lowerSize, 1))
-        // );
-        //
-        // lower.setModelMatrix(
-        //     Mat4.multiply(
-        //         base,
-        //         Mat4Transform.translate(1, lowerSize, 1))
-        // );
-        //
-        // lower.setPerspective(perspective);
-        // lower.render(gl);
-        //
-        // knuckle.setPerspective(perspective);
-        // knuckle.render(gl);
-    }
 }

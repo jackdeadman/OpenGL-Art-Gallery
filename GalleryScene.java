@@ -13,20 +13,19 @@ import scene.handpositions.*;
 
 public class GalleryScene extends Scene {
 
-    private Light light;
-    // private Hand hand;
+    // Models in the scene
+    private Hand hand;
     private Room room;
     private Model lamp1;
     private Model lamp2;
 
+    // Default the hand position to be Ds
     private HandConfiguration handConfiguration;
-    private SGNode scene = new NameNode("Scene");
     private HandPosition currentPosition = new LetterD();
 
     public GalleryScene(Camera camera, HandConfiguration handConfiguration) {
         super(camera);
         this.handConfiguration = handConfiguration;
-
         setupModels();
     }
 
@@ -34,9 +33,9 @@ public class GalleryScene extends Scene {
         lamp1 = new Lamp(worldConfig);
         lamp2 = new Lamp(worldConfig);
         room = new Room(worldConfig, 16, 24, 10);
-        // hand = new Hand(gl, light, camera, handConfiguration);
+        hand = new Hand(worldConfig);
 
-        registerModels(new Model[] { lamp1, lamp2, room });
+        registerModels(new Model[] { lamp1, lamp2, room, hand });
     }
 
 
@@ -58,8 +57,8 @@ public class GalleryScene extends Scene {
                 moveLight1.addChild(lamp1.getRoot());
         room.getAnchor().addChild(moveLight2);
                 // moveLight2.addChild(lamp2.getRoot());
-            // room.getAnchor().addChild(handTransform);
-        //         // handTransform.addChild(hand.getRoot());
+        room.getAnchor().addChild(handTransform);
+                handTransform.addChild(hand.getRoot());
 
         scene.update();
 

@@ -9,10 +9,33 @@ import com.jogamp.opengl.util.FPSAnimator;
 public class Finger extends Model {
 
 
-    public Finger(GL3 gl, Light light, Camera camera) {
-        super(camera, light);
+    // Textures
+    int[] rustTexture, rustTextureSpecular, metalTexture;
 
-        createSceneGraph(gl);
+    public Finger(WorldConfiguration worldConfig) {
+        super(worldConfig);
+    }
+
+    // OpenGL loaded
+    protected void start(GL3 gl) {
+        loadTextures(gl);
+        loadMeshes(gl);
+        buildSceneGraph(gl);
+    }
+
+    private void loadTextures(GL3 gl) {
+        // Textures
+        rustTexture = TextureLibrary.loadTexture(gl, "textures/metal_rust.jpg");
+        rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
+        metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
+    }
+
+    private void loadMeshes(GL3 gl) {
+        // Meshes
+        segment = new Sphere(gl, rustTexture, rustTextureSpecular);
+        joint = new Sphere(gl, metalTexture, metalTexture);
+
+        registerMeshes(new Mesh[] { segment, joint });
     }
 
     private Mesh segment, joint;
@@ -32,7 +55,7 @@ public class Finger extends Model {
             )
         );
 
-        root.update();
+        getRoot().update();
     }
 
 
@@ -45,26 +68,11 @@ public class Finger extends Model {
         middleJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees2));
         upperJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees3));
 
-        root.update();
+        getRoot().update();
     }
 
-    private void createSceneGraph(GL3 gl) {
-
-        root = new NameNode("Finger");
-
-        // Textures
-        int[] rustTexture = TextureLibrary.loadTexture(gl, "textures/metal_rust.jpg");
-        int[] rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
-        int[] metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
-
-        // Meshes
-        segment = new Sphere(gl, rustTexture, rustTextureSpecular);
-        joint = new Sphere(gl, metalTexture, metalTexture);
-
-        segment.setLight(light);
-        segment.setCamera(camera);
-        joint.setLight(light);
-        joint.setCamera(camera);
+    private void buildSceneGraph(GL3 gl) {
+        SGNode root = new NameNode("Finger");
 
         // MeshNodes
         MeshNode segmentShape1 = new MeshNode("Sphere (lowerSegment)", segment);
@@ -87,14 +95,11 @@ public class Finger extends Model {
         float jointSize = 0.5f;
         float fingerRadius = 0.6f;
 
-
         // TransformNode lowerJointTranslation = new TransformNode("translate()", Mat4Transform.translate(0f, 0.5f, 0f));
         TransformNode lowerJointTranslation = TransformNode.createTranslationNode(0.0f, 0.0f, 0.0f);
         TransformNode lowerJointScale = TransformNode.createScaleNode(jointSize, jointSize, jointSize);
         // Default to 0, this will be later updated to bend finder
         lowerJointRotation = TransformNode.createRotateAroundXNode(0);
-
-
 
         TransformNode lowerSegmentTranslation = TransformNode.createTranslationNode(0f, jointSize, 0f);
         TransformNode lowerSegmentScale = TransformNode.createScaleNode(fingerRadius, 1.5f, fingerRadius);
@@ -148,21 +153,8 @@ public class Finger extends Model {
 
 
         root.update();
+        setRoot(root);
 
     }
 
-
-
-    public void setPerspective(Mat4 perspective) {
-        segment.setPerspective(perspective);
-        joint.setPerspective(perspective);
-    }
-
-
-    public void render(GL3 gl, Mat4 perspective) {
-        segment.setPerspective(perspective);
-        joint.setPerspective(perspective);
-
-        root.draw(gl);
-    }
 }

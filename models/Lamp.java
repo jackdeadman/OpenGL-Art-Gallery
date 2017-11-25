@@ -24,7 +24,7 @@ public class Lamp extends LightEmittingModel {
 
     protected void start(GL3 gl) {
         loadTextures(gl);
-        loadModels(gl);
+        loadMeshes(gl);
         buildSceneGraph(gl);
     }
 
@@ -34,7 +34,7 @@ public class Lamp extends LightEmittingModel {
         metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
     }
 
-    private void loadModels(GL3 gl) {
+    private void loadMeshes(GL3 gl) {
         // Meshes
         cube = new Cube(gl, rustTexture, rustTextureSpecular);
         registerMesh(cube);
