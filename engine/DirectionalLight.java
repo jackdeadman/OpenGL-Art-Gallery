@@ -16,9 +16,9 @@ public class DirectionalLight {
     this.colour = colour;
 
     material = new Material();
-    material.setAmbient(0.5f, 0.5f, 0.5f);
-    material.setDiffuse(0.8f, 0.8f, 0.8f);
-    material.setSpecular(1.0f, 1.0f, 1.0f);
+    material.setAmbient(0.1f, 0.1f, 0.1f);
+    material.setDiffuse(0.1f, 0.1f, 0.1f);
+    material.setSpecular(0.1f, 0.1f, 0.1f);
   }
 
   public Material getMaterial() {

@@ -51,7 +51,7 @@ public class Room extends Model {
         back = new TwoTriangles(gl, containerTexture);
         left = new TwoTriangles(gl, containerTexture);
         right = new TwoTriangles(gl, containerTexture);
-        roof = new TwoTriangles(gl, containerTexture);
+        roof = new TwoTriangles(gl, floorTexture);
         front = new TwoTriangles(gl, containerTexture);
 
         registerMeshes(new Mesh[] { floor, back, left, right, roof, front });
