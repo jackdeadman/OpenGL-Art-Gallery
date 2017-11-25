@@ -18,7 +18,7 @@ public class Lamp extends LightEmittingModel {
         super(worldConfig);
 
         Vec3 colour = new Vec3(1.0f, 1.0f, 1.0f);
-        Vec3 attenuation = new Vec3(1f, 0.08f, 0.032f);
+        Vec3 attenuation = new Vec3(1f, 0.08f, 0.012f);
         setContainedLight(new PointLight(colour, attenuation));
     }
 
