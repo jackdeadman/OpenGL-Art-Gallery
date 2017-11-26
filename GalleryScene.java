@@ -76,8 +76,8 @@ public class GalleryScene extends Scene {
 
     protected void update(GL3 gl) {
         //Update the hand based on the animation
-        handConfiguration.setFingerValues(
-            currentPosition.getAnimationState((float)(getElapsedTime())));
+        // handConfiguration.setFingerValues(
+        //     currentPosition.getAnimationState((float)(getElapsedTime())));
 
         hand.applyFingerBend();
     }
