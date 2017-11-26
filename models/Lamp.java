@@ -13,13 +13,15 @@ public class Lamp extends LightEmittingModel {
 
     // Textures
     int[] rustTexture, rustTextureSpecular, metalTexture;
+    private PointLight onLight;
 
     public Lamp(WorldConfiguration worldConfig) {
         super(worldConfig);
 
         Vec3 colour = new Vec3(1.0f, 1.0f, 1.0f);
         Vec3 attenuation = new Vec3(1f, 0.08f, 0.012f);
-        setContainedLight(new PointLight(colour, attenuation));
+        onLight = new PointLight(colour, attenuation);
+        setContainedLight(onLight);
     }
 
     protected void start(GL3 gl) {
@@ -41,6 +43,11 @@ public class Lamp extends LightEmittingModel {
         topPart1 = new Sphere(gl, metalTexture, metalTexture);
         topPart2 = new Sphere(gl, rustTexture, metalTexture);
         registerMeshes(new Mesh[] { cube, bottom, topPart1, topPart2 });
+    }
+
+    public void set(boolean isOn) {
+        System.out.println(isOn);
+        getContainedLight().set(isOn);
     }
 
     public void buildSceneGraph(GL3 gl) {

@@ -20,8 +20,6 @@ public class SpotlightNode extends SGNode {
         super.update(t);
         Vec4 worldPoint = Mat4.multiply(worldTransform, new Vec4());
         light.setPosition(worldPoint.toVec3());
-        System.out.println("startingDirection");
-        System.out.println(Mat4.multiply(worldTransform, startingDirection).toVec3());
         light.setDirection(
             Mat4.multiply(worldTransform, startingDirection).toVec3());
     }

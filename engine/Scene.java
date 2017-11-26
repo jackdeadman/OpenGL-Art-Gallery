@@ -31,6 +31,10 @@ public abstract class Scene implements GLEventListener {
       worldConfig.setDirectionalLight(light);
   }
 
+  protected DirectionalLight getDirectionalLight() {
+      return worldConfig.getDirectionalLight();
+  }
+
   protected void setSceneNode(SGNode scene) {
       this.scene = scene;
   }

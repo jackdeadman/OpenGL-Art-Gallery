@@ -6,7 +6,56 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.border.TitledBorder;
 import java.util.*;
+import models.*;
+import engine.*;
 
+class ToggleButton extends JButton {
+
+    private String onMessage, offMessage;
+    private boolean on = true;
+
+    private void setMessage() {
+        if (on) {
+            setText(onMessage);
+            setBackground(new Color(127, 219, 255));
+            setForeground(new Color(0, 73, 102));
+        } else {
+            setText(offMessage);
+            setBackground(new Color(221, 221, 221));
+            setForeground(new Color(0, 0, 0));
+        }
+    }
+
+    private ArrayList<ChangeListener> changeListeners123 = new ArrayList<>();
+
+    public ToggleButton(String onMessage, String offMessage) {
+        super(onMessage);
+        this.onMessage = onMessage;
+        this.offMessage = offMessage;
+        changeListeners123 = new ArrayList<>();
+
+        setMessage();
+
+        addActionListener(e -> {
+            on = !on;
+            setMessage();
+            // Need to do it here to ensure the update occurs first
+            for (ChangeListener listener: changeListeners123) {
+                listener.stateChanged(new ChangeEvent(this));
+            }
+        });
+    }
+
+    public boolean getToggleState() {
+        return on;
+    }
+
+    public void addToggleListener(ChangeListener listener) {
+        changeListeners123.add(listener);
+    }
+
+
+}
 
 class LabelSlider extends JPanel {
 
@@ -55,6 +104,17 @@ public class SceneControls extends JPanel {
     private final int JOINT_MIN = 0, JOINT_MAX = 100;
     private final int NUM_JOINTS = 3;
     private final int NUM_FINGERS = 4;
+
+    private Lamp[] lamps;
+    private DirectionalLight worldLight;
+
+    public void setLampModels(Lamp[] lamps) {
+        this.lamps = lamps;
+    }
+
+    public void setWorldLight(DirectionalLight light) {
+        worldLight = light;
+    }
 
     // fingerSliders[fingerNumber][paramNumber]
     // 3 for the additional finger rotations
@@ -137,9 +197,27 @@ public class SceneControls extends JPanel {
         JPanel section = buildSection("World Toggles");
         section.setLayout(new GridLayout(-1, 1));
 
-        section.add(new JButton("Turn on Lamp 1"));
-        section.add(new JButton("Turn on Lamp 2"));
-        section.add(new JButton("Turn on World Light"));
+        ToggleButton button1 =  new ToggleButton("Lamp 1: 0n", "Lamp 1: Off");
+        button1.addToggleListener(e -> {
+            ToggleButton button = (ToggleButton) e.getSource();
+            lamps[0].set(button.getToggleState());
+        });
+
+        ToggleButton button2 =  new ToggleButton("Lamp 2: 0n", "Lamp 2: Off");
+        button2.addToggleListener(e -> {
+            ToggleButton button = (ToggleButton) e.getSource();
+            lamps[1].set(button.getToggleState());
+        });
+
+        ToggleButton button3 =  new ToggleButton("Spotlight: 0n", "Spotlight: Off");
+        button3.addToggleListener(e -> {
+            ToggleButton button = (ToggleButton) e.getSource();
+            worldLight.set(button.getToggleState());
+        });
+
+        section.add(button1);
+        section.add(button2);
+        section.add(button3);
 
         add(section);
     }

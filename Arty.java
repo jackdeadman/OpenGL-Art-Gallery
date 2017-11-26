@@ -9,7 +9,7 @@ import com.jogamp.opengl.*;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
 import scene.*;
-
+import models.*;
 public class Arty {
 
     private static final int WIDTH = 1024;
@@ -53,7 +53,11 @@ public class Arty {
                                     Camera.DEFAULT_TARGET,
                                     Camera.DEFAULT_UP);
 
-        Scene gallery = new GalleryScene(camera, handConfiguration);
+        GalleryScene gallery = new GalleryScene(camera, handConfiguration);
+
+        Lamp[] lamps = gallery.getLampModels();
+        DirectionalLight worldLight = gallery.getWorldLight();
+
         GraphicsWindow window = new GraphicsWindow("Art Gallery", gallery);
         CameraController controller = new CameraController(camera);
 
@@ -64,7 +68,10 @@ public class Arty {
 
 
         // JPanel controls = new JPanel(new GridLayout(0, 1));
-        JPanel controls = new SceneControls(handConfiguration, null);
+        SceneControls controls = new SceneControls(handConfiguration, null);
+        controls.setLampModels(lamps);
+        controls.setWorldLight(worldLight);
+
         JScrollPane scrollFrame = new JScrollPane(controls);
         controls.setAutoscrolls(true);
         scrollFrame.setPreferredSize(new Dimension( 330, window.getHeight()));

@@ -10,15 +10,35 @@ public class DirectionalLight {
   private Vec4 direction;
   private Vec3 colour;
   private Material material;
+  private Material offMaterial;
+  private Material onMaterial;
+
 
   public DirectionalLight(Vec3 direction, Vec3 colour) {
     this.direction = direction.toVec4();
     this.colour = colour;
 
-    material = new Material();
-    material.setAmbient(0.1f, 0.1f, 0.1f);
-    material.setDiffuse(0.1f, 0.1f, 0.1f);
-    material.setSpecular(0.1f, 0.1f, 0.1f);
+    onMaterial = new Material();
+    onMaterial.setAmbient(0.001f, 0.001f, 0.001f);
+    onMaterial.setDiffuse(0.001f, 0.001f, 0.001f);
+    onMaterial.setSpecular(0.001f, 0.001f, 0.001f);
+
+    offMaterial = new Material();
+    offMaterial.setAmbient(0.0f, 0.0f, 0.0f);
+    offMaterial.setDiffuse(0.0f, 0.0f, 0.0f);
+    offMaterial.setSpecular(0.0f, 0.0f, 0.0f);
+
+    material = onMaterial;
+  }
+
+  public void set(boolean on){}
+
+  public void turnOff() {
+      material = offMaterial;
+  }
+
+  public void turnOn() {
+      material = onMaterial;
   }
 
   public Material getMaterial() {

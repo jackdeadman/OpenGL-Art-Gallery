@@ -17,11 +17,27 @@ public class PointLight {
     material = new Material();
     material.setAmbient(0.5f, 0.5f, 0.5f);
     material.setDiffuse(0.8f, 0.8f, 0.8f);
-    material.setSpecular(1.0f, 1.0f, 1.0f);
+    material.setSpecular(10.0f, 1.0f, 1.0f);
   }
 
   public Material getMaterial() {
       return material;
+  }
+
+  public void set(boolean isOn) {
+      if (isOn) {
+          material.setAmbient(0.5f, 0.5f, 0.5f);
+          material.setDiffuse(0.8f, 0.8f, 0.8f);
+          material.setSpecular(10.0f, 1.0f, 1.0f);
+      } else {
+          material.setAmbient(0.0f, 0.0f, 0.0f);
+          material.setDiffuse(0.0f, 0.0f, 0.0f);
+          material.setSpecular(0.0f, 0.0f, 0.0f);
+      }
+  }
+
+  public void setMaterial(Material mat) {
+      material = mat;
   }
 
   public void setPosition(Vec3 v) {

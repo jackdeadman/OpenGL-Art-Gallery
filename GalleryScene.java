@@ -16,8 +16,8 @@ public class GalleryScene extends Scene {
     // Models in the scene
     private Hand hand;
     private Room room;
-    private Model lamp1;
-    private Model lamp2;
+    private Lamp lamp1;
+    private Lamp lamp2;
     private Model pictureFrame;
 
     // Default the hand position to be Ds
@@ -29,11 +29,19 @@ public class GalleryScene extends Scene {
         super(camera);
         this.handConfiguration = handConfiguration;
 
-        Vec3 colour = new Vec3(0.0f, 0.0f, 0.0f);
+        Vec3 colour = new Vec3(0.1f, 0.1f, 0.1f);
         DirectionalLight light = new DirectionalLight(DIRECTIONAL_LIGHT_DIR, colour);
         setDirectionalLight(light);
 
         setupModels();
+    }
+
+    public Lamp[] getLampModels() {
+        return new Lamp[] { lamp1, lamp2 };
+    }
+
+    public DirectionalLight getWorldLight() {
+        return getDirectionalLight();
     }
 
     private void setupModels() {

@@ -26,14 +26,14 @@ public class Finger extends Model {
     private void loadTextures(GL3 gl) {
         // Textures
         rustTexture = TextureLibrary.loadTexture(gl, "textures/floor_2.jpg");
-        rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
+        rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/container2_specular.jpg");
         metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
     }
 
     private void loadMeshes(GL3 gl) {
         // Meshes
         segment = new Sphere(gl, rustTexture, rustTextureSpecular);
-        joint = new Sphere(gl, metalTexture, metalTexture);
+        joint = new Sphere(gl, metalTexture, rustTextureSpecular);
 
         registerMeshes(new Mesh[] { segment, joint });
     }
