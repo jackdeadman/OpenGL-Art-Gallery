@@ -23,6 +23,20 @@ public class Spotlight {
     material.setSpecular(0.2f, 0.2f, 0.2f);
   }
 
+  public void set(boolean isOn) {
+      if (isOn) {
+          material = new Material();
+          material.setAmbient(0.2f, 0.2f, 0.2f);
+          material.setDiffuse(0.2f, 0.2f, 0.2f);
+          material.setSpecular(0.2f, 0.2f, 0.2f);
+      } else {
+          material = new Material();
+          material.setAmbient(0.0f, 0.0f, 0.0f);
+          material.setDiffuse(0.0f, 0.0f, 0.0f);
+          material.setSpecular(0.0f, 0.0f, 0.0f);
+      }
+  }
+
   public float getCutOff() {
       return (float) Math.cos(Math.toRadians(12.5));
   }

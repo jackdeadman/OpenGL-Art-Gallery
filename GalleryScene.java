@@ -44,6 +44,7 @@ public class GalleryScene extends Scene {
         return getDirectionalLight();
     }
 
+
     private void setupModels() {
         // worldConfig.setSpotlight(new Spotlight(new Vec3(1f, 1f, 0f), new Vec3(0.1f, 0.18f, 0.0112f)));
         lamp1 = new Lamp(worldConfig);

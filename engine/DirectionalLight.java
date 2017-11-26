@@ -18,27 +18,23 @@ public class DirectionalLight {
     this.direction = direction.toVec4();
     this.colour = colour;
 
-    onMaterial = new Material();
-    onMaterial.setAmbient(0.001f, 0.001f, 0.001f);
-    onMaterial.setDiffuse(0.001f, 0.001f, 0.001f);
-    onMaterial.setSpecular(0.001f, 0.001f, 0.001f);
-
-    offMaterial = new Material();
-    offMaterial.setAmbient(0.0f, 0.0f, 0.0f);
-    offMaterial.setDiffuse(0.0f, 0.0f, 0.0f);
-    offMaterial.setSpecular(0.0f, 0.0f, 0.0f);
-
-    material = onMaterial;
+    material = new Material();
+    material.setAmbient(0.001f, 0.001f, 0.001f);
+    material.setDiffuse(0.001f, 0.001f, 0.001f);
+    material.setSpecular(0.001f, 0.001f, 0.001f);
   }
 
-  public void set(boolean on){}
-
-  public void turnOff() {
-      material = offMaterial;
-  }
-
-  public void turnOn() {
-      material = onMaterial;
+  public void set(boolean on) {
+      material = new Material();
+      if (on) {
+          material.setAmbient(0.001f, 0.001f, 0.001f);
+          material.setDiffuse(0.001f, 0.001f, 0.001f);
+          material.setSpecular(0.001f, 0.001f, 0.001f);
+      } else {
+          material.setAmbient(0.0f, 0.0f, 0.0f);
+          material.setDiffuse(0.0f, 0.0f, 0.0f);
+          material.setSpecular(0.0f, 0.0f, 0.0f);
+      }
   }
 
   public Material getMaterial() {

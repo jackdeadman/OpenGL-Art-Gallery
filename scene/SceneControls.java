@@ -209,15 +209,22 @@ public class SceneControls extends JPanel {
             lamps[1].set(button.getToggleState());
         });
 
-        ToggleButton button3 =  new ToggleButton("Spotlight: 0n", "Spotlight: Off");
-        button3.addToggleListener(e -> {
+        // ToggleButton button3 =  new ToggleButton("Spotlight 0n", "Spotlight: Off");
+        // button3.addToggleListener(e -> {
+        //     ToggleButton button = (ToggleButton) e.getSource();
+        //     spotlight.set(button.getToggleState());
+        // });
+
+        ToggleButton button4 =  new ToggleButton("World light: 0n", "World light: Off");
+        button4.addToggleListener(e -> {
             ToggleButton button = (ToggleButton) e.getSource();
             worldLight.set(button.getToggleState());
         });
 
         section.add(button1);
         section.add(button2);
-        section.add(button3);
+        // section.add(button3);
+        section.add(button4);
 
         add(section);
     }

@@ -15,9 +15,9 @@ public class PointLight {
     this.colour = colour;
     this.attenuation = attenuation;
     material = new Material();
-    material.setAmbient(0.5f, 0.5f, 0.5f);
-    material.setDiffuse(0.8f, 0.8f, 0.8f);
-    material.setSpecular(10.0f, 1.0f, 1.0f);
+    material.setAmbient(0.2f, 0.2f, 0.2f);
+    material.setDiffuse(1.0f, 1.0f, 1.0f);
+    material.setSpecular(1.0f, 1.0f, 1.0f);
   }
 
   public Material getMaterial() {
@@ -26,9 +26,9 @@ public class PointLight {
 
   public void set(boolean isOn) {
       if (isOn) {
-          material.setAmbient(0.5f, 0.5f, 0.5f);
-          material.setDiffuse(0.8f, 0.8f, 0.8f);
-          material.setSpecular(10.0f, 1.0f, 1.0f);
+          material.setAmbient(0.2f, 0.2f, 0.2f);
+          material.setDiffuse(1.0f, 1.0f, 1.0f);
+          material.setSpecular(1.0f, 1.0f, 1.0f);
       } else {
           material.setAmbient(0.0f, 0.0f, 0.0f);
           material.setDiffuse(0.0f, 0.0f, 0.0f);
