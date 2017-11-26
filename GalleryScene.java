@@ -18,11 +18,12 @@ public class GalleryScene extends Scene {
     private Room room;
     private Lamp lamp1;
     private Lamp lamp2;
+    private Arm arm;
     private Model pictureFrame;
 
     // Default the hand position to be Ds
     private HandConfiguration handConfiguration;
-    private HandPosition currentPosition = new LetterD();
+    private HandPosition currentPosition = new LetterA();
     private final Vec3 DIRECTIONAL_LIGHT_DIR = new Vec3(0.2f, -0.2f, 0.3f);
 
     public GalleryScene(Camera camera, HandConfiguration handConfiguration) {
@@ -51,9 +52,10 @@ public class GalleryScene extends Scene {
         lamp2 = new Lamp(worldConfig);
         room = new Room(worldConfig, 16, 24, 10);
         hand = new Hand(worldConfig, handConfiguration);
+        arm = new Arm(worldConfig);
         pictureFrame = new PictureFrame(worldConfig, PictureFrame.HORIZONTAL_FRAME_LARGE, "");
 
-        registerModels(new Model[] { lamp1, lamp2, room, hand, pictureFrame });
+        registerModels(new Model[] { arm, lamp1, lamp2, room, hand, pictureFrame });
     }
 
 
@@ -61,8 +63,6 @@ public class GalleryScene extends Scene {
         // System.out.println("Building scene graph");
         room.addPictureToLeftWall((PictureFrame) pictureFrame);
         SGNode scene = new NameNode("Gallery Scene");
-        TransformNode handTransform = new TransformNode("",
-                Mat4Transform.scale(1.0f, 1.0f, 1.0f));
 
         TransformNode moveLight1 = new TransformNode("",
                 Mat4Transform.translate(4.0f, 0.0f, -6.0f));
@@ -76,18 +76,17 @@ public class GalleryScene extends Scene {
                 moveLight1.addChild(lamp1.getRoot());
         room.getAnchor().addChild(moveLight2);
                 moveLight2.addChild(lamp2.getRoot());
-        room.getAnchor().addChild(handTransform);
-                handTransform.addChild(hand.getRoot());
+        room.getAnchor().addChild(arm.getRoot());
+            arm.getAnchor().addChild(hand.getRoot());
 
         scene.update();
         setSceneNode(scene);
     }
 
     protected void update(GL3 gl) {
-        //Update the hand based on the animation
-        // handConfiguration.setFingerValues(
-        //     currentPosition.getAnimationState((float)(getElapsedTime())));
-
+        // Update the hand based on the animation
+        handConfiguration = currentPosition.getAnimationState((float)(getElapsedTime()));
+        hand.setConfiguration(handConfiguration);
         hand.applyFingerBend();
     }
 

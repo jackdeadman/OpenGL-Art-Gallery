@@ -1,5 +1,6 @@
 package scene.handpositions;
+import scene.*;
 
 public interface HandPosition {
-    public float[][] getAnimationState(float t);
+    public HandConfiguration getAnimationState(float t);
 }
