@@ -8,7 +8,7 @@ public class HandConfiguration implements Interpolatable {
     public final static int NUM_FINGER_TWEAKS = 6;
 
     private float[][] fingerValues = new float[NUM_FINGERS][NUM_FINGER_TWEAKS];
-    private float[] thumbValues = new float[2]; // turn, lower joint, middle joint
+    private float[] thumbValues = new float[5]; // turn(x,y,x), lower joint, middle joint
     private float[] wristValues = new float[2]; // X, Y rotate
 
     public HandConfiguration() {
@@ -23,6 +23,13 @@ public class HandConfiguration implements Interpolatable {
         fingerValues = values;
         this.thumbValues = thumbValues;
     }
+
+    public HandConfiguration(float[][] values, float[] thumbValues, float[] wristValues) {
+        fingerValues = values;
+        this.thumbValues = thumbValues;
+        this.wristValues = wristValues;
+    }
+
 
     public float[][] getFingerValues() {
         return fingerValues;
@@ -78,10 +85,11 @@ public class HandConfiguration implements Interpolatable {
             );
         }
 
+
         float[] newWristValues = new float[wristValues.length];
         for (int i=0; i<wristValues.length; ++i) {
             float end = wristValues[i];
-            wristValues[i] = linearInterpolation(
+            newWristValues[i] = linearInterpolation(
                 initialHandConfiguration.getWristValues()[i], end, percentage
             );
         }

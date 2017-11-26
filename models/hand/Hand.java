@@ -21,6 +21,8 @@ public class Hand extends Model {
     private Thumb thumb;
     private HandConfiguration handConfiguration;
 
+    private TransformNode rotateHand;
+
     int[] rustTexture, rustTextureSpecular;
 
     public Hand(WorldConfiguration worldConfig, HandConfiguration handConfiguration) {
@@ -53,9 +55,20 @@ public class Hand extends Model {
         handConfiguration = config;
     }
 
+    public void rotate(float x, float y) {
+        rotateHand.setTransform(
+            Mat4.multiplyVariable(
+                Mat4Transform.rotateAroundY(y * 90),
+                Mat4Transform.rotateAroundX(x * 90)
+            )
+        );
+        getRoot().update();
+    }
+
     public void applyFingerBend() {
         float[][] fingerValues = handConfiguration.getFingerValues();
         float[] thumbValues = handConfiguration.getThumbValues();
+        float[] wristValues = handConfiguration.getWristValues();
 
         finger1.bend(fingerValues[0][0], fingerValues[0][1], fingerValues[0][2]);
         finger1.turn(fingerValues[0][3], fingerValues[0][4], fingerValues[0][5]);
@@ -69,7 +82,12 @@ public class Hand extends Model {
         finger4.bend(fingerValues[3][0], fingerValues[3][1], fingerValues[3][2]);
         finger4.turn(fingerValues[3][3], fingerValues[3][4], fingerValues[3][5]);
 
-        thumb.bend(thumbValues[0]);
+        thumb.turn(thumbValues[0], thumbValues[1], thumbValues[2]);
+        thumb.bend(thumbValues[3], thumbValues[4]);
+
+        rotate(wristValues[0], wristValues[1]);
+        // rotate(0.0f, 0.8f);
+        // rotate(0.0f, 0.8f);
     }
 
 
@@ -118,10 +136,13 @@ public class Hand extends Model {
 
         TransformNode moveFingers = new TransformNode("Translate()", Mat4Transform.translate(-0.9f, 0.5f, 0.0f));
 
-        // Temp
+        rotateHand = new TransformNode("", new Mat4(0));
+
+        // Make 0,0 be the bottom of the hand
         TransformNode moveHand = new TransformNode("", Mat4Transform.translate(0.0f, 2.0f, 0.0f));
 
-        root.addChild(moveHand);
+        root.addChild(rotateHand);
+        rotateHand.addChild(moveHand);
             moveHand.addChild(palm.getRoot());
 
             palm.getRoot().addChild(transformThumb);

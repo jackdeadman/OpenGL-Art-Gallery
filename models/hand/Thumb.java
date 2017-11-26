@@ -9,6 +9,7 @@ import com.jogamp.opengl.util.FPSAnimator;
 public class Thumb extends Model {
 
     int[] rustTexture, rustTextureSpecular, metalTexture;
+    private TransformNode thumbTransform;
 
     public Thumb(WorldConfiguration worldConfig) {
         super(worldConfig);
@@ -23,7 +24,7 @@ public class Thumb extends Model {
 
     private void loadTextures(GL3 gl) {
         // Textures
-        rustTexture = TextureLibrary.loadTexture(gl, "textures/metal_rust.jpg");
+        rustTexture = TextureLibrary.loadTexture(gl, "textures/floor_2.jpg");
         rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
         metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
     }
@@ -40,9 +41,25 @@ public class Thumb extends Model {
     private TransformNode lowerJointRotation, middleJointRotation, upperJointRotation;
 
     public void bend(float amount) {
-        float degrees = amount * 90;
-        lowerJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees));
-        middleJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees));
+        bend(amount, amount);
+    }
+
+    public void bend(float amount1, float amount2) {
+        float degrees1 = amount1 * 90;
+        float degrees2 = amount2 * 90;
+        lowerJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees1));
+        middleJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees2));
+        getRoot().update();
+    }
+
+    public void turn(float x, float y, float z) {
+        thumbTransform.setTransform(
+            Mat4.multiplyVariable(
+                Mat4Transform.rotateAroundZ(z * 90),
+                Mat4Transform.rotateAroundY(y * 90),
+                Mat4Transform.rotateAroundX(x * 90)
+            )
+        );
         getRoot().update();
     }
 
@@ -80,7 +97,7 @@ public class Thumb extends Model {
         middleJointRotation = new TransformNode("3", Mat4Transform.rotateAroundX(0));
 
         TransformNode middleSegmentTranslation = new TransformNode("8", Mat4Transform.translate(0f, 0.5f, 0f));
-        TransformNode middleSegmentScale = new TransformNode("9", Mat4Transform.scale(0.5f, 1.2f, 0.5f));
+        TransformNode middleSegmentScale = new TransformNode("9", Mat4Transform.scale(0.5f, 1.0f, 0.5f));
 
         TransformNode upperJointTranslation = new TransformNode("6", Mat4Transform.translate(0f, 0.5f, 0f));
         TransformNode upperJointScale = new TransformNode("7", Mat4Transform.scale(0.5f, 0.5f, 0.5f));
@@ -89,7 +106,10 @@ public class Thumb extends Model {
         TransformNode upperSegmentTranslation = new TransformNode("8", Mat4Transform.translate(0f, 0.3f, 0f));
         TransformNode upperSegmentScale = new TransformNode("9", Mat4Transform.scale(0.5f, 0.8f, 0.5f));
 
-        root.addChild(lowerJointTranslation);
+        thumbTransform = new TransformNode("", Mat4Transform.scale(1.0f, 1.0f, 1.0f));
+
+        root.addChild(thumbTransform);
+        thumbTransform.addChild(lowerJointTranslation);
             lowerJointTranslation.addChild(lowerJointRotation);
                 lowerJointRotation.addChild(lowerJointScale);
                 lowerJointScale.addChild(jointShape1);
