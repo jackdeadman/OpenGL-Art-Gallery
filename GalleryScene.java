@@ -29,7 +29,7 @@ public class GalleryScene extends Scene {
         super(camera);
         this.handConfiguration = handConfiguration;
 
-        Vec3 colour = new Vec3(0.1f, 0.1f, 0.1f);
+        Vec3 colour = new Vec3(0.0f, 0.0f, 0.0f);
         DirectionalLight light = new DirectionalLight(DIRECTIONAL_LIGHT_DIR, colour);
         setDirectionalLight(light);
 
@@ -37,6 +37,7 @@ public class GalleryScene extends Scene {
     }
 
     private void setupModels() {
+        // worldConfig.setSpotlight(new Spotlight(new Vec3(1f, 1f, 0f), new Vec3(0.1f, 0.18f, 0.0112f)));
         lamp1 = new Lamp(worldConfig);
         lamp2 = new Lamp(worldConfig);
         room = new Room(worldConfig, 16, 24, 10);

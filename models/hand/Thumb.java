@@ -98,6 +98,7 @@ public class Thumb extends Model {
                 lowerSegmentTranslation.addChild(lowerSegmentScale);
                 lowerSegmentScale.addChild(segmentShape1);
 
+
                 lowerSegmentTranslation.addChild(middleJointTranslation);
                     middleJointTranslation.addChild(middleJointRotation);
                     middleJointRotation.addChild(middleJointScale);

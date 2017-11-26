@@ -7,15 +7,11 @@ public class WorldConfiguration {
     private Camera camera;
     private DirectionalLight directionalLight;
     private ArrayList<PointLight> pointLights = new ArrayList<>();
-    // private ArrayList<SpotLight> spotLights = new ArrayList<>();
+    private Spotlight spotlight;
 
     public WorldConfiguration(Camera camera) {
         this.camera = camera;
     }
-
-    // public void addDirectionalLight(DirectionalLight light) {
-    //     directionalLights.add(light);
-    // }
 
     public void addPointLight(PointLight light) {
         pointLights.add(light);
@@ -41,16 +37,12 @@ public class WorldConfiguration {
         return directionalLight;
     }
 
-    // public ArrayList<DirectionalLight> getDirectionalLights() {
-    //     return directionalLights;
-    // }
-    //
-    // public ArrayList<PointLight> getPointLights() {
-    //     return pointLights;
-    // }
-    //
-    // public ArrayList<SpotLight> getSpotLights() {
-    //     return spotLights;
-    // }
+    public void setSpotlight(Spotlight light) {
+        spotlight = light;
+    }
+
+    public Spotlight getSpotlight() {
+        return spotlight;
+    }
 
 }

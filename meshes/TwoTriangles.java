@@ -43,6 +43,20 @@ public class TwoTriangles extends Mesh {
     shader.setVec3(gl, "dirLight.specular", dirLight.getMaterial().getSpecular());
 
 
+    Spotlight spotlight = worldConfig.getSpotlight();
+    shader.setVec3(gl, "spotlight.position", spotlight.getPosition());
+    shader.setVec3(gl, "spotlight.direction", spotlight.getDirection());
+    shader.setFloat(gl, "spotlight.cutOff", spotlight.getCutOff());
+    shader.setFloat(gl, "spotlight.outerCutOff", spotlight.getOuterCutOff());
+
+    shader.setFloat(gl, "spotlight.constant", spotlight.getConstant());
+    shader.setFloat(gl, "spotlight.linear", spotlight.getLinear());
+    shader.setFloat(gl, "spotlight.quadratic", spotlight.getQuadratic());
+
+    shader.setVec3(gl, "spotlight.ambient", spotlight.getMaterial().getAmbient());
+    shader.setVec3(gl, "spotlight.diffuse", spotlight.getMaterial().getDiffuse());
+    shader.setVec3(gl, "spotlight.specular", spotlight.getMaterial().getSpecular());
+
     ArrayList<PointLight> pointLights = worldConfig.getPointLights();
 
     for (int i=0; i<pointLights.size(); ++i) {

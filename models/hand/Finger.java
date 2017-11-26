@@ -122,6 +122,10 @@ public class Finger extends Model {
 
         fingerTransform = TransformNode.createRotateAroundXNode(0);
 
+        Spotlight lightO = new Spotlight(new Vec3(0f, 1f, 0f), new Vec3(0.1f, 0.18f, 0.0112f));
+        worldConfig.setSpotlight(lightO);
+        SpotlightNode light = new SpotlightNode("", lightO);
+
         root.addChild(fingerTransform);
             fingerTransform.addChild(lowerJointTranslation);
             lowerJointTranslation.addChild(lowerJointRotation);
@@ -149,6 +153,7 @@ public class Finger extends Model {
                             upperJointRotation.addChild(upperSegmentTranslation);
                                 upperSegmentTranslation.addChild(upperSegmentScale);
                                 upperSegmentScale.addChild(segmentShape3);
+                            upperJointRotation.addChild(light);
 
 
         root.update();
