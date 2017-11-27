@@ -2,7 +2,7 @@ package scene.handpositions;
 import engine.*;
 import scene.*;
 
-public class LetterC implements HandPosition {
+public class LetterC implements HandPosition<HandConfiguration> {
 
     public static final float[][] FINGER_VALUES = {
         { 0.27f, 0.39f, 0.45f, 0.0f, 0.0f, 0.0f }, // finger 1
@@ -11,6 +11,9 @@ public class LetterC implements HandPosition {
         { 0.30f, 0.44f, 0.30f, 0.0f, 0.0f, 0.0f } // finger 4
     };
 
+    public static final float[] THUMB_VALUES = { 0.0f, 0.0f, 0.0f, 0.8f, 0.3f };
+    public static final float[] HAND_VALUES = { 0.0f, 1.0f };
+
 
     private Timeline timeline;
 
@@ -18,11 +21,11 @@ public class LetterC implements HandPosition {
         timeline = new Timeline<HandConfiguration>();
 
         timeline.setStart(new HandConfiguration());
-        timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES, new float[] { 0.0f, 0.0f, 0.0f, 0.8f, 0.3f }, new float[] { 0.0f, 1.0f }), 4000);
-        // Hold Position Two seconds
-        timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES), 2000);
-        // Return to Start
-        timeline.addKeyFrame(new HandConfiguration(), 10000);
+        timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES, THUMB_VALUES, HAND_VALUES), 1000);
+    }
+
+    public Timeline<HandConfiguration> getTimeline() {
+        return timeline;
     }
 
 

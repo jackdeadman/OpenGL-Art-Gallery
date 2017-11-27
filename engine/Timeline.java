@@ -5,20 +5,27 @@ import engine.animation.*;
 class KeyFrame<T extends Interpolatable> {
     private float duration;
     private T endResult;
-    // private Object animationFunction;
+    private AnimationFunction animationFunction;
 
-    public KeyFrame(T endResult, float duration) {
+
+    public KeyFrame(T endResult, float duration, AnimationFunction fn) {
         this.duration = duration;
         this.endResult = endResult;
+        this.animationFunction = fn;
+    }
+
+    public KeyFrame(T endResult, float duration) {
+        this(endResult, duration, AnimationFunctions.cos());
     }
 
     public T getAnimationState(T initial, float time, AnimationFunction function) {
-        float percentage = Math.max(0, Math.min(1, function.run(time) / duration));
-        return (T) endResult.interpolate((Interpolatable)initial, percentage);
+        float percentage = Math.max(0, Math.min(1, time / duration));
+
+        return (T) endResult.interpolate((Interpolatable)initial, animationFunction.run(percentage));
     }
 
     public T getAnimationState(T initial, float time) {
-        return getAnimationState(initial, time, AnimationFunctions.linear());
+        return getAnimationState(initial, time, animationFunction);
     }
 
     public float getDuration() {
@@ -41,6 +48,10 @@ public class Timeline<T extends Interpolatable> {
 
     public void addKeyFrame(T data, float duration) {
         keys.add(new KeyFrame<T>(data, duration));
+    }
+
+    public void addKeyFrame(T data, float duration, AnimationFunction fn) {
+        keys.add(new KeyFrame<T>(data, duration, fn));
     }
 
 

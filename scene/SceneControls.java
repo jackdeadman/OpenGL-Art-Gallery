@@ -8,6 +8,7 @@ import javax.swing.border.TitledBorder;
 import java.util.*;
 import models.*;
 import engine.*;
+import scene.handpositions.*;
 
 class ToggleButton extends JButton {
 
@@ -28,10 +29,11 @@ class ToggleButton extends JButton {
 
     private ArrayList<ChangeListener> changeListeners123 = new ArrayList<>();
 
-    public ToggleButton(String onMessage, String offMessage) {
+    public ToggleButton(String onMessage, String offMessage, boolean inital) {
         super(onMessage);
         this.onMessage = onMessage;
         this.offMessage = offMessage;
+        on = inital;
         changeListeners123 = new ArrayList<>();
 
         setMessage();
@@ -44,6 +46,15 @@ class ToggleButton extends JButton {
                 listener.stateChanged(new ChangeEvent(this));
             }
         });
+    }
+
+    public void set(boolean on) {
+        this.on = on;
+        setMessage();
+    }
+
+    public ToggleButton(String onMessage, String offMessage) {
+        this(onMessage, offMessage, true);
     }
 
     public boolean getToggleState() {
@@ -94,9 +105,10 @@ public class SceneControls extends JPanel {
 
     private HandConfiguration handConfig;
     private Object worldConfig;
+    private AnimationEngine<HandConfiguration> animator;
 
     private final char PLAY_CHARACTER = '\u25B6';
-    private final char PAUSE_CHARACTER = '\u23F8';
+    private final char PAUSE_CHARACTER = '\uu23F8';
     private final char STOP_CHARACTER = '\uu23F9';
     private JPanel middle = new JPanel();
 
@@ -137,7 +149,12 @@ public class SceneControls extends JPanel {
 
         setPreferredSize(new Dimension(300, 2000));
         buildPanel();
-        setSliders();
+        // setSliders();
+    }
+
+    public void setAnimationEngine(AnimationEngine<HandConfiguration> animator) {
+        animator.setTimeline((new LetterA()).getTimeline());
+        this.animator = animator;
     }
 
     public void setSliders() {
@@ -160,13 +177,30 @@ public class SceneControls extends JPanel {
 
     private void buildAnimationSection() {
         JPanel section = buildSection("Animation");
-        JButton playBtn = new JButton(String.valueOf(PLAY_CHARACTER));
-        JButton pauseBtn = new JButton(String.valueOf(PAUSE_CHARACTER));
+
+        ToggleButton playBtn = new ToggleButton(
+                    "Pause",
+                    "Play", false);
+
+        playBtn.addToggleListener(e -> {
+            boolean isOn = ((ToggleButton)(e.getSource())).getToggleState();
+            if (isOn) {
+                animator.startAnimation();
+            } else {
+                animator.pauseAnimation();
+            }
+        });
+
+        JButton stopBtn = new JButton("Reset");
+        stopBtn.addActionListener(e -> {
+            animator.resetAnimation();
+            playBtn.set(false);
+        });
 
         JLabel time = new JLabel("100 / 1:30");
 
         section.add(playBtn);
-        section.add(pauseBtn);
+        section.add(stopBtn);
         section.add(time);
 
         add(section);
@@ -179,9 +213,28 @@ public class SceneControls extends JPanel {
         JPanel topSection = new JPanel(new GridLayout(1, -1));
 
         JButton btn1 = new JButton("A");
+        btn1.addActionListener(e -> {
+            animator.setTimeline((new LetterA()).getTimeline());
+            animator.startAnimation();
+        });
+
         JButton btn2 = new JButton("C");
+        btn2.addActionListener(e -> {
+            animator.setTimeline((new LetterC()).getTimeline());
+            animator.startAnimation();
+        });
+
         JButton btn3 = new JButton("K");
-        JButton btn4 = new JButton("Something complex");
+        btn3.addActionListener(e -> {
+            animator.setTimeline((new LetterK()).getTimeline());
+            animator.startAnimation();
+        });
+
+        JButton btn4 = new JButton("-- Love Gesture --");
+        btn4.addActionListener(e -> {
+            animator.setTimeline((new Love()).getTimeline());
+            animator.startAnimation();
+        });
 
         topSection.add(btn1);
         topSection.add(btn2);
@@ -306,7 +359,7 @@ public class SceneControls extends JPanel {
         buildHandPositionsSection();
         buildWorldTogglesSection();
         buildCameraSection();
-        buildFingerControls();
+        // buildFingerControls();
     }
 
 

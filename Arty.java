@@ -53,7 +53,8 @@ public class Arty {
                                     Camera.DEFAULT_TARGET,
                                     Camera.DEFAULT_UP);
 
-        GalleryScene gallery = new GalleryScene(camera, handConfiguration);
+        AnimationEngine<HandConfiguration> animator = new AnimationEngine<>();
+        GalleryScene gallery = new GalleryScene(camera, handConfiguration, animator);
 
         Lamp[] lamps = gallery.getLampModels();
         DirectionalLight worldLight = gallery.getWorldLight();
@@ -66,11 +67,11 @@ public class Arty {
 
         window.start();
 
-
         // JPanel controls = new JPanel(new GridLayout(0, 1));
         SceneControls controls = new SceneControls(handConfiguration, null);
         controls.setLampModels(lamps);
         controls.setWorldLight(worldLight);
+        controls.setAnimationEngine(animator);
 
         JScrollPane scrollFrame = new JScrollPane(controls);
         controls.setAutoscrolls(true);

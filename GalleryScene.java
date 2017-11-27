@@ -23,12 +23,15 @@ public class GalleryScene extends Scene {
 
     // Default the hand position to be Ds
     private HandConfiguration handConfiguration;
-    private HandPosition currentPosition = new LetterC();
+    private HandPosition currentPosition = new LetterA();
     private final Vec3 DIRECTIONAL_LIGHT_DIR = new Vec3(0.2f, -0.2f, 0.3f);
+    private AnimationEngine<HandConfiguration> animator;
 
-    public GalleryScene(Camera camera, HandConfiguration handConfiguration) {
+
+    public GalleryScene(Camera camera, HandConfiguration handConfiguration, AnimationEngine animator) {
         super(camera);
         this.handConfiguration = handConfiguration;
+        this.animator = animator;
 
         Vec3 colour = new Vec3(0.1f, 0.1f, 0.1f);
         DirectionalLight light = new DirectionalLight(DIRECTIONAL_LIGHT_DIR, colour);
@@ -85,7 +88,7 @@ public class GalleryScene extends Scene {
 
     protected void update(GL3 gl) {
         // Update the hand based on the animation
-        handConfiguration = currentPosition.getAnimationState((float)(getElapsedTime()));
+        handConfiguration = animator.getAnimationState();
         hand.setConfiguration(handConfiguration);
         hand.applyFingerBend();
     }

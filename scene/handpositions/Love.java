@@ -2,7 +2,7 @@ package scene.handpositions;
 import engine.*;
 import scene.*;
 
-public class Love implements HandPosition {
+public class Love implements HandPosition<HandConfiguration> {
 
     public static final float[][] FINGER_VALUES = {
         { 0.0f, 0.06f, 0.05f, 0.0f, 0.0f, 0.04f }, // finger 1
@@ -11,18 +11,36 @@ public class Love implements HandPosition {
         { 0.0f, 0.0f, 0.0f, 0.00f, 0.0f, -0.06f } // finger 4
     };
 
+    public static final float[] THUMB_VALUES = { 0.0f, -0.2f, 0.0f, 0.0f, 0.4f };
+
 
     private Timeline timeline;
 
     public Love() {
         timeline = new Timeline<HandConfiguration>();
 
+        // Default config
         timeline.setStart(new HandConfiguration());
-        timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES, new float[] { 0.0f, -0.2f, 0.0f, 0.0f, 0.4f }), 4000);
+
+        // To natural do this sign it makes sense to do a fist first
+        timeline.addKeyFrame(new HandConfiguration(new float[][] {
+            { 0.88f, 0.61f, 0.17f, 0.0f, 0.0f, 0.0f }, // finger 1
+            { 0.88f, 0.61f, 0.17f, 0.0f, 0.0f, 0.0f }, // finger 2
+            { 0.82f, 0.79f, 0.12f, 0.0f, 0.0f, 0.0f }, // finger 3
+            { 0.88f, 0.61f, 0.17f, 0.0f, 0.0f, 0.0f } // finger 4
+        }, new float[] { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f }), 1500);
+
+        // Then open the thist a bit faster
+        timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES, THUMB_VALUES), 1200);
+
         // Hold Position Two seconds
-        timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES), 200000);
+        // timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES), 200000);
         // Return to Start
-        timeline.addKeyFrame(new HandConfiguration(), 10000);
+        // timeline.addKeyFrame(new HandConfiguration(), 10000);
+    }
+
+    public Timeline<HandConfiguration> getTimeline() {
+        return timeline;
     }
 
 
