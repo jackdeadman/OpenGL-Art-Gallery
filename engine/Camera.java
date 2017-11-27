@@ -6,12 +6,13 @@ import com.jogamp.opengl.awt.GLCanvas;
 
 public class Camera {
 
-  public enum CameraType {X, Z};
+  public enum CameraType {X, Z, Y};
   public enum Movement {NO_MOVEMENT, LEFT, RIGHT, UP, DOWN, FORWARD, BACK};
 
   private static final float DEFAULT_RADIUS = 25;
-  public static final Vec3 DEFAULT_POSITION = new Vec3(0,10,25);
-  public static final Vec3 DEFAULT_POSITION_2 = new Vec3(25,10,0);
+  public static final Vec3 DEFAULT_POSITION = new Vec3(0,10,20);
+  public static final Vec3 DEFAULT_POSITION_2 = new Vec3(20,10,0);
+  public static final Vec3 DEFAULT_POSITION_3 = new Vec3(0,20,0);
   public static final Vec3 DEFAULT_TARGET = new Vec3(0,0,0);
   public static final Vec3 DEFAULT_UP = new Vec3(0,1,0);
 
@@ -54,6 +55,7 @@ public class Camera {
     switch (c) {
       case X : setupCamera(DEFAULT_POSITION, DEFAULT_TARGET, DEFAULT_UP) ; break;
       case Z : setupCamera(DEFAULT_POSITION_2, DEFAULT_TARGET, DEFAULT_UP); break;
+      case Y : setupCamera(DEFAULT_POSITION_3, new Vec3(0f,0f,0f), DEFAULT_UP); break;
     }
   }
 

@@ -50,19 +50,6 @@ public abstract class Scene implements GLEventListener {
       }
   }
 
-  // protected void loadTexture(GL3 gl, String name, String path) {
-  //     int[] texture = TextureLibrary.loadTexture(gl, path);
-  //     textureMap.put(name, texture);
-  // }
-  //
-  // protected int[] getTexture(String name) {
-  //     return textureMap.get(name);
-  // }
-
-  protected void addModel(String label) {
-    //   label.set(label, model);
-  }
-
   // ***************************************************
   /* TIME
    */

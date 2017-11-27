@@ -47,16 +47,6 @@ public class GraphicsWindow extends JFrame implements ActionListener {
     canvas.addGLEventListener(scene);
     getContentPane().add(canvas, BorderLayout.CENTER);
 
-
-
-    // JMenuBar menuBar=new JMenuBar();
-    // this.setJMenuBar(menuBar);
-    //   JMenu fileMenu = new JMenu("File");
-    //     JMenuItem quitItem = new JMenuItem("Quit");
-    //     quitItem.addActionListener(this);
-    //     fileMenu.add(quitItem);
-    // menuBar.add(fileMenu);
-
   }
 
   public void start() {

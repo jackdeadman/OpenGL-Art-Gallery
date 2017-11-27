@@ -21,6 +21,7 @@ public class SceneControls extends JPanel {
     private Lamp[] lamps;
     private DirectionalLight worldLight;
     private TimelineManager timelineManager;
+    private Camera camera;
 
     public void setLampModels(Lamp[] lamps) {
         this.lamps = lamps;
@@ -38,8 +39,11 @@ public class SceneControls extends JPanel {
 
     public void setAnimationEngine(AnimationEngine<HandConfiguration> animator) {
         timelineManager = new TimelineManager(animator);
-        timelineManager.playFullAnimation();
         this.animator = animator;
+    }
+
+    public void setCamera(Camera camera) {
+        this.camera = camera;
     }
 
     private JPanel buildSection(String title) {
@@ -49,17 +53,17 @@ public class SceneControls extends JPanel {
         return section;
     }
 
+    private ToggleButton playBtn;
+
     private void buildAnimationSection() {
         JPanel section = buildSection("Animation");
 
-        ToggleButton playBtn = new ToggleButton(
-                    "Pause",
-                    "Play", false);
+        playBtn = new ToggleButton("Pause","Play", false);
 
         playBtn.addToggleListener(e -> {
             boolean isOn = ((ToggleButton)(e.getSource())).getToggleState();
             if (isOn) {
-                animator.startAnimation();
+                timelineManager.playFullAnimation();
             } else {
                 animator.pauseAnimation();
             }
@@ -67,15 +71,12 @@ public class SceneControls extends JPanel {
 
         JButton stopBtn = new JButton("Reset");
         stopBtn.addActionListener(e -> {
-            animator.resetAnimation();
+            timelineManager.reset();
             playBtn.set(false);
         });
 
-        JLabel time = new JLabel("100 / 1:30");
-
         section.add(playBtn);
         section.add(stopBtn);
-        section.add(time);
 
         add(section);
     }
@@ -88,26 +89,26 @@ public class SceneControls extends JPanel {
 
         JButton btn1 = new JButton("A");
         btn1.addActionListener(e -> {
-            animator.setTimeline((new LetterA()).getTimeline());
-            animator.startAnimation();
+            timelineManager.playLetterA();
+            playBtn.set(false);
         });
 
         JButton btn2 = new JButton("C");
         btn2.addActionListener(e -> {
-            animator.setTimeline((new LetterC()).getTimeline());
-            animator.startAnimation();
+            timelineManager.playLetterC();
+            playBtn.set(false);
         });
 
         JButton btn3 = new JButton("K");
         btn3.addActionListener(e -> {
-            animator.setTimeline((new LetterK()).getTimeline());
-            animator.startAnimation();
+            timelineManager.playLetterK();
+            playBtn.set(false);
         });
 
         JButton btn4 = new JButton("-- Love Gesture --");
         btn4.addActionListener(e -> {
-            animator.setTimeline((new Love()).getTimeline());
-            animator.startAnimation();
+            timelineManager.playLove();
+            playBtn.set(false);
         });
 
         topSection.add(btn1);
@@ -159,20 +160,33 @@ public class SceneControls extends JPanel {
     private void buildCameraSection() {
         JPanel section = buildSection("Cameras");
         section.setLayout(new GridLayout(-1, 3));
-        section.add(new JButton("Front"));
-        section.add(new JButton("Back"));
-        section.add(new JButton("Top"));
+
+        JButton front = new JButton("Front");
+        front.addActionListener(e -> {
+            camera.setCamera(Camera.CameraType.X);
+        });
+        section.add(front);
+
+        JButton back = new JButton("Back");
+        back.addActionListener(e -> {
+            camera.setCamera(Camera.CameraType.Z);
+        });
+        section.add(back);
+
+        JButton top = new JButton("Top");
+        top.addActionListener(e -> {
+            camera.setCamera(Camera.CameraType.Y);
+        });
+        section.add(top);
 
         add(section);
     }
 
     private void buildPanel() {
-        // this.setLayout(new GridLayout(-1, 1));
         buildAnimationSection();
         buildHandPositionsSection();
         buildWorldTogglesSection();
         buildCameraSection();
-        // buildFingerControls();
     }
 
 

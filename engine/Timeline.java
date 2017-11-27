@@ -46,6 +46,14 @@ public class Timeline<T extends Interpolatable> {
         start = initial;
     }
 
+    public ArrayList<KeyFrame<T>> getKeys() {
+        return keys;
+    }
+
+    public void setKeys(ArrayList<KeyFrame<T>> keys) {
+        this.keys = keys;
+    }
+
     public void addKeyFrame(T data, float duration) {
         keys.add(new KeyFrame<T>(data, duration));
     }

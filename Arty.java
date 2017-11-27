@@ -71,6 +71,7 @@ public class Arty {
         controls.setLampModels(lamps);
         controls.setWorldLight(worldLight);
         controls.setAnimationEngine(animator);
+        controls.setCamera(camera);
 
         JScrollPane scrollFrame = new JScrollPane(controls);
         controls.setAutoscrolls(true);

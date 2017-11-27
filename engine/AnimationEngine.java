@@ -6,7 +6,7 @@ public class AnimationEngine<T extends Interpolatable> {
     private double startTime;
     private Timeline<T> timeline;
     private boolean playing = false;
-    private double pauseTime;
+    private double pauseTime = 0;
 
     public void setTimeline(Timeline<T> timeline) {
         this.timeline = timeline;
