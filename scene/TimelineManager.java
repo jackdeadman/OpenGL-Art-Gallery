@@ -8,9 +8,9 @@ public class TimelineManager {
     private Timeline<HandConfiguration> letterK = (new LetterK()).getTimeline();
     private Timeline<HandConfiguration> love = (new Love()).getTimeline();
     private Timeline<HandConfiguration> neutral = (new Neutral()).getTimeline();
-    private AnimationEngine animator;
+    private AnimationEngine<HandConfiguration> animator;
 
-    public TimelineManager(AnimationEngine animator) {
+    public TimelineManager(AnimationEngine<HandConfiguration> animator) {
         animator.setTimeline(neutral);
         this.animator = animator;
     }
@@ -21,7 +21,7 @@ public class TimelineManager {
     }
 
     public void playFullAnimation() {
-        Timeline<HandConfiguration> fullAnimation = new Timeline<HandConfiguration>();
+        Timeline<HandConfiguration> fullAnimation = new Timeline<>();
         fullAnimation.setStart((HandConfiguration) animator.getAnimationState());
         fullAnimation.extend(letterA);
         fullAnimation.extend(letterC);
@@ -32,7 +32,7 @@ public class TimelineManager {
     }
 
     private Timeline<HandConfiguration> returnToDefaultBeforePlay(Timeline<HandConfiguration> letter) {
-        Timeline timeline = new Timeline<HandConfiguration>();
+        Timeline<HandConfiguration> timeline = new Timeline<>();
         timeline.setStart(animator.getAnimationState());
         // timeline.addKeyFrame(new HandConfiguration(), 2000);
         timeline.extend(letter);

@@ -2,7 +2,7 @@ package engine;
 import java.util.*;
 import engine.animation.*;
 
-class KeyFrame<T extends Interpolatable> {
+class KeyFrame<T extends Interpolatable<T>> {
     private float duration;
     private T endResult;
     private AnimationFunction animationFunction;
@@ -21,7 +21,7 @@ class KeyFrame<T extends Interpolatable> {
     public T getAnimationState(T initial, float time, AnimationFunction function) {
         float percentage = Math.max(0, Math.min(1, time / duration));
 
-        return (T) endResult.interpolate((Interpolatable)initial, animationFunction.run(percentage));
+        return (T) endResult.interpolate(initial, animationFunction.run(percentage));
     }
 
     public T getAnimationState(T initial, float time) {
@@ -37,7 +37,7 @@ class KeyFrame<T extends Interpolatable> {
     }
 }
 
-public class Timeline<T extends Interpolatable> {
+public class Timeline<T extends Interpolatable<T>> {
 
     private T start;
     private ArrayList<KeyFrame<T>> keys = new ArrayList<>();
@@ -71,9 +71,9 @@ public class Timeline<T extends Interpolatable> {
     public T getAnimationState(float t) {
         float elapsed = 0;
 
-        Iterator iterator = keys.iterator();
-        KeyFrame<T> currentKey = (KeyFrame<T>) iterator.next(); // key(d1, 1000)
-        KeyFrame<T> prevKey = new KeyFrame(start, 0); // d1
+        Iterator<KeyFrame<T>> iterator = keys.iterator();
+        KeyFrame<T> currentKey = iterator.next();
+        KeyFrame<T> prevKey = new KeyFrame<>(start, 0); // d1
 
         while (iterator.hasNext() && (t > elapsed + currentKey.getDuration())) {
             elapsed += currentKey.getDuration();

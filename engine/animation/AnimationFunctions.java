@@ -6,7 +6,6 @@ public class AnimationFunctions {
     public static AnimationFunction linear() {
         return new AnimationFunction() {
             public float run(float t) {
-                System.out.println("Time: " + t);
                 return t;
             }
         };

@@ -15,7 +15,7 @@ public class LetterK implements HandPosition<HandConfiguration> {
     public static final float[] THUMB_VALUES = { 0.0f, -0.65f, 0.0f, 0.65f, 0.2f };
 
 
-    private Timeline timeline;
+    private Timeline<HandConfiguration> timeline;
 
     public LetterK() {
         timeline = new Timeline<HandConfiguration>();

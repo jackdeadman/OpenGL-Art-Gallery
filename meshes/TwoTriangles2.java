@@ -7,25 +7,27 @@ import java.nio.*;
 import com.jogamp.common.nio.*;
 import com.jogamp.opengl.*;
 
-public class TwoTriangles extends Mesh {
+public class TwoTriangles2 extends Mesh {
 
-  private int[] textureId;
+  private int[] textureId1;
+  private int[] textureId2;
 
-  public TwoTriangles(GL3 gl, int[] textureId) {
+  public TwoTriangles2(GL3 gl, int[] textureId1, int[] textureId2) {
     super(gl);
     super.vertices = this.vertices;
     super.indices = this.indices;
-    this.textureId = textureId;
+    this.textureId1 = textureId1;
+    this.textureId2 = textureId2;
     // material.setAmbient(0.2f, 0.2f, 0.2f);
     // material.setDiffuse(0.2f, 0.2f, 0.2f);
     // material.setSpecular(0.20f, 0.20f, 0.20f);
 
-    material.setAmbient(0.5f, 0.5f, 0.5f);
-    material.setDiffuse(0.1f, 0.1f, 0.1f);
-    material.setSpecular(0.1f, 0.1f, 0.1f);
+    material.setAmbient(0.2f, 0.2f, 0.2f);
+    material.setDiffuse(0.2f, 0.2f, 0.2f);
+    material.setSpecular(0.2f, 0.2f, 0.2f);
 
     material.setShininess(1.0f);
-    shader = new Shader(gl, "shaders/vs_tt_05.txt", "shaders/fs_tt_05.txt");
+    shader = new Shader(gl, "shaders/vs_tt_05.txt", "shaders/fs_tt_05_window.txt");
     fillBuffers(gl);
   }
 
@@ -86,7 +88,12 @@ public class TwoTriangles extends Mesh {
     shader.setInt(gl, "first_texture", 0);
 
     gl.glActiveTexture(GL.GL_TEXTURE0);
-    gl.glBindTexture(GL.GL_TEXTURE_2D, textureId[0]);
+    gl.glBindTexture(GL.GL_TEXTURE_2D, textureId1[0]);
+
+    shader.setInt(gl, "second_texture", 1);
+
+    gl.glActiveTexture(GL.GL_TEXTURE0);
+    gl.glBindTexture(GL.GL_TEXTURE_2D, textureId2[0]);
 
     gl.glBindVertexArray(vertexArrayId[0]);
     gl.glDrawElements(GL.GL_TRIANGLES, indices.length, GL.GL_UNSIGNED_INT, 0);
@@ -95,7 +102,8 @@ public class TwoTriangles extends Mesh {
 
   public void dispose(GL3 gl) {
     super.dispose(gl);
-    gl.glDeleteBuffers(1, textureId, 0);
+    gl.glDeleteBuffers(1, textureId1, 0);
+    gl.glDeleteBuffers(1, textureId2, 0);
   }
 
   // ***************************************************

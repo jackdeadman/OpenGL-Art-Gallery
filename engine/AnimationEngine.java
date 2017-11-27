@@ -1,6 +1,6 @@
 package engine;
 
-public class AnimationEngine<T extends Interpolatable> {
+public class AnimationEngine<T extends Interpolatable<T>> {
 
     private double savedTime = 0;
     private double startTime;

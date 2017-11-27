@@ -2,7 +2,7 @@ package scene;
 import engine.*;
 // Represents a configuration of a hand
 
-public class HandConfiguration implements Interpolatable {
+public class HandConfiguration implements Interpolatable<HandConfiguration> {
 
     public final static int NUM_FINGERS = 4;
     public final static int NUM_FINGER_TWEAKS = 6;
@@ -65,7 +65,7 @@ public class HandConfiguration implements Interpolatable {
     }
 
     // Interpolates between two Hand configurations
-    public HandConfiguration interpolate(Interpolatable initial, float percentage) {
+    public HandConfiguration interpolate(HandConfiguration initial, float percentage) {
         HandConfiguration initialHandConfiguration = (HandConfiguration)initial;
 
         float[][] newFingerValues = new float[NUM_FINGERS][NUM_FINGER_TWEAKS];

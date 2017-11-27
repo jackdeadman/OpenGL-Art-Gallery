@@ -75,11 +75,19 @@ public abstract class Scene implements GLEventListener {
 
     gl.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     gl.glClearDepth(1.0f);
+    gl.glEnable(GL.GL_BLEND);
     gl.glEnable(GL.GL_DEPTH_TEST);
+    gl.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE_MINUS_SRC_ALPHA);
+    
+    // gl.setSampleBuffers(true);
+    // gl.setNumSamples(4);
+
     gl.glDepthFunc(GL.GL_LESS);
     gl.glFrontFace(GL.GL_CCW);
     gl.glEnable(GL.GL_CULL_FACE);
     gl.glCullFace(GL.GL_BACK);
+
+
     initialise(gl);
   }
 

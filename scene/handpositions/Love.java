@@ -14,7 +14,7 @@ public class Love implements HandPosition<HandConfiguration> {
     public static final float[] THUMB_VALUES = { 0.0f, -0.2f, 0.0f, 0.0f, 0.4f };
 
 
-    private Timeline timeline;
+    private Timeline<HandConfiguration> timeline;
 
     public Love() {
         timeline = new Timeline<HandConfiguration>();

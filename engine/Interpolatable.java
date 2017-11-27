@@ -1,6 +1,5 @@
 package engine;
 
-public interface Interpolatable<Z> {
-    public Interpolatable<Z> interpolate(Interpolatable<Z> inital, float percentage);
-    public Z getValues();
+public interface Interpolatable<T extends Interpolatable<T>> {
+    public T interpolate(T inital, float percentage);
 }

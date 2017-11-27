@@ -15,7 +15,7 @@ public class LetterC implements HandPosition<HandConfiguration> {
     public static final float[] HAND_VALUES = { 0.0f, 1.0f };
 
 
-    private Timeline timeline;
+    private Timeline<HandConfiguration> timeline;
 
     public LetterC() {
         timeline = new Timeline<HandConfiguration>();

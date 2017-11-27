@@ -21,14 +21,12 @@ public class GalleryScene extends Scene {
     private Arm arm;
     private Model pictureFrame;
 
-    // Default the hand position to be Ds
     private HandConfiguration handConfiguration;
-    private HandPosition currentPosition = new LetterA();
     private final Vec3 DIRECTIONAL_LIGHT_DIR = new Vec3(0.2f, -0.2f, 0.3f);
     private AnimationEngine<HandConfiguration> animator;
 
 
-    public GalleryScene(Camera camera, HandConfiguration handConfiguration, AnimationEngine animator) {
+    public GalleryScene(Camera camera, HandConfiguration handConfiguration, AnimationEngine<HandConfiguration> animator) {
         super(camera);
         this.handConfiguration = handConfiguration;
         this.animator = animator;
@@ -53,7 +51,7 @@ public class GalleryScene extends Scene {
         // worldConfig.setSpotlight(new Spotlight(new Vec3(1f, 1f, 0f), new Vec3(0.1f, 0.18f, 0.0112f)));
         lamp1 = new Lamp(worldConfig);
         lamp2 = new Lamp(worldConfig);
-        room = new Room(worldConfig, 16, 24, 10);
+        room = new Room(worldConfig, 16, 28, 10);
         hand = new Hand(worldConfig, handConfiguration);
         arm = new Arm(worldConfig);
         pictureFrame = new PictureFrame(worldConfig, PictureFrame.HORIZONTAL_FRAME_LARGE, "");
