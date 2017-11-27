@@ -22,6 +22,7 @@ public class LetterC implements HandPosition<HandConfiguration> {
 
         timeline.setStart(new HandConfiguration());
         timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES, THUMB_VALUES, HAND_VALUES), 1000);
+        timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES, THUMB_VALUES, HAND_VALUES), 3000);
     }
 
     public Timeline<HandConfiguration> getTimeline() {

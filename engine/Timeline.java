@@ -54,6 +54,10 @@ public class Timeline<T extends Interpolatable> {
         keys.add(new KeyFrame<T>(data, duration, fn));
     }
 
+    public void extend(Timeline<T> timetime) {
+        keys.addAll(new ArrayList<KeyFrame<T>>(timetime.keys));
+    }
+
 
     // T == HandConfiguration
     public T getAnimationState(float t) {

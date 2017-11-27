@@ -67,8 +67,7 @@ public class Arty {
 
         window.start();
 
-        // JPanel controls = new JPanel(new GridLayout(0, 1));
-        SceneControls controls = new SceneControls(handConfiguration, null);
+        SceneControls controls = new SceneControls(handConfiguration);
         controls.setLampModels(lamps);
         controls.setWorldLight(worldLight);
         controls.setAnimationEngine(animator);

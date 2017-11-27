@@ -8,117 +8,19 @@ import javax.swing.border.TitledBorder;
 import java.util.*;
 import models.*;
 import engine.*;
+import scene.guihelpers.*;
 import scene.handpositions.*;
-
-class ToggleButton extends JButton {
-
-    private String onMessage, offMessage;
-    private boolean on = true;
-
-    private void setMessage() {
-        if (on) {
-            setText(onMessage);
-            setBackground(new Color(127, 219, 255));
-            setForeground(new Color(0, 73, 102));
-        } else {
-            setText(offMessage);
-            setBackground(new Color(221, 221, 221));
-            setForeground(new Color(0, 0, 0));
-        }
-    }
-
-    private ArrayList<ChangeListener> changeListeners123 = new ArrayList<>();
-
-    public ToggleButton(String onMessage, String offMessage, boolean inital) {
-        super(onMessage);
-        this.onMessage = onMessage;
-        this.offMessage = offMessage;
-        on = inital;
-        changeListeners123 = new ArrayList<>();
-
-        setMessage();
-
-        addActionListener(e -> {
-            on = !on;
-            setMessage();
-            // Need to do it here to ensure the update occurs first
-            for (ChangeListener listener: changeListeners123) {
-                listener.stateChanged(new ChangeEvent(this));
-            }
-        });
-    }
-
-    public void set(boolean on) {
-        this.on = on;
-        setMessage();
-    }
-
-    public ToggleButton(String onMessage, String offMessage) {
-        this(onMessage, offMessage, true);
-    }
-
-    public boolean getToggleState() {
-        return on;
-    }
-
-    public void addToggleListener(ChangeListener listener) {
-        changeListeners123.add(listener);
-    }
-
-
-}
-
-class LabelSlider extends JPanel {
-
-    private JLabel label = new JLabel();
-    private JSlider slider;
-
-    public LabelSlider(int orientation, int min, int max, int step) {
-        slider = new JSlider(orientation, min, max, step);
-
-        add(label);
-        add(slider);
-    }
-
-    public void addChangeListener(ChangeListener listener) {
-        slider.addChangeListener(e -> {
-            JSlider slider = (JSlider)(e.getSource());
-            String value = String.valueOf(slider.getValue());
-            label.setText(value);
-            listener.stateChanged(new ChangeEvent(this));
-        });
-    }
-
-    public void setValue(int value) {
-        label.setText(String.valueOf(value));
-        slider.setValue(value);
-    }
-
-    public int getValue() {
-        return slider.getValue();
-    }
-
-}
-
 
 public class SceneControls extends JPanel {
 
     private HandConfiguration handConfig;
-    private Object worldConfig;
     private AnimationEngine<HandConfiguration> animator;
 
-    private final char PLAY_CHARACTER = '\u25B6';
-    private final char PAUSE_CHARACTER = '\uu23F8';
-    private final char STOP_CHARACTER = '\uu23F9';
     private JPanel middle = new JPanel();
-
-
-    private final int JOINT_MIN = 0, JOINT_MAX = 100;
-    private final int NUM_JOINTS = 3;
-    private final int NUM_FINGERS = 4;
 
     private Lamp[] lamps;
     private DirectionalLight worldLight;
+    private TimelineManager timelineManager;
 
     public void setLampModels(Lamp[] lamps) {
         this.lamps = lamps;
@@ -128,44 +30,16 @@ public class SceneControls extends JPanel {
         worldLight = light;
     }
 
-    // fingerSliders[fingerNumber][paramNumber]
-    // 3 for the additional finger rotations
-    private LabelSlider[][] fingerSliders = new LabelSlider[NUM_FINGERS][NUM_JOINTS + 3];
-    private HashMap<LabelSlider, int[]> sliderToIndexMap = new HashMap<>();
-
-    private class SliderListener implements ChangeListener {
-        public void stateChanged(ChangeEvent e) {
-            LabelSlider slider = (LabelSlider)(e.getSource());
-            int value = slider.getValue();
-            float percentage = value / Float.valueOf(JOINT_MAX);
-            int[] indices = sliderToIndexMap.get(slider);
-            handConfig.getFingerValues()[indices[0]][indices[1]] = percentage;
-        }
-    }
-
-    public SceneControls(HandConfiguration handConfig, Object worldConfig) {
+    public SceneControls(HandConfiguration handConfig) {
         this.handConfig = handConfig;
-        this.worldConfig = worldConfig;
-
         setPreferredSize(new Dimension(300, 2000));
         buildPanel();
-        // setSliders();
     }
 
     public void setAnimationEngine(AnimationEngine<HandConfiguration> animator) {
-        animator.setTimeline((new LetterA()).getTimeline());
+        timelineManager = new TimelineManager(animator);
+        timelineManager.playFullAnimation();
         this.animator = animator;
-    }
-
-    public void setSliders() {
-        for (int i=0; i<NUM_FINGERS; ++i) {
-            for (int j=0; j<NUM_JOINTS+3; ++j) {
-                LabelSlider slider = fingerSliders[i][j];
-                slider.setValue(
-                    (int)(handConfig.getFingerValues()[i][j] * 100.0)
-                );
-            }
-        }
     }
 
     private JPanel buildSection(String title) {
@@ -288,67 +162,6 @@ public class SceneControls extends JPanel {
         section.add(new JButton("Front"));
         section.add(new JButton("Back"));
         section.add(new JButton("Top"));
-
-        add(section);
-    }
-
-    private JPanel buildFingerControl(String title, int fingerNumber) {
-        JPanel section = buildSection(title);
-        JPanel sliderSection = new JPanel(new GridLayout(-1, 1));
-        ChangeListener listener = new SliderListener();
-
-        for (int i=1; i<NUM_JOINTS+1; ++i) {
-            sliderSection.add(new Label("Joint " + i));
-            LabelSlider jointAngle = new LabelSlider(JSlider.HORIZONTAL,
-                                          JOINT_MIN, JOINT_MAX, 0);
-
-            // Create mapping both ways
-            sliderToIndexMap.put(jointAngle, new int[] { fingerNumber, i-1});
-            fingerSliders[fingerNumber][i-1] = jointAngle;
-
-            jointAngle.addChangeListener(listener);
-            sliderSection.add(jointAngle);
-        }
-
-        sliderSection.add(new Label("Turn"));
-
-        LabelSlider jointAngleX = new LabelSlider(JSlider.HORIZONTAL,
-                                      JOINT_MIN, JOINT_MAX, 0);
-
-        jointAngleX.addChangeListener(listener);
-        sliderSection.add(jointAngleX);
-        sliderToIndexMap.put(jointAngleX, new int[] { fingerNumber, NUM_JOINTS});
-        fingerSliders[fingerNumber][NUM_JOINTS] = jointAngleX;
-
-        LabelSlider jointAngleY = new LabelSlider(JSlider.HORIZONTAL,
-                                      JOINT_MIN, JOINT_MAX, 0);
-
-        jointAngleY.addChangeListener(listener);
-        sliderSection.add(jointAngleY);
-        sliderToIndexMap.put(jointAngleY, new int[] { fingerNumber, NUM_JOINTS+1});
-        fingerSliders[fingerNumber][NUM_JOINTS+1] = jointAngleY;
-
-        LabelSlider jointAngleZ = new LabelSlider(JSlider.HORIZONTAL,
-                                      JOINT_MIN, JOINT_MAX, 0);
-
-        jointAngleZ.addChangeListener(listener);
-        sliderSection.add(jointAngleZ);
-        sliderToIndexMap.put(jointAngleZ, new int[] { fingerNumber, NUM_JOINTS+2});
-        fingerSliders[fingerNumber][NUM_JOINTS+2] = jointAngleZ;
-
-        section.add(sliderSection);
-
-        return section;
-    }
-
-    private void buildFingerControls() {
-        JPanel section = buildSection("Fingers");
-        section.setLayout(new GridLayout(-1, 1));
-
-        for (int i=1; i<NUM_FINGERS+1; ++i) {
-            JPanel fingerSection = buildFingerControl("Finger " + i, i-1);
-            section.add(fingerSection);
-        }
 
         add(section);
     }

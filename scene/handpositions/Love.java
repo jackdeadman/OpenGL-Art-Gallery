@@ -32,6 +32,7 @@ public class Love implements HandPosition<HandConfiguration> {
 
         // Then open the thist a bit faster
         timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES, THUMB_VALUES), 1200);
+        timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES, THUMB_VALUES), 3000);
 
         // Hold Position Two seconds
         // timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES), 200000);

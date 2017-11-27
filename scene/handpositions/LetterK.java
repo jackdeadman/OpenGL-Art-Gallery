@@ -22,6 +22,7 @@ public class LetterK implements HandPosition<HandConfiguration> {
 
         timeline.setStart(new HandConfiguration());
         timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES, THUMB_VALUES), 2000);
+        timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES, THUMB_VALUES), 3000);
     }
 
     public Timeline<HandConfiguration> getTimeline() {

@@ -20,6 +20,7 @@ public class LetterA implements HandPosition<HandConfiguration> {
 
         timeline.setStart(new HandConfiguration());
         timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES, THUMB_VALUES), 1500);
+        timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES, THUMB_VALUES), 3000);
 
     }
 
