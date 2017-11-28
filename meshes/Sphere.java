@@ -12,7 +12,7 @@ public class Sphere extends Mesh {
   private int[] textureId1;
   private int[] textureId2;
 
-  public Sphere(GL3 gl, int[] textureId1, int[] textureId2) {
+  public Sphere(GL3 gl, int[] textureId1, int[] textureId2, String fs) {
     super(gl);
     createVertices();
     super.vertices = this.vertices;
@@ -23,8 +23,13 @@ public class Sphere extends Mesh {
     material.setDiffuse(1.0f, 0.5f, 0.31f);
     material.setSpecular(0.5f, 0.5f, 0.5f);
     material.setShininess(32.0f);
-    shader = new Shader(gl, "shaders/vs_cube_04.txt", "shaders/fs_cube_04.txt");
+
+    shader = new Shader(gl, "shaders/vs_cube_04.txt", fs);
     fillBuffers(gl);
+  }
+
+  public Sphere(GL3 gl, int[] textureId1, int[] textureId2) {
+      this(gl, textureId1, textureId2, "shaders/fs_cube_04.txt");
   }
 
   public void render(GL3 gl, Mat4 model) {

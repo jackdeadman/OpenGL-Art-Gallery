@@ -39,12 +39,13 @@ public class PictureFrame extends Model {
     }
 
     private void loadTextures(GL3 gl) {
-        frameTexture = TextureLibrary.loadTexture(gl, "textures/cloud.jpg");
-        // pictureTexture = TextureLibrary.loadTexture(gl, pathToPicture);
+        frameTexture = TextureLibrary.loadTexture(gl, "textures/hands/frame4.jpg");
+        // frameTexture2 = TextureLibrary.loadTexture(gl, "textures/cloud.jpg");
+        pictureTexture = TextureLibrary.loadTexture(gl, "textures/hands/hand2.jpg");
     }
 
     private void loadMeshes(GL3 gl) {
-        frame = new TwoTriangles(gl, frameTexture);
+        frame = new TwoTriangles2(gl, frameTexture, pictureTexture, "shaders/picture.fs.glsl");
         registerMesh(frame);
     }
 

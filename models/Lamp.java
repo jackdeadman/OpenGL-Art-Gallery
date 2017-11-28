@@ -31,7 +31,7 @@ public class Lamp extends LightEmittingModel {
     }
 
     private void loadTextures(GL3 gl) {
-        rustTexture = TextureLibrary.loadTexture(gl, "textures/metal_rust.jpg");
+        rustTexture = TextureLibrary.loadTexture(gl, "textures/steel3.jpg");
         rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
         metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
     }

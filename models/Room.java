@@ -35,11 +35,15 @@ public class Room extends Model {
         buildSceneGraph();
     }
 
-    public void addPictureToLeftWall(PictureFrame picture ) {
+    public void addPictureToLeftWall(PictureFrame picture) {
         TransformNode nudge = new TransformNode("", Mat4Transform.translate(0.0f, 0.1f, 0.0f));
         moveLeftWall.addChild(nudge);
             nudge.addChild(picture.getRoot());
         getRoot().update();
+    }
+
+    public void setLeftWallPhotos() {
+
     }
 
     private void loadTextures(GL3 gl) {
@@ -52,11 +56,11 @@ public class Room extends Model {
     private void loadMeshes(GL3 gl) {
         // make meshes
         floor = new TwoTriangles(gl, floorTexture);
-        back = new TwoTriangles2(gl, containerTexture, windowTexture);
-        left = new TwoTriangles2(gl, containerTexture, windowTexture);
-        right = new TwoTriangles2(gl, containerTexture, windowTexture);
-        roof = new TwoTriangles(gl, ceilingTexture);
-        front = new TwoTriangles2(gl, containerTexture, windowTexture);
+        back = new TwoTriangles2(gl, windowTexture, containerTexture);
+        left = new TwoTriangles2(gl, windowTexture, containerTexture);
+        right = new TwoTriangles2(gl, windowTexture, containerTexture);
+        roof = new TwoTriangles(gl, containerTexture);
+        front = new TwoTriangles2(gl, windowTexture, containerTexture);
 
         registerMeshes(new Mesh[] { floor, back, left, right, roof, front });
     }

@@ -28,7 +28,7 @@ public class Love implements HandPosition<HandConfiguration> {
             { 0.88f, 0.61f, 0.17f, 0.0f, 0.0f, 0.0f }, // finger 2
             { 0.82f, 0.79f, 0.12f, 0.0f, 0.0f, 0.0f }, // finger 3
             { 0.88f, 0.61f, 0.17f, 0.0f, 0.0f, 0.0f } // finger 4
-        }, new float[] { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f }), 1500);
+        }, new float[] { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f }), 1000);
 
         // Then open the thist a bit faster
         timeline.addKeyFrame(new HandConfiguration(FINGER_VALUES, THUMB_VALUES), 1200);

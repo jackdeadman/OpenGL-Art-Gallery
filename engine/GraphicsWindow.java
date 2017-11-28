@@ -42,6 +42,8 @@ public class GraphicsWindow extends JFrame implements ActionListener {
     this.scene = scene;
 
     GLCapabilities glcapabilities = new GLCapabilities(GLProfile.get(GLProfile.GL3));
+    glcapabilities.setSampleBuffers(true);
+    glcapabilities.setNumSamples(4);
     canvas = new GLCanvas(glcapabilities);
 
     canvas.addGLEventListener(scene);

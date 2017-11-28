@@ -12,7 +12,7 @@ public class TwoTriangles2 extends Mesh {
   private int[] textureId1;
   private int[] textureId2;
 
-  public TwoTriangles2(GL3 gl, int[] textureId1, int[] textureId2) {
+  public TwoTriangles2(GL3 gl, int[] textureId1, int[] textureId2, String fs) {
     super(gl);
     super.vertices = this.vertices;
     super.indices = this.indices;
@@ -27,9 +27,14 @@ public class TwoTriangles2 extends Mesh {
     material.setSpecular(0.2f, 0.2f, 0.2f);
 
     material.setShininess(1.0f);
-    shader = new Shader(gl, "shaders/vs_tt_05.txt", "shaders/fs_tt_05_window.txt");
+    shader = new Shader(gl, "shaders/vs_tt_05.txt", fs);
     fillBuffers(gl);
   }
+
+  public TwoTriangles2(GL3 gl, int[] textureId1, int[] textureId2) {
+      this(gl, textureId1, textureId2, "shaders/fs_tt_05_window.txt");
+  }
+
 
   public void render(GL3 gl, Mat4 model) {
 
@@ -92,7 +97,7 @@ public class TwoTriangles2 extends Mesh {
 
     shader.setInt(gl, "second_texture", 1);
 
-    gl.glActiveTexture(GL.GL_TEXTURE0);
+    gl.glActiveTexture(GL.GL_TEXTURE1);
     gl.glBindTexture(GL.GL_TEXTURE_2D, textureId2[0]);
 
     gl.glBindVertexArray(vertexArrayId[0]);
