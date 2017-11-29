@@ -11,7 +11,7 @@ public class TwoTriangles extends Mesh {
 
   private int[] textureId;
 
-  public TwoTriangles(GL3 gl, int[] textureId) {
+  public TwoTriangles(GL3 gl, int[] textureId, Material material) {
     super(gl);
     super.vertices = this.vertices;
     super.indices = this.indices;
@@ -20,19 +20,26 @@ public class TwoTriangles extends Mesh {
     // material.setDiffuse(0.2f, 0.2f, 0.2f);
     // material.setSpecular(0.20f, 0.20f, 0.20f);
 
-    material.setAmbient(0.5f, 0.5f, 0.5f);
-    material.setDiffuse(0.1f, 0.1f, 0.1f);
-    material.setSpecular(0.1f, 0.1f, 0.1f);
+    if (material == null) {
+        super.material.setAmbient(0.2f, 0.2f, 0.2f);
+        super.material.setDiffuse(0.2f, 0.2f, 0.2f);
+        super.material.setSpecular(0.2f, 0.2f, 0.2f);
+        super.material.setShininess(1.0f);
+    }
 
-    material.setShininess(1.0f);
     shader = new Shader(gl, "shaders/vs_tt_05.txt", "shaders/fs_tt_05.txt");
     fillBuffers(gl);
+  }
+
+  public TwoTriangles(GL3 gl, int[] textureId) {
+      this(gl, textureId, null);
   }
 
   public void render(GL3 gl, Mat4 model) {
 
     Camera camera = worldConfig.getCamera();
     Mat4 mvpMatrix = Mat4.multiply(perspective, Mat4.multiply(camera.getViewMatrix(), model));
+    // Mat4 mvpMatrix = Mat4.multiply(perspective, model);
 
     shader.use(gl);
 

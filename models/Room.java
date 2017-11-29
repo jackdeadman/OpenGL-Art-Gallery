@@ -19,6 +19,10 @@ public class Room extends Model {
     private int[] containerTexture;
     private int[] windowTexture;
     private int[] ceilingTexture;
+    private int[] window2;
+    private int[] backWallTexture;
+    private int[] backWallNormal;
+    private int[] windowNormal;
 
     private TransformNode moveLeftWall;
 
@@ -51,12 +55,16 @@ public class Room extends Model {
         containerTexture = TextureLibrary.loadTexture(gl, "textures/wallpaper.jpg");
         windowTexture = TextureLibrary.loadTexture(gl, "textures/window_black.jpg");
         ceilingTexture = TextureLibrary.loadTexture(gl, "textures/floor_3.jpg");
+        window2 = TextureLibrary.loadTexture(gl, "textures/window2.jpg");
+        backWallTexture = TextureLibrary.loadTexture(gl, "textures/wall_wood.jpg");
+        backWallNormal = TextureLibrary.loadTexture(gl, "textures/wall_wood_normal.jpg");
+        windowNormal = TextureLibrary.loadTexture(gl, "textures/window_black_normal.jpg");
     }
 
     private void loadMeshes(GL3 gl) {
         // make meshes
         floor = new TwoTriangles(gl, floorTexture);
-        back = new TwoTriangles2(gl, windowTexture, containerTexture);
+        back = new TwoTriangles3(gl, backWallTexture, backWallTexture, window2, backWallNormal);
         left = new TwoTriangles2(gl, windowTexture, containerTexture);
         right = new TwoTriangles2(gl, windowTexture, containerTexture);
         roof = new TwoTriangles(gl, containerTexture);

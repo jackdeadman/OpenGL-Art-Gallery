@@ -69,6 +69,13 @@ public class Camera {
     return Mat4Transform.lookAt(position, target, up);
   }
 
+
+  // @author Jack Deadman
+  public Mat4 getSkyboxViewMatrix() {
+    target = Vec3.add(new Vec3(0.0f, 0.0f, 0.0f), front);
+    return Mat4Transform.lookAt(new Vec3(0.0f, 0.0f, 0.0f), target, up);
+  }
+
   public void keyboardInput(Movement movement) {
     switch (movement) {
       case NO_MOVEMENT: break;

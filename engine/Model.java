@@ -87,4 +87,9 @@ public abstract class Model {
         start(gl);
     }
 
+    public void render(GL3 gl) {
+        root.update();
+        root.draw(gl);
+    }
+
 }

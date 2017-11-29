@@ -128,11 +128,17 @@ public abstract class Scene implements GLEventListener {
 
   protected void render(GL3 gl) {
       update(gl);
+      beforeSceneDraw(gl);
       scene.draw(gl);
+      afterSceneDraw(gl);
   };
 
   protected abstract void buildSceneGraph(GL3 gl);
   protected abstract void update(GL3 gl);
+
+  // Optional callbacks to override. Default to no ops
+  protected void beforeSceneDraw(GL3 gl) {};
+  protected void afterSceneDraw(GL3 gl) {};
 
   protected void disposeMeshes(GL3 gl) {
       for (Model model : models) {

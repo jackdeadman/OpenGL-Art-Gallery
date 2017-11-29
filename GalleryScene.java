@@ -20,6 +20,7 @@ public class GalleryScene extends Scene {
     private Lamp lamp2;
     private Arm arm;
     private Model pictureFrame;
+    private Sky skyBox;
 
     private HandConfiguration handConfiguration;
     private final Vec3 DIRECTIONAL_LIGHT_DIR = new Vec3(0.2f, -0.2f, 0.3f);
@@ -54,9 +55,10 @@ public class GalleryScene extends Scene {
         room = new Room(worldConfig, 16, 28, 10);
         hand = new Hand(worldConfig, handConfiguration);
         arm = new Arm(worldConfig);
+        skyBox = new Sky(worldConfig);
         pictureFrame = new PictureFrame(worldConfig, PictureFrame.HORIZONTAL_FRAME_LARGE, "");
 
-        registerModels(new Model[] { arm, lamp1, lamp2, room, hand, pictureFrame });
+        registerModels(new Model[] { arm, lamp1, lamp2, room, hand, pictureFrame, skyBox });
     }
 
 
@@ -82,6 +84,13 @@ public class GalleryScene extends Scene {
 
         scene.update();
         setSceneNode(scene);
+    }
+
+    protected void beforeSceneDraw(GL3 gl) {
+        // Sky is not part of the scene graph.
+        // Also needs to be render first so alpha blending works
+        // correctly.
+        skyBox.render(gl);
     }
 
     protected void update(GL3 gl) {
