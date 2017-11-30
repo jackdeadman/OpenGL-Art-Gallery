@@ -6,7 +6,7 @@ in vec2 ourTexCoord;
 
 out vec4 fragColor;
 
-uniform sampler2D first_texture;
+uniform sampler2D main_texture;
 uniform vec3 viewPos;
 
 struct PointLight {
@@ -68,9 +68,9 @@ vec3 calcDirLight(DirectionalLight light, vec3 normal, vec3 viewDir)
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
 
     // combine results
-    vec3 ambient  = light.ambient  * vec3(texture(first_texture, ourTexCoord));
-    vec3 diffuse  = light.diffuse  * diff * vec3(texture(first_texture, ourTexCoord));
-    vec3 specular = light.specular * spec * vec3(texture(first_texture, ourTexCoord));
+    vec3 ambient  = light.ambient  * vec3(texture(main_texture, ourTexCoord));
+    vec3 diffuse  = light.diffuse  * diff * vec3(texture(main_texture, ourTexCoord));
+    vec3 specular = light.specular * spec * vec3(texture(main_texture, ourTexCoord));
     return (ambient + diffuse + specular);
 }
 
@@ -90,9 +90,9 @@ vec3 calcSpotLight(SpotLight light, vec3 normal, vec3 fragPos, vec3 viewDir)
     float epsilon = light.cutOff - light.outerCutOff;
     float intensity = clamp((theta - light.outerCutOff) / epsilon, 0.0, 1.0);
     // combine results
-    vec3 ambient = light.ambient * vec3(texture(first_texture, ourTexCoord));
-    vec3 diffuse = light.diffuse * diff * vec3(texture(first_texture, ourTexCoord));
-    vec3 specular = light.specular * spec * vec3(texture(first_texture, ourTexCoord));
+    vec3 ambient = light.ambient * vec3(texture(main_texture, ourTexCoord));
+    vec3 diffuse = light.diffuse * diff * vec3(texture(main_texture, ourTexCoord));
+    vec3 specular = light.specular * spec * vec3(texture(main_texture, ourTexCoord));
     ambient *= attenuation * intensity;
     diffuse *= attenuation * intensity;
     specular *= attenuation * intensity;
@@ -101,13 +101,13 @@ vec3 calcSpotLight(SpotLight light, vec3 normal, vec3 fragPos, vec3 viewDir)
 
 vec3 calcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir) {
     // ambient
-    vec3 ambient = light.ambient * material.ambient * texture(first_texture, ourTexCoord).rgb;
+    vec3 ambient = light.ambient * material.ambient * texture(main_texture, ourTexCoord).rgb;
 
     // diffuse
     vec3 norm = normalize(ourNormal);
     vec3 lightDir = normalize(light.position - fragPos);
     float diff = max(dot(norm, lightDir), 0.0);
-    vec3 diffuse = light.diffuse * (diff * material.diffuse) * texture(first_texture, ourTexCoord).rgb;
+    vec3 diffuse = light.diffuse * (diff * material.diffuse) * texture(main_texture, ourTexCoord).rgb;
 
 
     vec3 reflectDir = reflect(-lightDir, norm);

@@ -46,7 +46,6 @@ public class Lamp extends LightEmittingModel {
     }
 
     public void set(boolean isOn) {
-        System.out.println(isOn);
         getContainedLight().set(isOn);
     }
 

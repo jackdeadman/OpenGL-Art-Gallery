@@ -3,6 +3,7 @@ import gmaths.*;
 import java.nio.*;
 import com.jogamp.common.nio.*;
 import com.jogamp.opengl.*;
+import meshes.shaderprograms.*;
 
 public abstract class Mesh {
 
@@ -22,10 +23,18 @@ public abstract class Mesh {
 
   protected Mat4 perspective;
   protected WorldConfiguration worldConfig;
+  protected ShaderProgram program;
 
   public Mesh(GL3 gl) {
     material = new Material();
     model = new Mat4(1);
+  }
+
+  public Mesh(GL3 gl, ShaderProgram program) {
+    material = new Material();
+    model = new Mat4(1);
+
+    this.program = program;
   }
 
   protected void setWorldConfig(WorldConfiguration worldConfig) {
@@ -44,6 +53,7 @@ public abstract class Mesh {
     gl.glDeleteBuffers(1, vertexBufferId, 0);
     gl.glDeleteVertexArrays(1, vertexArrayId, 0);
     gl.glDeleteBuffers(1, elementBufferId, 0);
+    program.dispose(gl);
   }
 
   protected void fillBuffers(GL3 gl) {
@@ -84,7 +94,16 @@ public abstract class Mesh {
     gl.glBindVertexArray(0);
   }
 
-  public abstract void render(GL3 gl, Mat4 model);
+  // public abstract void render(GL3 gl, Mat4 model);
+  protected void loadTextures(GL3 gl) {}
+  public void render(GL3 gl, Mat4 model) {
+      program.sendSendDataToTheGPU(gl, perspective, model, worldConfig);
+      loadTextures(gl);
+
+      gl.glBindVertexArray(vertexArrayId[0]);
+      gl.glDrawElements(GL.GL_TRIANGLES, indices.length, GL.GL_UNSIGNED_INT, 0);
+      gl.glBindVertexArray(0);
+  }
 
   public void render(GL3 gl) {
     render(gl, model);

@@ -42,7 +42,7 @@ public class OneTextureShader extends ShaderProgram {
         shader.setVec3(gl, "material.specular", material.getSpecular());
         shader.setFloat(gl, "material.shininess", material.getShininess());
 
-        shader.setInt(gl, "texture", 0);
+        shader.setInt(gl, "main_texture", 0);
         gl.glActiveTexture(GL.GL_TEXTURE0);
         gl.glBindTexture(GL.GL_TEXTURE_2D, texture[0]);
 
