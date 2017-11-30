@@ -7,6 +7,7 @@ import engine.*;
 import engine.WorldConfiguration;
 import gmaths.*;
 import meshes.*;
+import meshes.shaderprograms.*;
 
 public class Room extends Model {
 
@@ -63,7 +64,8 @@ public class Room extends Model {
 
     private void loadMeshes(GL3 gl) {
         // make meshes
-        floor = new TwoTriangles(gl, floorTexture);
+        // floor = new TwoTriangles(gl, floorTexture);
+        floor = new TwoTrianglesNew(gl, new OneTextureShader(gl, floorTexture));
         back = new TwoTriangles3(gl, backWallTexture, backWallTexture, window2, backWallNormal);
         left = new TwoTriangles2(gl, windowTexture, containerTexture);
         right = new TwoTriangles2(gl, windowTexture, containerTexture);
