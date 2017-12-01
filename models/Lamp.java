@@ -23,11 +23,11 @@ public class Lamp extends PointLightEmittingModel {
         super(worldConfig);
 
         Material material = new Material();
-        material.setDiffuse(0.2f, 0.2f, 0.2f);
-        material.setAmbient(0.3f, 0.3f, 0.3f);
-        material.setSpecular(0.4f, 0.4f, 0.4f);
+        material.setDiffuse(0.6f, 0.6f, 0.6f);
+        material.setAmbient(0.8f, 0.8f, 0.8f);
+        material.setSpecular(1.0f, 1.0f, 1.0f);
 
-        Vec3 attenuation = new Vec3(1f, 0.045f, 0.0075f);
+        Vec3 attenuation = new Vec3(1f, 0.022f, 0.0019f);
         onLight = new PointLight(material, attenuation);
         setContainedLight(onLight);
     }

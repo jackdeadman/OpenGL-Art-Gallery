@@ -16,17 +16,17 @@ public class DirectionalLight {
     this.colour = colour;
 
     material = new Material();
-    material.setAmbient(0.001f, 0.001f, 0.001f);
-    material.setDiffuse(0.001f, 0.001f, 0.001f);
-    material.setSpecular(0.001f, 0.001f, 0.001f);
+    material.setAmbient(0.01f, 0.01f, 0.01f);
+    material.setDiffuse(0.01f, 0.01f, 0.01f);
+    material.setSpecular(0.01f, 0.01f, 0.01f);
   }
 
   public void set(boolean on) {
       material = new Material();
       if (on) {
-          material.setAmbient(0.001f, 0.001f, 0.001f);
-          material.setDiffuse(0.001f, 0.001f, 0.001f);
-          material.setSpecular(0.001f, 0.001f, 0.001f);
+          material.setAmbient(0.01f, 0.01f, 0.01f);
+          material.setDiffuse(0.01f, 0.01f, 0.01f);
+          material.setSpecular(0.01f, 0.01f, 0.01f);
       } else {
           material.setAmbient(0.0f, 0.0f, 0.0f);
           material.setDiffuse(0.0f, 0.0f, 0.0f);

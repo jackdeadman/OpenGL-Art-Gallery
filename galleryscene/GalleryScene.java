@@ -53,7 +53,6 @@ public class GalleryScene extends Scene {
 
 
     private void setupModels() {
-        // worldConfig.setSpotlight(new Spotlight(new Vec3(1f, 1f, 0f), new Vec3(0.1f, 0.18f, 0.0112f)));
         lamp1 = new Lamp(worldConfig);
         lamp2 = new Lamp(worldConfig);
         room = new Room(worldConfig, 16, 28, 10);
@@ -71,10 +70,10 @@ public class GalleryScene extends Scene {
         SGNode scene = new NameNode("Gallery Scene");
 
         TransformNode moveLight1 = new TransformNode("",
-                Mat4Transform.translate(4.0f, 0.0f, -6.0f));
+                Mat4Transform.translate(6.0f, 0.0f, -82.0f));
 
         TransformNode moveLight2 = new TransformNode("",
-                Mat4Transform.translate(-4.0f, 0.0f, 6.0f));
+                Mat4Transform.translate(-6.0f, 0.0f, 8.0f));
 
         scene.addChild(room.getRoot());
         room.getAnchor().addChild(moveLight1);

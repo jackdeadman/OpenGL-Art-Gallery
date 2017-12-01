@@ -24,7 +24,6 @@ public class TransformNode extends SGNode {
     worldTransform = t;
     t = Mat4.multiply(worldTransform, transform);
     for (int i=0; i<children.size(); i++) {
-        System.out.println(children.get(i));
       children.get(i).update(t);
     }
   }

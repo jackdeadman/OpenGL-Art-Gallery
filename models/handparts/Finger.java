@@ -3,17 +3,21 @@ import engine.*;
 import engine.render.*;
 import engine.utils.*;
 import engine.scenegraph.*;
+import galleryscene.shaderprograms.OneTextureShader;
+import galleryscene.shaderprograms.SpecularShader;
 import meshes.*;
 import gmaths.*;
 
 import com.jogamp.opengl.*;
+
+import javax.xml.soap.Text;
 
 public class Finger extends Model {
     private Model ring;
     private boolean hasRing;
 
     // Textures
-    private int[] rustTexture, rustTextureSpecular, metalTexture;
+    private int[] rustTexture, rustTextureSpecular, metalTexture, mainMetal, mainMetalSpecular;
 
     public Finger(WorldConfiguration worldConfig, boolean hasRing) {
         super(worldConfig);
@@ -30,7 +34,6 @@ public class Finger extends Model {
 
     // OpenGL loaded
     protected void start(GL3 gl) {
-        System.out.println("Loading finger");
         loadTextures(gl);
         loadMeshes(gl);
         buildSceneGraph(gl);
@@ -39,13 +42,15 @@ public class Finger extends Model {
     private void loadTextures(GL3 gl) {
         // Textures
         rustTexture = TextureLibrary.loadTexture(gl, "textures/floor_2.jpg");
-        rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/container2_specular.jpg");
-        metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
+        rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/steel3_spec.jpg");
+        metalTexture = TextureLibrary.loadTexture(gl, "textures/steel3.jpg");
+        mainMetal = TextureLibrary.loadTexture(gl, "textures/green.jpg");
+        mainMetalSpecular = TextureLibrary.loadTexture(gl, "textures/green_spec.jpg");
     }
 
     private void loadMeshes(GL3 gl) {
         // Meshes
-        segment = new Sphere(gl, rustTexture, rustTextureSpecular);
+        segment = new SphereNew(gl, new OneTextureShader(gl, mainMetal));
         joint = new Sphere(gl, metalTexture, rustTextureSpecular);
 
         registerMeshes(new Mesh[] { segment, joint });
@@ -76,15 +81,10 @@ public class Finger extends Model {
         float degrees2 = joint2 * MAX_BEND;
         float degrees3 = joint3 * MAX_BEND;
 
-        System.out.println(lowerJointRotation);
-        System.out.println(middleJointRotation);
-        System.out.println(upperJointRotation);
-
         lowerJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees1));
         middleJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees2));
         upperJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees3));
 
-        System.out.println("Setting transform");
 
         getRoot().update();
     }
@@ -168,12 +168,10 @@ public class Finger extends Model {
                             upperJointRotation.addChild(upperSegmentTranslation);
                                 upperSegmentTranslation.addChild(upperSegmentScale);
                                 upperSegmentScale.addChild(segmentShape3);
-        if (hasRing) {
-            System.out.println("Root");
-            System.out.println(ring.getRoot());
-            upperJointRotation.addChild(ring.getRoot());
-        }
 
+        if (hasRing) {
+            middleJointRotation.addChild(ring.getRoot());
+        }
 
         root.update();
         setRoot(root);

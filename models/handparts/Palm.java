@@ -29,14 +29,14 @@ public class Palm extends Model {
     }
 
     private void loadTextures(GL3 gl) {
-        rustTexture = TextureLibrary.loadTexture(gl, "textures/metal_rust.jpg");
+        rustTexture = TextureLibrary.loadTexture(gl, "textures/green.jpg");
         rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
         metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
     }
 
     private void loadMeshes(GL3 gl) {
         upperPalm = new SphereNew(gl, new OneTextureShader(gl, rustTexture));
-        lowerPalm = new Sphere(gl, rustTexture, rustTextureSpecular);
+        lowerPalm = new SphereNew(gl, new OneTextureShader(gl, rustTexture));
 
         registerMeshes(new Mesh[] { upperPalm, lowerPalm });
     }

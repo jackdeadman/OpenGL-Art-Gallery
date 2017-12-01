@@ -36,10 +36,10 @@ public class Hand extends Model {
 
     public void loadModels() {
         // Create parts
-        finger1 = new Finger(worldConfig, true);
+        finger1 = new Finger(worldConfig, false);
         finger2 = new Finger(worldConfig, false);
         finger3 = new Finger(worldConfig, false);
-        finger4 = new Finger(worldConfig, false);
+        finger4 = new Finger(worldConfig, true);
 
         palm = new Palm(worldConfig);
         thumb = new Thumb(worldConfig);
