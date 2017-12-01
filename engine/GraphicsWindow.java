@@ -1,6 +1,6 @@
 package engine;
 
-import gmaths.*;
+import engine.render.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

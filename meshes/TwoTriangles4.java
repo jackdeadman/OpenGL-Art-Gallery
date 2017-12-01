@@ -2,9 +2,9 @@ package meshes;
 
 import java.util.*;
 import engine.*;
+import engine.render.*;
+import engine.lighting.*;
 import gmaths.*;
-import java.nio.*;
-import com.jogamp.common.nio.*;
 import com.jogamp.opengl.*;
 
 public class TwoTriangles4 extends Mesh {

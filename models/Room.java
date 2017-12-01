@@ -1,13 +1,16 @@
 package models;
 
 import com.jogamp.opengl.*;
-import com.jogamp.opengl.awt.GLCanvas;
-import com.jogamp.opengl.util.FPSAnimator;
+
 import engine.*;
-import engine.WorldConfiguration;
+import engine.render.*;
+import engine.scenegraph.*;
+import engine.utils.*;
+
+import galleryscene.shaderprograms.*;
+
 import gmaths.*;
 import meshes.*;
-import meshes.shaderprograms.*;
 
 public class Room extends Model {
 
@@ -66,6 +69,7 @@ public class Room extends Model {
         // make meshes
         // floor = new TwoTriangles(gl, floorTexture);
         floor = new TwoTrianglesNew(gl, new OneTextureShader(gl, floorTexture));
+        // left = new TwoTrianglesNew(gl, new OneTextureShader(gl, floorTexture));
         back = new TwoTriangles3(gl, backWallTexture, backWallTexture, window2, backWallNormal);
         left = new TwoTriangles2(gl, windowTexture, containerTexture);
         right = new TwoTriangles2(gl, windowTexture, containerTexture);

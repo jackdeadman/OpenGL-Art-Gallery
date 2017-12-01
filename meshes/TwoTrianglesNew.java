@@ -1,21 +1,16 @@
 package meshes;
 
-import java.util.*;
-import engine.*;
-import gmaths.*;
-import java.nio.*;
-import com.jogamp.common.nio.*;
+import engine.render.*;
 import com.jogamp.opengl.*;
-import meshes.shaderprograms.*;
 
 /**
 Adapted TwoTriangles to only be concerned with it's vertices.
 */
 public class TwoTrianglesNew extends Mesh {
 
-  private ShaderProgram program;
+  private ShaderConfigurator program;
 
-  public TwoTrianglesNew(GL3 gl, ShaderProgram program) {
+  public TwoTrianglesNew(GL3 gl, ShaderConfigurator program) {
     super(gl, program);
     super.vertices = vertices;
     super.indices = indices;

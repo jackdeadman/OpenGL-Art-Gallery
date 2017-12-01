@@ -1,12 +1,14 @@
 package models;
 
 import com.jogamp.opengl.*;
-import com.jogamp.opengl.awt.GLCanvas;
-import com.jogamp.opengl.util.FPSAnimator;
-import engine.*;
+
 import engine.WorldConfiguration;
 import gmaths.*;
 import meshes.*;
+
+import engine.render.*;
+import engine.utils.*;
+import engine.scenegraph.*;
 
 public class PictureFrame extends Model {
     public static class PictureDimension {

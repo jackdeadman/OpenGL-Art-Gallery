@@ -1,11 +1,12 @@
 package models;
 
 import engine.*;
+import engine.render.*;
+import engine.scenegraph.*;
+import engine.utils.*;
 import gmaths.*;
 import meshes.*;
 import com.jogamp.opengl.*;
-import com.jogamp.opengl.awt.GLCanvas;
-import com.jogamp.opengl.util.FPSAnimator;
 
 public class Arm extends Model {
 
@@ -47,12 +48,6 @@ public class Arm extends Model {
 
         anchor = new TransformNode("",
                 Mat4Transform.translate(0.0f, 2.5f, 0.0f));
-
-        /*
-        root
-            arm
-                hand
-        */
 
         SGNode root = new NameNode("Arm");
         root.addChild(scaleArm);

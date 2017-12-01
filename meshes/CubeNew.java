@@ -1,35 +1,17 @@
 package meshes;
 
-import com.jogamp.common.nio.*;
 import com.jogamp.opengl.*;
-import engine.*;
-import engine.PointLight;
-import gmaths.*;
-import java.nio.*;
-import java.util.ArrayList;
+import engine.render.*;
 
 public class CubeNew extends Mesh {
   private Material material;
 
-  public Cube(GL3 gl, ShaderProgram program) {
+  public CubeNew(GL3 gl, ShaderConfigurator program) {
     super(gl, program);
     super.vertices = this.vertices;
     super.indices = this.indices;
 
     fillBuffers(gl);
-  }
-
-  public void render(GL3 gl, Mat4 model) {
-
-    gl.glBindVertexArray(vertexArrayId[0]);
-    gl.glDrawElements(GL.GL_TRIANGLES, indices.length, GL.GL_UNSIGNED_INT, 0);
-    gl.glBindVertexArray(0);
-  }
-
-  public void dispose(GL3 gl) {
-    super.dispose(gl);
-    gl.glDeleteBuffers(1, textureId1, 0);
-    gl.glDeleteBuffers(1, textureId2, 0);
   }
 
   // ***************************************************

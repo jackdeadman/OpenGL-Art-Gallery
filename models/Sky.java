@@ -1,10 +1,11 @@
 package models;
 
 import com.jogamp.opengl.*;
-import com.jogamp.opengl.awt.GLCanvas;
-import com.jogamp.opengl.util.FPSAnimator;
+
 import engine.*;
-import engine.WorldConfiguration;
+import engine.render.*;
+import engine.utils.*;
+import engine.scenegraph.*;
 import gmaths.*;
 import meshes.*;
 

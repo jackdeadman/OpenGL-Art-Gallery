@@ -8,12 +8,18 @@ import gmaths.*;
 import com.jogamp.opengl.*;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
-import scene.*;
 import models.*;
+import engine.animation.*;
+import engine.lighting.*;
+import engine.utils.*;
+import galleryscene.*;
+
 public class Arty {
+
 
     private static final int WIDTH = 1024;
     private static final int HEIGHT = 768;
+    int foo = 0;
     private static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
 
     private static Vec3 CAMERA_START_POSITION = new Vec3(0f, 6f, 14.0f);

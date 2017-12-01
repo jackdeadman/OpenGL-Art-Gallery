@@ -1,11 +1,11 @@
 package meshes;
 
 import engine.*;
-import gmaths.*;
-import java.nio.*;
-import com.jogamp.common.nio.*;
-import com.jogamp.opengl.*;
+import engine.lighting.*;
 import java.util.*;
+import gmaths.*;
+import com.jogamp.opengl.*;
+import engine.render.*;
 
 public class Sphere extends Mesh {
 

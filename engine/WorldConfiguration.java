@@ -1,5 +1,7 @@
 package engine;
-import java.sql.Array;
+
+import engine.lighting.*;
+
 import java.util.ArrayList;
 
 public class WorldConfiguration {

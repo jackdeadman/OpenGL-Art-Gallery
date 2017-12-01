@@ -1,11 +1,10 @@
 package meshes;
 
-import com.jogamp.common.nio.*;
 import com.jogamp.opengl.*;
 import engine.*;
-import engine.PointLight;
+import engine.lighting.*;
+import engine.render.*;
 import gmaths.*;
-import java.nio.*;
 import java.util.ArrayList;
 
 public class Cube extends Mesh {

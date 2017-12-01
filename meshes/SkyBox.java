@@ -1,16 +1,14 @@
 package meshes;
 
-import com.jogamp.common.nio.*;
 import com.jogamp.opengl.*;
 import engine.*;
-import engine.PointLight;
+import engine.lighting.*;
+import engine.render.*;
 import gmaths.*;
-import java.nio.*;
 import java.util.ArrayList;
 
 /**
     Edited version of Steve Maddock's Cube Mesh
-    @author Jack Deadman
 */
 
 public class SkyBox extends Mesh {
@@ -33,7 +31,6 @@ public class SkyBox extends Mesh {
   }
 
   public void render(GL3 gl, Mat4 model) {
-    //Mat4 model = getObjectModelMatrix();
     Camera camera = worldConfig.getCamera();
 
     Mat4 mvpMatrix = Mat4.multiply(perspective, Mat4.multiply(camera.getViewMatrix(), model));

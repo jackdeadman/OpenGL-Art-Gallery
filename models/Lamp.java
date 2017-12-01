@@ -1,13 +1,17 @@
 package models;
 
+import com.jogamp.opengl.*;
 import engine.*;
+import engine.lighting.*;
+import engine.render.*;
+import engine.scenegraph.*;
+import engine.utils.*;
+import galleryscene.shaderprograms.*;
 import gmaths.*;
 import meshes.*;
-import com.jogamp.opengl.*;
-import com.jogamp.opengl.awt.GLCanvas;
-import com.jogamp.opengl.util.FPSAnimator;
 
-public class Lamp extends LightEmittingModel {
+
+public class Lamp extends PointLightEmittingModel {
 
     private Mesh cube, bottom, topPart1, topPart2;
 
@@ -18,9 +22,13 @@ public class Lamp extends LightEmittingModel {
     public Lamp(WorldConfiguration worldConfig) {
         super(worldConfig);
 
-        Vec3 colour = new Vec3(1.0f, 1.0f, 1.0f);
-        Vec3 attenuation = new Vec3(1f, 0.08f, 0.012f);
-        onLight = new PointLight(colour, attenuation);
+        Material material = new Material();
+        material.setDiffuse(0.2f, 0.2f, 0.2f);
+        material.setAmbient(0.3f, 0.3f, 0.3f);
+        material.setSpecular(0.4f, 0.4f, 0.4f);
+
+        Vec3 attenuation = new Vec3(1f, 0.045f, 0.0075f);
+        onLight = new PointLight(material, attenuation);
         setContainedLight(onLight);
     }
 
@@ -32,16 +40,17 @@ public class Lamp extends LightEmittingModel {
 
     private void loadTextures(GL3 gl) {
         rustTexture = TextureLibrary.loadTexture(gl, "textures/steel3.jpg");
-        rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
+        rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/steel3_spec.jpg");
         metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
     }
 
     private void loadMeshes(GL3 gl) {
+        ShaderConfigurator program = new SpecularShader(gl, rustTexture, rustTextureSpecular);
         // Meshes
-        cube = new Cube(gl, rustTexture, rustTextureSpecular);
-        bottom = new Sphere(gl, rustTexture, rustTextureSpecular);
-        topPart1 = new Sphere(gl, metalTexture, metalTexture);
-        topPart2 = new Sphere(gl, rustTexture, metalTexture);
+        cube = new CubeNew(gl, program);
+        bottom = new SphereNew(gl, program);
+        topPart1 = new SphereNew(gl, program);
+        topPart2 = new SphereNew(gl, new LightShader(gl, getContainedLight()));
         registerMeshes(new Mesh[] { cube, bottom, topPart1, topPart2 });
     }
 
