@@ -10,22 +10,27 @@ import com.jogamp.opengl.*;
 
 public class Finger extends Model {
     private Model ring;
+    private boolean hasRing;
 
     // Textures
-    int[] rustTexture, rustTextureSpecular, metalTexture;
+    private int[] rustTexture, rustTextureSpecular, metalTexture;
 
-    public Finger(WorldConfiguration worldConfig) {
+    public Finger(WorldConfiguration worldConfig, boolean hasRing) {
         super(worldConfig);
+        this.hasRing = hasRing;
         loadModels();
     }
 
     private void loadModels() {
-        ring = new Ring(worldConfig);
-        registerModel(ring);
+        if (hasRing) {
+            ring = new Ring(worldConfig);
+            registerModel(ring);
+        }
     }
 
     // OpenGL loaded
     protected void start(GL3 gl) {
+        System.out.println("Loading finger");
         loadTextures(gl);
         loadMeshes(gl);
         buildSceneGraph(gl);
@@ -71,9 +76,15 @@ public class Finger extends Model {
         float degrees2 = joint2 * MAX_BEND;
         float degrees3 = joint3 * MAX_BEND;
 
+        System.out.println(lowerJointRotation);
+        System.out.println(middleJointRotation);
+        System.out.println(upperJointRotation);
+
         lowerJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees1));
         middleJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees2));
         upperJointRotation.setTransform(Mat4Transform.rotateAroundX(degrees3));
+
+        System.out.println("Setting transform");
 
         getRoot().update();
     }
@@ -157,7 +168,11 @@ public class Finger extends Model {
                             upperJointRotation.addChild(upperSegmentTranslation);
                                 upperSegmentTranslation.addChild(upperSegmentScale);
                                 upperSegmentScale.addChild(segmentShape3);
-//                            upperJointRotation.addChild(ring.getRoot());
+        if (hasRing) {
+            System.out.println("Root");
+            System.out.println(ring.getRoot());
+            upperJointRotation.addChild(ring.getRoot());
+        }
 
 
         root.update();

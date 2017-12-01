@@ -33,8 +33,8 @@ public class GalleryScene extends Scene {
         this.animator = animator;
 
         // tmp
-        Spotlight light1 = new Spotlight(new Vec3(0f, 1f, 0f), new Vec3(0.1f, 0.18f, 0.0112f));
-        worldConfig.setSpotlight(light1);
+//        Spotlight light1 = new Spotlight(new Vec3(0f, 1f, 0f), new Vec3(0.1f, 0.18f, 0.0112f));
+//        worldConfig.setSpotlight(light1);
 
         Vec3 colour = new Vec3(0.1f, 0.1f, 0.1f);
         DirectionalLight light = new DirectionalLight(DIRECTIONAL_LIGHT_DIR, colour);
@@ -67,7 +67,6 @@ public class GalleryScene extends Scene {
 
 
     protected void buildSceneGraph(GL3 gl) {
-        // System.out.println("Building scene graph");
         room.addPictureToLeftWall((PictureFrame) pictureFrame);
         SGNode scene = new NameNode("Gallery Scene");
 

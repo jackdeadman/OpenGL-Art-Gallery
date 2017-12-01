@@ -19,7 +19,6 @@ public abstract class Model {
         this.worldConfig = worldConfig;
     }
 
-
     public void setWorldConfig(WorldConfiguration worldConfig) {
         this.worldConfig = worldConfig;
     }
@@ -80,7 +79,8 @@ public abstract class Model {
 
     protected void initialise(GL3 gl) {
         for (Model model: models) {
-            model.start(gl);
+            System.out.println(model);
+            model.initialise(gl);
         }
         start(gl);
     }

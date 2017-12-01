@@ -1,13 +1,9 @@
 // Main Assignemnt class
 import engine.*;
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import gmaths.*;
-import com.jogamp.opengl.*;
-import com.jogamp.opengl.awt.GLCanvas;
-import com.jogamp.opengl.util.FPSAnimator;
 import models.*;
 import engine.animation.*;
 import engine.lighting.*;
