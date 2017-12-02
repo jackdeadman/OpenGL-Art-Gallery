@@ -14,6 +14,8 @@ public class LightNode extends SGNode {
 
     protected void update(Mat4 t) {
         super.update(t);
+        System.out.println("Updating light...");
+        System.out.println(t);
         Vec4 worldPoint = Mat4.multiply(worldTransform, new Vec4());
         light.setPosition(worldPoint.toVec3());
     }

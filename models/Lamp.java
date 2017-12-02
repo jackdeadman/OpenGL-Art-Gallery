@@ -29,6 +29,7 @@ public class Lamp extends PointLightEmittingModel {
 
         Vec3 attenuation = new Vec3(1f, 0.022f, 0.0019f);
         onLight = new PointLight(material, attenuation);
+
         setContainedLight(onLight);
     }
 
@@ -103,7 +104,7 @@ public class Lamp extends PointLightEmittingModel {
             root.addChild(transformCube);
 
                 transformCube.addChild(lightTransform);
-                    lightTransform.addChild(lightNode);
+//                    lightTransform.addChild(lightNode);
 
                 transformCube.addChild(cubeShape);
 
@@ -115,6 +116,7 @@ public class Lamp extends PointLightEmittingModel {
 
                 topTransform.addChild(part2Transform);
                     part2Transform.addChild(topPart2Shape);
+                    part2Transform.addChild(lightNode);
 
         root.update();
         setRoot(root);

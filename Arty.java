@@ -12,39 +12,12 @@ import galleryscene.*;
 
 public class Arty {
 
-
     private static final int WIDTH = 1024;
     private static final int HEIGHT = 768;
-    int foo = 0;
     private static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
 
     private static Vec3 CAMERA_START_POSITION = new Vec3(0f, 6f, 14.0f);
     private static HandConfiguration handConfiguration;
-
-    private static void addSlider(JPanel panel, String text, float amount, ChangeListener listener) {
-        JPanel fingerControl = new JPanel();
-        JSlider slider = new JSlider(JSlider.HORIZONTAL, (int)(amount * 100), 100, 0);
-        JLabel label = new JLabel(text);
-        JLabel valueLabel = new JLabel(String.valueOf(amount));
-
-
-        fingerControl.add(label);
-        fingerControl.add(slider);
-        fingerControl.add(valueLabel);
-
-        slider.addChangeListener(new ChangeListener() {
-          public void stateChanged(ChangeEvent evt) {
-            JSlider slider = (JSlider) evt.getSource();
-            // if (!slider.getValueIsAdjusting()) {
-              int value = slider.getValue();
-              valueLabel.setText(String.valueOf(value / 100));
-              listener.stateChanged(evt);
-            // }
-          }
-        });
-
-        panel.add(fingerControl);
-    }
 
 
     public static void main(String[] args) {

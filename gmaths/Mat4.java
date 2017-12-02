@@ -73,18 +73,16 @@ public class Mat4 {   // row column formulation
   }
 
   // Matrix vector multiplication.
-  // Made by me
+  // @author Jack Deadman
   public static Vec4 multiply(Mat4 a, Vec4 b) {
-      float[] result = new float[4];
 
-      for (int i=0; i<4; ++i) {
-          result[i] = 0;
-          for (int j=0; j<4; ++j) {
-              result[i] += a.values[i][j] * b.toArray()[j];
-          }
-      }
+    float[] y = new float[4];
 
-      return new Vec4(result[0], result[1], result[2], result[3]);
+    for (int i = 0; i < 4; i++)
+      for (int j = 0; j < 4; j++)
+        y[i] += a.values[i][j] * b.toArray()[j];
+
+      return new Vec4(y[0], y[1], y[2], y[3]);
   }
 
   // Made by me

@@ -70,7 +70,7 @@ public class GalleryScene extends Scene {
         SGNode scene = new NameNode("Gallery Scene");
 
         TransformNode moveLight1 = new TransformNode("",
-                Mat4Transform.translate(6.0f, 0.0f, -82.0f));
+                Mat4Transform.translate(6.0f, 0.0f, -8.0f));
 
         TransformNode moveLight2 = new TransformNode("",
                 Mat4Transform.translate(-6.0f, 0.0f, 8.0f));

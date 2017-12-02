@@ -38,6 +38,8 @@ public class PointLight implements Light {
   }
 
   public void setPosition(Vec3 v) {
+    System.out.println("Setting point light system");
+    System.out.println(v);
     position.x = v.x;
     position.y = v.y;
     position.z = v.z;
