@@ -1,7 +1,6 @@
 package engine.scenegraph;
 
 import gmaths.*;
-import com.jogamp.opengl.*;
 
 public class TransformNode extends SGNode {
 

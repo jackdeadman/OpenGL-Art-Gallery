@@ -17,10 +17,25 @@ public class Ring extends Model {
     private Spotlight light;
     private int[] goldTexture;
 
+    private Material createLightMaterial() {
+        Material material = new Material();
+        material.setDiffuse(0.4f, 0.56f, 0.86f);
+        material.setSpecular(0.4f, 0.56f, 0.86f);
+        material.setAmbient(0.4f, 0.56f, 0.86f);
+        material.setShininess(10f);
+
+        return material;
+    }
+
     public Ring(WorldConfiguration worldConfig) {
         super(worldConfig);
-        light = new Spotlight(new Vec3(0f, 0f, -1f), new Vec3(0.1f, 0.18f, 0.0112f));
+        Material material = createLightMaterial();
+
+        light = new Spotlight(material, Spotlight.MEDIUM_ATTENUATION);
         light.setPosition(new Vec3(0f, 2f, 0f));
+        light.setDirection(new Vec3(0f, 0f, -1f));
+        light.setCutOff((float) Math.cos(Math.toRadians(12.5)));
+        light.setOuterCutOff((float) Math.cos(Math.toRadians(17.5)));
         worldConfig.setSpotlight(light);
     }
 
@@ -48,9 +63,10 @@ public class Ring extends Model {
     }
 
     private void buildSceneGraph(GL3 gl) {
-        SpotlightNode lightNode = new SpotlightNode("", light);
-        MeshNode ringShape = new MeshNode("", ring);
-        TransformNode ringTransform = new TransformNode("",
+        SpotlightNode lightNode = new SpotlightNode("Spotlight (Light)", light);
+        MeshNode ringShape = new MeshNode("Sphere (Ring)", ring);
+        TransformNode ringTransform = new TransformNode(
+                "Scale(0.8f, 0.5f, 0.8f)",
                 Mat4Transform.scale(
                     0.8f,0.5f, 0.8f
                 )

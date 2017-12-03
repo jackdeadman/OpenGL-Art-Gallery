@@ -12,8 +12,8 @@ import com.jogamp.opengl.util.FPSAnimator;
 
 public class CameraController extends KeyAdapter implements MouseMotionListener {
 
-    Camera camera;
-    Point lastpoint;
+    private Camera camera;
+    private Point lastpoint;
 
     public CameraController(Camera camera) {
         this.camera = camera;

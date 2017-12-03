@@ -88,6 +88,7 @@ public class Finger extends Model {
 
         getRoot().update();
     }
+   
 
     private void buildSceneGraph(GL3 gl) {
         SGNode root = new NameNode("Finger");
@@ -100,14 +101,6 @@ public class Finger extends Model {
         MeshNode jointShape2 = new MeshNode("Sphere (middleJoint)", joint);
         MeshNode jointShape3 = new MeshNode("Sphere (upperJoint)", joint);
 
-        // Name nodes
-        NameNode lowerJoint = new NameNode("lowerJoint");
-        NameNode middleJoint = new NameNode("middleJoint");
-        NameNode upperJoint = new NameNode("upperJoint");
-
-        NameNode lowerFinger = new NameNode("lowerFinger");
-        NameNode middleFinger = new NameNode("middleFinger");
-        NameNode upperFinger = new NameNode("upperFinger");
 
         // Size the joint part will be scaled to
         float jointSize = 0.5f;

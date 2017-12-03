@@ -2,85 +2,55 @@ package engine.lighting;
 import gmaths.*;
 import engine.render.*;
 
-public class PointLight implements Light {
+public class PointLight extends Light {
 
-  private Vec4 position;
-  private Vec3 colour;
-  private Vec3 attenuation;
-  private Material material;
-  private Material onMaterial;
-  private Material offMaterial;
+    // Example Attenuations: https://learnopengl.com/#!Lighting/Light-casters
+    public static final Vec3 SHORT_ATTENUATION = new Vec3(1f, 0.7f, 1.8f);
+    public static final Vec3 MEDIUM_ATTENUATION = new Vec3(1f, 0.22f, 0.2f);
+    public static final Vec3 LONG_ATTENUATION = new Vec3(1f, 0.09f, 0.032f);
 
-  public PointLight(Material material, Vec3 attenuation) {
-    position = new Vec4(0f, 0f, 0f, 1f);
+    private Vec3 position;
+    private Vec3 attenuation;
 
-    this.attenuation = attenuation;
+    public PointLight(Material material, Vec3 attenuation) {
+        super(material);
+        position = new Vec3(0f, 0f, 0f);
+        this.attenuation = attenuation;
+    }
 
-    offMaterial = new Material();
-    offMaterial.setAmbient(0.0f, 0.0f, 0.0f);
-    offMaterial.setDiffuse(0.0f, 0.0f, 0.0f);
-    offMaterial.setSpecular(0.0f, 0.0f, 0.0f);
 
-    this.material = material;
-    this.onMaterial = material;;
+    public void setPosition(Vec3 v) {
+        position.x = v.x;
+        position.y = v.y;
+        position.z = v.z;
+    }
+
+    public void setPosition(float x, float y, float z) {
+        position.x = x;
+        position.y = y;
+        position.z = z;
+    }
+
+    public void setAttenuation(Vec3 v) {
+        attenuation.x = v.x;
+        attenuation.y = v.y;
+        attenuation.z = v.z;
+    }
+
+    public Vec3 getPosition() {
+      return position;
   }
-
-  public Material getMaterial() {
-      return material;
-  }
-
-  public void set(boolean isOn) {
-      material = isOn ? onMaterial : offMaterial;
-  }
-
-  public void setMaterial(Material mat) {
-      material = mat;
-  }
-
-  public void setPosition(Vec3 v) {
-    System.out.println("Setting point light system");
-    System.out.println(v);
-    position.x = v.x;
-    position.y = v.y;
-    position.z = v.z;
-  }
-
-  public void setPosition(float x, float y, float z) {
-    position.x = x;
-    position.y = y;
-    position.z = z;
-  }
-
-  public void setColour(Vec3 v) {
-    colour.x = v.x;
-    colour.y = v.y;
-    colour.z = v.z;
-  }
-
-  public void setAttenuation(Vec3 v) {
-    colour.x = v.x;
-    colour.y = v.y;
-    colour.z = v.z;
-  }
-
-  public void setColour(float x, float y, float z) {
-    colour.x = x;
-    colour.y = y;
-    colour.z = z;
-  }
-
-  public Vec3 getPosition() {
-    // Abstract implementation detail that the
-    // position is stored as a vec4.
-    return position.toVec3();
-  }
-
-  public Vec3 getColour() {
-    return colour;
-  }
-
-  public Vec3 getAttenuation () {
-    return attenuation;
-  }
+    public Vec3 getAttenuation () {
+        return attenuation;
+    }
+    public float getConstant() {
+        return attenuation.x;
+    }
+    public float getLinear() {
+        return attenuation.y;
+    }
+    public float getQuadratic() {
+        return attenuation.z;
+    }
 
 }

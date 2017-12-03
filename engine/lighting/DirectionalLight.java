@@ -7,9 +7,6 @@ public class DirectionalLight {
   private Vec4 direction;
   private Vec3 colour;
   private Material material;
-  private Material offMaterial;
-  private Material onMaterial;
-
 
   public DirectionalLight(Vec3 direction, Vec3 colour) {
     this.direction = direction.toVec4();
@@ -50,17 +47,6 @@ public class DirectionalLight {
     direction.z = z;
   }
 
-  public void setColour(Vec3 v) {
-    colour.x = v.x;
-    colour.y = v.y;
-    colour.z = v.z;
-  }
-
-  public void setColour(float x, float y, float z) {
-    colour.x = x;
-    colour.y = y;
-    colour.z = z;
-  }
 
   public Vec3 getDirection() {
     // Abstract implementation detail that the

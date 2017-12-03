@@ -4,10 +4,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import com.jogamp.opengl.*;
 import com.jogamp.opengl.util.texture.spi.JPEGImage;
+import java.util.*;
 
 public final class TextureLibrary {
 
   // only deals with rgb jpg files
+  private static HashMap<String, int[]> textureCache = new HashMap<>();
 
   public static int[] loadTexture(GL3 gl, String filename) {
     return loadTexture(gl, filename, GL.GL_REPEAT, GL.GL_REPEAT,
@@ -17,6 +19,11 @@ public final class TextureLibrary {
 
   public static int[] loadTexture(GL3 gl, String filename,
                                   int wrappingS, int wrappingT, int filterS, int filterT) {
+
+    if (textureCache.containsKey(filename)) {
+      return textureCache.get(filename);
+    }
+
     int[] textureId = new int[1];
     try {
       File f = new File(filename);
@@ -35,6 +42,7 @@ public final class TextureLibrary {
     catch(Exception e) {
       System.out.println("Error loading texture " + filename);
     }
+    textureCache.put(filename, textureId);
     return textureId;
   }
 

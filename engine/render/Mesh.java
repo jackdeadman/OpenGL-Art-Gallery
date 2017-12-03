@@ -56,6 +56,7 @@ public abstract class Mesh {
         gl.glDeleteBuffers(1, vertexBufferId, 0);
         gl.glDeleteVertexArrays(1, vertexArrayId, 0);
         gl.glDeleteBuffers(1, elementBufferId, 0);
+        // Need to dispose the shader program as well e.g textures
         program.dispose(gl);
     }
 
@@ -98,7 +99,6 @@ public abstract class Mesh {
         gl.glBindVertexArray(0);
     }
 
-    // public abstract void render(GL3 gl, Mat4 model);
     protected void loadTextures(GL3 gl) {}
 
     public void render(GL3 gl, Mat4 model) {

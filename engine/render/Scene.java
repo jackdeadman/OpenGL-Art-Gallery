@@ -20,10 +20,6 @@ public abstract class Scene implements GLEventListener {
     worldConfig = new WorldConfiguration(camera);
   }
 
-  protected SGNode getSceneNode() {
-      return scene;
-  }
-
   protected void setDirectionalLight(DirectionalLight light) {
       worldConfig.setDirectionalLight(light);
   }
@@ -37,11 +33,13 @@ public abstract class Scene implements GLEventListener {
   }
 
   protected void registerModel(Model model) {
+      // Set the config so the models know about the camera and lighting.
       model.setWorldConfig(worldConfig);
       models.add(model);
   }
 
   protected void registerModels(Model[] models) {
+      // Helper for multiple models.
       for (Model model : models) {
           registerModel(model);
       }
@@ -74,6 +72,8 @@ public abstract class Scene implements GLEventListener {
     gl.glClearDepth(1.0f);
     gl.glEnable(GL.GL_BLEND);
     gl.glEnable(GL.GL_DEPTH_TEST);
+
+    // Allow transparency
     gl.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE_MINUS_SRC_ALPHA);
 
     gl.glDepthFunc(GL.GL_LESS);
@@ -85,7 +85,7 @@ public abstract class Scene implements GLEventListener {
     initialise(gl);
   }
 
-  protected Mat4 calcPerspectiveMatrix() {
+  private Mat4 calcPerspectiveMatrix() {
       return Mat4Transform.perspective(45, aspect);
   }
 
@@ -115,7 +115,7 @@ public abstract class Scene implements GLEventListener {
   }
 
 
-  protected void initialise(GL3 gl) {
+  private void initialise(GL3 gl) {
       for (Model model : models) {
           model.initialise(gl);
       }
@@ -137,7 +137,7 @@ public abstract class Scene implements GLEventListener {
   protected void beforeSceneDraw(GL3 gl) {};
   protected void afterSceneDraw(GL3 gl) {};
 
-  protected void disposeMeshes(GL3 gl) {
+  private void disposeMeshes(GL3 gl) {
       for (Model model : models) {
           model.disposeMeshes(gl);
       }

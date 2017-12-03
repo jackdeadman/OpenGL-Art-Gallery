@@ -13,114 +13,108 @@ import meshes.*;
 
 public class Lamp extends PointLightEmittingModel {
 
-    private Mesh cube, bottom, topPart1, topPart2;
+    // Meshes that make up a Lamp
+    private Mesh pipe, bottomStand, bulbHolder, bulb;
 
     // Textures
-    int[] rustTexture, rustTextureSpecular, metalTexture;
-    private PointLight onLight;
+    private int[] steelTexture, steelTextureSpecular;
+    private PointLight light;
 
     public Lamp(WorldConfiguration worldConfig) {
         super(worldConfig);
 
+        // Setup the light properties
         Material material = new Material();
         material.setDiffuse(0.6f, 0.6f, 0.6f);
         material.setAmbient(0.8f, 0.8f, 0.8f);
         material.setSpecular(1.0f, 1.0f, 1.0f);
 
+        // Setup the point light specific properties
+        // Numbers chosen based on: https://learnopengl.com/#!Lighting/Light-casters
         Vec3 attenuation = new Vec3(1f, 0.022f, 0.0019f);
-        onLight = new PointLight(material, attenuation);
+        light = new PointLight(material, attenuation);
 
-        setContainedLight(onLight);
+        setContainedLight(light);
     }
 
+    // OpenGL has been loaded
     protected void start(GL3 gl) {
         loadTextures(gl);
         loadMeshes(gl);
         buildSceneGraph(gl);
     }
 
+    // Load in the textures to be used later
     private void loadTextures(GL3 gl) {
-        rustTexture = TextureLibrary.loadTexture(gl, "textures/steel3.jpg");
-        rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/steel3_spec.jpg");
-        metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
+        steelTexture = TextureLibrary.loadTexture(gl, "textures/steel3.jpg");
+        steelTextureSpecular = TextureLibrary.loadTexture(gl, "textures/steel3_spec.jpg");
     }
 
     private void loadMeshes(GL3 gl) {
-        ShaderConfigurator program = new SpecularShader(gl, rustTexture, rustTextureSpecular);
-        // Meshes
-        cube = new CubeNew(gl, program);
-        bottom = new SphereNew(gl, program);
-        topPart1 = new SphereNew(gl, program);
-        topPart2 = new SphereNew(gl, new LightShader(gl, getContainedLight()));
-        registerMeshes(new Mesh[] { cube, bottom, topPart1, topPart2 });
+        // Create the Shader programs to be attached to the mesh
+        ShaderConfigurator program = new SpecularShader(gl, steelTexture, steelTextureSpecular);
+
+        // Load the Meshes
+        pipe = new CubeNew(gl, program);
+        bottomStand = new SphereNew(gl, program);
+        bulbHolder = new SphereNew(gl, program);
+        bulb = new SphereNew(gl, new LightShader(gl, getContainedLight()));
+
+        // Register the models so they setup for the scene
+        registerMeshes(new Mesh[] {pipe, bottomStand, bulbHolder, bulb});
     }
 
-    public void set(boolean isOn) {
-        getContainedLight().set(isOn);
-    }
 
     public void buildSceneGraph(GL3 gl) {
 
         // Creates nodes
-        MeshNode cubeShape = new MeshNode("", cube);
-        MeshNode bottomShape = new MeshNode("", bottom);
-        MeshNode topPart1Shape = new MeshNode("", topPart1);
-        MeshNode topPart2Shape = new MeshNode("", topPart2);
+        MeshNode pipeShape = new MeshNode("Cube (Pipe)", pipe);
+        MeshNode bottomStandShape = new MeshNode("Sphere (Bottom Stand)", bottomStand);
+        MeshNode bulbHolderShape = new MeshNode("Sphere (Bulb holder)", bulbHolder);
+        MeshNode bulbShape = new MeshNode("Sphere (Bulb)", bulb);
 
-        LightNode lightNode = new LightNode("", containedLight);
+        PointLightNode lightNode = new PointLightNode("PointLight (Light)", containedLight);
 
-        TransformNode transformCube = new TransformNode(
-            "",
+        // Transforms
+        TransformNode transformPipe = new TransformNode(
+            "Scale(0.1f, 4.0f, 0.1f); Translate(0.0f, 0.5f, 0.0f)",
             Mat4.multiply(
                 Mat4Transform.scale(0.1f, 4.0f, 0.1f),
                 Mat4Transform.translate(0.0f, 0.5f, 0.0f)
             )
         );
 
-        TransformNode bottomTransform = new TransformNode(
-            "",
-            // Mat4.multiply(
+        TransformNode bottomStandTransform = new TransformNode(
+                "Scale(1.0f, 1.0f, 1.0f)",
                 Mat4Transform.scale(1.0f, 1.0f, 1.0f)
-                // Mat4Transform.translate(0.0f, 0.5f, 0.0f)
-            // )
         );
 
-        TransformNode topTransform = new TransformNode(
-            "",
+        TransformNode bulbHolderTransform = new TransformNode(
+            "Translate(0.0f, 4.0f, 0.0f)",
             Mat4Transform.translate(0.0f, 4.0f, 0.0f)
         );
 
-        TransformNode lightTransform = new TransformNode(
-            "",
-            Mat4Transform.translate(0.0f, 2.0f, 0.0f));
-
-        TransformNode part2Transform = new TransformNode(
-            "",
+        TransformNode bulbTransform = new TransformNode(
+            "Translate(0.0f, 0.2f, 0.0f)",
             Mat4Transform.translate(0.0f, 0.2f, 0.0f)
         );
 
-        // Combines nodes
+        // Combines nodes to create the tree
         SGNode root = new NameNode("Lamp");
-            root.addChild(transformCube);
+            root.addChild(transformPipe);
+                transformPipe.addChild(pipeShape);
 
-                transformCube.addChild(lightTransform);
-//                    lightTransform.addChild(lightNode);
+            root.addChild(bottomStandTransform);
+                bottomStandTransform.addChild(bottomStandShape);
 
-                transformCube.addChild(cubeShape);
+            root.addChild(bulbHolderTransform);
+                bulbHolderTransform.addChild(bulbHolderShape);
 
-            root.addChild(bottomTransform);
-                bottomTransform.addChild(bottomShape);
-
-            root.addChild(topTransform);
-                topTransform.addChild(topPart1Shape);
-
-                topTransform.addChild(part2Transform);
-                    part2Transform.addChild(topPart2Shape);
-                    part2Transform.addChild(lightNode);
+                bulbHolderTransform.addChild(bulbTransform);
+                    bulbTransform.addChild(bulbShape);
+                    bulbTransform.addChild(lightNode);
 
         root.update();
         setRoot(root);
     }
-
-
 }
