@@ -42,9 +42,9 @@ public class Arty {
 
         window.start();
 
-        SceneControls controls = new SceneControls(handConfiguration);
-        controls.setLampModels(lamps);
-        controls.setWorldLight(worldLight);
+        WorldConfiguration worldConfig = gallery.getWorldConfig();
+
+        SceneControls controls = new SceneControls(handConfiguration, worldConfig);
         controls.setAnimationEngine(animator);
         controls.setCamera(camera);
 

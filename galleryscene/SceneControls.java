@@ -16,21 +16,16 @@ public class SceneControls extends JPanel {
 
     private JPanel middle = new JPanel();
 
-    private Lamp[] lamps;
-    private DirectionalLight worldLight;
+    // private Lamp[] lamps;
+    private WorldConfiguration worldConfig;
+    // private DirectionalLight worldLight;
     private TimelineManager timelineManager;
     private Camera camera;
 
-    public void setLampModels(Lamp[] lamps) {
-        this.lamps = lamps;
-    }
-
-    public void setWorldLight(DirectionalLight light) {
-        worldLight = light;
-    }
-
-    public SceneControls(HandConfiguration handConfig) {
+    public SceneControls(HandConfiguration handConfig, WorldConfiguration worldConfig) {
         this.handConfig = handConfig;
+        camera = worldConfig.getCamera();
+        this.worldConfig = worldConfig;
         setPreferredSize(new Dimension(300, 2000));
         buildPanel();
     }
@@ -126,30 +121,30 @@ public class SceneControls extends JPanel {
         ToggleButton button1 =  new ToggleButton("Lamp 1: 0n", "Lamp 1: Off");
         button1.addToggleListener(e -> {
             ToggleButton button = (ToggleButton) e.getSource();
-            lamps[0].set(button.getToggleState());
+            worldConfig.getPointLight(0).set(button.getToggleState());
         });
 
         ToggleButton button2 =  new ToggleButton("Lamp 2: 0n", "Lamp 2: Off");
         button2.addToggleListener(e -> {
             ToggleButton button = (ToggleButton) e.getSource();
-            lamps[1].set(button.getToggleState());
+            worldConfig.getPointLight(1).set(button.getToggleState());
         });
 
-        // ToggleButton button3 =  new ToggleButton("Spotlight 0n", "Spotlight: Off");
-        // button3.addToggleListener(e -> {
-        //     ToggleButton button = (ToggleButton) e.getSource();
-        //     spotlight.set(button.getToggleState());
-        // });
+        ToggleButton button3 =  new ToggleButton("Spotlight 0n", "Spotlight: Off");
+        button3.addToggleListener(e -> {
+            ToggleButton button = (ToggleButton) e.getSource();
+            worldConfig.getSpotlight().set(button.getToggleState());
+        });
 
         ToggleButton button4 =  new ToggleButton("World light: 0n", "World light: Off");
         button4.addToggleListener(e -> {
             ToggleButton button = (ToggleButton) e.getSource();
-            worldLight.set(button.getToggleState());
+            worldConfig.getDirectionalLight().set(button.getToggleState());
         });
 
         section.add(button1);
         section.add(button2);
-        // section.add(button3);
+        section.add(button3);
         section.add(button4);
 
         add(section);

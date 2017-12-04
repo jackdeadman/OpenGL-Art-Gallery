@@ -18,7 +18,7 @@ public class Room extends Model {
     private float floorWidth = 16, floorLength = 12, ceilingHeight = 10;
     private NameNode floorName;
 
-    private int[] floorTexture, containerTexture, windowTexture, window2, backWallTexture, backWallNormal, ceilingTexture, windowNormal;
+    private int[] floorTexture, containerTexture, windowTexture, window2, backWallTexture, backWallNormal, ceilingTexture, windowNormal, backWallBlend;
 
     public enum WallPosition { LEFT_CLOSE, LEFT_MIDDLE, LEFT_FAR, RIGHT_CLOSE, RIGHT_MIDDLE, RIGHT_FAR };
 
@@ -60,7 +60,6 @@ public class Room extends Model {
                 break;
         }
 
-
         // Stops the fighting with frame
         TransformNode nudge = new TransformNode("Translate(0f, 0.1f, 0f);",
                 Mat4Transform.translate(0.0f, 0.1f, 0.0f));
@@ -79,6 +78,7 @@ public class Room extends Model {
         backWallTexture = TextureLibrary.loadTexture(gl, "textures/wall_wood.jpg");
         backWallNormal = TextureLibrary.loadTexture(gl, "textures/wall_wood_normal.jpg");
         windowNormal = TextureLibrary.loadTexture(gl, "textures/window_black_normal.jpg");
+        backWallBlend = TextureLibrary.loadTexture(gl, "textures/window2_mask.jpg");
     }
 
     private SGNode[] pictureFrameTransformations = new SGNode[6];
@@ -103,8 +103,15 @@ public class Room extends Model {
         // make meshes
         // floor = new TwoTriangles(gl, floorTexture);
         floor = new TwoTrianglesNew(gl, new OneTextureShader(gl, floorTexture));
-        // left = new TwoTrianglesNew(gl, new OneTextureShader(gl, floorTexture));
-        back = new TwoTriangles3(gl, backWallTexture, backWallTexture, window2, backWallNormal);
+
+        MultiLightShader backShaderProgram = new MultiLightShader(gl, "shaders/correct/backwall.fs.glsl");
+        backShaderProgram.addTexture("normal_texture", backWallNormal);
+        backShaderProgram.addTexture("main_texture", backWallTexture);
+        backShaderProgram.addTexture("blend_texture", backWallBlend);
+        backShaderProgram.addTexture("window_texture", windowTexture);
+        back = new TwoTrianglesNew(gl, backShaderProgram);
+
+//        back = new TwoTriangles3(gl, backWallTexture, backWallTexture, window2, backWallNormal);
         left = new TwoTriangles2(gl, windowTexture, containerTexture);
         right = new TwoTriangles2(gl, windowTexture, containerTexture);
         // roof = new TwoTriangles(gl, containerTexture);
