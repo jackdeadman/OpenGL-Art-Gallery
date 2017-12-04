@@ -11,8 +11,11 @@ import galleryscene.shaderprograms.*;
 
 public class Arm extends Model {
 
+    public final String MAIN_TEXTURE_PATH = "textures/main_metal.jpg";
+    public final String MAIN_TEXTURE_SPECULAR_PATH = "textures/used/arm_main_spec.jpg";
+
     private Mesh mainSegment;
-    private int[] mainTexture, mainTextureSpec;
+    private int[] mainTexture;
     private TransformNode anchor;
 
     public Arm(WorldConfiguration worldConfig) {
@@ -26,28 +29,29 @@ public class Arm extends Model {
     }
 
     private void loadTextures(GL3 gl) {
-        mainTexture = TextureLibrary.loadTexture(gl, "textures/main_metal.jpg");
-        mainTextureSpec = TextureLibrary.loadTexture(gl, "textures/used/arm_main_spec.jpg");
+        mainTexture = TextureLibrary.loadTexture(gl, MAIN_TEXTURE_PATH);
     }
 
     private void loadMeshes(GL3 gl) {
-        // Meshes
-        mainSegment = new SphereNew(gl, new OneTextureShader(gl, mainTexture));
-        registerMeshes(new Mesh[] { mainSegment });
+        ShaderConfigurator program = new OneTextureShader(gl, mainTexture);
+        mainSegment = new SphereNew(gl, program);
+        registerMesh(mainSegment);
     }
 
     public void buildSceneGraph() {
-        MeshNode mainSegmentShape = new MeshNode("", mainSegment);
+        MeshNode mainSegmentShape = new MeshNode("Sphere (Main Segment)", mainSegment);
 
         TransformNode scaleArm = new TransformNode(
-            "",
+            "Translate(0, 0.5, 0); Scale(1.5, 2.5, 1.5)",
             Mat4.multiply(
                 Mat4Transform.scale(1.5f, 2.5f, 1.5f),
                 Mat4Transform.translate(0.0f, 0.5f, 0.0f)
             )
         );
 
-        anchor = new TransformNode("",
+        // The point where further scene graphs should extend from
+        anchor = new TransformNode(
+                "Translate(0, 2.5, 0)",
                 Mat4Transform.translate(0.0f, 2.5f, 0.0f));
 
         SGNode root = new NameNode("Arm");

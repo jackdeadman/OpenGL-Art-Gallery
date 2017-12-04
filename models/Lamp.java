@@ -19,14 +19,14 @@ public class Lamp extends PointLightEmittingModel {
     // Textures
     private int[] mainTexture, mainTextureSpecular;
 
-    private final float LAMP_HEIGHT = 4.0f;
+    public final float LAMP_HEIGHT = 4.0f;
 
     // Numbers chosen based on: https://learnopengl.com/#!Lighting/Light-casters
-    private final Vec3 LIGHT_ATTENUATION = new Vec3(1f, 0.022f, 0.0019f);
+    public final Vec3 LIGHT_ATTENUATION = new Vec3(1f, 0.022f, 0.0019f);
 
     // File paths
-    private final String MAIN_TEXTURE_PATH = "textures/steel3.jpg";
-    private final String MAIN_TEXTURE_SPECULAR_PATH = "textures/steel3_spec.jpg";
+    public final String MAIN_TEXTURE_PATH = "textures/steel3.jpg";
+    public final String MAIN_TEXTURE_SPECULAR_PATH = "textures/steel3_spec.jpg";
 
     private Material createMaterialForLight() {
         // Setup the light properties
