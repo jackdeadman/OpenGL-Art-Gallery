@@ -18,7 +18,8 @@ public class Lamp extends PointLightEmittingModel {
 
     // Textures
     private int[] mainTexture, mainTextureSpecular;
-    private PointLight light;
+
+    private final float LAMP_HEIGHT = 4.0f;
 
     // Numbers chosen based on: https://learnopengl.com/#!Lighting/Light-casters
     private final Vec3 LIGHT_ATTENUATION = new Vec3(1f, 0.022f, 0.0019f);
@@ -38,7 +39,7 @@ public class Lamp extends PointLightEmittingModel {
 
     public Lamp(WorldConfiguration worldConfig) {
         super(worldConfig);
-        light = new PointLight(createMaterialForLight(), LIGHT_ATTENUATION);
+        PointLight light = new PointLight(createMaterialForLight(), LIGHT_ATTENUATION);
         setContainedLight(light);
     }
 
@@ -82,35 +83,29 @@ public class Lamp extends PointLightEmittingModel {
 
         // Transforms
         TransformNode transformPipe = new TransformNode(
-            "Scale(0.1f, 4.0f, 0.1f); Translate(0.0f, 0.5f, 0.0f)",
+            String.format("Scale(0.1, %.2f, 0.1); Translate(0.0, 0.5, 0.0)", LAMP_HEIGHT),
             Mat4.multiply(
-                Mat4Transform.scale(0.1f, 4.0f, 0.1f),
+                Mat4Transform.scale(0.1f, LAMP_HEIGHT, 0.1f),
                 Mat4Transform.translate(0.0f, 0.5f, 0.0f)
             )
         );
 
-        TransformNode bottomStandTransform = new TransformNode(
-                "Scale(1.0f, 1.0f, 1.0f)",
-                Mat4Transform.scale(1.0f, 1.0f, 1.0f)
-        );
-
         TransformNode bulbHolderTransform = new TransformNode(
-            "Translate(0.0f, 4.0f, 0.0f)",
-            Mat4Transform.translate(0.0f, 4.0f, 0.0f)
+            String.format("Translate(0.0, %.2f, 0.0)", LAMP_HEIGHT),
+            Mat4Transform.translate(0.0f, LAMP_HEIGHT, 0.0f)
         );
 
         TransformNode bulbTransform = new TransformNode(
-            "Translate(0.0f, 0.2f, 0.0f)",
+            "Translate(0.0, 0.2, 0.0)",
             Mat4Transform.translate(0.0f, 0.2f, 0.0f)
         );
 
         // Combines nodes to create the tree
         SGNode root = new NameNode("Lamp");
+            root.addChild(bottomStandShape);
+
             root.addChild(transformPipe);
                 transformPipe.addChild(pipeShape);
-
-            root.addChild(bottomStandTransform);
-                bottomStandTransform.addChild(bottomStandShape);
 
             root.addChild(bulbHolderTransform);
                 bulbHolderTransform.addChild(bulbHolderShape);
