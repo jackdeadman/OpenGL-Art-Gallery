@@ -10,6 +10,9 @@ import gmaths.*;
 import meshes.*;
 
 public class Sky extends Model {
+
+    private final String IMAGE_PATH = "textures/just_sky.jpg";
+
     private int[] skyTexture;
     private Mesh skyBox;
 
@@ -24,29 +27,28 @@ public class Sky extends Model {
     }
 
     private void loadTextures(GL3 gl) {
-        skyTexture = TextureLibrary.loadTexture(gl, "textures/just_sky.jpg");
+        skyTexture = TextureLibrary.loadTexture(gl, IMAGE_PATH);
     }
 
     private void loadMeshes(GL3 gl) {
-        Material material = new Material();
-        material.setAmbient(0.0f, 0.0f, 0.0f);
-        material.setDiffuse(0.0f, 0.0f, 0.0f);
-        material.setSpecular(0.0f, 0.0f, 0.0f);
-        skyBox = new TwoTriangles4(gl, skyTexture);
+        // Change to a skybox shader
+        skyBox = new TwoTriangles(gl, skyTexture);
         registerMesh(skyBox);
     }
 
     private void buildSceneGraph() {
-        MeshNode skyBoxShape = new MeshNode("", skyBox);
+        MeshNode skyBoxShape = new MeshNode("TwoTriangles (SkyBox)", skyBox);
 
         TransformNode transformFrame = new TransformNode("",
             Mat4.multiplyVariable(
                 Mat4Transform.translate(0f, 0f, -40f),
                 Mat4Transform.rotateAroundX(90f),
+                // Move it far away
                 Mat4Transform.scale(30f, 30f, 30f)
             )
         );
 
+        // Build graph
         SGNode root = new NameNode("Sky");
         root.addChild(transformFrame);
             transformFrame.addChild(skyBoxShape);

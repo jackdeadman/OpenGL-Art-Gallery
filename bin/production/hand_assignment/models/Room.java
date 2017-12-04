@@ -108,7 +108,7 @@ public class Room extends Model {
         backShaderProgram.addTexture("normal_texture", backWallNormal);
         backShaderProgram.addTexture("main_texture", backWallTexture);
         backShaderProgram.addTexture("blend_texture", backWallBlend);
-        backShaderProgram.addTexture("window_texture", windowTexture);
+        backShaderProgram.addTexture("window_texture", window2);
         back = new TwoTrianglesNew(gl, backShaderProgram);
 
 //        back = new TwoTriangles3(gl, backWallTexture, backWallTexture, window2, backWallNormal);

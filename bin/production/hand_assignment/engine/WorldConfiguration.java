@@ -24,7 +24,7 @@ public class WorldConfiguration {
     }
 
     public PointLight getPointLight(int index) {
-        return pointLights.get(0);
+        return pointLights.get(index);
     }
 
     public ArrayList<PointLight> getPointLights() {

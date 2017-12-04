@@ -20,6 +20,7 @@ public class Shader {
   /* The constructor */
   public Shader(GL3 gl, String vertexPath, String fragmentPath) {
     try {
+        System.out.println(fragmentPath);
       vertexShaderSource = new String(Files.readAllBytes(Paths.get(vertexPath)), Charset.defaultCharset());
       fragmentShaderSource = new String(Files.readAllBytes(Paths.get(fragmentPath)), Charset.defaultCharset());
     }
@@ -83,6 +84,7 @@ public class Shader {
   }
 
   private int compileAndLink(GL3 gl) {
+      System.out.println("Compiling shader");
     String[][] sources = new String[1][1];
     sources[0] = new String[]{ vertexShaderSource };
     ShaderCode vertexShaderCode = new ShaderCode(GL3.GL_VERTEX_SHADER, sources.length, sources);

@@ -5,13 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83cae2c5-f7a5-4c1b-aa60-f18701a930ca" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/models/Window.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/models/Window.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/textures/window2_mask.jpg" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/textures/window2_mask.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Arty.java" afterPath="$PROJECT_DIR$/Arty.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/Arty.java" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/Arty.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/engine/WorldConfiguration.java" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/engine/WorldConfiguration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/engine/render/Scene.java" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/engine/render/Scene.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/galleryscene/SceneControls.java" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/galleryscene/SceneControls.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/models/Hand.java" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/models/Hand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/models/Lamp.java" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/models/Lamp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/models/Room.java" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/models/Room.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/WorldConfiguration.java" afterPath="$PROJECT_DIR$/engine/WorldConfiguration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/render/Scene.java" afterPath="$PROJECT_DIR$/engine/render/Scene.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/galleryscene/SceneControls.java" afterPath="$PROJECT_DIR$/galleryscene/SceneControls.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Room.java" afterPath="$PROJECT_DIR$/models/Room.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/models/Sky.java" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/models/Sky.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/shaders/correct/backwall.fs.glsl" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/shaders/correct/backwall.fs.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/animation/Timeline.java" afterPath="$PROJECT_DIR$/engine/animation/Timeline.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Hand.java" afterPath="$PROJECT_DIR$/models/Hand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Lamp.java" afterPath="$PROJECT_DIR$/models/Lamp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Sky.java" afterPath="$PROJECT_DIR$/models/Sky.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,34 +35,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Room.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Room.java">
+      <file leaf-file-name="Lamp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/Lamp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="110" column="62" lean-forward="false" selection-start-line="110" selection-start-column="62" selection-end-line="110" selection-end-column="62" />
+            <state relative-caret-position="253">
+              <caret line="19" column="50" lean-forward="false" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sky.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/models/Sky.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-281">
+              <caret line="40" column="70" lean-forward="false" selection-start-line="40" selection-start-column="70" selection-end-line="40" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TwoTriangles5.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/meshes/TwoTriangles5.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="backwall.fs.glsl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shaders/correct/backwall.fs.glsl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="158" column="28" lean-forward="false" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -78,9 +78,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/meshes/Cube.java" />
-        <option value="$PROJECT_DIR$/meshes/CubeNew.java" />
-        <option value="$PROJECT_DIR$/meshes/SkyBox.java" />
         <option value="$PROJECT_DIR$/meshes/SphereNew.java" />
         <option value="$PROJECT_DIR$/meshes/TwoTriangles.java" />
         <option value="$PROJECT_DIR$/meshes/TwoTriangles2.java" />
@@ -89,17 +86,14 @@
         <option value="$PROJECT_DIR$/meshes/TwoTriangles5.java" />
         <option value="$PROJECT_DIR$/meshes/TwoTrianglesImproved.java" />
         <option value="$PROJECT_DIR$/galleryscene/shaderprograms/LightShader.java" />
-        <option value="$PROJECT_DIR$/galleryscene/shaderprograms/OneTextureShader.java" />
         <option value="$PROJECT_DIR$/galleryscene/shaderprograms/SpecularShader.java" />
         <option value="$PROJECT_DIR$/galleryscene/shaderprograms/SolidColorShader.java" />
         <option value="$PROJECT_DIR$/models/handparts/Thumb.java" />
-        <option value="$PROJECT_DIR$/models/Sky.java" />
         <option value="$PROJECT_DIR$/engine/scenegraph/SpotlightNode.java" />
         <option value="$PROJECT_DIR$/models/handparts/Palm.java" />
         <option value="$PROJECT_DIR$/Arty.java" />
         <option value="$PROJECT_DIR$/engine/scenegraph/LightNode.java" />
         <option value="$PROJECT_DIR$/gmaths/Mat4.java" />
-        <option value="$PROJECT_DIR$/models/Lamp.java" />
         <option value="$PROJECT_DIR$/engine/render/PointLightEmittingModel.java" />
         <option value="$PROJECT_DIR$/engine/render/Scene.java" />
         <option value="$PROJECT_DIR$/engine/render/ShaderConfigurator.java" />
@@ -129,6 +123,12 @@
         <option value="$PROJECT_DIR$/models/PictureFrame.java" />
         <option value="$PROJECT_DIR$/models/Room.java" />
         <option value="$PROJECT_DIR$/shaders/correct/backwall.fs.glsl" />
+        <option value="$PROJECT_DIR$/galleryscene/shaderprograms/OneTextureShader.java" />
+        <option value="$PROJECT_DIR$/shaders/correct/one_texture.fs.glsl" />
+        <option value="$PROJECT_DIR$/models/Lamp.java" />
+        <option value="$PROJECT_DIR$/galleryscene/shaderprograms/SkyBoxShader.java" />
+        <option value="$PROJECT_DIR$/shaders/correct/skybox.fs.glsl" />
+        <option value="$PROJECT_DIR$/models/Sky.java" />
       </list>
     </option>
   </component>
@@ -177,18 +177,13 @@
             <path>
               <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
               <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
-              <item name="meshes" type="462c0819:PsiDirectoryNode" />
+              <item name="galleryscene" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
               <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
-              <item name="shaders" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
-              <item name="shaders" type="462c0819:PsiDirectoryNode" />
-              <item name="correct" type="462c0819:PsiDirectoryNode" />
+              <item name="galleryscene" type="462c0819:PsiDirectoryNode" />
+              <item name="shaderprograms" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -340,12 +335,12 @@
       <workItem from="1512144074155" duration="844000" />
       <workItem from="1512144921347" duration="4237000" />
       <workItem from="1512156064269" duration="13229000" />
-      <workItem from="1512253127406" duration="34525000" />
+      <workItem from="1512253127406" duration="41137000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53628000" />
+    <option name="totallyTimeSpent" value="60240000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="0" width="1924" height="1053" extended-state="0" />
@@ -365,7 +360,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2578125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2578125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -426,40 +421,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/engine/WorldConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/scenegraph/SpotlightNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/scenegraph/NameNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/scenegraph/MeshNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shaders/correct/specular.fs.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-872">
@@ -517,16 +478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/Lamp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-690">
-          <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/engine/render/PointLightEmittingModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -549,14 +500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2001">
           <caret line="97" column="21" lean-forward="true" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/Camera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -662,9 +605,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3404">
           <caret line="152" column="28" lean-forward="false" selection-start-line="152" selection-start-column="28" selection-end-line="152" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -813,22 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/OneTextureShader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/render/ShaderConfigurator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="66" column="14" lean-forward="false" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/MultiLightShader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -836,6 +761,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/correct/backwall.fs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="158" column="28" lean-forward="false" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -857,11 +790,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/correct/backwall.fs.glsl">
+    <entry file="file://$PROJECT_DIR$/engine/render/ShaderConfigurator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="158" column="28" lean-forward="false" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
+        <state relative-caret-position="1329">
+          <caret line="66" column="14" lean-forward="false" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/correct/one_texture.fs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="120" column="9" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/SkyBoxShader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="29" column="56" lean-forward="false" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="73" column="33" lean-forward="false" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/OneTextureShader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-281">
+          <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/correct/skybox.fs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="66" lean-forward="false" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Lamp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="19" column="50" lean-forward="false" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Sky.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-281">
+          <caret line="40" column="70" lean-forward="false" selection-start-line="40" selection-start-column="70" selection-end-line="40" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

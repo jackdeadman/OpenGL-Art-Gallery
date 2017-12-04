@@ -19,7 +19,14 @@ public class Hand extends Model {
 
     private TransformNode rotateHand;
 
-    int[] rustTexture, rustTextureSpecular;
+    // Finger details
+    final float FINGER1_SIZE = 0.7f;
+    final float FINGER2_SIZE = 0.95f;
+    final float FINGER3_SIZE = 1.0f;
+    final float FINGER4_SIZE = 0.95f;
+    final float FINGER_OFFSET = 0.6f;
+
+    private int[] rustTexture, rustTextureSpecular;
 
     public Hand(WorldConfiguration worldConfig, HandConfiguration handConfiguration) {
         super(worldConfig);
@@ -85,12 +92,6 @@ public class Hand extends Model {
         rotate(wristValues[0], wristValues[1]);
     }
 
-    final float FINGER1_SIZE = 0.7f;
-    final float FINGER2_SIZE = 0.95f;
-    final float FINGER3_SIZE = 1.0f;
-    final float FINGER4_SIZE = 0.95f;
-    final float FINGER_OFFSET = 0.6f;
-
     private TransformNode createFingerTransform(float offsetX, float offsetY, float fingerSize) {
         return new TransformNode(
             "Translate(" + offsetX + ", " + offsetY + ", 0.0); Scale(1.0, " + fingerSize + ", 1.0)",
@@ -125,7 +126,9 @@ public class Hand extends Model {
         NameNode palmName= new NameNode("Palm");
         NameNode fingersName= new NameNode("Fingers");
 
-        TransformNode moveFingers = new TransformNode("Translate()", Mat4Transform.translate(-0.9f, 0.5f, 0.0f));
+        TransformNode moveFingers = new TransformNode(
+                "Translate(-0.9f, 0.5f, 0.0f)",
+                Mat4Transform.translate(-0.9f, 0.5f, 0.0f));
 
         rotateHand = new TransformNode("", new Mat4(0));
 
@@ -133,22 +136,23 @@ public class Hand extends Model {
         TransformNode moveHand = new TransformNode("", Mat4Transform.translate(0.0f, 2.0f, 0.0f));
 
         root.addChild(rotateHand);
-        rotateHand.addChild(moveHand);
-            moveHand.addChild(palm.getRoot());
+            rotateHand.addChild(moveHand);
+                moveHand.addChild(palm.getRoot());
 
-            palm.getRoot().addChild(transformThumb);
-                transformThumb.addChild(thumb.getRoot());
+                palm.getRoot().addChild(transformThumb);
+                    transformThumb.addChild(thumb.getRoot());
 
-            palm.getAnchor().addChild(fingersName);
-                fingersName.addChild(moveFingers);
-                    moveFingers.addChild(transformFinger1);
-                        transformFinger1.addChild(finger1.getRoot());
-                    moveFingers.addChild(transformFinger2);
-                        transformFinger2.addChild(finger2.getRoot());
-                    moveFingers.addChild(transformFinger3);
-                        transformFinger3.addChild(finger3.getRoot());
-                    moveFingers.addChild(transformFinger4);
-                        transformFinger4.addChild(finger4.getRoot());
+                // Add fingers to the top of the palm and not the root
+                palm.getAnchor().addChild(fingersName);
+                    fingersName.addChild(moveFingers);
+                        moveFingers.addChild(transformFinger1);
+                            transformFinger1.addChild(finger1.getRoot());
+                        moveFingers.addChild(transformFinger2);
+                            transformFinger2.addChild(finger2.getRoot());
+                        moveFingers.addChild(transformFinger3);
+                            transformFinger3.addChild(finger3.getRoot());
+                        moveFingers.addChild(transformFinger4);
+                            transformFinger4.addChild(finger4.getRoot());
 
         finger4.addRing(ring);
         root.update();

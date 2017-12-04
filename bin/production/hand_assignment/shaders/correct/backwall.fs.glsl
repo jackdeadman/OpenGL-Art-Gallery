@@ -60,48 +60,48 @@ struct Material {
 };
 
 uniform Material material;
-
-vec3 calcDirLight(DirectionalLight light, vec3 normal, vec3 viewDir)
-{
-    // Flip the vector
-    vec3 lightDir = normalize(-light.direction);
-    // diffuse shading
-    float diff = max(dot(normal, lightDir), 0.0);
-    // specular shading
-    vec3 reflectDir = reflect(-lightDir, normal);
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
-
-    // combine results
-    vec3 ambient  = light.ambient  * vec3(texture(first_texture, ourTexCoord));
-    vec3 diffuse  = light.diffuse  * diff * vec3(texture(first_texture, ourTexCoord));
-    vec3 specular = light.specular * spec * vec3(texture(first_texture, ourTexCoord));
-    return (ambient + diffuse + specular);
-}
-
-vec3 calcSpotLight(SpotLight light, vec3 normal, vec3 fragPos, vec3 viewDir)
-{
-    vec3 lightDir = normalize(light.position - fragPos);
-    // diffuse shading
-    float diff = max(dot(normal, lightDir), 0.0);
-    // specular shading
-    vec3 reflectDir = reflect(-lightDir, normal);
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
-    // attenuation
-    float distance = length(light.position - fragPos);
-    float attenuation = 1.0 / (light.constant + light.linear * distance + light.quadratic * (distance * distance));
-    // spotlight intensity
-    float theta = dot(lightDir, normalize(-light.direction));
-    float epsilon = light.cutOff - light.outerCutOff;
-    float intensity = clamp((theta - light.outerCutOff) / epsilon, 0.0, 1.0);
-    // combine results
-    vec3 ambient = light.ambient * vec3(texture(first_texture, ourTexCoord));
-    vec3 diffuse = light.diffuse * diff * vec3(texture(first_texture, ourTexCoord));
-    vec3 specular = light.specular * spec * vec3(texture(first_texture, ourTexCoord));
-    ambient *= attenuation * intensity;
-    diffuse *= attenuation * intensity;
-    specular *= attenuation * intensity;
-    return (ambient + diffuse + specular);
-}
+//
+// vec3 calcDirLight(DirectionalLight light, vec3 normal, vec3 viewDir)
+// {
+//     // Flip the vector
+//     vec3 lightDir = normalize(-light.direction);
+//     // diffuse shading
+//     float diff = max(dot(normal, lightDir), 0.0);
+//     // specular shading
+//     vec3 reflectDir = reflect(-lightDir, normal);
+//     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+//
+//     // combine results
+//     vec3 ambient  = light.ambient  * vec3(texture(first_texture, ourTexCoord));
+//     vec3 diffuse  = light.diffuse  * diff * vec3(texture(first_texture, ourTexCoord));
+//     vec3 specular = light.specular * spec * vec3(texture(first_texture, ourTexCoord));
+//     return (ambient + diffuse + specular);
+// }
+//
+// vec3 calcSpotLight(SpotLight light, vec3 normal, vec3 fragPos, vec3 viewDir)
+// {
+//     vec3 lightDir = normalize(light.position - fragPos);
+//     // diffuse shading
+//     float diff = max(dot(normal, lightDir), 0.0);
+//     // specular shading
+//     vec3 reflectDir = reflect(-lightDir, normal);
+//     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+//     // attenuation
+//     float distance = length(light.position - fragPos);
+//     float attenuation = 1.0 / (light.constant + light.linear * distance + light.quadratic * (distance * distance));
+//     // spotlight intensity
+//     float theta = dot(lightDir, normalize(-light.direction));
+//     float epsilon = light.cutOff - light.outerCutOff;
+//     float intensity = clamp((theta - light.outerCutOff) / epsilon, 0.0, 1.0);
+//     // combine results
+//     vec3 ambient = light.ambient * vec3(texture(first_texture, ourTexCoord));
+//     vec3 diffuse = light.diffuse * diff * vec3(texture(first_texture, ourTexCoord));
+//     vec3 specular = light.specular * spec * vec3(texture(first_texture, ourTexCoord));
+//     ambient *= attenuation * intensity;
+//     diffuse *= attenuation * intensity;
+//     specular *= attenuation * intensity;
+//     return (ambient + diffuse + specular);
+// }
 
 void main() {
 
@@ -116,20 +116,23 @@ void main() {
 
 
   vec3 textureMix;
+  vec3 norm;
 
-  if (blend.g < 0.6 && blend.r < 0.2 && blend.b < 0.2) {
+  if (blend.g > 0.6 && blend.r < 0.2 && blend.b < 0.2) {
     textureMix = wall;
-  } else if (blend.g < 0.2 && blend.r < 0.2 && blend.b < 0.2) {
+    // vec3 result = calcDirLight(dirLight, ourNormal, viewDir);
+      vec3 normalMapColor = ((2*texture(normal_texture, ourTexCoord))-1).rgb;
+      norm = vec3(normalMapColor.r, normalMapColor.g*ourNormal.g, normalMapColor.b*ourNormal.b);
+      norm = normalize(vec3(normalMapColor.x, -normalMapColor.y, normalMapColor.z)/2);
+  } else if (blend.r > 0.6 && blend.g < 0.2 && blend.b < 0.2) {
     fragColor = vec4(0);
     return;
   } else {
-    textureMix = windows;
+    textureMix = window;
+    norm = normalize(ourNormal);
   }
 
-  // vec3 result = calcDirLight(dirLight, ourNormal, viewDir);
-  vec3 normalMapColor = ((2*texture(normal_texture, ourTexCoord))-1).rgb;
-  vec3 norm = vec3(normalMapColor.r, normalMapColor.g*ourNormal.g, normalMapColor.b*ourNormal.b);
-  norm = normalize(vec3(normalMapColor.x, -normalMapColor.y, normalMapColor.z)/2);
+
 
   vec3 result = vec3(0, 0, 0);
 
@@ -153,5 +156,5 @@ void main() {
 
   // result += calcSpotLight(spotlight, ourNormal, fragPos, viewDir);
 
-  fragColor = vec4(make_window(result, fragPos));
+  fragColor = vec4(result, 1);
 }

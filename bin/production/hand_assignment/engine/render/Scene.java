@@ -20,6 +20,10 @@ public abstract class Scene implements GLEventListener {
     worldConfig = new WorldConfiguration(camera);
   }
 
+  public WorldConfiguration getWorldConfig() {
+      return worldConfig;
+  }
+
   protected void setDirectionalLight(DirectionalLight light) {
       worldConfig.setDirectionalLight(light);
   }

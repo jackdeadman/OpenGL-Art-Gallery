@@ -72,7 +72,7 @@ public class Timeline<T extends Interpolatable<T>> {
 
         Iterator<KeyFrame<T>> iterator = keys.iterator();
         KeyFrame<T> currentKey = iterator.next();
-        KeyFrame<T> prevKey = new KeyFrame<T>(start, 0); // d1
+        KeyFrame<T> prevKey = new KeyFrame<T>(start, 0);
 
         while (iterator.hasNext() && (t > elapsed + currentKey.getDuration())) {
             elapsed += currentKey.getDuration();

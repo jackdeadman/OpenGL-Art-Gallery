@@ -17,23 +17,28 @@ public class Lamp extends PointLightEmittingModel {
     private Mesh pipe, bottomStand, bulbHolder, bulb;
 
     // Textures
-    private int[] steelTexture, steelTextureSpecular;
+    private int[] mainTexture, mainTextureSpecular;
     private PointLight light;
 
-    public Lamp(WorldConfiguration worldConfig) {
-        super(worldConfig);
+    // Numbers chosen based on: https://learnopengl.com/#!Lighting/Light-casters
+    private final Vec3 LIGHT_ATTENUATION = new Vec3(1f, 0.022f, 0.0019f);
 
+    // File paths
+    private final String MAIN_TEXTURE_PATH = "textures/steel3.jpg";
+    private final String MAIN_TEXTURE_SPECULAR_PATH = "textures/steel3_spec.jpg";
+
+    private Material createMaterialForLight() {
         // Setup the light properties
         Material material = new Material();
         material.setDiffuse(0.6f, 0.6f, 0.6f);
         material.setAmbient(0.8f, 0.8f, 0.8f);
         material.setSpecular(1.0f, 1.0f, 1.0f);
+        return material;
+    }
 
-        // Setup the point light specific properties
-        // Numbers chosen based on: https://learnopengl.com/#!Lighting/Light-casters
-        Vec3 attenuation = new Vec3(1f, 0.022f, 0.0019f);
-        light = new PointLight(material, attenuation);
-
+    public Lamp(WorldConfiguration worldConfig) {
+        super(worldConfig);
+        light = new PointLight(createMaterialForLight(), LIGHT_ATTENUATION);
         setContainedLight(light);
     }
 
@@ -46,13 +51,13 @@ public class Lamp extends PointLightEmittingModel {
 
     // Load in the textures to be used later
     private void loadTextures(GL3 gl) {
-        steelTexture = TextureLibrary.loadTexture(gl, "textures/steel3.jpg");
-        steelTextureSpecular = TextureLibrary.loadTexture(gl, "textures/steel3_spec.jpg");
+        mainTexture = TextureLibrary.loadTexture(gl, MAIN_TEXTURE_PATH);
+        mainTextureSpecular = TextureLibrary.loadTexture(gl, MAIN_TEXTURE_SPECULAR_PATH);
     }
 
     private void loadMeshes(GL3 gl) {
         // Create the Shader programs to be attached to the mesh
-        ShaderConfigurator program = new SpecularShader(gl, steelTexture, steelTextureSpecular);
+        ShaderConfigurator program = new SpecularShader(gl, mainTexture, mainTextureSpecular);
 
         // Load the Meshes
         pipe = new CubeNew(gl, program);
@@ -61,7 +66,7 @@ public class Lamp extends PointLightEmittingModel {
         bulb = new SphereNew(gl, new LightShader(gl, getContainedLight()));
 
         // Register the models so they setup for the scene
-        registerMeshes(new Mesh[] {pipe, bottomStand, bulbHolder, bulb});
+        registerMeshes(new Mesh[] { pipe, bottomStand, bulbHolder, bulb });
     }
 
 
