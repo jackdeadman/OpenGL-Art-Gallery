@@ -7,39 +7,13 @@ import meshes.*;
 import gmaths.*;
 import com.jogamp.opengl.*;
 
-public class Thumb extends Model {
+public class Thumb extends Finger {
 
-    int[] rustTexture, rustTextureSpecular, metalTexture;
     private TransformNode thumbTransform;
 
     public Thumb(WorldConfiguration worldConfig) {
         super(worldConfig);
     }
-
-    // OpenGL loaded
-    protected void start(GL3 gl) {
-        loadTextures(gl);
-        loadMeshes(gl);
-        buildSceneGraph(gl);
-    }
-
-    private void loadTextures(GL3 gl) {
-        // Textures
-        rustTexture = TextureLibrary.loadTexture(gl, "textures/floor_2.jpg");
-        rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
-        metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
-    }
-
-    private void loadMeshes(GL3 gl) {
-        // Meshes
-        segment = new Sphere(gl, rustTexture, rustTextureSpecular);
-        joint = new Sphere(gl, metalTexture, metalTexture);
-
-        registerMeshes(new Mesh[] { segment, joint });
-    }
-
-    private Mesh segment, joint;
-    private TransformNode lowerJointRotation, middleJointRotation, upperJointRotation;
 
     public void bend(float amount) {
         bend(amount, amount);
@@ -64,7 +38,7 @@ public class Thumb extends Model {
         getRoot().update();
     }
 
-    private void buildSceneGraph(GL3 gl) {
+    protected void buildSceneGraph(GL3 gl) {
 
         SGNode root = new NameNode("finger");
 

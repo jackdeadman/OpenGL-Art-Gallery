@@ -12,7 +12,10 @@ import java.util.HashSet;
 import com.jogamp.opengl.*;
 import gmaths.Mat4;
 
-
+/**
+Generic Multilight shader which additional textures can be
+attached to.
+*/
 public class MultiLightShader extends ShaderConfigurator {
 
     private class TexturePair {

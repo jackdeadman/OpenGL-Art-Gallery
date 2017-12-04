@@ -20,9 +20,9 @@ public final class TextureLibrary {
   public static int[] loadTexture(GL3 gl, String filename,
                                   int wrappingS, int wrappingT, int filterS, int filterT) {
 
-//    if (textureCache.containsKey(filename)) {
-//      return textureCache.get(filename);
-//    }
+   if (textureCache.containsKey(filename)) {
+     return textureCache.get(filename);
+   }
 
     int[] textureId = new int[1];
     try {

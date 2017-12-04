@@ -16,6 +16,7 @@ public class Palm extends Model {
     private TransformNode topRotation;
     private NameNode upperPalmName;
     private int[] rustTexture, rustTextureSpecular, metalTexture;
+    private int[] upperTexture, upperTextureSpec;
 
     public Palm(WorldConfiguration worldConfig) {
         super(worldConfig);
@@ -29,13 +30,17 @@ public class Palm extends Model {
     }
 
     private void loadTextures(GL3 gl) {
-        rustTexture = TextureLibrary.loadTexture(gl, "textures/green.jpg");
+        rustTexture = TextureLibrary.loadTexture(gl, "textures/main_metal.jpg");
+        // rustTexture = TextureLibrary.loadTexture(gl, "textures/green.jpg");
         rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
         metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
+
+        upperTexture = TextureLibrary.loadTexture(gl, "textures/used/arm_main.jpg");
+        upperTextureSpec = TextureLibrary.loadTexture(gl, "textures/used/arm_main_spec.jpg");
     }
 
     private void loadMeshes(GL3 gl) {
-        upperPalm = new SphereNew(gl, new OneTextureShader(gl, rustTexture));
+        upperPalm = new SphereNew(gl, new SpecularShader(gl, upperTexture, upperTextureSpec));
         lowerPalm = new SphereNew(gl, new OneTextureShader(gl, rustTexture));
 
         registerMeshes(new Mesh[] { upperPalm, lowerPalm });

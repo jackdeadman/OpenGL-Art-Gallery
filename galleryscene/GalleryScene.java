@@ -91,13 +91,19 @@ public class GalleryScene extends Scene {
         TransformNode moveLight2 = new TransformNode("",
                 Mat4Transform.translate(-7.0f, 0.0f, 12.0f));
 
+        TransformNode moveHandIntoArm = new TransformNode(
+            "",
+            Mat4Transform.translate(0f, -0.75f, 0f)
+        );
+
         scene.addChild(room.getRoot());
         room.getAnchor().addChild(moveLight1);
                 moveLight1.addChild(lamp1.getRoot());
         room.getAnchor().addChild(moveLight2);
                 moveLight2.addChild(lamp2.getRoot());
         room.getAnchor().addChild(arm.getRoot());
-            arm.getAnchor().addChild(hand.getRoot());
+            arm.getAnchor().addChild(moveHandIntoArm);
+                moveHandIntoArm.addChild(hand.getRoot());
 
         scene.update();
         setSceneNode(scene);

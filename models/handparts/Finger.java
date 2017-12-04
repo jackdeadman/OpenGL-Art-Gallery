@@ -18,11 +18,13 @@ public class Finger extends Model {
     public final float JOINT_SIZE = 0.5f;
     public final float FINGER_RADIUS = 0.6f;
 
-    private Model ring;
-    private boolean hasRing;
+    protected Model ring;
+    protected boolean hasRing;
 
     // Textures
-    private int[] rustTexture, rustTextureSpecular, metalTexture, mainMetal, mainMetalSpecular;
+    protected int[] rustTexture, rustTextureSpecular, metalTexture, mainMetal, mainMetalSpecular;
+
+    protected int[] jointTexture, jointTextureSpec;
 
     public Finger(WorldConfiguration worldConfig) {
         super(worldConfig);
@@ -36,26 +38,30 @@ public class Finger extends Model {
         buildSceneGraph(gl);
     }
 
-    private void loadTextures(GL3 gl) {
+    protected void loadTextures(GL3 gl) {
         // Textures
         rustTexture = TextureLibrary.loadTexture(gl, "textures/floor_2.jpg");
         rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/steel3_spec.jpg");
         metalTexture = TextureLibrary.loadTexture(gl, "textures/steel3.jpg");
         mainMetal = TextureLibrary.loadTexture(gl, "textures/green.jpg");
         mainMetalSpecular = TextureLibrary.loadTexture(gl, "textures/green_spec.jpg");
+
+        jointTexture = TextureLibrary.loadTexture(gl, "textures/used/arm_main.jpg");
+        jointTextureSpec = TextureLibrary.loadTexture(gl, "textures/used/arm_main_spec.jpg");
     }
 
-    private void loadMeshes(GL3 gl) {
+    protected void loadMeshes(GL3 gl) {
         // Meshes
         segment = new SphereNew(gl, new OneTextureShader(gl, mainMetal));
-        joint = new Sphere(gl, metalTexture, rustTextureSpecular);
+        joint = new SphereNew(gl, new SpecularShader(gl, jointTexture, jointTextureSpec));
+
 
         registerMeshes(new Mesh[] { segment, joint });
     }
 
-    private Mesh segment, joint;
-    private TransformNode lowerJointRotation, middleJointRotation, upperJointRotation, fingerTransform;
-    private final float MAX_BEND = 120;
+    protected Mesh segment, joint;
+    protected TransformNode lowerJointRotation, middleJointRotation, upperJointRotation, fingerTransform;
+    protected final float MAX_BEND = 120;
 
     public void bend(float amount) {
         bend(amount, amount, amount);
@@ -93,7 +99,7 @@ public class Finger extends Model {
     }
 
 
-    private void buildSceneGraph(GL3 gl) {
+    protected void buildSceneGraph(GL3 gl) {
         SGNode root = new NameNode("Finger");
 
         // MeshNodes
