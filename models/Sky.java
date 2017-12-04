@@ -12,11 +12,16 @@ import meshes.*;
 
 public class Sky extends Model {
 
-    private final String IMAGE_PATH = "textures/just_sky.jpg";
+    private final String IMAGE_PATH = "textures/final/sky.jpg";
+    private final double ANIMATION_SPEED = 0.05;
 
-    private int[] skyTexture;
     private Mesh skyBox;
+    private int[] skyTexture;
     private ShaderConfigurator textureProgram;
+
+    // Timing logic is done here as well as in the main animation engine as
+    // they are completely independent i.e, when you pause the animation
+    // time still passes in the world.
     private double startTime;
 
     public Sky(WorldConfiguration worldConfig) {
@@ -31,26 +36,35 @@ public class Sky extends Model {
     }
 
     private void loadTextures(GL3 gl) {
+        // Have the texture nicely repeat. Need to mirror as
+        // the texure does not naturally repeat nicely.
         skyTexture = TextureLibrary.loadTexture(gl, IMAGE_PATH,
                         GL.GL_MIRRORED_REPEAT, GL.GL_REPEAT,
                         GL.GL_LINEAR, GL.GL_LINEAR);
     }
 
+    private void updateSkyOffset(GL3 gl, float offset) {
+        Shader shader = skyBox.getShaderProgram().getShader();
+        shader.use(gl);
+        shader.setFloat(gl, "offset", offset);
+    }
+
     private void loadMeshes(GL3 gl) {
+        // Special shader which gives the illusion the sky is
+        // really far away.
         textureProgram = new SkyBoxShader(gl, skyTexture);
-        // textureProgram = new OneTextureShader(gl, skyTexture);
-        // Change to a skybox shader
         skyBox = new TwoTrianglesNew(gl, textureProgram);
-        skyBox.getShaderProgram().getShader().setFloat(gl, "offset", 0f);
+
+        // Default the offset to 0 at the start, just in case.
+        updateSkyOffset(gl, 0.0f);
         registerMesh(skyBox);
     }
 
     protected void onBeforeRender(GL3 gl) {
         double offset = ((System.currentTimeMillis()) - startTime);
-        offset = ((offset / 2.0) / 10000) % 2;
-        Shader shader = skyBox.getShaderProgram().getShader();
-        shader.use(gl);
-        shader.setFloat(gl, "offset", (float) offset);
+        // Mod 2 because we want to use the mirrored wrap too
+        offset = ((offset * ANIMATION_SPEED) / 1000) % 2;
+        updateSkyOffset(gl, (float) offset);
     }
 
     private void buildSceneGraph() {
@@ -58,9 +72,9 @@ public class Sky extends Model {
 
         TransformNode transformFrame = new TransformNode("",
             Mat4.multiplyVariable(
+                // Move it far away from screen
                 Mat4Transform.translate(0f, 0f, -40f),
                 Mat4Transform.rotateAroundX(90f),
-                // Move it far away
                 Mat4Transform.scale(30f, 30f, 30f)
             )
         );
