@@ -25,16 +25,25 @@ public class PictureFrame extends Model {
         }
     }
 
-    // Some useful dimensions to use.
+    // Some useful dimensions to use for a picture frame
     public static PictureDimension HORIZONTAL_FRAME = new PictureDimension(6, 4);
     public static PictureDimension VERTICAL_FRAME = new PictureDimension(4, 6);
     public static PictureDimension HORIZONTAL_FRAME_SMALL = new PictureDimension(3, 2);
     public static PictureDimension VERTICAL_FRAME_SMALL = new PictureDimension(2, 3);
 
-    private String pathToPicture;
-    private int[] frameTexture, pictureTexture, blendTexture;
-    private Mesh frame;
     private PictureDimension dimensions;
+    private Mesh frame;
+    private int[] frameTexture, pictureTexture, blendTexture;
+    private String pathToPicture;
+
+    // Texture Paths
+    public final String FRAME_PATH = "textures/hands/frame2.jpg";
+    // Kinda hacky texture for determining when to use picture
+    // and when to use frame.
+    public final String BLEND_PATH = "textures/hands/frame_blend.jpg";
+
+    // Custom Shader
+    public final String SHADER_PATH = "shaders/correct/picture_frame.fs.glsl";
 
     public PictureFrame(WorldConfiguration worldConfig, PictureDimension dimensions, String pathToPicture) {
         super(worldConfig);
@@ -49,31 +58,32 @@ public class PictureFrame extends Model {
     }
 
     private void loadTextures(GL3 gl) {
-        System.out.println("Loading textures");
-        frameTexture = TextureLibrary.loadTexture(gl, "textures/hands/frame2.jpg");
+        frameTexture = TextureLibrary.loadTexture(gl, FRAME_PATH);
         pictureTexture = TextureLibrary.loadTexture(gl, pathToPicture);
+
         // Using nearest as linear will have unwanted results when choosing which texture
-        blendTexture = TextureLibrary.loadTexture(gl, "textures/hands/frame_blend.jpg",
+        blendTexture = TextureLibrary.loadTexture(gl, BLEND_PATH,
                 GL.GL_REPEAT, GL.GL_REPEAT, GL.GL_NEAREST, GL.GL_NEAREST);
     }
 
     private void loadMeshes(GL3 gl) {
-//        frame = new TwoTriangles2(gl, frameTexture, pictureTexture, "shaders/picture.fs.glsl");
-        MultiLightShader program = new MultiLightShader(gl, "shaders/correct/picture_frame.fs.glsl");
-        program.addTexture("frame_texture", frameTexture);
-        program.addTexture("picture_texture", pictureTexture);
-        program.addTexture("blend_texture", blendTexture);
+        MultiLightShader program = new MultiLightShader(gl, SHADER_PATH);
+
+        // Setup the data for the shader
+        program.addTexture("frameTexture", frameTexture);
+        program.addTexture("pictureTexture", pictureTexture);
+        program.addTexture("blendTexture", blendTexture);
 
         frame = new TwoTrianglesNew(gl, program);
-//        frame = new TwoTrianglesNew(gl, new OneTextureShader(gl, frameTexture));
-//        frame = new TwoTrianglesNew(gl, new BlendShader(frameTexture, pictureTexture, blendTexture));
         registerMesh(frame);
     }
 
     private void buildSceneGraph() {
-        MeshNode frameShape = new MeshNode("", frame);
+        MeshNode frameShape = new MeshNode("TwoTriangles (Frame)", frame);
 
-        TransformNode transformFrame = new TransformNode("",
+        // Scale frame to be the specified framesize
+        TransformNode transformFrame = new TransformNode(
+            String.format("Scale(%.1f, 1.0, %.1f)", dimensions.width, dimensions.height),
             Mat4Transform.scale(dimensions.width, 1.0f, dimensions.height)
         );
 

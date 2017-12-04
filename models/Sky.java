@@ -12,8 +12,8 @@ import meshes.*;
 
 public class Sky extends Model {
 
-    private final String IMAGE_PATH = "textures/final/sky.jpg";
-    private final double ANIMATION_SPEED = 0.05;
+    public final String IMAGE_PATH = "textures/final/sky.jpg";
+    public final double ANIMATION_SPEED = 0.05;
 
     private Mesh skyBox;
     private int[] skyTexture;
@@ -70,7 +70,8 @@ public class Sky extends Model {
     private void buildSceneGraph() {
         MeshNode skyBoxShape = new MeshNode("TwoTriangles (SkyBox)", skyBox);
 
-        TransformNode transformFrame = new TransformNode("",
+        TransformNode transformFrame = new TransformNode(
+            "Scale(30f, 30f, 30f); rotateAroundX(90 degrees); Translate(0f, 0f, -40f)",
             Mat4.multiplyVariable(
                 // Move it far away from screen
                 Mat4Transform.translate(0f, 0f, -40f),

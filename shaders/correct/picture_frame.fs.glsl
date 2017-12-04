@@ -6,9 +6,9 @@ in vec2 ourTexCoord;
 
 out vec4 fragColor;
 
-uniform sampler2D frame_texture;
-uniform sampler2D picture_texture;
-uniform sampler2D blend_texture;
+uniform sampler2D frameTexture;
+uniform sampler2D pictureTexture;
+uniform sampler2D blendTexture;
 
 uniform vec3 viewPos;
 
@@ -108,9 +108,9 @@ void main() {
   // specular
   vec3 viewDir = normalize(viewPos - fragPos);
   // sampler2D textureMix = mix(texture(first_texture, ourTexCoord), texture(second_texture, ourTexCoord));
-  vec4 tex1 = texture(frame_texture, ourTexCoord);
-  vec4 tex2 = texture(picture_texture, ourTexCoord);
-  vec4 tex3 = texture(blend_texture, ourTexCoord);
+  vec4 tex1 = texture(frameTexture, ourTexCoord);
+  vec4 tex2 = texture(pictureTexture, ourTexCoord);
+  vec4 tex3 = texture(blendTexture, ourTexCoord);
 
   vec4 textureMix = tex3;
 
