@@ -5,23 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83cae2c5-f7a5-4c1b-aa60-f18701a930ca" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/engine/scenegraph/LightNode.java" afterPath="$PROJECT_DIR$/engine/scenegraph/PointLightNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/hand_assignment.iml" afterPath="$PROJECT_DIR$/.idea/hand_assignment.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/lighting/DirectionalLight.java" afterPath="$PROJECT_DIR$/engine/lighting/DirectionalLight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/lighting/Light.java" afterPath="$PROJECT_DIR$/engine/lighting/Light.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/lighting/PointLight.java" afterPath="$PROJECT_DIR$/engine/lighting/PointLight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/lighting/Spotlight.java" afterPath="$PROJECT_DIR$/engine/lighting/Spotlight.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/.idea/hand_assignment.iml" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/.idea/hand_assignment.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/.idea/workspace.xml" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/animation/AnimationEngine.java" afterPath="$PROJECT_DIR$/engine/animation/AnimationEngine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/animation/AnimationFunction.java" afterPath="$PROJECT_DIR$/engine/animation/AnimationFunction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/animation/AnimationFunctions.java" afterPath="$PROJECT_DIR$/engine/animation/AnimationFunctions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/animation/Interpolatable.java" afterPath="$PROJECT_DIR$/engine/animation/Interpolatable.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/render/Mesh.java" afterPath="$PROJECT_DIR$/engine/render/Mesh.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/render/Model.java" afterPath="$PROJECT_DIR$/engine/render/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/render/PointLightEmittingModel.java" afterPath="$PROJECT_DIR$/engine/render/PointLightEmittingModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/render/Scene.java" afterPath="$PROJECT_DIR$/engine/render/Scene.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/render/ShaderConfigurator.java" afterPath="$PROJECT_DIR$/engine/render/ShaderConfigurator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/scenegraph/TransformNode.java" afterPath="$PROJECT_DIR$/engine/scenegraph/TransformNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/utils/CameraController.java" afterPath="$PROJECT_DIR$/engine/utils/CameraController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/utils/TextureLibrary.java" afterPath="$PROJECT_DIR$/engine/utils/TextureLibrary.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Lamp.java" afterPath="$PROJECT_DIR$/models/Lamp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/galleryscene/GalleryScene.java" afterPath="$PROJECT_DIR$/galleryscene/GalleryScene.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Hand.java" afterPath="$PROJECT_DIR$/models/Hand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/PictureFrame.java" afterPath="$PROJECT_DIR$/models/PictureFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Room.java" afterPath="$PROJECT_DIR$/models/Room.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/handparts/Finger.java" afterPath="$PROJECT_DIR$/models/handparts/Finger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/handparts/Ring.java" afterPath="$PROJECT_DIR$/models/handparts/Ring.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,19 +28,11 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/hand_assignment$Main.coverage" NAME="Main Coverage Results" MODIFIED="1512349894922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Finger.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/models/handparts/Finger.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1454">
-              <caret line="90" column="3" lean-forward="false" selection-start-line="90" selection-start-column="3" selection-end-line="90" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -63,14 +53,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/galleryscene/SceneControls.java" />
-        <option value="$PROJECT_DIR$/galleryscene/TimelineManager.java" />
-        <option value="$PROJECT_DIR$/engine/render/SpotlightEmittingModel.java" />
-        <option value="$PROJECT_DIR$/engine/render/SpotLightEmittingModel.java" />
-        <option value="$PROJECT_DIR$/engine/render/Shader.java" />
-        <option value="$PROJECT_DIR$/engine/scenegraph/MeshNode.java" />
-        <option value="$PROJECT_DIR$/engine/GraphicsWindow.java" />
-        <option value="$PROJECT_DIR$/models/Arm.java" />
         <option value="$PROJECT_DIR$/meshes/Sphere.java" />
         <option value="$PROJECT_DIR$/meshes/Cube.java" />
         <option value="$PROJECT_DIR$/meshes/CubeNew.java" />
@@ -82,29 +64,21 @@
         <option value="$PROJECT_DIR$/meshes/TwoTriangles4.java" />
         <option value="$PROJECT_DIR$/meshes/TwoTriangles5.java" />
         <option value="$PROJECT_DIR$/meshes/TwoTrianglesImproved.java" />
-        <option value="$PROJECT_DIR$/meshes/TwoTrianglesNew.java" />
         <option value="$PROJECT_DIR$/galleryscene/shaderprograms/LightShader.java" />
         <option value="$PROJECT_DIR$/galleryscene/shaderprograms/OneTextureShader.java" />
         <option value="$PROJECT_DIR$/galleryscene/shaderprograms/SpecularShader.java" />
         <option value="$PROJECT_DIR$/galleryscene/shaderprograms/SolidColorShader.java" />
         <option value="$PROJECT_DIR$/models/handparts/Thumb.java" />
-        <option value="$PROJECT_DIR$/models/Room.java" />
-        <option value="$PROJECT_DIR$/models/PictureFrame.java" />
         <option value="$PROJECT_DIR$/models/Sky.java" />
         <option value="$PROJECT_DIR$/engine/scenegraph/SpotlightNode.java" />
-        <option value="$PROJECT_DIR$/models/Hand.java" />
         <option value="$PROJECT_DIR$/models/handparts/Palm.java" />
         <option value="$PROJECT_DIR$/Arty.java" />
-        <option value="$PROJECT_DIR$/galleryscene/GalleryScene.java" />
         <option value="$PROJECT_DIR$/engine/scenegraph/LightNode.java" />
         <option value="$PROJECT_DIR$/gmaths/Mat4.java" />
         <option value="$PROJECT_DIR$/models/Lamp.java" />
         <option value="$PROJECT_DIR$/engine/render/PointLightEmittingModel.java" />
-        <option value="$PROJECT_DIR$/engine/render/Model.java" />
         <option value="$PROJECT_DIR$/engine/render/Scene.java" />
         <option value="$PROJECT_DIR$/engine/render/ShaderConfigurator.java" />
-        <option value="$PROJECT_DIR$/engine/render/Mesh.java" />
-        <option value="$PROJECT_DIR$/engine/utils/TextureLibrary.java" />
         <option value="$PROJECT_DIR$/engine/utils/CameraController.java" />
         <option value="$PROJECT_DIR$/engine/scenegraph/TransformNode.java" />
         <option value="$PROJECT_DIR$/engine/scenegraph/PointLightNode.java" />
@@ -114,6 +88,22 @@
         <option value="$PROJECT_DIR$/engine/lighting/Spotlight.java" />
         <option value="$PROJECT_DIR$/models/handparts/Ring.java" />
         <option value="$PROJECT_DIR$/models/handparts/Finger.java" />
+        <option value="$PROJECT_DIR$/models/Hand.java" />
+        <option value="$PROJECT_DIR$/engine/animation/AnimationEngine.java" />
+        <option value="$PROJECT_DIR$/engine/animation/AnimationFunction.java" />
+        <option value="$PROJECT_DIR$/engine/animation/AnimationFunctions.java" />
+        <option value="$PROJECT_DIR$/engine/animation/Interpolatable.java" />
+        <option value="$PROJECT_DIR$/engine/animation/Timeline.java" />
+        <option value="$PROJECT_DIR$/models/Room.java" />
+        <option value="$PROJECT_DIR$/galleryscene/shaderprograms/BlendShader.java" />
+        <option value="$PROJECT_DIR$/galleryscene/GalleryScene.java" />
+        <option value="$PROJECT_DIR$/engine/utils/TextureLibrary.java" />
+        <option value="$PROJECT_DIR$/engine/render/Mesh.java" />
+        <option value="$PROJECT_DIR$/engine/render/Model.java" />
+        <option value="$PROJECT_DIR$/meshes/TwoTrianglesNew.java" />
+        <option value="$PROJECT_DIR$/shaders/correct/picture_frame.fs.glsl" />
+        <option value="$PROJECT_DIR$/galleryscene/shaderprograms/MultiLightShader.java" />
+        <option value="$PROJECT_DIR$/models/PictureFrame.java" />
       </list>
     </option>
   </component>
@@ -157,13 +147,34 @@
             <path>
               <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
               <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="engine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="engine" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="galleryscene" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
               <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="handparts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="shaders" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
+              <item name="shaders" type="462c0819:PsiDirectoryNode" />
+              <item name="correct" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -310,16 +321,15 @@
       <workItem from="1512144074155" duration="844000" />
       <workItem from="1512144921347" duration="4237000" />
       <workItem from="1512156064269" duration="13229000" />
-      <workItem from="1512253127406" duration="10110000" />
+      <workItem from="1512253127406" duration="30349000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29213000" />
+    <option name="totallyTimeSpent" value="49452000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="0" width="1924" height="1053" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -330,12 +340,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18802084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2578125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -349,7 +361,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -394,122 +405,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/meshes/Cube.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meshes/CubeNew.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meshes/SkyBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="32" column="42" lean-forward="false" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meshes/TwoTriangles2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meshes/TwoTriangles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="7" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meshes/TwoTriangles3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meshes/TwoTriangles4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meshes/TwoTriangles5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meshes/TwoTrianglesImproved.java" />
-    <entry file="file://$PROJECT_DIR$/meshes/TwoTrianglesNew.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="51" lean-forward="false" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/LightShader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-73">
-          <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/SolidColorShader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="3" column="40" lean-forward="false" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/SpecularShader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/handparts/Thumb.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
@@ -517,14 +412,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Room.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -570,14 +457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/OneTextureShader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shaders/correct/specular.fs.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-872">
@@ -607,26 +486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Hand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="40" column="47" lean-forward="false" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/galleryscene/GalleryScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="83" column="8" lean-forward="false" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
@@ -685,45 +544,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/render/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="99" column="18" lean-forward="false" selection-start-line="99" selection-start-column="18" selection-end-line="99" selection-end-column="18" />
-          <folding>
-            <element signature="e#406#407#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/render/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
-          <caret line="75" column="25" lean-forward="false" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/engine/render/Shader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2001">
           <caret line="97" column="21" lean-forward="true" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/render/ShaderConfigurator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="77" column="81" lean-forward="false" selection-start-line="77" selection-start-column="81" selection-end-line="77" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/render/Mesh.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="58" column="66" lean-forward="false" selection-start-line="58" selection-start-column="66" selection-end-line="58" selection-end-column="66" />
           <folding />
         </state>
       </provider>
@@ -743,24 +567,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1370#1560#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/PictureFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/utils/TextureLibrary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="22" column="45" lean-forward="false" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -842,9 +648,203 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/handparts/Finger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1454">
-          <caret line="90" column="3" lean-forward="false" selection-start-line="90" selection-start-column="3" selection-end-line="90" selection-end-column="3" />
+        <state relative-caret-position="-1081">
+          <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+          <folding>
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Hand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3404">
+          <caret line="152" column="28" lean-forward="false" selection-start-line="152" selection-start-column="28" selection-end-line="152" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/animation/AnimationEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="37" column="38" lean-forward="false" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/animation/AnimationFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/animation/AnimationFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="64" lean-forward="false" selection-start-line="4" selection-start-column="64" selection-end-line="4" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/animation/Interpolatable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/animation/Timeline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/hands/hand5.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="76" column="79" lean-forward="false" selection-start-line="76" selection-start-column="79" selection-end-line="76" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/BlendShader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/render/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-736">
+          <caret line="75" column="25" lean-forward="false" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/LightShader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryscene/GalleryScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="69" column="34" lean-forward="false" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/SpecularShader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="45" column="57" lean-forward="false" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/render/Mesh.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="63" column="10" lean-forward="false" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/render/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="50" column="41" lean-forward="false" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/picture.fs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1631">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/correct/picture_frame.fs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2622">
+          <caret line="114" column="24" lean-forward="false" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meshes/TwoTrianglesNew.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="17" column="3" lean-forward="false" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/PictureFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="56" column="72" lean-forward="false" selection-start-line="56" selection-start-column="72" selection-end-line="56" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/utils/TextureLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="37" selection-end-line="15" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/OneTextureShader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/render/ShaderConfigurator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="66" column="14" lean-forward="false" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/MultiLightShader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
