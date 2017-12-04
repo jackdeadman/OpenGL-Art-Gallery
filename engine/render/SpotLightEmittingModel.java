@@ -6,18 +6,18 @@ import engine.*;
 public abstract class SpotLightEmittingModel extends Model {
 
     /* Assume the model emits a point light */
-    protected PointLight containedLight;
+    protected Spotlight containedLight;
 
     protected void initialise(GL3 gl) {
-        worldConfig.addPointLight(containedLight);
+        worldConfig.setSpotlight(containedLight);
         super.initialise(gl);
     }
 
-    public Light getContainedLight() {
+    public Spotlight getContainedLight() {
         return containedLight;
     }
 
-    public void setContainedLight(PointLight containedLight) {
+    public void setContainedLight(Spotlight containedLight) {
         this.containedLight = containedLight;
     }
 

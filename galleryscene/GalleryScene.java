@@ -35,10 +35,6 @@ public class GalleryScene extends Scene {
         this.handConfiguration = handConfiguration;
         this.animator = animator;
 
-        // tmp
-//        Spotlight light1 = new Spotlight(new Vec3(0f, 1f, 0f), new Vec3(0.1f, 0.18f, 0.0112f));
-//        worldConfig.setSpotlight(light1);
-
         Vec3 colour = new Vec3(0.1f, 0.1f, 0.1f);
         DirectionalLight light = new DirectionalLight(DIRECTIONAL_LIGHT_DIR, colour);
         setDirectionalLight(light);
@@ -90,10 +86,10 @@ public class GalleryScene extends Scene {
         SGNode scene = new NameNode("Gallery Scene");
 
         TransformNode moveLight1 = new TransformNode("",
-                Mat4Transform.translate(6.0f, 0.0f, -8.0f));
+                Mat4Transform.translate(7.0f, 0.0f, -12.0f));
 
         TransformNode moveLight2 = new TransformNode("",
-                Mat4Transform.translate(-6.0f, 0.0f, 8.0f));
+                Mat4Transform.translate(-7.0f, 0.0f, 12.0f));
 
         scene.addChild(room.getRoot());
         room.getAnchor().addChild(moveLight1);

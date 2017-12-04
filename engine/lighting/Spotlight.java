@@ -2,6 +2,7 @@ package engine.lighting;
 import gmaths.*;
 import engine.render.*;
 
+// A spotlight is a specific version of a pointlight
 public class Spotlight extends PointLight {
 
     private Vec3 direction;

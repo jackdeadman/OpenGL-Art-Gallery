@@ -47,9 +47,7 @@ public class Sky extends Model {
 
     protected void onBeforeRender(GL3 gl) {
         double offset = ((System.currentTimeMillis()) - startTime);
-        System.out.println(offset);
         offset = ((offset / 2.0) / 10000) % 2;
-        System.out.println(offset );
         Shader shader = skyBox.getShaderProgram().getShader();
         shader.use(gl);
         shader.setFloat(gl, "offset", (float) offset);

@@ -154,6 +154,7 @@ public class Hand extends Model {
                         moveFingers.addChild(transformFinger4);
                             transformFinger4.addChild(finger4.getRoot());
 
+
         finger4.addRing(ring);
         root.update();
         setRoot(root);

@@ -87,7 +87,7 @@ public class Finger extends Model {
 
     public void addRing(Ring ring) {
         TransformNode moveRing = new TransformNode("Translate(0f, 1f, 0f)",
-                Mat4Transform.translate(0f, 1f, 0f));
+                Mat4Transform.translate(0f, 0.6f, 0f));
         lowerJointRotation.addChild(moveRing);
             moveRing.addChild(ring.getRoot());
     }
