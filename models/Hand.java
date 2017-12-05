@@ -139,7 +139,7 @@ public class Hand extends Model {
         rotateHand = new TransformNode("Rotate hand", new Mat4(1));
 
         // Make 0,0 be the bottom of the hand
-        TransformNode moveHand = new TransformNode("", Mat4Transform.translate(0.0f, 2.0f, 0.0f));
+        TransformNode moveHand = TransformNode.createTranslationNode(0.0f, 2.0f, 0.0f);
 
         root.addChild(rotateHand);
             rotateHand.addChild(moveHand);
