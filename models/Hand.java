@@ -20,10 +20,12 @@ public class Hand extends Model {
     private TransformNode rotateHand;
 
     // Finger details
-    final float FINGER1_SIZE = 0.7f;
-    final float FINGER2_SIZE = 0.95f;
-    final float FINGER3_SIZE = 1.0f;
-    final float FINGER4_SIZE = 0.95f;
+    public final float FINGER1_SIZE = 0.7f;
+    public final float FINGER2_SIZE = 0.95f;
+    public final float FINGER3_SIZE = 1.0f;
+    public final float FINGER4_SIZE = 0.95f;
+
+    // Gap between each of the fingers
     final float FINGER_OFFSET = 0.6f;
 
     private int[] rustTexture, rustTextureSpecular;
@@ -40,7 +42,7 @@ public class Hand extends Model {
     }
 
     public void loadModels() {
-        // Create parts
+        // Create parts of the hand
         finger1 = new Finger(worldConfig);
         finger2 = new Finger(worldConfig);
         finger3 = new Finger(worldConfig);
@@ -59,6 +61,7 @@ public class Hand extends Model {
         handConfiguration = config;
     }
 
+    // Rotate the whole hand
     public void rotate(float x, float y) {
         rotateHand.setTransform(
             Mat4.multiplyVariable(
@@ -69,6 +72,7 @@ public class Hand extends Model {
         getRoot().update();
     }
 
+    // Updates the joints in the fingers based on the handConfiguration state
     public void applyFingerBend() {
         float[][] fingerValues = handConfiguration.getFingerValues();
         float[] thumbValues = handConfiguration.getThumbValues();
@@ -92,6 +96,7 @@ public class Hand extends Model {
         rotate(wristValues[0], wristValues[1]);
     }
 
+    // Helper to clean up building the scene graph
     private TransformNode createFingerTransform(float offsetX, float offsetY, float fingerSize) {
         return new TransformNode(
             "Translate(" + offsetX + ", " + offsetY + ", 0.0); Scale(1.0, " + fingerSize + ", 1.0)",
@@ -126,11 +131,12 @@ public class Hand extends Model {
         NameNode palmName= new NameNode("Palm");
         NameNode fingersName= new NameNode("Fingers");
 
+        // Move all the fingers together
         TransformNode moveFingers = new TransformNode(
                 "Translate(-0.9f, 0.5f, 0.0f)",
                 Mat4Transform.translate(-0.9f, 0.5f, 0.0f));
 
-        rotateHand = new TransformNode("", new Mat4(0));
+        rotateHand = new TransformNode("Rotate hand", new Mat4(1));
 
         // Make 0,0 be the bottom of the hand
         TransformNode moveHand = new TransformNode("", Mat4Transform.translate(0.0f, 2.0f, 0.0f));
@@ -154,8 +160,9 @@ public class Hand extends Model {
                         moveFingers.addChild(transformFinger4);
                             transformFinger4.addChild(finger4.getRoot());
 
-
+        // Add the ring to just the 4th finger
         finger4.addRing(ring);
+
         root.update();
         setRoot(root);
     }
