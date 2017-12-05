@@ -16,7 +16,6 @@ public class Arty {
     private static final int HEIGHT = 768;
     private static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
 
-    private static Vec3 CAMERA_START_POSITION = new Vec3(0f, 6f, 14.0f);
     private static HandConfiguration handConfiguration;
 
 
@@ -24,7 +23,7 @@ public class Arty {
 
         handConfiguration = new HandConfiguration();
 
-        Camera camera = new Camera(CAMERA_START_POSITION,
+        Camera camera = new Camera(Camera.DEFAULT_POSITION,
                                     Camera.DEFAULT_TARGET,
                                     Camera.DEFAULT_UP);
 

@@ -12,7 +12,7 @@ import shaders.shaderconfigurators.SkyBoxShader;
 
 public class Sky extends Model {
 
-    public final String IMAGE_PATH = "textures/final/sky.jpg";
+    public final String IMAGE_PATH = "textures/sky.jpg";
     public final double ANIMATION_SPEED = 0.05;
 
     private Mesh skyBox;

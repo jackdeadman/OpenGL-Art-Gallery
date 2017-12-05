@@ -92,7 +92,7 @@ public class GalleryScene extends Scene {
                 Mat4Transform.translate(7.0f, 0.0f, 4.0f));
 
         TransformNode moveHandIntoArm = new TransformNode(
-            "",
+            "Move hand into arm",
             Mat4Transform.translate(0f, -0.75f, 0f)
         );
 

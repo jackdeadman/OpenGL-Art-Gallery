@@ -7,7 +7,7 @@ public class PointLight extends Light {
     // Example Attenuations: https://learnopengl.com/#!Lighting/Light-casters
     public static final Vec3 SHORT_ATTENUATION = new Vec3(1f, 0.7f, 1.8f);
     public static final Vec3 MEDIUM_ATTENUATION = new Vec3(1f, 0.22f, 0.2f);
-    public static final Vec3 LONG_ATTENUATION = new Vec3(1f, 0.09f, 0.032f);
+    public static final Vec3 LONG_ATTENUATION = new Vec3(1f, 0.045f, 0.0075f);
 
     private Vec3 position;
     private Vec3 attenuation;

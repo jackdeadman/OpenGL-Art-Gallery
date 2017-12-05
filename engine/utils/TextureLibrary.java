@@ -16,7 +16,6 @@ public final class TextureLibrary {
                                      GL.GL_LINEAR, GL.GL_LINEAR);
   }
 
-
   public static int[] loadTexture(GL3 gl, String filename,
                                   int wrappingS, int wrappingT, int filterS, int filterT) {
 

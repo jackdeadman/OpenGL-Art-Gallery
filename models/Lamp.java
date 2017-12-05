@@ -26,13 +26,13 @@ public class Lamp extends PointLightEmittingModel {
     public final Vec3 LIGHT_ATTENUATION = new Vec3(1f, 0.022f, 0.0019f);
 
     // File paths
-    public final String MAIN_TEXTURE_PATH = "textures/steel3.jpg";
-    public final String MAIN_TEXTURE_SPECULAR_PATH = "textures/steel3_spec.jpg";
+    public final String MAIN_TEXTURE_PATH = "textures/lamp.jpg";
+    public final String MAIN_TEXTURE_SPECULAR_PATH = "textures/lamp_spec.jpg";
 
     private Material createMaterialForLight() {
         // Setup the light properties
         Material material = new Material();
-        material.setDiffuse(0.6f, 0.6f, 0.6f);
+        material.setDiffuse(0.8f, 0.8f, 0.8f);
         material.setAmbient(0.8f, 0.8f, 0.8f);
         material.setSpecular(1.0f, 1.0f, 1.0f);
         return material;
@@ -40,7 +40,7 @@ public class Lamp extends PointLightEmittingModel {
 
     public Lamp(WorldConfiguration worldConfig) {
         super(worldConfig);
-        PointLight light = new PointLight(createMaterialForLight(), PointLight.MEDIUM_ATTENUATION);
+        PointLight light = new PointLight(createMaterialForLight(), PointLight.LONG_ATTENUATION);
         setContainedLight(light);
     }
 

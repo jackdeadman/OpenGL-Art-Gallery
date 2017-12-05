@@ -5,225 +5,161 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83cae2c5-f7a5-4c1b-aa60-f18701a930ca" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/.atomignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/.idea/hand_assignment.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/correct/backwall.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/correct/default.vs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/correct/light.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/correct/normal.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/correct/one_texture.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/correct/picture_frame.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/correct/skybox.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/correct/solid_color.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/correct/solid_color.vs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/correct/specular.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/fs_cube_04.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/fs_cube_light.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/fs_light_01.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/fs_tt_05.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/fs_tt_05_window.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/fs_tt_05_window_2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/fs_tt_05_window_3.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/lavalamp.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/multiple_lights.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/multiple_lights.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/multiple_lights.vs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/picture.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/solid_color.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/vs_cube_04.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/vs_light_01.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/shaders/vs_tt_05.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/Corel Auto-Preserve/BasketballColor.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/Corel Auto-Preserve/BasketballColor_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/Corel Auto-Preserve/adidas_ball.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/Corel Auto-Preserve/jade_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/back_wall.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/back_wall_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/back_wall_tex.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/back_wall_tex.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/back_wall_tex_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/back_wall_tex_normal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/brick.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/brick.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/brick_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/brick_specular.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/ceiling.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/ceiling2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/chequerboard.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/cloud.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/cloud2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/cloud2_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/container2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/container2_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/ear0xuu2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/ear0xuu2_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/final/sky.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/floor_2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/floor_2.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/floor_2_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/floor_2_normal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/floor_2_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/floor_2_specular.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/floor_3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/floor_3.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/floor_3_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/floor_3_specular.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/frame.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/gold.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/gold.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/green.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/green.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/green_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/green_normal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/hands/frame-blend.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/hands/frame-blend.xcf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/hands/frame.xcf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/hands/frame2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/hands/frame2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/hands/frame4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/hands/frame_blend.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/hands/hand1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/hands/hand2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/hands/hand3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/hands/hand4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/hands/hand5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/hands/hand6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/jade.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/jade_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/jup0vss1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/jup0vss1_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/lava.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/main_metal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/main_metal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/main_metal2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/main_metal2.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/main_metal2_spec.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/main_metal_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/main_metal_normal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/mar0kuu2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/mar0kuu2_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/metal_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/metal_normal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/metal_rust.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/metal_rust.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/metal_rust_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/metal_rust_normal.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/metal_rust_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/metal_rust_specular.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/metal_specular.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/metal_texture.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/metal_texture.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/rain/rain2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/rain/rain3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/rain/rain4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/readme.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/rug.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/rust.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/rust_main.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/rusty.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/rusty_deffuse.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/rusty_normal.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/sky.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/sky.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/sky2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/steel.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/steel.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/steel.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/steel2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/steel3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/steel3_spec.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/surface_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/tile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/tile_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/tile_normal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/tile_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/tile_specular.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/tite.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/used/NormalMap.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/used/arm.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/used/arm2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/used/arm_main.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/used/arm_main_spec.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/used/arm_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/used/arm_normal_original.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/used/arm_original.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/used/green.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/used/green_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/used/tile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/used/tile_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/ven0aaa2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/ven0aaa2_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/wall.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/wall_top.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/wall_wood.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/wall_wood.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/wall_wood_normal (1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/wall_wood_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/wall_wood_normal.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/wallpaper.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/wattBook.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/wattBook_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/window-1906924_960_720.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/window.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/window2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/window2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/window2_mask.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/window2_mask.xcf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/window_black.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/window_black_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/test/hand_assignment/textures/wood_floor.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/galleryscene/shaderprograms/NormalShader.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/fs_cube_04.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/fs_cube_light.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/fs_light_01.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/fs_tt_05.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/fs_tt_05_window_2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/fs_tt_05_window_3.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/lavalamp.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/multiple_lights.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/multiple_lights.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/multiple_lights.vs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/picture.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/solid_color.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/vs_cube_04.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/vs_light_01.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/vs_tt_05.txt" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/galleryscene/shaderprograms/LightShader.java" afterPath="$PROJECT_DIR$/shaders/shaderconfigurators/LightShader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/galleryscene/shaderprograms/MultiLightShader.java" afterPath="$PROJECT_DIR$/shaders/shaderconfigurators/MultiLightShader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/galleryscene/shaderprograms/OneTextureShader.java" afterPath="$PROJECT_DIR$/shaders/shaderconfigurators/OneTextureShader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/galleryscene/shaderprograms/SkyBoxShader.java" afterPath="$PROJECT_DIR$/shaders/shaderconfigurators/SkyBoxShader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/galleryscene/shaderprograms/SolidColorShader.java" afterPath="$PROJECT_DIR$/shaders/shaderconfigurators/SolidColorShader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/galleryscene/shaderprograms/SpecularShader.java" afterPath="$PROJECT_DIR$/shaders/shaderconfigurators/SpecularShader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shaders/correct/backwall.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/backwall.fs.glsl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shaders/correct/default.vs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/default.vs.glsl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shaders/correct/light.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/light.fs.glsl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shaders/correct/normal.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/normal.fs.glsl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shaders/correct/one_texture.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/one_texture.fs.glsl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shaders/correct/picture_frame.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/picture_frame.fs.glsl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shaders/correct/skybox.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/skybox.fs.glsl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shaders/correct/solid_color.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/solid_color.fs.glsl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shaders/correct/solid_color.vs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/solid_color.vs.glsl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shaders/correct/specular.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/specular.fs.glsl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shaders/fs_tt_05_window.txt" afterPath="$PROJECT_DIR$/shaders/glsl/blend_wall.fs.glsl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/hand_assignment.iml" afterPath="$PROJECT_DIR$/.idea/hand_assignment.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/textures/scratches_spec.jpg" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/glsl/normal.fs.glsl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/Corel Auto-Preserve/BasketballColor.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/Corel Auto-Preserve/BasketballColor_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/Corel Auto-Preserve/adidas_ball.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/Corel Auto-Preserve/jade_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/back_wall.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/back_wall_normal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/back_wall_tex.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/back_wall_tex_normal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/back_wall_tex_normal.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/brick.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/brick.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/brick_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/brick_specular.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/ceiling2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/chequerboard.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/cloud.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/cloud2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/cloud2_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/container2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/container2_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/ear0xuu2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/ear0xuu2_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_2.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_2_normal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_2_normal.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_2_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_2_specular.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_3.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_3_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_3_specular.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/frame.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/gold.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/green.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/green_normal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/green_normal.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands/frame-blend.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands/frame2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands/frame4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/jade.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/jade_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/jup0vss1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/jup0vss1_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/lava.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/main_metal.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/main_metal2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/main_metal2.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/main_metal2_spec.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/main_metal_normal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/main_metal_normal.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/mar0kuu2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/mar0kuu2_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_normal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_normal.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_rust.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_rust.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_rust_normal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_rust_normal.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_rust_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_rust_specular.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_specular.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_texture.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_texture.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rain/rain2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rain/rain3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rain/rain4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/readme.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rust.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rust_main.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rusty.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rusty_deffuse.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rusty_normal.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/sky.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/sky2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/steel.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/steel.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/steel.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/steel2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/surface_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/tile.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/tile_normal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/tile_normal.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/tile_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/tile_specular.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/tite.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/NormalMap.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/arm.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/arm2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/arm_main_spec.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/arm_normal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/arm_normal_original.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/arm_original.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/green.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/green_normal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/tile.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/tile_normal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/ven0aaa2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/ven0aaa2_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wall.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wall_top.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wall_wood.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wall_wood_normal (1).jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wall_wood_normal.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wattBook.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wattBook_specular.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/window-1906924_960_720.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/window.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/window2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/window_black_normal.jpg" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/back_wall_tex.jpg" afterPath="$PROJECT_DIR$/textures/ceiling.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/final/rug.jpg" afterPath="$PROJECT_DIR$/textures/rug.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/final/sky.jpg" afterPath="$PROJECT_DIR$/textures/sky.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/green.jpg" afterPath="$PROJECT_DIR$/textures/green_metal.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/main_metal.jpg" afterPath="$PROJECT_DIR$/textures/arm_metal.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/steel3.jpg" afterPath="$PROJECT_DIR$/textures/lamp.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/steel3_spec.jpg" afterPath="$PROJECT_DIR$/textures/lamp_spec.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/used/arm_main.jpg" afterPath="$PROJECT_DIR$/textures/scratches.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/window2.jpg" afterPath="$PROJECT_DIR$/textures/window.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/window2_mask.jpg" afterPath="$PROJECT_DIR$/textures/window_mask.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/gold.jpg" afterPath="$PROJECT_DIR$/textures/gold.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/hand1.jpg" afterPath="$PROJECT_DIR$/textures/hands/hand1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/hand2.jpg" afterPath="$PROJECT_DIR$/textures/hands/hand2.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/hand3.jpg" afterPath="$PROJECT_DIR$/textures/hands/hand3.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/hand4.jpg" afterPath="$PROJECT_DIR$/textures/hands/hand4.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/hand5.jpg" afterPath="$PROJECT_DIR$/textures/hands/hand5.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/hand6.jpg" afterPath="$PROJECT_DIR$/textures/hands/hand6.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/wall_wood.jpg" afterPath="$PROJECT_DIR$/textures/wall_wood.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/wall_wood_normal.jpg" afterPath="$PROJECT_DIR$/textures/wall_wood_normal.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/wallpaper.jpg" afterPath="$PROJECT_DIR$/textures/wallpaper.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/window_black.jpg" afterPath="$PROJECT_DIR$/textures/window_black.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/wood_floor.jpg" afterPath="$PROJECT_DIR$/textures/wood_floor.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/lighting/DirectionalLight.java" afterPath="$PROJECT_DIR$/engine/lighting/DirectionalLight.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Arty.java" afterPath="$PROJECT_DIR$/Arty.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/shaders/glsl/specular.fs.glsl" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/shaders/glsl/specular.fs.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/Camera.java" afterPath="$PROJECT_DIR$/engine/Camera.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/lighting/PointLight.java" afterPath="$PROJECT_DIR$/engine/lighting/PointLight.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/render/Model.java" afterPath="$PROJECT_DIR$/engine/render/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/render/Shader.java" afterPath="$PROJECT_DIR$/engine/render/Shader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/utils/TextureLibrary.java" afterPath="$PROJECT_DIR$/engine/utils/TextureLibrary.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/galleryscene/GalleryScene.java" afterPath="$PROJECT_DIR$/galleryscene/GalleryScene.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/galleryscene/SceneControls.java" afterPath="$PROJECT_DIR$/galleryscene/SceneControls.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Arm.java" afterPath="$PROJECT_DIR$/models/Arm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Lamp.java" afterPath="$PROJECT_DIR$/models/Lamp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/PictureFrame.java" afterPath="$PROJECT_DIR$/models/PictureFrame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Room.java" afterPath="$PROJECT_DIR$/models/Room.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Sky.java" afterPath="$PROJECT_DIR$/models/Sky.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/handparts/Finger.java" afterPath="$PROJECT_DIR$/models/handparts/Finger.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/handparts/Palm.java" afterPath="$PROJECT_DIR$/models/handparts/Palm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/handparts/Ring.java" afterPath="$PROJECT_DIR$/models/handparts/Ring.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/glsl/backwall.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/backwall.fs.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/glsl/light.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/light.fs.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/glsl/picture_frame.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/picture_frame.fs.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/glsl/specular.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/specular.fs.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/shaderconfigurators/MultiLightShader.java" afterPath="$PROJECT_DIR$/shaders/shaderconfigurators/MultiLightShader.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -236,66 +172,7 @@
     <SUITE FILE_PATH="coverage/hand_assignment$Main.coverage" NAME="Main Coverage Results" MODIFIED="1512349894922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Lamp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Lamp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="42" column="97" lean-forward="false" selection-start-line="42" selection-start-column="97" selection-end-line="42" selection-end-column="97" />
-              <folding>
-                <marker date="1512444513270" expanded="true" signature="3775:4119" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DirectionalLight.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/engine/lighting/DirectionalLight.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1512445707728" expanded="false" signature="912:921" ph=" { " />
-                <marker date="1512445707728" expanded="false" signature="937:941" ph=" }" />
-                <marker date="1512445707728" expanded="false" signature="1356:1363" ph=" { " />
-                <marker date="1512445707728" expanded="false" signature="1377:1381" ph=" }" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="blend_wall.fs.glsl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shaders/glsl/blend_wall.fs.glsl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="61" column="84" lean-forward="false" selection-start-line="61" selection-start-column="84" selection-end-line="61" selection-end-column="84" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="backwall.fs.glsl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shaders/glsl/backwall.fs.glsl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-43">
-              <caret line="132" column="37" lean-forward="false" selection-start-line="132" selection-start-column="37" selection-end-line="132" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ring.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/handparts/Ring.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="45" column="76" lean-forward="false" selection-start-line="45" selection-start-column="76" selection-end-line="45" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -362,11 +239,11 @@
         <option value="$PROJECT_DIR$/galleryscene/GalleryScene.java" />
         <option value="$PROJECT_DIR$/models/Room.java" />
         <option value="$PROJECT_DIR$/shaders/glsl/one_texture.fs.glsl" />
-        <option value="$PROJECT_DIR$/shaders/glsl/backwall.fs.glsl" />
         <option value="$PROJECT_DIR$/models/handparts/Ring.java" />
         <option value="$PROJECT_DIR$/models/Lamp.java" />
         <option value="$PROJECT_DIR$/engine/lighting/DirectionalLight.java" />
         <option value="$PROJECT_DIR$/shaders/glsl/blend_wall.fs.glsl" />
+        <option value="$PROJECT_DIR$/shaders/glsl/backwall.fs.glsl" />
       </list>
     </option>
   </component>
@@ -378,7 +255,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-2" />
-    <option name="width" value="962" />
+    <option name="width" value="1924" />
     <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -400,6 +277,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -411,30 +289,18 @@
             <path>
               <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
               <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="textures" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
               <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="handparts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
-              <item name="shaders" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
-              <item name="shaders" type="462c0819:PsiDirectoryNode" />
-              <item name="glsl" type="462c0819:PsiDirectoryNode" />
+              <item name="textures" type="462c0819:PsiDirectoryNode" />
+              <item name="hands" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -448,12 +314,13 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/shaders/glsl" />
-      <recent name="$PROJECT_DIR$/shaders/shaderconfigurators" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/shaders/correct" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/textures" />
+      <recent name="$PROJECT_DIR$/shaders/glsl" />
+      <recent name="$PROJECT_DIR$/shaders/shaderconfigurators" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -585,79 +452,47 @@
       <workItem from="1512156064269" duration="13229000" />
       <workItem from="1512253127406" duration="41137000" />
       <workItem from="1512439834223" duration="5878000" />
+      <workItem from="1512509238549" duration="2797000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66118000" />
+    <option name="totallyTimeSpent" value="68915000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="0" width="962" height="1053" extended-state="0" />
-    <editor active="true" />
+    <frame x="-2" y="0" width="1924" height="1053" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25219297" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.51670146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25219297" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2171875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2578125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -670,130 +505,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/handparts/Finger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1081">
-          <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Hand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3404">
-          <caret line="152" column="28" lean-forward="false" selection-start-line="152" selection-start-column="28" selection-end-line="152" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/textures/hands/hand5.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/BlendShader.java" />
-    <entry file="file://$PROJECT_DIR$/engine/render/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-736">
-          <caret line="75" column="25" lean-forward="false" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/render/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="50" column="41" lean-forward="false" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/picture.fs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1631">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/glsl/picture_frame.fs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2622">
-          <caret line="114" column="24" lean-forward="false" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meshes/TwoTriangles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="17" column="3" lean-forward="false" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/PictureFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="56" column="72" lean-forward="false" selection-start-line="56" selection-start-column="72" selection-end-line="56" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meshes/TwoTriangles5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/glsl/skybox.fs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="66" lean-forward="false" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Sky.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-529">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/animation/AnimationEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/animation/AnimationFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/engine/animation/AnimationFunctions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="36" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/engine/animation/Interpolatable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -801,7 +516,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2323">
           <caret line="119" column="65" lean-forward="false" selection-start-line="119" selection-start-column="65" selection-end-line="119" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -819,10 +533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-          <folding>
-            <element signature="e#635#636#0" expanded="false" />
-            <element signature="e#665#666#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -830,7 +540,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -846,9 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="104" column="5" lean-forward="false" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -856,9 +562,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -866,7 +569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="66" column="14" lean-forward="false" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,7 +576,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -882,11 +583,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -894,7 +590,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -902,7 +597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="20" column="76" lean-forward="false" selection-start-line="20" selection-start-column="76" selection-end-line="20" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -910,7 +604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-46">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -918,9 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -928,7 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
           <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="37" selection-end-line="15" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -936,7 +625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="73" column="80" lean-forward="false" selection-start-line="73" selection-start-column="80" selection-end-line="73" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -944,11 +632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="61" column="3" lean-forward="false" selection-start-line="61" selection-start-column="3" selection-end-line="61" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1232#1422#0" expanded="true" />
-            <element signature="e#1421#1422#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -956,23 +639,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/NormalShader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/galleryscene/shaderprograms/NormalShader.java" />
     <entry file="file://$PROJECT_DIR$/shaders/shaderconfigurators/LightShader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -980,9 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -990,7 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -998,7 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,7 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,7 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1030,7 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="802">
           <caret line="90" column="30" lean-forward="false" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1046,24 +712,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1127">
           <caret line="59" column="67" lean-forward="false" selection-start-line="59" selection-start-column="67" selection-end-line="59" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/handparts/Ring.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="45" column="76" lean-forward="false" selection-start-line="45" selection-start-column="76" selection-end-line="45" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/Lamp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="42" column="97" lean-forward="false" selection-start-line="42" selection-start-column="97" selection-end-line="42" selection-end-column="97" />
+        <state relative-caret-position="759">
+          <caret line="42" column="95" lean-forward="false" selection-start-line="42" selection-start-column="95" selection-end-line="42" selection-end-column="95" />
           <folding>
-            <marker date="1512444513270" expanded="true" signature="3775:4119" ph="{...}" />
+            <marker date="1512510744245" expanded="true" signature="1455:1541" ph="{...}" />
+            <marker date="1512510744245" expanded="true" signature="1626:1796" ph="{...}" />
+            <marker date="1512510744245" expanded="true" signature="1834:2369" ph="{...}" />
+            <marker date="1512510744245" expanded="true" signature="2412:4113" ph="{...}" />
+            <marker date="1512510744245" expanded="true" signature="3769:4113" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1073,11 +734,7 @@
         <state relative-caret-position="23">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512445707728" expanded="false" signature="912:921" ph=" { " />
-            <marker date="1512445707728" expanded="false" signature="937:941" ph=" }" />
-            <marker date="1512445707728" expanded="false" signature="1356:1363" ph=" { " />
-            <marker date="1512445707728" expanded="false" signature="1377:1381" ph=" }" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1092,10 +749,98 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shaders/glsl/backwall.fs.glsl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43">
-          <caret line="132" column="37" lean-forward="false" selection-start-line="132" selection-start-column="37" selection-end-line="132" selection-end-column="37" />
+        <state relative-caret-position="371">
+          <caret line="139" column="13" lean-forward="false" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/handparts/Ring.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="45" column="76" lean-forward="false" selection-start-line="45" selection-start-column="76" selection-end-line="45" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/scratches_spec.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/window_black.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/ceiling.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/arm_metal.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/green_metal.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/rug.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/scratches.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/sky.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/lamp.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/tile.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/wall_wood_normal.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/window.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/window_mask.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/wood_floor.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/hands/frame_blend.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures/hands/frame2.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>

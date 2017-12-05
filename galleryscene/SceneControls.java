@@ -160,11 +160,11 @@ public class SceneControls extends JPanel {
         });
         section.add(front);
 
-        JButton back = new JButton("Back");
-        back.addActionListener(e -> {
+        JButton side = new JButton("Side");
+        side.addActionListener(e -> {
             camera.setCamera(Camera.CameraType.Z);
         });
-        section.add(back);
+        section.add(side);
 
         JButton top = new JButton("Top");
         top.addActionListener(e -> {

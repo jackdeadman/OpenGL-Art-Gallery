@@ -11,7 +11,7 @@ import shaders.shaderconfigurators.OneTextureShader;
 
 public class Arm extends Model {
 
-    public final String MAIN_TEXTURE_PATH = "textures/main_metal.jpg";
+    public final String MAIN_TEXTURE_PATH = "textures/arm_metal.jpg";
 
     private Mesh mainSegment;
     private int[] mainTexture;
@@ -32,7 +32,12 @@ public class Arm extends Model {
     }
 
     private void loadMeshes(GL3 gl) {
-        ShaderConfigurator program = new OneTextureShader(gl, mainTexture);
+        Material material = new Material();
+        material.setDiffuse(0.2f, 0.2f, 0.2f);
+        material.setAmbient(0.2f, 0.2f, 0.2f);
+        material.setSpecular(0.1f, 0.1f, 0.1f);
+        material.setShininess(1f);
+        ShaderConfigurator program = new OneTextureShader(gl, mainTexture, material);
         mainSegment = new Sphere(gl, program);
         registerMesh(mainSegment);
     }

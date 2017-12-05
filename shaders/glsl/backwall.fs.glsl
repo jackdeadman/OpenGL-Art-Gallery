@@ -61,7 +61,7 @@ struct Material {
 
 uniform Material material;
 
- vec3 calcDirLight(DirectionalLight light, vec3 normal, vec3 viewDir, vec3 textureMix)
+ vec3 calcDirLight(DirectionalLight light, vec3 normal, vec3 viewDir, vec3 fragColor)
  {
      // Flip the vector
      vec3 lightDir = normalize(-light.direction);
@@ -72,13 +72,13 @@ uniform Material material;
      float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
 
      // combine results
-     vec3 ambient  = light.ambient  * textureMix;
-     vec3 diffuse  = light.diffuse  * diff * textureMix;
-     vec3 specular = light.specular * spec * textureMix;
+     vec3 ambient  = light.ambient  * fragColor;
+     vec3 diffuse  = light.diffuse  * diff * fragColor;
+     vec3 specular = light.specular * spec * material.specular;
      return (ambient + diffuse + specular);
  }
 
- vec3 calcSpotLight(SpotLight light, vec3 normal, vec3 fragPos, vec3 viewDir, vec3 textureMix)
+ vec3 calcSpotLight(SpotLight light, vec3 normal, vec3 fragPos, vec3 viewDir, vec3 fragColor)
  {
      vec3 lightDir = normalize(light.position - fragPos);
      // diffuse shading
@@ -94,9 +94,10 @@ uniform Material material;
      float epsilon = light.cutOff - light.outerCutOff;
      float intensity = clamp((theta - light.outerCutOff) / epsilon, 0.0, 1.0);
      // combine results
-     vec3 ambient = light.ambient * textureMix;
-     vec3 diffuse = light.diffuse * diff * textureMix;
-     vec3 specular = light.specular * spec * textureMix;
+     vec3 ambient = light.ambient * fragColor;
+     vec3 diffuse = light.diffuse * diff * fragColor;
+     vec3 specular = light.specular * spec * material.specular;
+
      ambient *= attenuation * intensity;
      diffuse *= attenuation * intensity;
      specular *= attenuation * intensity;
@@ -116,18 +117,17 @@ void main() {
 
   if (blend.g > 0.6 && blend.r < 0.2 && blend.b < 0.2) {
     textureMix = wall;
-    // vec3 result = calcDirLight(dirLight, ourNormal, viewDir);
+      // Adjust normal based on the normal map
       vec3 normalMapColor = ((2*texture(normalTexture, ourTexCoord))-1).rgb;
       norm = vec3(normalMapColor.r, normalMapColor.g*ourNormal.g, normalMapColor.b*ourNormal.b);
       norm = normalize(vec3(normalMapColor.x, -normalMapColor.y, normalMapColor.z)/2);
   } else if (blend.r > 0.6 && blend.g < 0.2 && blend.b < 0.2) {
     fragColor = vec4(0);
-    return;
+    return; //Dont need to calculate lighting here so end now.
   } else {
     textureMix = window;
     norm = normalize(ourNormal);
   }
-
 
 
   vec3 result = calcDirLight(dirLight, ourNormal, viewDir, textureMix);

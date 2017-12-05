@@ -75,7 +75,6 @@ public class MultiLightShader extends ShaderConfigurator {
     }
 
     public void dispose(GL3 gl) {
-        System.out.println("Disposing");
         for (int i=0; i<textures.size(); ++i) {
             TexturePair pair = textures.get(i);
             gl.glDeleteBuffers(1, pair.texture, 0);

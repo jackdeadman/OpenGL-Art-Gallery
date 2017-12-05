@@ -17,9 +17,9 @@ public class Palm extends Model {
 
     private TransformNode topRotation;
 
-    public final String UPPER_TEXTURE_PATH = "textures/used/arm_main.jpg";
-    public final String UPPER_TEXTURE_SPEC_PATH = "textures/used/arm_main_spec.jpg";
-    public final String LOWER_TEXTURE_PATH = "textures/main_metal.jpg";
+    public final String UPPER_TEXTURE_PATH = "textures/scratches.jpg";
+    public final String UPPER_TEXTURE_SPEC_PATH = "textures/scratches_spec.jpg";
+    public final String LOWER_TEXTURE_PATH = "textures/green_metal.jpg";
 
     private int[] upperTexture, upperTextureSpec, lowerTexture;
 
@@ -41,8 +41,14 @@ public class Palm extends Model {
     }
 
     private void loadMeshes(GL3 gl) {
+
+        Material lowerMaterial = new Material();
+        lowerMaterial.setAmbient(0.2f, 0.2f, 0.2f);
+        lowerMaterial.setDiffuse(0.2f, 0.2f, 0.2f);
+        lowerMaterial.setSpecular(0.1f, 0.1f, 0.1f);
+        lowerMaterial.setShininess(5f);
         upperPalm = new Sphere(gl, new SpecularShader(gl, upperTexture, upperTextureSpec));
-        lowerPalm = new Sphere(gl, new OneTextureShader(gl, lowerTexture));
+        lowerPalm = new Sphere(gl, new OneTextureShader(gl, lowerTexture, lowerMaterial));
 
         registerMeshes(new Mesh[] { upperPalm, lowerPalm });
     }

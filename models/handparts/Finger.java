@@ -16,9 +16,9 @@ public class Finger extends Model {
     public final float JOINT_SIZE = 0.5f;
     public final float FINGER_RADIUS = 0.6f;
 
-    public final String JOINT_TEXTURE_PATH = "textures/used/arm_main.jpg";
-    public final String JOINT_TEXTURE_SPEC_PATH = "textures/used/arm_main_spec.jpg";
-    public final String SEGMENT_TEXTURE_PATH = "textures/green.jpg";
+    public final String JOINT_TEXTURE_PATH = "textures/scratches.jpg";
+    public final String JOINT_TEXTURE_SPEC_PATH = "textures/scratches_spec.jpg";
+    public final String SEGMENT_TEXTURE_PATH = "textures/green_metal.jpg";
 
     protected Model ring;
 
@@ -48,8 +48,13 @@ public class Finger extends Model {
     }
 
     protected void loadMeshes(GL3 gl) {
+        Material material = new Material();
+        material.setAmbient(0.2f, 0.2f, 0.2f);
+        material.setDiffuse(0.2f, 0.2f, 0.2f);
+        material.setSpecular(0.1f, 0.1f, 0.1f);
+        material.setShininess(5f);
         // Meshes
-        segment = new Sphere(gl, new OneTextureShader(gl, segmentTexture));
+        segment = new Sphere(gl, new OneTextureShader(gl, segmentTexture, material));
         joint = new Sphere(gl, new SpecularShader(gl, jointTexture, jointTextureSpec));
 
         registerMeshes(new Mesh[] { segment, joint });

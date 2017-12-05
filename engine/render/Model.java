@@ -90,7 +90,6 @@ public abstract class Model {
 
     protected void initialise(GL3 gl) {
         for (Model model: models) {
-            System.out.println(model);
             model.initialise(gl);
         }
         start(gl);

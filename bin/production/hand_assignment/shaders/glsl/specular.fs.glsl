@@ -62,9 +62,9 @@ vec3 calcDirLight(DirectionalLight light, vec3 normal, vec3 viewDir)
 // calculates the color when using a point light.
 vec3 CalcPointLight(PointLight light, vec3 norm, vec3 fragPos)
 {
-    vec3 ambient = light.ambient * vec3(texture(material.diffuse, ourTexCoord));
-    vec3 lightDir = normalize(light.position - fragPos);
-    float diff = max(dot(norm, lightDir), 0.0);
+      vec3 ambient = light.ambient * vec3(texture(material.diffuse, ourTexCoord));
+      vec3 lightDir = normalize(light.position - fragPos);
+      float diff = max(dot(norm, lightDir), 0.0);
 
       vec3 diffuse = light.diffuse * diff * vec3(texture(material.diffuse, ourTexCoord));
 

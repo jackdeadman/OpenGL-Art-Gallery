@@ -77,13 +77,13 @@ public class Room extends Model {
     // backWallNormal, backWallTexture, backWallBlend
     public final String BACK_WALL_TEXTURE_PATH = "textures/wall_wood.jpg";
     public final String BACK_WALL_NORMAL_PATH = "textures/wall_wood_normal.jpg";
-    public final String BACK_WALL_BLEND_PATH = "textures/window2_mask.jpg";
-    public final String WINDOW_TEXTURE_PATH = "textures/window2.jpg";
+    public final String BACK_WALL_BLEND_PATH = "textures/window_mask.jpg";
+    public final String WINDOW_TEXTURE_PATH = "textures/window.jpg";
 
     public final String BEAMS_PATH = "textures/window_black.jpg";
     public final String WALLPAPER_PATH = "textures/wallpaper.jpg";
-    public final String CEILING_PATH = "textures/back_wall_tex.jpg";
-    public final String RUG_PATH = "textures/final/rug.jpg";
+    public final String CEILING_PATH = "textures/ceiling.jpg";
+    public final String RUG_PATH = "textures/rug.jpg";
 
     public final String BACK_WALL_SHADER_PATH = "shaders/glsl/backwall.fs.glsl";
     public final String BLEND_WALL_SHADER_PATH = "shaders/glsl/blend_wall.fs.glsl";
@@ -225,7 +225,7 @@ public class Room extends Model {
         TransformNode rugTransform = new TransformNode("Transform rug",
                 Mat4.multiply(
                         Mat4Transform.translate(0f, 0.01f, 0f),
-                        Mat4Transform.scale(5f, 1f, 10f)
+                        Mat4Transform.scale(5f, 1f, 7f)
                 )
         );
 
