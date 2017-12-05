@@ -74,8 +74,8 @@ public class Ring extends SpotLightEmittingModel {
         ShaderConfigurator ringShader = new OneTextureShader(gl, mainTexture, material);
         ShaderConfigurator bulbShader = new LightShader(gl, getContainedLight());
 
-        ring = new SphereNew(gl, ringShader);
-        bulb = new SphereNew(gl, bulbShader);
+        ring = new Sphere(gl, ringShader);
+        bulb = new Sphere(gl, bulbShader);
 
         registerMeshes(new Mesh[] { ring, bulb });
     }

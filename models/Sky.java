@@ -53,7 +53,7 @@ public class Sky extends Model {
         // Special shader which gives the illusion the sky is
         // really far away.
         textureProgram = new SkyBoxShader(gl, skyTexture);
-        skyBox = new TwoTrianglesNew(gl, textureProgram);
+        skyBox = new TwoTriangles(gl, textureProgram);
 
         // Default the offset to 0 at the start, just in case.
         updateSkyOffset(gl, 0.0f);

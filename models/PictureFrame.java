@@ -2,7 +2,6 @@ package models;
 
 import com.jogamp.opengl.*;
 
-import com.jogamp.opengl.util.glsl.ShaderProgram;
 import engine.WorldConfiguration;
 import gmaths.*;
 import meshes.*;
@@ -11,8 +10,6 @@ import galleryscene.shaderprograms.*;
 import engine.render.*;
 import engine.utils.*;
 import engine.scenegraph.*;
-
-import javax.xml.soap.Text;
 
 public class PictureFrame extends Model {
 
@@ -74,7 +71,7 @@ public class PictureFrame extends Model {
         program.addTexture("pictureTexture", pictureTexture);
         program.addTexture("blendTexture", blendTexture);
 
-        frame = new TwoTrianglesNew(gl, program);
+        frame = new TwoTriangles(gl, program);
         registerMesh(frame);
     }
 

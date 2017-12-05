@@ -34,7 +34,7 @@ public class Arm extends Model {
 
     private void loadMeshes(GL3 gl) {
         ShaderConfigurator program = new OneTextureShader(gl, mainTexture);
-        mainSegment = new SphereNew(gl, program);
+        mainSegment = new Sphere(gl, program);
         registerMesh(mainSegment);
     }
 

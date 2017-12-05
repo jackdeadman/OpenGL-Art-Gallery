@@ -1,96 +1,25 @@
 package meshes;
 
-import engine.*;
-import engine.lighting.*;
-import java.util.*;
-import gmaths.*;
-import com.jogamp.opengl.*;
 import engine.render.*;
+import com.jogamp.opengl.*;
 
 public class Sphere extends Mesh {
 
   private int[] textureId1;
   private int[] textureId2;
 
-  public Sphere(GL3 gl, int[] textureId1, int[] textureId2, String fs) {
-    super(gl);
+  public Sphere(GL3 gl, ShaderConfigurator program) {
+    super(gl, program);
+
     createVertices();
     super.vertices = this.vertices;
     super.indices = this.indices;
-    this.textureId1 = textureId1;
-    this.textureId2 = textureId2;
-    material.setAmbient(1.0f, 0.5f, 0.31f);
-    material.setDiffuse(1.0f, 0.5f, 0.31f);
-    material.setSpecular(0.5f, 0.5f, 0.5f);
-    material.setShininess(32.0f);
 
-    shader = new Shader(gl, "shaders/vs_cube_04.txt", fs);
     fillBuffers(gl);
   }
 
-  public Sphere(GL3 gl, int[] textureId1, int[] textureId2) {
-      this(gl, textureId1, textureId2, "shaders/fs_cube_04.txt");
-  }
-
-  public void render(GL3 gl, Mat4 model) {
-    //Mat4 model = getObjectModelMatrix();
-    Camera camera = worldConfig.getCamera();
-    ArrayList<PointLight> pointLights = worldConfig.getPointLights();
-    Mat4 mvpMatrix = Mat4.multiply(perspective, Mat4.multiply(camera.getViewMatrix(), model));
-
-    shader.use(gl);
-    shader.setFloatArray(gl, "model", model.toFloatArrayForGLSL());
-    shader.setFloatArray(gl, "mvpMatrix", mvpMatrix.toFloatArrayForGLSL());
-
-    shader.setVec3(gl, "viewPos", camera.getPosition());
-
-    DirectionalLight dirLight = worldConfig.getDirectionalLight();
-    shader.setVec3(gl, "dirLight.direction", dirLight.getDirection());
-    shader.setVec3(gl, "dirLight.ambient", dirLight.getMaterial().getAmbient());
-    shader.setVec3(gl, "dirLight.diffuse", dirLight.getMaterial().getDiffuse());
-    shader.setVec3(gl, "dirLight.specular", dirLight.getMaterial().getSpecular());
-
-
-    for (int i=0; i<pointLights.size(); ++i) {
-
-        PointLight light = pointLights.get(i);
-        shader.setVec3(gl, "pointLights[" + i + "].position", light.getPosition());
-        shader.setVec3(gl, "pointLights[" + i + "].ambient", light.getMaterial().getAmbient());
-        shader.setVec3(gl, "pointLights[" + i + "].diffuse", light.getMaterial().getDiffuse());
-        shader.setVec3(gl, "pointLights[" + i + "].specular", light.getMaterial().getSpecular());
-
-        Vec3 attenuation = light.getAttenuation();
-        shader.setFloat(gl, "pointLights[" + i + "].constant", attenuation.x);
-        shader.setFloat(gl, "pointLights[" + i + "].linear", attenuation.y);
-        shader.setFloat(gl, "pointLights[" + i + "].quadratic", attenuation.z);
-    }
-
-    //shader.setVec3(gl, "material.ambient", material.getAmbient());
-    //shader.setVec3(gl, "material.diffuse", material.getDiffuse());
-    //shader.setVec3(gl, "material.specular", material.getSpecular());
-    shader.setFloat(gl, "material.shininess", material.getShininess());
-
-    shader.setInt(gl, "material.diffuse", 0);  // be careful to match these with GL_TEXTURE0 and GL_TEXTURE1
-    shader.setInt(gl, "material.specular", 1);
-
-    gl.glActiveTexture(GL.GL_TEXTURE0);
-    gl.glBindTexture(GL.GL_TEXTURE_2D, textureId1[0]);
-    gl.glActiveTexture(GL.GL_TEXTURE1);
-    gl.glBindTexture(GL.GL_TEXTURE_2D, textureId2[0]);
-
-    gl.glBindVertexArray(vertexArrayId[0]);
-    gl.glDrawElements(GL.GL_TRIANGLES, indices.length, GL.GL_UNSIGNED_INT, 0);
-    gl.glBindVertexArray(0);
-  }
-
-  public void dispose(GL3 gl) {
-    super.dispose(gl);
-    gl.glDeleteBuffers(1, textureId1, 0);
-    gl.glDeleteBuffers(1, textureId2, 0);
-  }
-
   // ***************************************************
-  /* THE DATA
+  /* THE DATA: Created by Steve Maddock
    */
   // anticlockwise/counterclockwise ordering
 
@@ -122,9 +51,6 @@ public class Sphere extends Mesh {
         vertices[j*XLONG*step+i*step+7] = (float)(j)/(float)(YLAT-1);
       }
     }
-    //for (int i=0; i<vertices.length; i+=step) {
-    //  System.out.println(vertices[i]+", "+vertices[i+1]+", "+vertices[i+2]);
-    //}
 
     indices = new int[(XLONG-1)*(YLAT-1)*6];
     for (int j = 0; j<YLAT-1; ++j) {
@@ -137,9 +63,6 @@ public class Sphere extends Mesh {
         indices[j*(XLONG-1)*6+i*6+5] = (j+1)*XLONG+i;
       }
     }
-    //for (int i=0; i<indices.length; i+=3) {
-    //  System.out.println(indices[i]+", "+indices[i+1]+", "+indices[i+2]);
-    //}
 
   }
 

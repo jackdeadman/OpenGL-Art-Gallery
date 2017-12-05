@@ -61,10 +61,10 @@ public class Lamp extends PointLightEmittingModel {
         ShaderConfigurator program = new SpecularShader(gl, mainTexture, mainTextureSpecular);
 
         // Load the Meshes
-        pipe = new CubeNew(gl, program);
-        bottomStand = new SphereNew(gl, program);
-        bulbHolder = new SphereNew(gl, program);
-        bulb = new SphereNew(gl, new LightShader(gl, getContainedLight()));
+        pipe = new Cube(gl, program);
+        bottomStand = new Sphere(gl, program);
+        bulbHolder = new Sphere(gl, program);
+        bulb = new Sphere(gl, new LightShader(gl, getContainedLight()));
 
         // Register the models so they setup for the scene
         registerMeshes(new Mesh[] { pipe, bottomStand, bulbHolder, bulb });

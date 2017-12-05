@@ -40,8 +40,8 @@ public class Palm extends Model {
     }
 
     private void loadMeshes(GL3 gl) {
-        upperPalm = new SphereNew(gl, new SpecularShader(gl, upperTexture, upperTextureSpec));
-        lowerPalm = new SphereNew(gl, new OneTextureShader(gl, lowerTexture));
+        upperPalm = new Sphere(gl, new SpecularShader(gl, upperTexture, upperTextureSpec));
+        lowerPalm = new Sphere(gl, new OneTextureShader(gl, lowerTexture));
 
         registerMeshes(new Mesh[] { upperPalm, lowerPalm });
     }

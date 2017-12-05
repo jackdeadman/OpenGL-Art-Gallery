@@ -5,11 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83cae2c5-f7a5-4c1b-aa60-f18701a930ca" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/meshes/SkyBox.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/meshes/TwoTriangles2.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/meshes/TwoTriangles3.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/meshes/TwoTriangles4.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/meshes/TwoTriangles5.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/meshes/CubeNew.java" afterPath="$PROJECT_DIR$/meshes/Cube.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/meshes/SphereNew.java" afterPath="$PROJECT_DIR$/meshes/Sphere.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/meshes/TwoTrianglesNew.java" afterPath="$PROJECT_DIR$/meshes/TwoTriangles.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/hand_assignment.iml" afterPath="$PROJECT_DIR$/.idea/hand_assignment.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Arm.java" afterPath="$PROJECT_DIR$/models/Arm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Lamp.java" afterPath="$PROJECT_DIR$/models/Lamp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/PictureFrame.java" afterPath="$PROJECT_DIR$/models/PictureFrame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Room.java" afterPath="$PROJECT_DIR$/models/Room.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/correct/backwall.fs.glsl" afterPath="$PROJECT_DIR$/shaders/correct/backwall.fs.glsl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/fs_tt_05_window.txt" afterPath="$PROJECT_DIR$/shaders/fs_tt_05_window.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Sky.java" afterPath="$PROJECT_DIR$/models/Sky.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/handparts/Finger.java" afterPath="$PROJECT_DIR$/models/handparts/Finger.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/handparts/Palm.java" afterPath="$PROJECT_DIR$/models/handparts/Palm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/handparts/Ring.java" afterPath="$PROJECT_DIR$/models/handparts/Ring.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,7 +42,7 @@
             <state relative-caret-position="253">
               <caret line="19" column="50" lean-forward="false" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
               <folding>
-                <marker date="1512434481392" expanded="true" signature="3714:4058" ph="{...}" />
+                <marker date="1512440037002" expanded="true" signature="3702:4046" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -38,11 +51,9 @@
       <file leaf-file-name="Sky.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/Sky.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="92">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,18 +174,7 @@
             <path>
               <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
               <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
-              <item name="engine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
-              <item name="galleryscene" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hand_assignment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hand_assignment" type="462c0819:PsiDirectoryNode" />
-              <item name="galleryscene" type="462c0819:PsiDirectoryNode" />
-              <item name="shaderprograms" type="462c0819:PsiDirectoryNode" />
+              <item name="meshes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -326,19 +326,19 @@
       <workItem from="1512144921347" duration="4237000" />
       <workItem from="1512156064269" duration="13229000" />
       <workItem from="1512253127406" duration="41137000" />
-      <workItem from="1512439834223" duration="38000" />
+      <workItem from="1512439834223" duration="244000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60278000" />
+    <option name="totallyTimeSpent" value="60484000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="0" width="1924" height="1053" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -349,8 +349,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2578125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2578125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -363,10 +364,8 @@
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -419,10 +418,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/meshes/SphereNew.java">
+    <entry file="file://$PROJECT_DIR$/meshes/Sphere.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -430,6 +430,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="38" column="33" lean-forward="false" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -545,6 +548,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="41">
           <caret line="65" column="69" lean-forward="false" selection-start-line="65" selection-start-column="69" selection-end-line="65" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -552,6 +556,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1081">
           <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -661,7 +666,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/meshes/TwoTrianglesNew.java">
+    <entry file="file://$PROJECT_DIR$/meshes/TwoTriangles.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="17" column="3" lean-forward="false" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
@@ -673,6 +678,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="56" column="72" lean-forward="false" selection-start-line="56" selection-start-column="72" selection-end-line="56" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -704,6 +712,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -711,6 +720,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
           <caret line="110" column="62" lean-forward="false" selection-start-line="110" selection-start-column="62" selection-end-line="110" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -764,18 +776,16 @@
         <state relative-caret-position="253">
           <caret line="19" column="50" lean-forward="false" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
           <folding>
-            <marker date="1512434481392" expanded="true" signature="3714:4058" ph="{...}" />
+            <marker date="1512440037002" expanded="true" signature="3702:4046" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/Sky.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="92">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

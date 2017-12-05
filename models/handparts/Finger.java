@@ -10,8 +10,6 @@ import gmaths.*;
 
 import com.jogamp.opengl.*;
 
-import javax.xml.soap.Text;
-
 public class Finger extends Model {
 
     // Size the joint part will be scaled to
@@ -51,8 +49,8 @@ public class Finger extends Model {
 
     protected void loadMeshes(GL3 gl) {
         // Meshes
-        segment = new SphereNew(gl, new OneTextureShader(gl, segmentTexture));
-        joint = new SphereNew(gl, new SpecularShader(gl, jointTexture, jointTextureSpec));
+        segment = new Sphere(gl, new OneTextureShader(gl, segmentTexture));
+        joint = new Sphere(gl, new SpecularShader(gl, jointTexture, jointTextureSpec));
 
         registerMeshes(new Mesh[] { segment, joint });
     }

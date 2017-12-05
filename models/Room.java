@@ -121,7 +121,7 @@ public class Room extends Model {
 
     private void loadMeshes(GL3 gl) {
         // make meshes
-        floor = new TwoTrianglesNew(gl, new OneTextureShader(gl, floorTexture));
+        floor = new TwoTriangles(gl, new OneTextureShader(gl, floorTexture));
 
         // Unique one off shader so making it here instead of making a new ShaderConfigurator
         MultiLightShader backShaderProgram = new MultiLightShader(gl, "shaders/correct/backwall.fs.glsl");
@@ -129,7 +129,7 @@ public class Room extends Model {
         backShaderProgram.addTexture("mainTexture", backWallTexture);
         backShaderProgram.addTexture("blendTexture", backWallBlend);
         backShaderProgram.addTexture("windowTexture", windowTexture);
-        back = new TwoTrianglesNew(gl, backShaderProgram);
+        back = new TwoTriangles(gl, backShaderProgram);
 
         // Same again
         MultiLightShader blendShader = new MultiLightShader(gl, "shaders/fs_tt_05_window.txt");
@@ -137,14 +137,14 @@ public class Room extends Model {
         blendShader.addTexture("second_texture", wallpaperTexture);
 
         // All these sides have the same texturing
-        left = new TwoTrianglesNew(gl, blendShader);
-        right = new TwoTrianglesNew(gl, blendShader);
+        left = new TwoTriangles(gl, blendShader);
+        right = new TwoTriangles(gl, blendShader);
 
         // Being lazy here, could add a door and stuff, but mostly likely this
         // wall won't even be seen most of the time.
-        front = new TwoTrianglesNew(gl, blendShader);
+        front = new TwoTriangles(gl, blendShader);
 
-        roof = new TwoTrianglesNew(gl, new OneTextureShader(gl, ceilingTexture));
+        roof = new TwoTriangles(gl, new OneTextureShader(gl, ceilingTexture));
 
         registerMeshes(new Mesh[] { floor, back, left, right, roof, front });
     }
