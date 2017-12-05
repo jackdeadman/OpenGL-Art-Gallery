@@ -19,6 +19,8 @@ public class Thumb extends Finger {
         bend(amount, amount);
     }
 
+    // Bend the thumb at two joints with 1 degree of freedom for each joint
+    // Where amount should be given between -1 and 1
     public void bend(float amount1, float amount2) {
         float degrees1 = amount1 * 90;
         float degrees2 = amount2 * 90;
@@ -27,6 +29,8 @@ public class Thumb extends Finger {
         getRoot().update();
     }
 
+    // Turn the thumb with 3 degrees of freedom from the bottom
+    // of the thumb
     public void turn(float x, float y, float z) {
         thumbTransform.setTransform(
             Mat4.multiplyVariable(
@@ -50,39 +54,25 @@ public class Thumb extends Finger {
         MeshNode jointShape2 = new MeshNode("Sphere (lowerJoint)", joint);
         MeshNode jointShape3 = new MeshNode("Sphere (lowerJoint)", joint);
 
-        // Name nodes
-        NameNode lowerJoint = new NameNode("lowerJoint");
-        NameNode middleJoint = new NameNode("middleJoint");
-        NameNode upperJoint = new NameNode("upperJoint");
+        // These are all done seperately because of needing to update the rotation to bend
 
-        NameNode lowerFinger = new NameNode("lowerFinger");
-        NameNode middleFinger = new NameNode("middleFinger");
-        NameNode upperFinger = new NameNode("upperFinger");
+        TransformNode lowerJointTranslation = TransformNode.createTranslationNode(0f, 0.5f, 0f);
+        TransformNode lowerJointScale = TransformNode.createScaleNode(0.5f, 0.5f, 0.5f);
+        lowerJointRotation = TransformNode.createRotateAroundXNode(0);
 
+        TransformNode lowerSegmentTranslation = TransformNode.createTranslationNode(0f, 0.5f, 0f);
+        TransformNode lowerSegmentScale = TransformNode.createScaleNode(0.6f, 1.5f, 0.6f);
 
-        TransformNode lowerJointTranslation = new TransformNode("2", Mat4Transform.translate(0f, 0.5f, 0f));
-        TransformNode lowerJointScale = new TransformNode("3", Mat4Transform.scale(0.5f, 0.5f, 0.5f));
-        lowerJointRotation = new TransformNode("3", Mat4Transform.rotateAroundX(0));
+        TransformNode middleJointTranslation = TransformNode.createTranslationNode(0f, 0.5f, 0f);
+        TransformNode middleJointScale = TransformNode.createScaleNode(0.5f, 0.5f, 0.5f);
+        middleJointRotation = TransformNode.createRotateAroundXNode(0);
 
-        TransformNode lowerSegmentTranslation = new TransformNode("4", Mat4Transform.translate(0f, 0.5f, 0f));
-        TransformNode lowerSegmentScale = new TransformNode("5", Mat4Transform.scale(0.6f, 1.5f, 0.6f));
+        TransformNode middleSegmentTranslation = TransformNode.createTranslationNode(0f, 0.5f, 0f);
+        TransformNode middleSegmentScale = TransformNode.createScaleNode(0.5f, 1.0f, 0.5f);
 
-        TransformNode middleJointTranslation = new TransformNode("6", Mat4Transform.translate(0f, 0.5f, 0f));
-        TransformNode middleJointScale = new TransformNode("7", Mat4Transform.scale(0.5f, 0.5f, 0.5f));
-        middleJointRotation = new TransformNode("3", Mat4Transform.rotateAroundX(0));
+        thumbTransform = TransformNode.createScaleNode(1.0f, 1.0f, 1.0f);
 
-        TransformNode middleSegmentTranslation = new TransformNode("8", Mat4Transform.translate(0f, 0.5f, 0f));
-        TransformNode middleSegmentScale = new TransformNode("9", Mat4Transform.scale(0.5f, 1.0f, 0.5f));
-
-        TransformNode upperJointTranslation = new TransformNode("6", Mat4Transform.translate(0f, 0.5f, 0f));
-        TransformNode upperJointScale = new TransformNode("7", Mat4Transform.scale(0.5f, 0.5f, 0.5f));
-        upperJointRotation = new TransformNode("3", Mat4Transform.rotateAroundX(0));
-
-        TransformNode upperSegmentTranslation = new TransformNode("8", Mat4Transform.translate(0f, 0.3f, 0f));
-        TransformNode upperSegmentScale = new TransformNode("9", Mat4Transform.scale(0.5f, 0.8f, 0.5f));
-
-        thumbTransform = new TransformNode("", Mat4Transform.scale(1.0f, 1.0f, 1.0f));
-
+        // Build the graph
         root.addChild(thumbTransform);
         thumbTransform.addChild(lowerJointTranslation);
             lowerJointTranslation.addChild(lowerJointRotation);
