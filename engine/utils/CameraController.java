@@ -32,6 +32,7 @@ public class CameraController extends KeyAdapter implements MouseMotionListener 
 
 
     public void mouseDragged(MouseEvent e) {
+        if (lastpoint == null) return;
         Point ms = e.getPoint();
         float sensitivity = 0.001f;
         float dx=(float) (ms.x-lastpoint.x)*sensitivity;
