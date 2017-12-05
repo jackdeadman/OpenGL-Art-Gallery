@@ -43,8 +43,14 @@ public class Ring extends SpotLightEmittingModel {
         Material material = createLightMaterial();
 
         Spotlight light = new Spotlight(material, Spotlight.MEDIUM_ATTENUATION);
+
+        // Position and direction chosen based on where the light should be
+        // placed after local transformations. The global pos and direction
+        // will be automatically adjusted.
         light.setPosition(new Vec3(0f, 2f, 0f));
         light.setDirection(new Vec3(0f, 0f, -1f));
+
+        // Based on learn openGL values.
         light.setCutOff((float) Math.cos(Math.toRadians(12.5)));
         light.setOuterCutOff((float) Math.cos(Math.toRadians(17.5)));
 
