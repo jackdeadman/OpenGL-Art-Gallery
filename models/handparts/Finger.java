@@ -18,18 +18,22 @@ public class Finger extends Model {
     public final float JOINT_SIZE = 0.5f;
     public final float FINGER_RADIUS = 0.6f;
 
+    public final String JOINT_TEXTURE_PATH = "textures/used/arm_main.jpg";
+    public final String JOINT_TEXTURE_SPEC_PATH = "textures/used/arm_main_spec.jpg";
+    public final String SEGMENT_TEXTURE_PATH = "textures/green.jpg";
+
     protected Model ring;
-    protected boolean hasRing;
+
+    protected Mesh segment, joint;
+    protected TransformNode lowerJointRotation, middleJointRotation, upperJointRotation, fingerTransform;
+    protected final float MAX_BEND = 120;
 
     // Textures
-    protected int[] rustTexture, rustTextureSpecular, metalTexture, mainMetal, mainMetalSpecular;
-
-    protected int[] jointTexture, jointTextureSpec;
+    protected int[] segmentTexture, jointTexture, jointTextureSpec;
 
     public Finger(WorldConfiguration worldConfig) {
         super(worldConfig);
     }
-
 
     // OpenGL loaded
     protected void start(GL3 gl) {
@@ -40,28 +44,18 @@ public class Finger extends Model {
 
     protected void loadTextures(GL3 gl) {
         // Textures
-        rustTexture = TextureLibrary.loadTexture(gl, "textures/floor_2.jpg");
-        rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/steel3_spec.jpg");
-        metalTexture = TextureLibrary.loadTexture(gl, "textures/steel3.jpg");
-        mainMetal = TextureLibrary.loadTexture(gl, "textures/green.jpg");
-        mainMetalSpecular = TextureLibrary.loadTexture(gl, "textures/green_spec.jpg");
-
-        jointTexture = TextureLibrary.loadTexture(gl, "textures/used/arm_main.jpg");
-        jointTextureSpec = TextureLibrary.loadTexture(gl, "textures/used/arm_main_spec.jpg");
+        jointTexture = TextureLibrary.loadTexture(gl, JOINT_TEXTURE_PATH);
+        jointTextureSpec = TextureLibrary.loadTexture(gl, JOINT_TEXTURE_SPEC_PATH);
+        segmentTexture = TextureLibrary.loadTexture(gl, SEGMENT_TEXTURE_PATH);
     }
 
     protected void loadMeshes(GL3 gl) {
         // Meshes
-        segment = new SphereNew(gl, new OneTextureShader(gl, mainMetal));
+        segment = new SphereNew(gl, new OneTextureShader(gl, segmentTexture));
         joint = new SphereNew(gl, new SpecularShader(gl, jointTexture, jointTextureSpec));
-
 
         registerMeshes(new Mesh[] { segment, joint });
     }
-
-    protected Mesh segment, joint;
-    protected TransformNode lowerJointRotation, middleJointRotation, upperJointRotation, fingerTransform;
-    protected final float MAX_BEND = 120;
 
     public void bend(float amount) {
         bend(amount, amount, amount);
@@ -92,12 +86,11 @@ public class Finger extends Model {
     }
 
     public void addRing(Ring ring) {
-        TransformNode moveRing = new TransformNode("Translate(0f, 1f, 0f)",
+        TransformNode moveRing = new TransformNode("Translate(0f, 0.6f, 0f)",
                 Mat4Transform.translate(0f, 0.6f, 0f));
         lowerJointRotation.addChild(moveRing);
             moveRing.addChild(ring.getRoot());
     }
-
 
     protected void buildSceneGraph(GL3 gl) {
         SGNode root = new NameNode("Finger");
