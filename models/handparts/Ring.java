@@ -6,10 +6,11 @@ import engine.scenegraph.*;
 import engine.lighting.*;
 
 import engine.utils.TextureLibrary;
-import galleryscene.shaderprograms.*;
 import meshes.*;
 import gmaths.*;
 import com.jogamp.opengl.*;
+import shaders.shaderconfigurators.LightShader;
+import shaders.shaderconfigurators.OneTextureShader;
 
 public class Ring extends SpotLightEmittingModel {
 
@@ -42,7 +43,7 @@ public class Ring extends SpotLightEmittingModel {
         super(worldConfig);
         Material material = createLightMaterial();
 
-        Spotlight light = new Spotlight(material, Spotlight.MEDIUM_ATTENUATION);
+        Spotlight light = new Spotlight(material, Spotlight.LONG_ATTENUATION);
 
         // Position and direction chosen based on where the light should be
         // placed after local transformations. The global pos and direction

@@ -7,21 +7,21 @@ import engine.render.*;
 import engine.scenegraph.*;
 import engine.utils.*;
 
-import galleryscene.shaderprograms.*;
-
 import gmaths.*;
 import meshes.*;
+import shaders.shaderconfigurators.MultiLightShader;
+import shaders.shaderconfigurators.OneTextureShader;
 
 public class Room extends Model {
 
-    private Mesh floor, back, left, right, roof, front;
+    private Mesh floor, back, left, right, roof, front, rug;
     // defaults
     private float floorWidth = 16, floorLength = 12, ceilingHeight = 10;
 
     private NameNode floorName;
 
     private int[] floorTexture, backWallTexture, backWallNormal, backWallBlend,
-            windowTexture , beamsTexture, wallpaperTexture , ceilingTexture;
+            windowTexture , beamsTexture, wallpaperTexture , ceilingTexture, rugTexture;
 
     public enum WallPosition { LEFT_CLOSE, LEFT_MIDDLE, LEFT_FAR, RIGHT_CLOSE, RIGHT_MIDDLE, RIGHT_FAR };
 
@@ -83,6 +83,10 @@ public class Room extends Model {
     public final String BEAMS_PATH = "textures/window_black.jpg";
     public final String WALLPAPER_PATH = "textures/wallpaper.jpg";
     public final String CEILING_PATH = "textures/back_wall_tex.jpg";
+    public final String RUG_PATH = "textures/final/rug.jpg";
+
+    public final String BACK_WALL_SHADER_PATH = "shaders/glsl/backwall.fs.glsl";
+    public final String BLEND_WALL_SHADER_PATH = "shaders/glsl/blend_wall.fs.glsl";
 
 
     private void loadTextures(GL3 gl) {
@@ -97,6 +101,7 @@ public class Room extends Model {
         wallpaperTexture = TextureLibrary.loadTexture(gl, WALLPAPER_PATH);
 
         ceilingTexture = TextureLibrary.loadTexture(gl, CEILING_PATH);
+        rugTexture = TextureLibrary.loadTexture(gl, RUG_PATH);
     }
 
     private SGNode[] pictureFrameTransformations = new SGNode[6];
@@ -118,13 +123,12 @@ public class Room extends Model {
         pictureFrameTransformations[4].addChild(pictureFrameTransformations[5]);
     }
 
-
     private void loadMeshes(GL3 gl) {
         // make meshes
         floor = new TwoTriangles(gl, new OneTextureShader(gl, floorTexture));
 
         // Unique one off shader so making it here instead of making a new ShaderConfigurator
-        MultiLightShader backShaderProgram = new MultiLightShader(gl, "shaders/correct/backwall.fs.glsl");
+        MultiLightShader backShaderProgram = new MultiLightShader(gl, BACK_WALL_SHADER_PATH);
         backShaderProgram.addTexture("normalTexture", backWallNormal);
         backShaderProgram.addTexture("mainTexture", backWallTexture);
         backShaderProgram.addTexture("blendTexture", backWallBlend);
@@ -132,7 +136,7 @@ public class Room extends Model {
         back = new TwoTriangles(gl, backShaderProgram);
 
         // Same again
-        MultiLightShader blendShader = new MultiLightShader(gl, "shaders/fs_tt_05_window.txt");
+        MultiLightShader blendShader = new MultiLightShader(gl, BLEND_WALL_SHADER_PATH);
         blendShader.addTexture("first_texture", beamsTexture);
         blendShader.addTexture("second_texture", wallpaperTexture);
 
@@ -145,8 +149,9 @@ public class Room extends Model {
         front = new TwoTriangles(gl, blendShader);
 
         roof = new TwoTriangles(gl, new OneTextureShader(gl, ceilingTexture));
+        rug = new TwoTriangles(gl, new OneTextureShader(gl, rugTexture));
 
-        registerMeshes(new Mesh[] { floor, back, left, right, roof, front });
+        registerMeshes(new Mesh[] { floor, back, left, right, roof, front, rug });
     }
 
     private void buildSceneGraph() {
@@ -215,6 +220,14 @@ public class Room extends Model {
         MeshNode rightShape = new MeshNode("TwoTriangles (right)", right);
         MeshNode roofShape = new MeshNode("TwoTriangles (roof)", roof);
         MeshNode frontShape = new MeshNode("TwoTriangles (front)", front);
+        MeshNode rugShape = new MeshNode("TwoTriangles (Rug)", rug);
+
+        TransformNode rugTransform = new TransformNode("Transform rug",
+                Mat4.multiply(
+                        Mat4Transform.translate(0f, 0.01f, 0f),
+                        Mat4Transform.scale(5f, 1f, 10f)
+                )
+        );
 
         createPictureFrames();
         SGNode leftPictures = pictureFrameTransformations[1];
@@ -243,6 +256,8 @@ public class Room extends Model {
                 roofTransform.addChild(roofShape);
             floorName.addChild(frontTransform);
                 frontTransform.addChild(frontShape);
+            floorName.addChild(rugTransform);
+                rugTransform.addChild(rugShape);
 
         root.update();
         setRoot(root);

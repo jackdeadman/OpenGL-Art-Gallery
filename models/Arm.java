@@ -7,12 +7,11 @@ import engine.utils.*;
 import gmaths.*;
 import meshes.*;
 import com.jogamp.opengl.*;
-import galleryscene.shaderprograms.*;
+import shaders.shaderconfigurators.OneTextureShader;
 
 public class Arm extends Model {
 
     public final String MAIN_TEXTURE_PATH = "textures/main_metal.jpg";
-    public final String MAIN_TEXTURE_SPECULAR_PATH = "textures/used/arm_main_spec.jpg";
 
     private Mesh mainSegment;
     private int[] mainTexture;

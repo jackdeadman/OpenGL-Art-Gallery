@@ -6,9 +6,9 @@ import engine.*;
 import engine.render.*;
 import engine.utils.*;
 import engine.scenegraph.*;
-import galleryscene.shaderprograms.*;
 import gmaths.*;
 import meshes.*;
+import shaders.shaderconfigurators.SkyBoxShader;
 
 public class Sky extends Model {
 

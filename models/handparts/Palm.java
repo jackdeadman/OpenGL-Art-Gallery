@@ -5,9 +5,10 @@ import engine.scenegraph.*;
 import engine.utils.*;
 import meshes.*;
 import gmaths.*;
-import galleryscene.shaderprograms.*;
 
 import com.jogamp.opengl.*;
+import shaders.shaderconfigurators.OneTextureShader;
+import shaders.shaderconfigurators.SpecularShader;
 
 
 public class Palm extends Model {

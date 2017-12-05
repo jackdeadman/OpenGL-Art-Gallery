@@ -5,11 +5,11 @@ import com.jogamp.opengl.*;
 import engine.WorldConfiguration;
 import gmaths.*;
 import meshes.*;
-import galleryscene.shaderprograms.*;
 
 import engine.render.*;
 import engine.utils.*;
 import engine.scenegraph.*;
+import shaders.shaderconfigurators.MultiLightShader;
 
 public class PictureFrame extends Model {
 
@@ -40,7 +40,7 @@ public class PictureFrame extends Model {
     public final String BLEND_PATH = "textures/hands/frame_blend.jpg";
 
     // Custom Shader
-    public final String SHADER_PATH = "shaders/correct/picture_frame.fs.glsl";
+    public final String SHADER_PATH = "shaders/glsl/picture_frame.fs.glsl";
 
     public PictureFrame(WorldConfiguration worldConfig, PictureDimension dimensions, String pathToPicture) {
         super(worldConfig);

@@ -6,9 +6,10 @@ import engine.lighting.*;
 import engine.render.*;
 import engine.scenegraph.*;
 import engine.utils.*;
-import galleryscene.shaderprograms.*;
 import gmaths.*;
 import meshes.*;
+import shaders.shaderconfigurators.LightShader;
+import shaders.shaderconfigurators.SpecularShader;
 
 
 public class Lamp extends PointLightEmittingModel {
@@ -39,7 +40,7 @@ public class Lamp extends PointLightEmittingModel {
 
     public Lamp(WorldConfiguration worldConfig) {
         super(worldConfig);
-        PointLight light = new PointLight(createMaterialForLight(), LIGHT_ATTENUATION);
+        PointLight light = new PointLight(createMaterialForLight(), PointLight.MEDIUM_ATTENUATION);
         setContainedLight(light);
     }
 

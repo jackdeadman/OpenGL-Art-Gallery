@@ -3,8 +3,8 @@ import engine.*;
 import engine.render.*;
 import engine.utils.*;
 import engine.scenegraph.*;
-import galleryscene.shaderprograms.OneTextureShader;
-import galleryscene.shaderprograms.SpecularShader;
+import shaders.shaderconfigurators.OneTextureShader;
+import shaders.shaderconfigurators.SpecularShader;
 import meshes.*;
 import gmaths.*;
 
