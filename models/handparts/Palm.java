@@ -13,10 +13,14 @@ import com.jogamp.opengl.*;
 public class Palm extends Model {
 
     private Mesh upperPalm, lowerPalm;
+
     private TransformNode topRotation;
-    private NameNode upperPalmName;
-    private int[] rustTexture, rustTextureSpecular, metalTexture;
-    private int[] upperTexture, upperTextureSpec;
+
+    public final String UPPER_TEXTURE_PATH = "textures/used/arm_main.jpg";
+    public final String UPPER_TEXTURE_SPEC_PATH = "textures/used/arm_main_spec.jpg";
+    public final String LOWER_TEXTURE_PATH = "textures/main_metal.jpg";
+
+    private int[] upperTexture, upperTextureSpec, lowerTexture;
 
     public Palm(WorldConfiguration worldConfig) {
         super(worldConfig);
@@ -30,22 +34,19 @@ public class Palm extends Model {
     }
 
     private void loadTextures(GL3 gl) {
-        rustTexture = TextureLibrary.loadTexture(gl, "textures/main_metal.jpg");
-        // rustTexture = TextureLibrary.loadTexture(gl, "textures/green.jpg");
-        rustTextureSpecular = TextureLibrary.loadTexture(gl, "textures/metal_rust_specular.jpg");
-        metalTexture = TextureLibrary.loadTexture(gl, "textures/metal_texture.jpg");
-
-        upperTexture = TextureLibrary.loadTexture(gl, "textures/used/arm_main.jpg");
-        upperTextureSpec = TextureLibrary.loadTexture(gl, "textures/used/arm_main_spec.jpg");
+        upperTexture = TextureLibrary.loadTexture(gl, UPPER_TEXTURE_PATH);
+        upperTextureSpec = TextureLibrary.loadTexture(gl, UPPER_TEXTURE_SPEC_PATH);
+        lowerTexture = TextureLibrary.loadTexture(gl, LOWER_TEXTURE_PATH);
     }
 
     private void loadMeshes(GL3 gl) {
         upperPalm = new SphereNew(gl, new SpecularShader(gl, upperTexture, upperTextureSpec));
-        lowerPalm = new SphereNew(gl, new OneTextureShader(gl, rustTexture));
+        lowerPalm = new SphereNew(gl, new OneTextureShader(gl, lowerTexture));
 
         registerMeshes(new Mesh[] { upperPalm, lowerPalm });
     }
 
+    // Bend from the top part of the palm
     public void bendTop(float amount) {
         float degrees = amount * 90;
         topRotation.setTransform(Mat4Transform.rotateAroundX(degrees));
@@ -53,33 +54,35 @@ public class Palm extends Model {
     }
 
     private void buildSceneGraph(GL3 gl) {
-        System.out.println("Building scene graph");
 
-        upperPalmName = new NameNode("upperPalm");
-        NameNode lowerPalmName = new NameNode("lowerPalm");
-        MeshNode upperPalmShape = new MeshNode("dsnj", upperPalm);
-        MeshNode lowerPalmShape = new MeshNode("dsnj", lowerPalm);
+        NameNode upperPalmName = new NameNode("Upper Palm");
+        NameNode lowerPalmName = new NameNode("Lower Palm");
+        MeshNode upperPalmShape = new MeshNode("Sphere (Upper Palm)", upperPalm);
+        MeshNode lowerPalmShape = new MeshNode("Sphere (Lower Palm)", lowerPalm);
 
-        TransformNode upperPalmScale = new TransformNode("sanj", Mat4Transform.scale(2.6f, 1.2f, 1f));
-        topRotation = new TransformNode("ssnj", Mat4Transform.rotateAroundX(0f));
+        TransformNode upperPalmScale = TransformNode.createScaleNode(2.6f, 1.2f, 1f);
 
-        TransformNode lowerPalmTranslate = new TransformNode("sanj", Mat4Transform.translate(0.0f, -0.8f, 0.0f));
-        TransformNode lowerPalmScale = new TransformNode("sanj", Mat4Transform.scale(2.8f, 3f, 1f));
-        TransformNode upperPalmTranslate = new TransformNode("snjn", Mat4Transform.translate(0.0f, 0.25f, 0.0f));
+        // Possibly will be updated when bending palm
+        topRotation = TransformNode.createRotateAroundXNode(0f);
+
+        TransformNode lowerPalmTranslate = TransformNode.createTranslationNode(0.0f, -0.8f, 0.0f);
+        TransformNode lowerPalmScale = TransformNode.createScaleNode(2.8f, 3f, 1f);
+        TransformNode upperPalmTranslate = TransformNode.createTranslationNode(0.0f, 0.25f, 0.0f);
 
         SGNode root = new NameNode("Palm");
 
         root.addChild(lowerPalmName);
             lowerPalmName.addChild(lowerPalmTranslate);
-            lowerPalmTranslate.addChild(lowerPalmScale);
-            lowerPalmScale.addChild(lowerPalmShape);
+                lowerPalmTranslate.addChild(lowerPalmScale);
+                    lowerPalmScale.addChild(lowerPalmShape);
 
             lowerPalmName.addChild(upperPalmName);
-            upperPalmName.addChild(topRotation);
-            upperPalmName.addChild(upperPalmTranslate);
-                upperPalmTranslate.addChild(topRotation);
-                topRotation.addChild(upperPalmScale);
-            upperPalmScale.addChild(upperPalmShape);
+                upperPalmName.addChild(topRotation);
+                    topRotation.addChild(upperPalmScale);
+                        upperPalmScale.addChild(upperPalmShape);
+                upperPalmName.addChild(upperPalmTranslate);
+                    upperPalmTranslate.addChild(topRotation);
+                        // Stuff will be extended from here (i.e the anchor)
 
         root.update();
         setRoot(root);
