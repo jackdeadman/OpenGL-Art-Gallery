@@ -13,8 +13,10 @@ import com.jogamp.opengl.*;
 
 public class Ring extends SpotLightEmittingModel {
 
+    public final String MAIN_TEXT_PATH = "textures/gold.jpg";
+
     private Mesh ring, bulb;
-    private int[] goldTexture;
+    private int[] mainTexture;
 
     private Material createLightMaterial() {
         Material material = new Material();
@@ -22,6 +24,16 @@ public class Ring extends SpotLightEmittingModel {
         material.setSpecular(0.4f, 0.56f, 0.86f);
         material.setAmbient(0.4f, 0.56f, 0.86f);
         material.setShininess(10f);
+
+        return material;
+    }
+
+    private Material createBulbMaterial() {
+        Material material = new Material();
+        material.setDiffuse(0.5f, 0.5f, 0.5f);
+        material.setAmbient(0.6f, 0.6f, 0.6f);
+        material.setSpecular(0.8f, 0.8f, 0.8f);
+        material.setShininess(15f);
 
         return material;
     }
@@ -47,17 +59,13 @@ public class Ring extends SpotLightEmittingModel {
     }
 
     private void loadTextures(GL3 gl) {
-        goldTexture = TextureLibrary.loadTexture(gl, "textures/gold.jpg");
+        mainTexture = TextureLibrary.loadTexture(gl, MAIN_TEXT_PATH);
     }
 
     private void loadMeshes(GL3 gl) {
-        Material material = new Material();
-        material.setDiffuse(0.5f, 0.5f, 0.5f);
-        material.setAmbient(0.6f, 0.6f, 0.6f);
-        material.setSpecular(0.8f, 0.8f, 0.8f);
-        material.setShininess(15f);
+        Material material = createBulbMaterial();
 
-        ShaderConfigurator ringShader = new OneTextureShader(gl, goldTexture, material);
+        ShaderConfigurator ringShader = new OneTextureShader(gl, mainTexture, material);
         ShaderConfigurator bulbShader = new LightShader(gl, getContainedLight());
 
         ring = new SphereNew(gl, ringShader);
@@ -67,12 +75,11 @@ public class Ring extends SpotLightEmittingModel {
     }
 
     private void buildSceneGraph(GL3 gl) {
-        System.out.println(getContainedLight());
         SpotlightNode lightNode = new SpotlightNode("Spotlight (Light)", getContainedLight());
 
         MeshNode bulbShape = new MeshNode("Sphere (Bulb)", bulb);
         TransformNode bulbTransform = new TransformNode(
-                "Sc",
+                "Scale(0.3, 0.3, 0.3); Translate(0, 0, -0.5)",
                 Mat4.multiply(
                     Mat4Transform.translate(0f, 0f, -0.5f),
                     Mat4Transform.scale(0.3f, 0.3f, 0.3f)
@@ -82,9 +89,7 @@ public class Ring extends SpotLightEmittingModel {
         MeshNode ringShape = new MeshNode("Sphere (Ring)", ring);
         TransformNode ringTransform = new TransformNode(
                 "Scale(0.8f, 0.5f, 0.8f)",
-                Mat4Transform.scale(
-                    0.8f, 0.4f, 0.8f
-                )
+                Mat4Transform.scale(0.8f, 0.4f, 0.8f)
         );
 
         SGNode root = new NameNode("Ring");
