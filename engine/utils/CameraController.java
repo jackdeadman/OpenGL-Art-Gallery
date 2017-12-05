@@ -1,15 +1,13 @@
 package engine.utils;
 
-import gmaths.*;
 import engine.*;
 
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
-import com.jogamp.opengl.*;
-import com.jogamp.opengl.awt.GLCanvas;
-import com.jogamp.opengl.util.FPSAnimator;
 
+/**
+ * Combines the Keyboard and Mouse controls from the lab into one class
+ */
 public class CameraController extends KeyAdapter implements MouseMotionListener {
 
     private Camera camera;

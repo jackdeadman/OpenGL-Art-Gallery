@@ -1,6 +1,6 @@
 package engine.animation;
-import gmaths.*;
 
+// Collection of animation functions
 public class AnimationFunctions {
     // All the functions assume an input value t between 0 and 1
 

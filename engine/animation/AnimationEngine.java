@@ -7,7 +7,9 @@ public class AnimationEngine<T extends Interpolatable<T>> {
 
     // Elapsed Time when paused
     private double pauseTime = 0;
+    // Time animation started
     private double startTime = 0;
+
     // Timeline which is going to be controlled by the engine
     private Timeline<T> timeline;
     private boolean playing = false;

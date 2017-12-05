@@ -1,5 +1,9 @@
 package engine.render;
 
+/**
+ * Mainly the same as the one from the lab class.
+ */
+
 import java.nio.*;
 import com.jogamp.common.nio.*;
 import com.jogamp.opengl.*;
@@ -100,11 +104,8 @@ public abstract class Mesh {
         gl.glBindVertexArray(0);
     }
 
-    protected void loadTextures(GL3 gl) {}
-
     public void render(GL3 gl, Mat4 model) {
         program.sendSendDataToTheGPU(gl, perspective, model, worldConfig);
-        loadTextures(gl);
 
         gl.glBindVertexArray(vertexArrayId[0]);
         gl.glDrawElements(GL.GL_TRIANGLES, indices.length, GL.GL_UNSIGNED_INT, 0);

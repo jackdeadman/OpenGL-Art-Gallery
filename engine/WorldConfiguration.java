@@ -4,6 +4,9 @@ import engine.lighting.*;
 
 import java.util.ArrayList;
 
+// Class to hold common information about the world, which is often
+// passed around to functions together.
+// Pretty much a struct...
 public class WorldConfiguration {
 
     private Camera camera;

@@ -8,12 +8,11 @@ import com.jogamp.opengl.*;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
 
-public class GraphicsWindow extends JFrame implements ActionListener {
+// An abstraction to create a OpenGL enable JFrame
+public class GraphicsWindow extends JFrame {
 
   private GLCanvas canvas;
   private FPSAnimator animator;
-  private Camera camera;
-  private GLEventListener scene;
 
 
   public void setSize(Dimension dimension) {
@@ -21,13 +20,6 @@ public class GraphicsWindow extends JFrame implements ActionListener {
       pack();
   }
 
-  public void setCamera(Camera camera) {
-      this.camera = camera;
-  }
-
-  public void setScene(Scene scene) {
-      this.scene = scene;
-  }
 
   public void addKeyListener(KeyListener listener) {
       canvas.addKeyListener(listener);
@@ -39,13 +31,16 @@ public class GraphicsWindow extends JFrame implements ActionListener {
 
   public GraphicsWindow(String textForTitleBar, GLEventListener scene) {
     super(textForTitleBar);
-    this.scene = scene;
 
     GLCapabilities glcapabilities = new GLCapabilities(GLProfile.get(GLProfile.GL3));
+
+    // Anti-aliasing
     glcapabilities.setSampleBuffers(true);
     glcapabilities.setNumSamples(4);
+
     canvas = new GLCanvas(glcapabilities);
 
+    // Attach our scene to the canvas
     canvas.addGLEventListener(scene);
     getContentPane().add(canvas, BorderLayout.CENTER);
 
@@ -64,9 +59,6 @@ public class GraphicsWindow extends JFrame implements ActionListener {
 
       animator = new FPSAnimator(canvas, 60);
       animator.start();
-  }
-
-  public void actionPerformed(ActionEvent e) {
   }
 
 }

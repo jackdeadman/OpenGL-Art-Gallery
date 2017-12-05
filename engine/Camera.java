@@ -71,6 +71,7 @@ public class Camera {
 
 
   // @author Jack Deadman
+  // Addition to the library to calculate a view matrix which works for a skybox
   public Mat4 getSkyboxViewMatrix() {
     target = Vec3.add(new Vec3(0.0f, 0.0f, 0.0f), front);
     return Mat4Transform.lookAt(new Vec3(0.0f, 0.0f, 0.0f), target, up);

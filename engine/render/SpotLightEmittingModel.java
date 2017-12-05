@@ -5,7 +5,6 @@ import engine.*;
 
 public abstract class SpotLightEmittingModel extends Model {
 
-    /* Assume the model emits a point light */
     protected Spotlight containedLight;
 
     protected void initialise(GL3 gl) {
