@@ -6,10 +6,10 @@ in vec2 ourTexCoord;
 
 out vec4 fragColor;
 
-uniform sampler2D main_texture;
-uniform sampler2D normal_texture;
-uniform sampler2D window_texture;
-uniform sampler2D blend_texture;
+uniform sampler2D mainTexture;
+uniform sampler2D normalTexture;
+uniform sampler2D windowTexture;
+uniform sampler2D blendTexture;
 
 uniform vec3 viewPos;
 
@@ -110,9 +110,9 @@ void main() {
   // sampler2D textureMix = mix(texture(first_texture, ourTexCoord), texture(second_texture, ourTexCoord));
   //vec3 textureMix = vec4(mix(texture(first_texture, ourTexCoord), texture(second_texture, ourTexCoord/2), 0.3f)).rgb;
 
-  vec3 wall = texture(main_texture, ourTexCoord).rgb;
-  vec3 window = texture(window_texture, ourTexCoord).rgb;
-  vec3 blend = texture(blend_texture, ourTexCoord).rgb;
+  vec3 wall = texture(mainTexture, ourTexCoord).rgb;
+  vec3 window = texture(windowTexture, ourTexCoord).rgb;
+  vec3 blend = texture(blendTexture, ourTexCoord).rgb;
 
 
   vec3 textureMix;
@@ -121,7 +121,7 @@ void main() {
   if (blend.g > 0.6 && blend.r < 0.2 && blend.b < 0.2) {
     textureMix = wall;
     // vec3 result = calcDirLight(dirLight, ourNormal, viewDir);
-      vec3 normalMapColor = ((2*texture(normal_texture, ourTexCoord))-1).rgb;
+      vec3 normalMapColor = ((2*texture(normalTexture, ourTexCoord))-1).rgb;
       norm = vec3(normalMapColor.r, normalMapColor.g*ourNormal.g, normalMapColor.b*ourNormal.b);
       norm = normalize(vec3(normalMapColor.x, -normalMapColor.y, normalMapColor.z)/2);
   } else if (blend.r > 0.6 && blend.g < 0.2 && blend.b < 0.2) {

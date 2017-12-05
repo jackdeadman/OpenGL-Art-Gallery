@@ -15,10 +15,13 @@ import meshes.*;
 public class Room extends Model {
 
     private Mesh floor, back, left, right, roof, front;
+    // defaults
     private float floorWidth = 16, floorLength = 12, ceilingHeight = 10;
+
     private NameNode floorName;
 
-    private int[] floorTexture, containerTexture, windowTexture, window2, backWallTexture, backWallNormal, ceilingTexture, windowNormal, backWallBlend;
+    private int[] floorTexture, backWallTexture, backWallNormal, backWallBlend,
+            windowTexture , beamsTexture, wallpaperTexture , ceilingTexture;
 
     public enum WallPosition { LEFT_CLOSE, LEFT_MIDDLE, LEFT_FAR, RIGHT_CLOSE, RIGHT_MIDDLE, RIGHT_FAR };
 
@@ -69,21 +72,37 @@ public class Room extends Model {
         getRoot().update();
     }
 
+    public final String FLOOR_TEXTURE_PATH = "textures/wood_floor.jpg";
+
+    // backWallNormal, backWallTexture, backWallBlend
+    public final String BACK_WALL_TEXTURE_PATH = "textures/wall_wood.jpg";
+    public final String BACK_WALL_NORMAL_PATH = "textures/wall_wood_normal.jpg";
+    public final String BACK_WALL_BLEND_PATH = "textures/window2_mask.jpg";
+    public final String WINDOW_TEXTURE_PATH = "textures/window2.jpg";
+
+    public final String BEAMS_PATH = "textures/window_black.jpg";
+    public final String WALLPAPER_PATH = "textures/wallpaper.jpg";
+    public final String CEILING_PATH = "textures/back_wall_tex.jpg";
+
+
     private void loadTextures(GL3 gl) {
-        floorTexture = TextureLibrary.loadTexture(gl, "textures/wood_floor.jpg");
-        containerTexture = TextureLibrary.loadTexture(gl, "textures/wallpaper.jpg");
-        windowTexture = TextureLibrary.loadTexture(gl, "textures/window_black.jpg");
-        ceilingTexture = TextureLibrary.loadTexture(gl, "textures/back_wall_tex.jpg");
-        window2 = TextureLibrary.loadTexture(gl, "textures/window2.jpg");
-        backWallTexture = TextureLibrary.loadTexture(gl, "textures/wall_wood.jpg");
-        backWallNormal = TextureLibrary.loadTexture(gl, "textures/wall_wood_normal.jpg");
-        windowNormal = TextureLibrary.loadTexture(gl, "textures/window_black_normal.jpg");
-        backWallBlend = TextureLibrary.loadTexture(gl, "textures/window2_mask.jpg");
+        floorTexture = TextureLibrary.loadTexture(gl, FLOOR_TEXTURE_PATH);
+
+        backWallTexture = TextureLibrary.loadTexture(gl, BACK_WALL_TEXTURE_PATH);
+        backWallNormal = TextureLibrary.loadTexture(gl, BACK_WALL_NORMAL_PATH);
+        backWallBlend = TextureLibrary.loadTexture(gl, BACK_WALL_BLEND_PATH);
+        windowTexture = TextureLibrary.loadTexture(gl, WINDOW_TEXTURE_PATH);
+
+        beamsTexture = TextureLibrary.loadTexture(gl, BEAMS_PATH);
+        wallpaperTexture = TextureLibrary.loadTexture(gl, WALLPAPER_PATH);
+
+        ceilingTexture = TextureLibrary.loadTexture(gl, CEILING_PATH);
     }
 
     private SGNode[] pictureFrameTransformations = new SGNode[6];
 
     private void createPictureFrames() {
+        // Could probably do this better, but it's easier to read when together
         pictureFrameTransformations[0] = new TransformNode("",Mat4Transform.translate(-6.5f,0f, 0f));
         pictureFrameTransformations[1] = new NameNode("Left Picture Frames");
         pictureFrameTransformations[2] = new TransformNode("",Mat4Transform.translate(6.5f,0f, 0f));
@@ -99,24 +118,33 @@ public class Room extends Model {
         pictureFrameTransformations[4].addChild(pictureFrameTransformations[5]);
     }
 
+
     private void loadMeshes(GL3 gl) {
         // make meshes
-        // floor = new TwoTriangles(gl, floorTexture);
         floor = new TwoTrianglesNew(gl, new OneTextureShader(gl, floorTexture));
 
+        // Unique one off shader so making it here instead of making a new ShaderConfigurator
         MultiLightShader backShaderProgram = new MultiLightShader(gl, "shaders/correct/backwall.fs.glsl");
-        backShaderProgram.addTexture("normal_texture", backWallNormal);
-        backShaderProgram.addTexture("main_texture", backWallTexture);
-        backShaderProgram.addTexture("blend_texture", backWallBlend);
-        backShaderProgram.addTexture("window_texture", window2);
+        backShaderProgram.addTexture("normalTexture", backWallNormal);
+        backShaderProgram.addTexture("mainTexture", backWallTexture);
+        backShaderProgram.addTexture("blendTexture", backWallBlend);
+        backShaderProgram.addTexture("windowTexture", windowTexture);
         back = new TwoTrianglesNew(gl, backShaderProgram);
 
-//        back = new TwoTriangles3(gl, backWallTexture, backWallTexture, window2, backWallNormal);
-        left = new TwoTriangles2(gl, windowTexture, containerTexture);
-        right = new TwoTriangles2(gl, windowTexture, containerTexture);
-        // roof = new TwoTriangles(gl, containerTexture);
+        // Same again
+        MultiLightShader blendShader = new MultiLightShader(gl, "shaders/fs_tt_05_window.txt");
+        blendShader.addTexture("first_texture", beamsTexture);
+        blendShader.addTexture("second_texture", wallpaperTexture);
+
+        // All these sides have the same texturing
+        left = new TwoTrianglesNew(gl, blendShader);
+        right = new TwoTrianglesNew(gl, blendShader);
+
+        // Being lazy here, could add a door and stuff, but mostly likely this
+        // wall won't even be seen most of the time.
+        front = new TwoTrianglesNew(gl, blendShader);
+
         roof = new TwoTrianglesNew(gl, new OneTextureShader(gl, ceilingTexture));
-        front = new TwoTriangles2(gl, windowTexture, containerTexture);
 
         registerMeshes(new Mesh[] { floor, back, left, right, roof, front });
     }
@@ -124,12 +152,12 @@ public class Room extends Model {
     private void buildSceneGraph() {
 
         TransformNode floorTransform = new TransformNode(
-            "Scale(16, 1, 16)",
+            "Transform floor",
             Mat4Transform.scale(floorWidth, 1, floorLength)
         );
 
         TransformNode backTransform = new TransformNode(
-            "Scale(16, 1, 16)",
+            "Transform back wall",
             Mat4.multiplyVariable(
                 Mat4Transform.translate(0, ceilingHeight / 2.0f, -floorLength / 2.0f),
                 Mat4Transform.scale(floorWidth, ceilingHeight, 1),
@@ -137,10 +165,10 @@ public class Room extends Model {
             )
         );
 
-        TransformNode scaleLeftWall = new TransformNode("", Mat4Transform.scale(floorLength, 1, ceilingHeight));
-
+        TransformNode scaleLeftWall = new TransformNode(
+            "Scale left wall", Mat4Transform.scale(floorLength, 1, ceilingHeight));
         moveLeftWall = new TransformNode(
-            "Scale(16, 1, 16)",
+            "Move left wall",
             Mat4.multiplyVariable(
                 Mat4Transform.translate(-floorWidth/2.0f, ceilingHeight / 2.0f, 0),
                 Mat4Transform.rotateAroundZ(-90.0f),
@@ -150,10 +178,11 @@ public class Room extends Model {
         );
 
 
-        TransformNode scaleRightWall = new TransformNode(String.format("Scale(1f, %f, %f)", ceilingHeight, floorLength),
+        TransformNode scaleRightWall = new TransformNode(
+                "Scale right wall",
                 Mat4Transform.scale(floorLength, 1, ceilingHeight));
         TransformNode moveRightWall = new TransformNode(
-                "Scale(16, 1, 16)",
+                "Move right wall",
                 Mat4.multiplyVariable(
                         Mat4Transform.translate(floorWidth/2.0f, ceilingHeight / 2.0f, 0),
                         Mat4Transform.rotateAroundZ(90.0f),
@@ -163,10 +192,8 @@ public class Room extends Model {
 
 
         TransformNode roofTransform = new TransformNode(
-            "Scale(16, 1, 16)",
+            "Transform roof",
             Mat4.multiplyVariable(
-                // Mat4Transform.translate(0, ceilingHeight / 2.0f, -floorLength / 2.0f),
-                // Mat4Transform.scale(floorWidth, ceilingHeight, 1),
                 Mat4Transform.scale(floorWidth, 1, floorLength),
                 Mat4Transform.translate(0.0f, ceilingHeight, 0),
                 Mat4Transform.rotateAroundX(180.0f)
@@ -174,8 +201,7 @@ public class Room extends Model {
         );
 
         TransformNode frontTransform = new TransformNode(
-                String.format("RotateAroundX(-90 Deg); Scale(%f, %f, 1f); Translate(0f, %f, %f)",
-                        floorWidth, ceilingHeight, ceilingHeight/2f, floorLength/2f),
+                "Transform front wall",
                 Mat4.multiplyVariable(
                     Mat4Transform.translate(0, ceilingHeight / 2.0f, floorLength / 2.0f),
                     Mat4Transform.scale(floorWidth, ceilingHeight, 1),
@@ -194,8 +220,11 @@ public class Room extends Model {
         SGNode leftPictures = pictureFrameTransformations[1];
         SGNode rightPictures = pictureFrameTransformations[4];
 
+        // This will be the anchor, things inside the room will be a child
+        // of the floor.
         floorName = new NameNode("Floor");
 
+        // Create the graph
         SGNode root = new NameNode("Room");
         root.addChild(floorName);
             floorName.addChild(floorTransform);
