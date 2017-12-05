@@ -5,161 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83cae2c5-f7a5-4c1b-aa60-f18701a930ca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/textures/scratches_spec.jpg" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shaders/glsl/normal.fs.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/Corel Auto-Preserve/BasketballColor.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/Corel Auto-Preserve/BasketballColor_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/Corel Auto-Preserve/adidas_ball.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/Corel Auto-Preserve/jade_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/back_wall.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/back_wall_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/back_wall_tex.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/back_wall_tex_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/back_wall_tex_normal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/brick.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/brick.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/brick_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/brick_specular.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/ceiling2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/chequerboard.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/cloud.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/cloud2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/cloud2_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/container2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/container2_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/ear0xuu2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/ear0xuu2_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_2.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_2_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_2_normal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_2_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_2_specular.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_3.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_3_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/floor_3_specular.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/frame.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/gold.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/green.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/green_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/green_normal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands/frame-blend.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands/frame2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands/frame4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/jade.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/jade_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/jup0vss1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/jup0vss1_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/lava.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/main_metal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/main_metal2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/main_metal2.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/main_metal2_spec.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/main_metal_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/main_metal_normal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/mar0kuu2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/mar0kuu2_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_normal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_rust.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_rust.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_rust_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_rust_normal.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_rust_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_rust_specular.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_specular.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_texture.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/metal_texture.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rain/rain2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rain/rain3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rain/rain4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/readme.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rust.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rust_main.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rusty.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rusty_deffuse.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rusty_normal.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/sky.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/sky2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/steel.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/steel.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/steel.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/steel2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/surface_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/tile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/tile_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/tile_normal.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/tile_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/tile_specular.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/tite.tiff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/NormalMap.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/arm.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/arm2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/arm_main_spec.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/arm_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/arm_normal_original.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/arm_original.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/green.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/green_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/tile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/used/tile_normal.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/ven0aaa2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/ven0aaa2_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wall.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wall_top.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wall_wood.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wall_wood_normal (1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wall_wood_normal.tif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wattBook.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/wattBook_specular.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/window-1906924_960_720.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/window.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/window2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/window_black_normal.jpg" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/back_wall_tex.jpg" afterPath="$PROJECT_DIR$/textures/ceiling.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/final/rug.jpg" afterPath="$PROJECT_DIR$/textures/rug.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/final/sky.jpg" afterPath="$PROJECT_DIR$/textures/sky.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/green.jpg" afterPath="$PROJECT_DIR$/textures/green_metal.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/main_metal.jpg" afterPath="$PROJECT_DIR$/textures/arm_metal.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/steel3.jpg" afterPath="$PROJECT_DIR$/textures/lamp.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/steel3_spec.jpg" afterPath="$PROJECT_DIR$/textures/lamp_spec.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/used/arm_main.jpg" afterPath="$PROJECT_DIR$/textures/scratches.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/window2.jpg" afterPath="$PROJECT_DIR$/textures/window.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/textures/window2_mask.jpg" afterPath="$PROJECT_DIR$/textures/window_mask.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/gold.jpg" afterPath="$PROJECT_DIR$/textures/gold.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/hand1.jpg" afterPath="$PROJECT_DIR$/textures/hands/hand1.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/hand2.jpg" afterPath="$PROJECT_DIR$/textures/hands/hand2.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/hand3.jpg" afterPath="$PROJECT_DIR$/textures/hands/hand3.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/hand4.jpg" afterPath="$PROJECT_DIR$/textures/hands/hand4.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/hand5.jpg" afterPath="$PROJECT_DIR$/textures/hands/hand5.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/hand6.jpg" afterPath="$PROJECT_DIR$/textures/hands/hand6.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/wall_wood.jpg" afterPath="$PROJECT_DIR$/textures/wall_wood.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/wall_wood_normal.jpg" afterPath="$PROJECT_DIR$/textures/wall_wood_normal.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/wallpaper.jpg" afterPath="$PROJECT_DIR$/textures/wallpaper.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/window_black.jpg" afterPath="$PROJECT_DIR$/textures/window_black.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/wood_floor.jpg" afterPath="$PROJECT_DIR$/textures/wood_floor.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Arty.java" afterPath="$PROJECT_DIR$/Arty.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/production/hand_assignment/shaders/glsl/specular.fs.glsl" afterPath="$PROJECT_DIR$/bin/production/hand_assignment/shaders/glsl/specular.fs.glsl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/Camera.java" afterPath="$PROJECT_DIR$/engine/Camera.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/lighting/PointLight.java" afterPath="$PROJECT_DIR$/engine/lighting/PointLight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/render/Model.java" afterPath="$PROJECT_DIR$/engine/render/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/render/Shader.java" afterPath="$PROJECT_DIR$/engine/render/Shader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine/utils/TextureLibrary.java" afterPath="$PROJECT_DIR$/engine/utils/TextureLibrary.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/galleryscene/GalleryScene.java" afterPath="$PROJECT_DIR$/galleryscene/GalleryScene.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/galleryscene/SceneControls.java" afterPath="$PROJECT_DIR$/galleryscene/SceneControls.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Arm.java" afterPath="$PROJECT_DIR$/models/Arm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Lamp.java" afterPath="$PROJECT_DIR$/models/Lamp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Room.java" afterPath="$PROJECT_DIR$/models/Room.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Sky.java" afterPath="$PROJECT_DIR$/models/Sky.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/handparts/Finger.java" afterPath="$PROJECT_DIR$/models/handparts/Finger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/handparts/Palm.java" afterPath="$PROJECT_DIR$/models/handparts/Palm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/glsl/backwall.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/backwall.fs.glsl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/glsl/light.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/light.fs.glsl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/glsl/picture_frame.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/picture_frame.fs.glsl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/glsl/specular.fs.glsl" afterPath="$PROJECT_DIR$/shaders/glsl/specular.fs.glsl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/shaderconfigurators/MultiLightShader.java" afterPath="$PROJECT_DIR$/shaders/shaderconfigurators/MultiLightShader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/frame-blend.xcf" afterPath="$PROJECT_DIR$/textures/hands/frame-blend.xcf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/frame_blend.jpg" afterPath="$PROJECT_DIR$/textures/hands/frame_blend.jpg" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -452,12 +299,12 @@
       <workItem from="1512156064269" duration="13229000" />
       <workItem from="1512253127406" duration="41137000" />
       <workItem from="1512439834223" duration="5878000" />
-      <workItem from="1512509238549" duration="2797000" />
+      <workItem from="1512509238549" duration="3064000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68915000" />
+    <option name="totallyTimeSpent" value="69182000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="0" width="1924" height="1053" extended-state="0" />
