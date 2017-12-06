@@ -52,8 +52,8 @@ public class Arty {
 
         JPanel scrollFrame = new JPanel();
         controls.setAutoscrolls(true);
-        scrollFrame.setPreferredSize(new Dimension( 250, 300));
-        controls.setPreferredSize(new Dimension( 250, 300));
+        scrollFrame.setPreferredSize(new Dimension( 250, 350));
+        controls.setPreferredSize(new Dimension( 250, 350));
 
         scrollFrame.add(controls, BorderLayout.PAGE_START);
 

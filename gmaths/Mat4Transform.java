@@ -11,7 +11,7 @@ package gmaths;
  
 public final class Mat4Transform  {   // row column formulation
   
-  private final static float DEFAULT_NEAR_CLIP = 0.1f;
+  private final static float DEFAULT_NEAR_CLIP = 0.5f;
   private final static float DEFAULT_FAR_CLIP  = 100.0f;
 
   /**
