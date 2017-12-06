@@ -12,6 +12,9 @@ import shaders.shaderconfigurators.SpecularShader;
 
 
 public class Palm extends Model {
+    /**
+    * @author Jack Deadman
+    */
 
     private Mesh upperPalm, lowerPalm;
 

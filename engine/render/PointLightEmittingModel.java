@@ -5,6 +5,9 @@ import engine.lighting.*;
 import engine.*;
 
 public abstract class PointLightEmittingModel extends Model {
+    /**
+    * @author Jack Deadman
+    */
     // The models should have a light
     protected PointLight containedLight;
 

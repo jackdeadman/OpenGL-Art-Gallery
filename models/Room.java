@@ -13,6 +13,9 @@ import shaders.shaderconfigurators.MultiLightShader;
 import shaders.shaderconfigurators.OneTextureShader;
 
 public class Room extends Model {
+    /**
+    * @author Jack Deadman
+    */
 
     private Mesh floor, back, left, right, roof, front, rug;
     // defaults

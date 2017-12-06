@@ -10,7 +10,9 @@ import engine.lighting.*;
 import galleryscene.guihelpers.*;
 
 public class SceneControls extends JPanel {
-
+    /**
+    * @author Jack Deadman
+    */
     private HandConfiguration handConfig;
     private AnimationEngine<HandConfiguration> animator;
 

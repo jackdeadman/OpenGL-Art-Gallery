@@ -8,6 +8,9 @@ import java.util.*;
  * @param <T>
  */
 class KeyFrame<T extends Interpolatable<T>> {
+    /**
+    * @author Jack Deadman
+    */
     private float duration;
     private T endResult;
     private AnimationFunction animationFunction;

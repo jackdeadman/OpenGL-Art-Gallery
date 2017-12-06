@@ -9,6 +9,9 @@ import engine.scenegraph.*;
 import java.util.*;
 
 public abstract class Model {
+    /**
+    * @author Jack Deadman
+    */
 
     protected WorldConfiguration worldConfig;
     private ArrayList<Mesh> meshes = new ArrayList<Mesh>();

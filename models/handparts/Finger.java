@@ -11,6 +11,9 @@ import gmaths.*;
 import com.jogamp.opengl.*;
 
 public class Finger extends Model {
+    /**
+    * @author Jack Deadman
+    */
 
     // Size the joint part will be scaled to
     public final float JOINT_SIZE = 0.5f;

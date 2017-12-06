@@ -6,6 +6,9 @@ import com.jogamp.opengl.*;
 import com.jogamp.opengl.util.texture.spi.JPEGImage;
 import java.util.*;
 
+/**
+* Taken from the labsheet
+*/
 public final class TextureLibrary {
 
   // only deals with rgb jpg files

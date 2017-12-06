@@ -10,6 +10,9 @@ import com.jogamp.opengl.*;
 import shaders.shaderconfigurators.OneTextureShader;
 
 public class Arm extends Model {
+    /**
+    * @author Jack Deadman
+    */
 
     public final String MAIN_TEXTURE_PATH = "textures/arm_metal.jpg";
 

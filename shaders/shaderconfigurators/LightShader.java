@@ -7,7 +7,9 @@ import gmaths.*;
 import com.jogamp.opengl.*;
 
 public class LightShader extends ShaderConfigurator {
-
+    /**
+    * @author Jack Deadman
+    */
     protected PointLight light;
 
     public LightShader(GL3 gl, PointLight light) {

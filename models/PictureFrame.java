@@ -12,6 +12,9 @@ import engine.scenegraph.*;
 import shaders.shaderconfigurators.MultiLightShader;
 
 public class PictureFrame extends Model {
+    /**
+    * @author Jack Deadman
+    */
 
     // Very specific class for PictureFrames
     public static class PictureDimension {

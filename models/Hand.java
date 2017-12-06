@@ -10,6 +10,9 @@ import engine.scenegraph.*;
 import engine.render.*;
 
 public class Hand extends Model {
+    /**
+    * @author Jack Deadman
+    */
 
     private Finger finger1, finger2, finger3, finger4;
     private Palm palm;

@@ -3,6 +3,9 @@ import galleryscene.handpositions.*;
 import engine.animation.*;
 
 public class TimelineManager {
+    /**
+    * @author Jack Deadman
+    */
     private Timeline<HandConfiguration> letterA = (new LetterA()).getTimeline();
     private Timeline<HandConfiguration> letterC = (new LetterC()).getTimeline();
     private Timeline<HandConfiguration> letterK = (new LetterK()).getTimeline();

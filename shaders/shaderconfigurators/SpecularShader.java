@@ -6,7 +6,9 @@ import gmaths.*;
 import com.jogamp.opengl.*;
 
 public class SpecularShader extends ShaderConfigurator {
-
+    /**
+    * @author Jack Deadman
+    */
     protected int[] diffuseTexture, specularTexture;
     protected Material material;
 

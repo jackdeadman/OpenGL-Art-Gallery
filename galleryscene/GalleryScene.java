@@ -12,7 +12,9 @@ import gmaths.*;
 import models.*;
 
 public class GalleryScene extends Scene {
-
+    /**
+    * @author Jack Deadman
+    */
     // Models in the scene
     private Hand hand;
     private Room room;

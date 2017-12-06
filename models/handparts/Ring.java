@@ -13,6 +13,9 @@ import shaders.shaderconfigurators.LightShader;
 import shaders.shaderconfigurators.OneTextureShader;
 
 public class Ring extends SpotLightEmittingModel {
+    /**
+    * @author Jack Deadman
+    */
 
     public final String MAIN_TEXT_PATH = "textures/gold.jpg";
 

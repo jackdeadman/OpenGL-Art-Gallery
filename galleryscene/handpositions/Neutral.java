@@ -3,7 +3,9 @@ import engine.animation.*;
 import galleryscene.*;
 
 public class Neutral implements HandPosition<HandConfiguration> {
-
+    /**
+    * @author Jack Deadman
+    */
     public HandConfiguration getAnimationState(float t) {
         return new HandConfiguration();
     }

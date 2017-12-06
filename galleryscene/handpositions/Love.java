@@ -3,7 +3,9 @@ import engine.animation.*;
 import galleryscene.*;
 
 public class Love implements HandPosition<HandConfiguration> {
-
+    /**
+    * @author Jack Deadman
+    */
     public static final float[][] FINGER_VALUES = {
         { 0.0f, 0.06f, 0.05f, 0.0f, 0.0f, 0.04f }, // finger 1
         { 0.88f, 0.61f, 0.17f, 0.0f, 0.0f, 0.0f }, // finger 2

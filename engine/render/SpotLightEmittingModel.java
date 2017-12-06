@@ -4,7 +4,9 @@ import engine.lighting.*;
 import engine.*;
 
 public abstract class SpotLightEmittingModel extends Model {
-
+    /**
+    * @author Jack Deadman
+    */
     protected Spotlight containedLight;
 
     protected void initialise(GL3 gl) {

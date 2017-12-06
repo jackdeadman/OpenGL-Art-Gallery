@@ -8,7 +8,9 @@ import engine.*;
 import gmaths.*;
 
 public class SkyBoxShader extends ShaderConfigurator {
-
+    /**
+    * @author Jack Deadman
+    */
     protected Material material;
     protected int[] texture;
 

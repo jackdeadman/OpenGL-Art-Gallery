@@ -7,7 +7,9 @@ import engine.lighting.*;
 import java.util.*;
 
 public abstract class ShaderConfigurator {
-
+    /**
+    * @author Jack Deadman
+    */
     protected Shader shader;
 
     public ShaderConfigurator(GL3 gl, String vs, String fs) {

@@ -3,6 +3,9 @@ package engine.lighting;
 import engine.render.Material;
 
 public abstract class Light {
+    /**
+    * @author Jack Deadman
+    */
     private Material onMaterial, offMaterial;
     private boolean isOn = true;
 

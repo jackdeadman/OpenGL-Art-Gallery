@@ -3,7 +3,9 @@ import engine.animation.*;
 import galleryscene.*;
 
 public class LetterK implements HandPosition<HandConfiguration> {
-
+    /**
+    * @author Jack Deadman
+    */
     public static final float[][] FINGER_VALUES = {
         { 0.8f, 0.50f, 0.16f, 0.0f, 0.06f, 0.18f }, // finger 1
         { 0.8f, 0.63f, 0.12f, 0.0f, 0.06f, 0.18f }, // finger 2

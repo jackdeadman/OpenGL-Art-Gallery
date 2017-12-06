@@ -3,7 +3,9 @@ import engine.animation.*;
 // Represents a configuration of a hand
 
 public class HandConfiguration implements Interpolatable<HandConfiguration> {
-
+    /**
+    * @author Jack Deadman
+    */
     public final static int NUM_FINGERS = 4;
     public final static int NUM_FINGER_TWEAKS = 6;
 
@@ -101,17 +103,4 @@ public class HandConfiguration implements Interpolatable<HandConfiguration> {
 
         return newConfig;
     }
-/*
-    public HandConfiguration interpolate2(Interpolatable initial, float percentage) {
-        float[][] newValues = new float[NUM_FINGERS][NUM_FINGER_TWEAKS];
-        for (int i=0; i<NUM_FINGERS; ++i) {
-            for (int j=0; j<NUM_FINGER_TWEAKS; ++j) {
-                float totalDifference = fingerValues[i][j] - ((HandConfiguration)(initial)).getValues()[i][j];
-                float difference = totalDifference * percentage;
-                newValues[i][j] = ((HandConfiguration)(initial)).getValues()[i][j] + difference;
-            }
-        }
-        return new HandConfiguration(newValues);
-    }*/
-
 }

@@ -3,6 +3,7 @@ package engine.animation;
 public class AnimationEngine<T extends Interpolatable<T>> {
     /**
      * Class for controlling Animation e.g. play, pause, reset
+     * @author Jack Deadman
      */
 
     // Elapsed Time when paused

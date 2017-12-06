@@ -2,6 +2,9 @@ package engine.animation;
 
 // Collection of animation functions
 public class AnimationFunctions {
+    /**
+    * @author Jack Deadman
+    */
     // All the functions assume an input value t between 0 and 1
 
     public static AnimationFunction linear() {

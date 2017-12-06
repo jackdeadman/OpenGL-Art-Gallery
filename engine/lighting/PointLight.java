@@ -3,6 +3,9 @@ import gmaths.*;
 import engine.render.*;
 
 public class PointLight extends Light {
+    /**
+    * @author Jack Deadman
+    */
 
     // Example Attenuations: https://learnopengl.com/#!Lighting/Light-casters
     public static final Vec3 SHORT_ATTENUATION = new Vec3(1f, 0.7f, 1.8f);

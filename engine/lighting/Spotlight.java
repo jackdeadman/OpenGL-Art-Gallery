@@ -4,6 +4,9 @@ import engine.render.*;
 
 // A spotlight is a specific version of a pointlight
 public class Spotlight extends PointLight {
+    /**
+    * @author Jack Deadman
+    */
 
     private Vec3 direction;
 

@@ -7,7 +7,11 @@ import meshes.*;
 import gmaths.*;
 import com.jogamp.opengl.*;
 
+// Biologically incorrect but works for this :)
 public class Thumb extends Finger {
+    /**
+    * @author Jack Deadman
+    */
 
     private TransformNode thumbTransform;
 

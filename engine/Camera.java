@@ -4,6 +4,10 @@ import gmaths.*;
 import java.awt.event.*;
 import com.jogamp.opengl.awt.GLCanvas;
 
+/**
+* Taken from the labsheet
+*/
+
 public class Camera {
 
   public enum CameraType {X, Z, Y};

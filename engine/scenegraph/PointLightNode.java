@@ -3,7 +3,9 @@ import gmaths.*;
 import engine.lighting.*;
 
 public class PointLightNode extends SGNode {
-
+    /**
+    * @author Jack Deadman
+    */
     private PointLight light;
     private Vec4 startingPosition;
 

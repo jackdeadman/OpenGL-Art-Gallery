@@ -11,6 +11,9 @@ import meshes.*;
 import shaders.shaderconfigurators.SkyBoxShader;
 
 public class Sky extends Model {
+    /**
+    * @author Jack Deadman
+    */
 
     public final String IMAGE_PATH = "textures/sky.jpg";
     public final double ANIMATION_SPEED = 0.05;

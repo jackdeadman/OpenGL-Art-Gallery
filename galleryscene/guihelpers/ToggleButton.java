@@ -6,7 +6,9 @@ import javax.swing.event.*;
 import java.util.*;
 
 public class ToggleButton extends JButton {
-
+    /**
+    * @author Jack Deadman
+    */
     private String onMessage, offMessage;
     private boolean on = true;
 

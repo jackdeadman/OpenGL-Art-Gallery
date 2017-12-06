@@ -6,7 +6,9 @@ import gmaths.*;
 import com.jogamp.opengl.*;
 
 public class SolidColorShader extends ShaderConfigurator {
-
+    /**
+    * @author Jack Deadman
+    */
     protected Vec3 color;
 
     public SolidColorShader(GL3 gl, Vec3 color) {

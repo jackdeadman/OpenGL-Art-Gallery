@@ -3,7 +3,6 @@ package engine.scenegraph;
 import gmaths.*;
 
 public class TransformNode extends SGNode {
-
   private Mat4 transform;
 
   public TransformNode(String name, Mat4 t) {

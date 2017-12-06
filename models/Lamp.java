@@ -13,6 +13,9 @@ import shaders.shaderconfigurators.SpecularShader;
 
 
 public class Lamp extends PointLightEmittingModel {
+    /**
+    * @author Jack Deadman
+    */
 
     // Meshes that make up a Lamp
     private Mesh pipe, bottomStand, bulbHolder, bulb;

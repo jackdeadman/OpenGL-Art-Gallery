@@ -3,6 +3,9 @@ import gmaths.*;
 import engine.render.*;
 
 public class DirectionalLight {
+  /**
+   * @author Jack Deadman
+  */
 
   private Vec4 direction;
   private Vec3 colour;

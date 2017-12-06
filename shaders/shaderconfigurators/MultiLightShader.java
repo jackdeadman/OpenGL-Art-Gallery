@@ -14,7 +14,9 @@ Generic Multilight shader which additional textures can be
 attached to.
 */
 public class MultiLightShader extends ShaderConfigurator {
-
+    /**
+    * @author Jack Deadman
+    */
     private class TexturePair {
         public String name;
         public int[] texture;

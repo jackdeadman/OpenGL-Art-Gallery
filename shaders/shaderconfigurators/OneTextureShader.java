@@ -7,7 +7,9 @@ import com.jogamp.opengl.*;
 
 
 public class OneTextureShader extends ShaderConfigurator {
-
+    /**
+    * @author Jack Deadman
+    */
     protected Material material;
     protected int[] texture;
 

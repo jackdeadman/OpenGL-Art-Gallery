@@ -3,7 +3,9 @@ import gmaths.*;
 import engine.lighting.*;
 
 public class SpotlightNode extends SGNode {
-
+    /**
+    * @author Jack Deadman
+    */
     private Spotlight light;
     private Vec4 startingDirection;
     private Vec4 startingPosition;

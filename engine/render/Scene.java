@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 
 public abstract class Scene implements GLEventListener {
+  /**
+    * @author Jack Deadman
+  */
 
   protected WorldConfiguration worldConfig;
   private float aspect;
