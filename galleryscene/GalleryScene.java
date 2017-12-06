@@ -85,10 +85,10 @@ public class GalleryScene extends Scene {
 
         SGNode scene = new NameNode("Gallery Scene");
 
-        TransformNode moveLight1 = new TransformNode("",
+        TransformNode moveLight1 = new TransformNode("Move lamp 1",
                 Mat4Transform.translate(-7.0f, 0.0f, -12.0f));
 
-        TransformNode moveLight2 = new TransformNode("",
+        TransformNode moveLight2 = new TransformNode("Move lamp 2",
                 Mat4Transform.translate(7.0f, 0.0f, 4.0f));
 
         TransformNode moveHandIntoArm = new TransformNode(

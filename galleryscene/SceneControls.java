@@ -16,9 +16,7 @@ public class SceneControls extends JPanel {
 
     private JPanel middle = new JPanel();
 
-    // private Lamp[] lamps;
     private WorldConfiguration worldConfig;
-    // private DirectionalLight worldLight;
     private TimelineManager timelineManager;
     private Camera camera;
 
@@ -26,7 +24,7 @@ public class SceneControls extends JPanel {
         this.handConfig = handConfig;
         camera = worldConfig.getCamera();
         this.worldConfig = worldConfig;
-        setPreferredSize(new Dimension(300, 2000));
+        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         buildPanel();
     }
 
@@ -50,7 +48,6 @@ public class SceneControls extends JPanel {
 
     private void buildAnimationSection() {
         JPanel section = buildSection("Animation");
-
         playBtn = new ToggleButton("Pause","Play", false);
 
         playBtn.addToggleListener(e -> {

@@ -108,16 +108,16 @@ public class Room extends Model {
 
     private void createPictureFrames() {
         // Could probably do this better, but it's easier to read when together
-        pictureFrameTransformations[0] = new TransformNode("",Mat4Transform.translate(-6.5f,0f, 0f));
+        pictureFrameTransformations[0] = new TransformNode("Place near picture",Mat4Transform.translate(-6.5f,0f, 0f));
         pictureFrameTransformations[1] = new NameNode("Left Picture Frames");
-        pictureFrameTransformations[2] = new TransformNode("",Mat4Transform.translate(6.5f,0f, 0f));
+        pictureFrameTransformations[2] = new TransformNode("Place far picture",Mat4Transform.translate(6.5f,0f, 0f));
 
         pictureFrameTransformations[1].addChild(pictureFrameTransformations[0]);
         pictureFrameTransformations[1].addChild(pictureFrameTransformations[2]);
 
-        pictureFrameTransformations[3] = new TransformNode("",Mat4Transform.translate(-6.5f,0f, 0f));
+        pictureFrameTransformations[3] = new TransformNode("Place near picture",Mat4Transform.translate(-6.5f,0f, 0f));
         pictureFrameTransformations[4] = new NameNode("Right Picture Frames");
-        pictureFrameTransformations[5] = new TransformNode("",Mat4Transform.translate(6.5f,0f, 0f));
+        pictureFrameTransformations[5] = new TransformNode("Place fair picture",Mat4Transform.translate(6.5f,0f, 0f));
 
         pictureFrameTransformations[4].addChild(pictureFrameTransformations[3]);
         pictureFrameTransformations[4].addChild(pictureFrameTransformations[5]);

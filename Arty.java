@@ -20,19 +20,21 @@ public class Arty {
 
 
     public static void main(String[] args) {
-
+        // Initial hand configuration
         handConfiguration = new HandConfiguration();
 
+        // Setup the camera into the default position
         Camera camera = new Camera(Camera.DEFAULT_POSITION,
                                     Camera.DEFAULT_TARGET,
                                     Camera.DEFAULT_UP);
 
+        // Create the animator
         AnimationEngine<HandConfiguration> animator = new AnimationEngine<>();
+
+        // The one and only scene to be rendered
         GalleryScene gallery = new GalleryScene(camera, handConfiguration, animator);
 
-        Lamp[] lamps = gallery.getLampModels();
-        DirectionalLight worldLight = gallery.getWorldLight();
-
+        // Create the window
         GraphicsWindow window = new GraphicsWindow("Art Gallery", gallery);
         CameraController controller = new CameraController(camera);
 
@@ -41,15 +43,19 @@ public class Arty {
 
         window.start();
 
+        // Get the lighting configuration
         WorldConfiguration worldConfig = gallery.getWorldConfig();
 
         SceneControls controls = new SceneControls(handConfiguration, worldConfig);
         controls.setAnimationEngine(animator);
         controls.setCamera(camera);
 
-        JScrollPane scrollFrame = new JScrollPane(controls);
+        JPanel scrollFrame = new JPanel();
         controls.setAutoscrolls(true);
-        scrollFrame.setPreferredSize(new Dimension( 330, window.getHeight()));
+        scrollFrame.setPreferredSize(new Dimension( 250, 300));
+        controls.setPreferredSize(new Dimension( 250, 300));
+
+        scrollFrame.add(controls, BorderLayout.PAGE_START);
 
         window.getContentPane().add(scrollFrame, BorderLayout.EAST);
         window.setSize(dimension);

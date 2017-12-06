@@ -5,8 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83cae2c5-f7a5-4c1b-aa60-f18701a930ca" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/frame-blend.xcf" afterPath="$PROJECT_DIR$/textures/hands/frame-blend.xcf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/textures/hands/frame_blend.jpg" afterPath="$PROJECT_DIR$/textures/hands/frame_blend.jpg" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/arm_metal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/ceiling.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/gold.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/green_metal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/lamp.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/lamp_spec.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/rug.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/scratches.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/scratches_spec.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/sky.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/wall_wood.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/wall_wood_normal.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/wallpaper.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/window.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/window2_mask.xcf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/window_black.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/window_mask.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/backup/wood_floor.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands-old/frame-blend.xcf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands-old/frame.xcf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands-old/frame2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands-old/frame_blend.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands-old/hand1-new.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands-old/hand1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands-old/hand2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands-old/hand3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands-old/hand4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands-old/hand5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands-old/hand6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands/frame-blend.xcf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands/frame.xcf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands/frame_blend (copy).jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/hands/hand1-new.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/rug-old.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/textures/sky-old.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Arty.java" afterPath="$PROJECT_DIR$/Arty.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/galleryscene/GalleryScene.java" afterPath="$PROJECT_DIR$/galleryscene/GalleryScene.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/galleryscene/SceneControls.java" afterPath="$PROJECT_DIR$/galleryscene/SceneControls.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Room.java" afterPath="$PROJECT_DIR$/models/Room.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -299,12 +336,12 @@
       <workItem from="1512156064269" duration="13229000" />
       <workItem from="1512253127406" duration="41137000" />
       <workItem from="1512439834223" duration="5878000" />
-      <workItem from="1512509238549" duration="3064000" />
+      <workItem from="1512509238549" duration="3638000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69182000" />
+    <option name="totallyTimeSpent" value="69756000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="0" width="1924" height="1053" extended-state="0" />
