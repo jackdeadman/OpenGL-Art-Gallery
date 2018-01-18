@@ -1,7 +1,10 @@
 # COM4503 3D Computer Graphics Programming Assignment
 
 Video URL: https://www.youtube.com/watch?v=CkXqwmIe0yY
+
 Main Program: Arty.java
+
+[![Demo video](https://img.youtube.com/vi/CkXqwmIe0yY/0.jpg)](https://www.youtube.com/watch?v=CkXqwmIe0yY)
 
 ## Project Structure
 
