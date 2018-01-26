@@ -18,11 +18,11 @@ Some additional features added:
 
 Some important packages...
 
-### engine
+## engine
 The core classes for generating Computer Graphics are found in here. The classes
 are extended or used in combination to create the actual scene.
 
-### engine.animation
+## engine.animation
 The core code for the animation engine is here. The code is very generic and allows any animation to be
 created with an object that is "Interpolatable" e.g A hand configuration or simply a number.
 
@@ -30,19 +30,19 @@ created with an object that is "Interpolatable" e.g A hand configuration or simp
 This package contains a lot the classes that tie the whole application together. Mainly Scene and Model, these classes abstract
 a lot of the opengl code to allow for further models and scenes to be more easily implemented.
 
-### gmaths
+## gmaths
 Maths library created by Dr Steve Maddock similar to glm. Some slight modifications have
 been made by me. (Changed Near Plane distance, MatrixVector multplication and added a view matrix for sky box)
 
-### meshes
+## meshes
 Contains simple geometry that can be combined to create models. ShaderPrograms can be attached
 to these models alter their appearance. These have been taken from the labsheets but adapted to be less coupled to perticular shaders.
 
-### models
+## models
 Contains classes to create 3D objects which are a combination of meshes which have been transformed and textured.
 
-### scene
+## scene
 Files specific to the scene we are creating for this project.
 
-### shaders
+## shaders
 Contains glsl files for the vertex and fragment shaders.
